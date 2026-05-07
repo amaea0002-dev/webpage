@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — Amaea FCA Compliance Platform</title>
+  <meta name="description" content="Simple, transparent pricing for Amaea. Plans for boutique IFA firms and large compliance teams. No setup fees, no hidden costs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Amaea">
+    </a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a demo</a>
+    </div>
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <a href="features.html">Features</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary mobile-cta">Book a demo</a>
+</div>
+
+<div class="page-top">
+
+<!-- ── Page hero ────────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">Pricing</div>
+    <h1>Simple pricing, no surprises.</h1>
+    <p>Plans that scale with your firm. No setup fees, no long-term lock-in, no per-user charges on your compliance team.</p>
+
+    <!-- Billing toggle -->
+    <div class="pricing-toggle">
+      <span class="toggle-label active" id="label-monthly">Monthly</span>
+      <div class="toggle-switch" id="billing-toggle" role="switch" aria-checked="false" tabindex="0">
+        <div class="toggle-knob"></div>
+      </div>
+      <span class="toggle-label" id="label-annual">Annual <span class="toggle-badge">Save 20%</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pricing cards ─────────────────────────────────────────── -->
+<section style="padding:56px 0 80px;background:var(--gray-50);">
+  <div class="container">
+    <div class="pricing-grid" style="max-width:900px;margin:0 auto;">
+
+      <!-- Starter -->
+      <div class="pricing-card fade-up fade-up-1">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-name">Essential</div>
+        <div class="pricing-desc">For boutique IFA firms getting FCA compliance under control.</div>
+        <div class="pricing-price">
+          <div class="pricing-amount">
+            <sup>£</sup><span class="price-value" data-monthly="99" data-annual="79">99</span>
+            <span style="font-size:0.9rem;font-weight:500;color:var(--gray-500);">/mo</span>
+          </div>
+          <div class="pricing-billing">per month, billed monthly</div>
+        </div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Up to 75 clients</li>
+          <li><span class="check">✓</span> Client journey tracking (3 stages)</li>
+          <li><span class="check">✓</span> Compliance health dashboard</li>
+          <li><span class="check">✓</span> Smart alerts &amp; deadline reminders</li>
+          <li><span class="check">✓</span> Intelliflo integration</li>
+          <li><span class="check">✓</span> 5 standard reports</li>
+          <li><span class="check">✓</span> Email support</li>
+          <li><span class="cross">✕</span> AI compliance assistant</li>
+          <li><span class="cross">✕</span> Consumer Duty assessment report</li>
+          <li><span class="cross">✕</span> Custom integrations</li>
+        </ul>
+        <div class="pricing-cta">
+          <a href="contact.html" class="btn btn-secondary">Book a demo</a>
+        </div>
+      </div>
+
+      <!-- Professional -->
+      <div class="pricing-card featured fade-up fade-up-2">
+        <div class="pricing-tier">Most popular</div>
+        <div class="pricing-name">Professional</div>
+        <div class="pricing-desc">For growing firms that need full FCA compliance coverage.</div>
+        <div class="pricing-price">
+          <div class="pricing-amount">
+            <sup>£</sup><span class="price-value" data-monthly="249" data-annual="199">249</span>
+            <span style="font-size:0.9rem;font-weight:500;color:var(--gray-500);">/mo</span>
+          </div>
+          <div class="pricing-billing">per month, billed monthly</div>
+        </div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Up to 300 clients</li>
+          <li><span class="check">✓</span> Everything in Essential, plus:</li>
+          <li><span class="check">✓</span> AI compliance assistant</li>
+          <li><span class="check">✓</span> Consumer Duty monitoring &amp; scoring</li>
+          <li><span class="check">✓</span> Vulnerable client enhanced tracking</li>
+          <li><span class="check">✓</span> RMAR pre-population</li>
+          <li><span class="check">✓</span> Consumer Duty annual assessment</li>
+          <li><span class="check">✓</span> SharePoint &amp; Salesforce integrations</li>
+          <li><span class="check">✓</span> Unlimited reports</li>
+          <li><span class="check">✓</span> Priority support &amp; onboarding</li>
+        </ul>
+        <div class="pricing-cta">
+          <a href="contact.html" class="btn btn-primary">Book a demo</a>
+        </div>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="pricing-card fade-up fade-up-3">
+        <div class="pricing-tier">Enterprise</div>
+        <div class="pricing-name">Enterprise</div>
+        <div class="pricing-desc">For large networks and multi-site firms with complex compliance needs.</div>
+        <div class="pricing-price">
+          <div class="pricing-custom">Custom pricing</div>
+          <div class="pricing-billing">Tailored to your firm's size and requirements</div>
+        </div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Unlimited clients</li>
+          <li><span class="check">✓</span> Everything in Professional, plus:</li>
+          <li><span class="check">✓</span> Multi-site &amp; network support</li>
+          <li><span class="check">✓</span> Custom AI training on your policies</li>
+          <li><span class="check">✓</span> Open API &amp; custom integrations</li>
+          <li><span class="check">✓</span> FCA visit preparation module</li>
+          <li><span class="check">✓</span> Dedicated compliance success manager</li>
+          <li><span class="check">✓</span> SLA-backed support (4-hour response)</li>
+          <li><span class="check">✓</span> Custom reporting &amp; board packs</li>
+          <li><span class="check">✓</span> On-site training for your team</li>
+        </ul>
+        <div class="pricing-cta">
+          <a href="contact.html" class="btn btn-secondary">Contact sales</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Trust note -->
+    <p style="text-align:center;font-size:0.82rem;color:var(--gray-500);margin-top:36px;">
+      All plans include a 30-day free trial. No credit card required. Cancel anytime.
+    </p>
+  </div>
+</section>
+
+<!-- ── Comparison table ─────────────────────────────────────── -->
+<section style="padding:64px 0;background:var(--white);">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px;">
+      <div class="section-label">Compare plans</div>
+      <h2 class="section-title">Everything you get with Amaea.</h2>
+    </div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.85rem;max-width:860px;margin:0 auto;">
+        <thead>
+          <tr>
+            <th style="text-align:left;padding:12px 16px;border-bottom:2px solid var(--gray-200);color:var(--gray-500);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Feature</th>
+            <th style="text-align:center;padding:12px 16px;border-bottom:2px solid var(--gray-200);color:var(--gray-900);font-weight:700;">Essential</th>
+            <th style="text-align:center;padding:12px 16px;border-bottom:2px solid var(--plum);color:var(--plum);font-weight:800;">Professional</th>
+            <th style="text-align:center;padding:12px 16px;border-bottom:2px solid var(--gray-200);color:var(--gray-900);font-weight:700;">Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:var(--gray-50);">
+            <td colspan="4" style="padding:10px 16px;font-size:0.72rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.07em;">Client management</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;color:var(--gray-700,#3D3651);border-bottom:1px solid var(--gray-200);">Client capacity</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">Up to 75</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--plum);font-weight:600;">Up to 300</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">Unlimited</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;color:var(--gray-700,#3D3651);border-bottom:1px solid var(--gray-200);">3-stage client journey tracking</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;color:var(--gray-700,#3D3651);border-bottom:1px solid var(--gray-200);">Document checklist per milestone</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+          </tr>
+          <tr style="background:var(--gray-50);">
+            <td colspan="4" style="padding:10px 16px;font-size:0.72rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.07em;">Consumer Duty</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;color:var(--gray-700,#3D3651);border-bottom:1px solid var(--gray-200);">Consumer Duty health score</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">—</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;color:var(--gray-700,#3D3651);border-bottom:1px solid var(--gray-200);">Vulnerable client tracking</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">—</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;color:var(--gray-700,#3D3651);border-bottom:1px solid var(--gray-200);">Annual assessment report</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">—</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+          </tr>
+          <tr style="background:var(--gray-50);">
+            <td colspan="4" style="padding:10px 16px;font-size:0.72rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.07em;">AI &amp; Reporting</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;color:var(--gray-700,#3D3651);border-bottom:1px solid var(--gray-200);">AI compliance assistant</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">—</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">Custom</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;color:var(--gray-700,#3D3651);border-bottom:1px solid var(--gray-200);">RMAR pre-population</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">—</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;color:var(--gray-700,#3D3651);border-bottom:1px solid var(--gray-200);">Standard reports</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">5</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--plum);font-weight:600;">Unlimited</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">Custom</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ───────────────────────────────────────────────────── -->
+<section class="faq">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Common questions.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">How does the 30-day trial work? <span class="faq-q-arrow">↓</span></button>
+        <div class="faq-a">You get full access to the Professional plan for 30 days, no credit card required. At the end of the trial, choose the plan that fits your firm or contact us to discuss a custom arrangement. Your data is always yours — we'll export it for you if you decide not to continue.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How are clients counted? <span class="faq-q-arrow">↓</span></button>
+        <div class="faq-a">A client is any individual or household with an active compliance record in Amaea. We count unique client records, not accounts or products. Archived clients (ended relationships) don't count against your plan limit.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I change plans as my firm grows? <span class="faq-q-arrow">↓</span></button>
+        <div class="faq-a">Yes — you can upgrade or downgrade at any time. Upgrades take effect immediately. Downgrades take effect at the next billing cycle. There are no penalties for changing plans.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How long does onboarding take? <span class="faq-q-arrow">↓</span></button>
+        <div class="faq-a">Most firms are fully live within 5 business days. Our onboarding team handles the Intelliflo and SharePoint integration, imports your client data, and trains your compliance team on the platform. Enterprise clients with complex setups typically take 2–3 weeks.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is Amaea GDPR compliant and secure? <span class="faq-q-arrow">↓</span></button>
+        <div class="faq-a">Yes. Amaea is hosted on UK/EU infrastructure, fully GDPR compliant, and SOC 2 Type II certified. All data is encrypted in transit and at rest. We process client data solely on your instructions as a data processor under your firm's GDPR framework. We never use your client data for any purpose outside of providing the Amaea service.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you offer discounts for networks or AR firms? <span class="faq-q-arrow">↓</span></button>
+        <div class="faq-a">Yes — we offer volume pricing for networks and Appointed Representative firms. Contact our sales team to discuss a group arrangement that covers all firms in your network under a single licence.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────── -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Start your free 30-day trial.</h2>
+    <p>No credit card. No setup fees. Just better FCA compliance from day one.</p>
+    <div class="flex items-center gap-4" style="justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-secondary btn-lg">Book a demo</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/logo.png" alt="Amaea">
+          <span class="footer-logo-text">amaea</span>
+        </div>
+        <p class="footer-tagline">The FCA compliance platform built for UK financial advisers.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="features.html#integrations">Integrations</a>
+        <a href="contact.html">Book a demo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Compliance</h4>
+        <a href="#">FCA Consumer Duty</a>
+        <a href="#">Annual Reviews</a>
+        <a href="#">RMAR Filing</a>
+        <a href="#">Vulnerable Clients</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">© 2026 Amaea. All rights reserved.</div>
+      <div class="footer-bottom-right">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+<script src="js/main.js"></script>
+<script>
+// Pricing toggle specific logic
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('billing-toggle');
+  if (!toggle) return;
+  let annual = false;
+  const priceEls = document.querySelectorAll('.price-value');
+  const billings  = document.querySelectorAll('.pricing-billing');
+  const mLabel = document.getElementById('label-monthly');
+  const aLabel = document.getElementById('label-annual');
+  function update() {
+    toggle.classList.toggle('on', annual);
+    toggle.setAttribute('aria-checked', annual);
+    mLabel.classList.toggle('active', !annual);
+    aLabel.classList.toggle('active', annual);
+    priceEls.forEach(el => { el.textContent = annual ? el.dataset.annual : el.dataset.monthly; });
+    billings.forEach(b  => { b.textContent  = annual ? 'per month, billed annually' : 'per month, billed monthly'; });
+  }
+  toggle.addEventListener('click', () => { annual = !annual; update(); });
+  toggle.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { annual = !annual; update(); e.preventDefault(); } });
+  update();
+});
+</script>
+</body>
+</html>
