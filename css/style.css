@@ -361,6 +361,49 @@ section { padding: var(--section-py) 0; }
   letter-spacing: -0.02em; white-space: nowrap;
 }
 
+/* ── Story section ─────────────────────────────────────────── */
+.story-section {
+  background: var(--white);
+  padding: var(--section-py) 0;
+  border-top: 1px solid var(--gray-200);
+}
+.story-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.story-label {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--plum-soft); margin-bottom: 18px;
+}
+.story-headline {
+  font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+  font-weight: 800; letter-spacing: -0.04em; color: var(--gray-900);
+  line-height: 1.15; margin-bottom: 36px;
+}
+.story-narrative { font-size: 1rem; color: var(--gray-600); line-height: 1.82; margin-bottom: 36px; }
+.story-narrative p { margin-bottom: 18px; }
+.story-narrative p:last-child { margin-bottom: 0; }
+.story-mono { font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace; font-size: 0.9em; color: var(--red); background: rgba(239,68,68,0.08); padding: 1px 6px; border-radius: 4px; }
+.story-quote {
+  border-left: 3px solid var(--plum);
+  padding: 14px 0 14px 24px;
+  margin: 36px 0;
+  font-size: 1.2rem; font-weight: 700; color: var(--plum);
+  letter-spacing: -0.02em; line-height: 1.45; font-style: normal;
+}
+.story-bridge {
+  background: var(--plum-tint); border: 1px solid var(--plum-border);
+  border-radius: var(--r-xl); padding: 32px 36px; margin-top: 36px;
+}
+.story-bridge-label {
+  font-size: 1.05rem; font-weight: 800; letter-spacing: -0.03em;
+  color: var(--plum); margin-bottom: 14px;
+}
+.story-bridge p { font-size: 0.92rem; color: var(--gray-600); line-height: 1.72; margin-bottom: 12px; }
+.story-bridge p:last-child { margin-bottom: 0; }
+.story-bridge-cta { font-weight: 700 !important; color: var(--gray-900) !important; }
+
 /* ── Problem section ───────────────────────────────────────── */
 .problem { background: var(--gray-900); color: var(--white); }
 .problem .section-label { color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
