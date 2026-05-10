@@ -74,6 +74,20 @@
 /* These sections use --gray-900 as a background in light mode; preserve dark bg */
 [data-theme="dark"] .problem { background: #120510; }
 [data-theme="dark"] .footer  { background: #0d040c; }
+/* Restore white text in permanently-dark sections (color: var(--white) goes invisible
+   because --white is overridden to a dark surface colour in dark mode) */
+[data-theme="dark"] .problem,
+[data-theme="dark"] .problem .section-title,
+[data-theme="dark"] .pain-title,
+[data-theme="dark"] .problem-bridge p,
+[data-theme="dark"] .ai-section,
+[data-theme="dark"] .ai-text .section-title,
+[data-theme="dark"] .ai-msg-user .ai-bubble,
+[data-theme="dark"] .cta-banner { color: #fff; }
+/* contact-quote uses a --gray-700 fallback that doesn't exist → hardcoded dark; fix */
+[data-theme="dark"] .contact-quote-text { color: var(--gray-600); }
+/* Hero preview inner glow looks wrong on dark */
+[data-theme="dark"] .hero-preview { box-shadow: var(--sh-xl); }
 
 html { font-size: 16px; scroll-behavior: smooth; }
 body {
