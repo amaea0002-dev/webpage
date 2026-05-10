@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>(function(){var t=localStorage.getItem('amaea-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
 </head>
 <body>
 
@@ -25,6 +26,7 @@
       <a href="contact.html" class="btn btn-ghost btn-sm">Sign in</a>
       <a href="contact.html" class="btn btn-primary btn-sm">Book a demo</a>
     </div>
+    <button class="theme-toggle" aria-label="Toggle dark mode"></button>
     <button class="hamburger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -52,7 +54,7 @@
       <div class="toggle-switch" id="billing-toggle" role="switch" aria-checked="false" tabindex="0">
         <div class="toggle-knob"></div>
       </div>
-      <span class="toggle-label" id="label-annual">Annual <span class="toggle-badge">Save 20%</span></span>
+      <span class="toggle-label" id="label-annual">Annual <span class="toggle-badge">2 months free</span></span>
     </div>
   </div>
 </section>
@@ -62,21 +64,21 @@
   <div class="container">
     <div class="pricing-grid" style="max-width:900px;margin:0 auto;">
 
-      <!-- Starter -->
+      <!-- Base -->
       <div class="pricing-card fade-up fade-up-1">
-        <div class="pricing-tier">Starter</div>
-        <div class="pricing-name">Essential</div>
-        <div class="pricing-desc">For boutique IFA firms getting FCA compliance under control.</div>
+        <div class="pricing-tier">Base</div>
+        <div class="pricing-name">Base</div>
+        <div class="pricing-desc">For IFA firms of 5–10 advisers getting FCA compliance under control.</div>
         <div class="pricing-price">
           <div class="pricing-amount">
-            <sup>£</sup><span class="price-value" data-monthly="99" data-annual="79">99</span>
+            <sup>£</sup><span class="price-value" data-monthly="1500" data-annual="1250">1,500</span>
             <span style="font-size:0.9rem;font-weight:500;color:var(--gray-500);">/mo</span>
           </div>
           <div class="pricing-billing">per month, billed monthly</div>
         </div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
-          <li><span class="check">✓</span> Up to 75 clients</li>
+          <li><span class="check">✓</span> Up to 10 advisers</li>
           <li><span class="check">✓</span> Client journey tracking (3 stages)</li>
           <li><span class="check">✓</span> Compliance health dashboard</li>
           <li><span class="check">✓</span> Smart alerts &amp; deadline reminders</li>
@@ -92,14 +94,14 @@
         </div>
       </div>
 
-      <!-- Professional -->
+      <!-- Growth -->
       <div class="pricing-card featured fade-up fade-up-2">
         <div class="pricing-tier">Most popular</div>
-        <div class="pricing-name">Professional</div>
-        <div class="pricing-desc">For growing firms that need full FCA compliance coverage.</div>
+        <div class="pricing-name">Growth</div>
+        <div class="pricing-desc">For firms of 10–15 advisers that need full FCA compliance coverage.</div>
         <div class="pricing-price">
           <div class="pricing-amount">
-            <sup>£</sup><span class="price-value" data-monthly="249" data-annual="199">249</span>
+            <sup>£</sup><span class="price-value" data-monthly="2000" data-annual="1667">2,000</span>
             <span style="font-size:0.9rem;font-weight:500;color:var(--gray-500);">/mo</span>
           </div>
           <div class="pricing-billing">per month, billed monthly</div>
@@ -170,8 +172,8 @@
         <thead>
           <tr>
             <th style="text-align:left;padding:12px 16px;border-bottom:2px solid var(--gray-200);color:var(--gray-500);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Feature</th>
-            <th style="text-align:center;padding:12px 16px;border-bottom:2px solid var(--gray-200);color:var(--gray-900);font-weight:700;">Essential</th>
-            <th style="text-align:center;padding:12px 16px;border-bottom:2px solid var(--plum);color:var(--plum);font-weight:800;">Professional</th>
+            <th style="text-align:center;padding:12px 16px;border-bottom:2px solid var(--gray-200);color:var(--gray-900);font-weight:700;">Base</th>
+            <th style="text-align:center;padding:12px 16px;border-bottom:2px solid var(--plum);color:var(--plum);font-weight:800;">Growth</th>
             <th style="text-align:center;padding:12px 16px;border-bottom:2px solid var(--gray-200);color:var(--gray-900);font-weight:700;">Enterprise</th>
           </tr>
         </thead>
@@ -180,9 +182,9 @@
             <td colspan="4" style="padding:10px 16px;font-size:0.72rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.07em;">Client management</td>
           </tr>
           <tr>
-            <td style="padding:12px 16px;color:var(--gray-700,#3D3651);border-bottom:1px solid var(--gray-200);">Client capacity</td>
-            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">Up to 75</td>
-            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--plum);font-weight:600;">Up to 300</td>
+            <td style="padding:12px 16px;color:var(--gray-700,#3D3651);border-bottom:1px solid var(--gray-200);">Adviser capacity</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">Up to 10</td>
+            <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--plum);font-weight:600;">Up to 15</td>
             <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">Unlimited</td>
           </tr>
           <tr>
@@ -258,8 +260,8 @@
         <div class="faq-a">You get full access to the Professional plan for 30 days, no credit card required. At the end of the trial, choose the plan that fits your firm or contact us to discuss a custom arrangement. Your data is always yours — we'll export it for you if you decide not to continue.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">How are clients counted? <span class="faq-q-arrow">↓</span></button>
-        <div class="faq-a">A client is any individual or household with an active compliance record in Amaea. We count unique client records, not accounts or products. Archived clients (ended relationships) don't count against your plan limit.</div>
+        <button class="faq-q">How are advisers counted? <span class="faq-q-arrow">↓</span></button>
+        <div class="faq-a">An adviser is any FCA-authorised individual actively using Amaea within your firm. Compliance officers and admin staff with view-only access don't count against your adviser limit. There are no restrictions on the number of client records you can manage.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Can I change plans as my firm grows? <span class="faq-q-arrow">↓</span></button>
@@ -351,7 +353,10 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.setAttribute('aria-checked', annual);
     mLabel.classList.toggle('active', !annual);
     aLabel.classList.toggle('active', annual);
-    priceEls.forEach(el => { el.textContent = annual ? el.dataset.annual : el.dataset.monthly; });
+    priceEls.forEach(el => {
+      const val = annual ? el.dataset.annual : el.dataset.monthly;
+      el.textContent = Number(val).toLocaleString('en-GB');
+    });
     billings.forEach(b  => { b.textContent  = annual ? 'per month, billed annually' : 'per month, billed monthly'; });
   }
   toggle.addEventListener('click', () => { annual = !annual; update(); });

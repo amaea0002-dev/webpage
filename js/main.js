@@ -2,6 +2,24 @@
    Amaea Marketing Site — Interactivity
    ============================================================ */
 
+// ── Theme init (FOUC prevention handled inline in HTML) ─────
+(function () {
+  var t = localStorage.getItem('amaea-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', t);
+})();
+
+// ── Theme toggle ────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.querySelector('.theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('amaea-theme', next);
+    });
+  }
+});
+
 // ── Nav scroll shadow ──────────────────────────────────────
 window.addEventListener('scroll', () => {
   document.querySelector('.nav')?.classList.toggle('scrolled', window.scrollY > 10);
