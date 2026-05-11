@@ -107,4 +107,101 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('form-success')?.style.setProperty('display', 'block');
     });
   }
+
+  // ── AI chat typing animation ──────────────────────────────
+  (function () {
+    const chat = document.getElementById('ai-chat-demo');
+    if (!chat) return;
+
+    const CONVOS = [
+      {
+        user: 'Which clients should I prioritise this week?',
+        bot:  'Based on regulatory exposure, your top 3 priorities are: (1) Margaret Thompson — annual review 14 months overdue, the longest in your book. (2) Robert Chen — vulnerable client, Consumer Duty breach risk, review 11 months late. (3) 3 RMAR data gaps in Section B — due in 25 days. Resolving these moves your health score from 82 to ~93.'
+      },
+      {
+        user: "What's missing for Robert Chen?",
+        bot:  "Robert Chen (CLI-0089) is a vulnerable client with an annual review 11 months overdue. Missing: Annual Review Suitability Report, Consumer Duty Outcome Assessment, and Vulnerability Re-assessment. Adviser Alex Williams needs to action this immediately — Consumer Duty requires documented fair outcomes for all vulnerable clients."
+      }
+    ];
+
+    const title = chat.querySelector('.ai-chat-title');
+    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+    function typeInto(bubble, text, speed) {
+      return new Promise(resolve => {
+        bubble.classList.add('typing-cursor');
+        let i = 0;
+        function tick() {
+          if (i < text.length) {
+            bubble.textContent += text[i++];
+            chat.scrollTop = chat.scrollHeight;
+            setTimeout(tick, speed + Math.random() * speed * 0.4);
+          } else {
+            bubble.classList.remove('typing-cursor');
+            resolve();
+          }
+        }
+        tick();
+      });
+    }
+
+    function addMsg(type) {
+      const wrap = document.createElement('div');
+      wrap.className = `ai-msg ai-msg-${type}`;
+      const bubble = document.createElement('div');
+      bubble.className = 'ai-bubble';
+      wrap.appendChild(bubble);
+      if (type === 'bot') {
+        const lbl = document.createElement('div');
+        lbl.className = 'ai-msg-label';
+        lbl.textContent = 'Amaea AI · Just now';
+        wrap.appendChild(lbl);
+      }
+      chat.appendChild(wrap);
+      chat.scrollTop = chat.scrollHeight;
+      return bubble;
+    }
+
+    function addTyping() {
+      const wrap = document.createElement('div');
+      wrap.className = 'ai-msg ai-msg-bot';
+      wrap.innerHTML = '<div class="ai-bubble ai-typing"><span></span><span></span><span></span></div>';
+      chat.appendChild(wrap);
+      chat.scrollTop = chat.scrollHeight;
+      return wrap;
+    }
+
+    function clearMsgs() {
+      [...chat.children].forEach(el => { if (el !== title) el.remove(); });
+    }
+
+    async function runLoop() {
+      clearMsgs();
+      for (const c of CONVOS) {
+        const uBubble = addMsg('user');
+        await typeInto(uBubble, c.user, 40);
+        await sleep(350);
+
+        const typingEl = addTyping();
+        await sleep(Math.min(2400, 700 + c.bot.length * 11));
+        typingEl.remove();
+
+        const bBubble = addMsg('bot');
+        await typeInto(bBubble, c.bot, 17);
+        await sleep(1000);
+      }
+      await sleep(3500);
+      runLoop();
+    }
+
+    let started = false;
+    const aiSection = document.querySelector('.ai-section');
+    if (aiSection && 'IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && !started) { started = true; runLoop(); }
+      }, { threshold: 0.2 }).observe(aiSection);
+    } else {
+      runLoop();
+    }
+  })();
 });

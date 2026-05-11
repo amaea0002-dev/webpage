@@ -345,20 +345,42 @@ section { padding: var(--section-py) 0; }
 
 /* ── Trust bar ─────────────────────────────────────────────── */
 .trust-bar {
-  padding: 28px 0;
+  padding: 20px 0 26px;
   border-top: 1px solid var(--gray-200);
   border-bottom: 1px solid var(--gray-200);
   background: var(--gray-50);
+  overflow: hidden;
 }
-.trust-bar-inner {
-  display: flex; align-items: center; justify-content: center;
-  gap: 48px; flex-wrap: wrap;
+.trust-label {
+  font-size: 0.78rem; font-weight: 600; color: var(--gray-500);
+  letter-spacing: 0.03em; text-align: center; margin-bottom: 14px;
 }
-.trust-label { font-size: 0.78rem; font-weight: 600; color: var(--gray-500); letter-spacing: 0.03em; white-space: nowrap; }
-.trust-logos { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; justify-content: center; }
+.trust-marquee-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.trust-marquee {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: trust-scroll 38s linear infinite;
+}
+.trust-marquee:hover { animation-play-state: paused; }
+@keyframes trust-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 .trust-logo {
   font-size: 0.82rem; font-weight: 700; color: var(--gray-300);
   letter-spacing: -0.02em; white-space: nowrap;
+  padding: 0 28px;
+}
+.trust-logo::after {
+  content: '·';
+  margin-left: 28px;
+  color: var(--gray-200);
+  font-weight: 400;
 }
 
 /* ── Problem section ───────────────────────────────────────── */
@@ -507,6 +529,29 @@ section { padding: var(--section-py) 0; }
 }
 .ai-msg-label { font-size: 0.63rem; color: rgba(255,255,255,0.4); margin-top: 4px; }
 .ai-msg-user .ai-msg-label { text-align: right; }
+
+/* AI typing indicator */
+.ai-chat-demo { height: 340px; overflow: hidden; scroll-behavior: smooth; }
+.ai-typing { display: flex; gap: 5px; align-items: center; padding: 13px 14px !important; }
+.ai-typing span {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  animation: ai-dot 1.4s infinite ease-in-out;
+}
+.ai-typing span:nth-child(2) { animation-delay: 0.22s; }
+.ai-typing span:nth-child(3) { animation-delay: 0.44s; }
+@keyframes ai-dot {
+  0%, 60%, 100% { opacity: 0.25; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+/* Blinking cursor while text is typing */
+.ai-bubble.typing-cursor::after {
+  content: '▍';
+  animation: cursor-blink 0.65s infinite;
+  font-size: 0.72em; vertical-align: middle; margin-left: 1px;
+  opacity: 1;
+}
+@keyframes cursor-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 /* ── Stats ─────────────────────────────────────────────────── */
 .stats { background: var(--white); }
