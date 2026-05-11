@@ -607,7 +607,7 @@ section { padding: var(--section-py) 0; }
 
 /* ── Footer ────────────────────────────────────────────────── */
 .footer { background: var(--gray-900); color: rgba(255,255,255,0.65); padding: 64px 0 40px; }
-.footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
 .footer-brand {}
 .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .footer-logo img { height: 24px; opacity: 0.85; }
