@@ -687,6 +687,7 @@ section { padding: var(--section-py) 0; }
 }
 .about-team-name { font-size: 0.95rem; font-weight: 700; color: var(--gray-900); margin-bottom: 3px; }
 .about-team-role { font-size: 0.78rem; font-weight: 600; color: var(--plum-soft); margin-bottom: 8px; }
+.about-team-info { min-width: 0; }
 .about-team-bio  { font-size: 0.84rem; color: var(--gray-600); line-height: 1.6; }
 .feature-detail { padding: var(--section-py) 0; }
 .feature-detail:nth-child(even) { background: var(--gray-50); }
