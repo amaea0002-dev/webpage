@@ -153,7 +153,8 @@ button { font-family: inherit; cursor: pointer; border: none; }
   width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
 }
 .nav-links {
-  position: absolute; left: 50%; transform: translateX(-50%);
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
   display: flex; align-items: center; gap: 4px;
 }
 .nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }

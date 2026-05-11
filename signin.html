@@ -10,9 +10,9 @@
   <script>(function(){var t=localStorage.getItem('amaea-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
   <style>
     .signin-wrap {
-      min-height: calc(100vh - 68px);
+      min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
-      padding: 40px 24px;
+      padding: calc(68px + 40px) 24px 40px;
       background: var(--gray-50);
     }
     .signin-card {
