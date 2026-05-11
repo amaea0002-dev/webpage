@@ -649,9 +649,10 @@ section { padding: var(--section-py) 0; }
   transition: box-shadow 0.2s, border-color 0.2s;
 }
 .partner-card:hover { box-shadow: var(--sh-md); border-color: var(--gray-300); }
+.partner-logo-img { height: 36px; width: auto; object-fit: contain; margin-bottom: 14px; }
 .partner-logo {
   font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em;
-  margin-bottom: 6px;
+  margin-bottom: 14px;
 }
 .partner-logo-intelliflo { color: #006EAE; }
 .partner-logo-sharepoint { color: #0078D4; }
