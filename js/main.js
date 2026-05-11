@@ -10,13 +10,21 @@
 
 // ── Theme toggle ────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
-  const toggle = document.querySelector('.theme-toggle');
-  if (toggle) {
-    toggle.addEventListener('click', () => {
-      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('amaea-theme', next);
-    });
+  const handleTheme = () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('amaea-theme', next);
+  };
+  document.querySelectorAll('.theme-toggle').forEach(btn => btn.addEventListener('click', handleTheme));
+
+  // Inject theme toggle into mobile nav
+  const mobileNavEl = document.querySelector('.mobile-nav');
+  if (mobileNavEl) {
+    const row = document.createElement('div');
+    row.className = 'mobile-nav-theme-row';
+    row.innerHTML = '<span class="mobile-nav-theme-label">Appearance</span><button class="theme-toggle" aria-label="Toggle dark mode"></button>';
+    mobileNavEl.appendChild(row);
+    row.querySelector('.theme-toggle').addEventListener('click', handleTheme);
   }
 });
 
