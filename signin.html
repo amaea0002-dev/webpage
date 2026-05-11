@@ -251,11 +251,12 @@ document.getElementById('signin-form').addEventListener('submit', function(e) {
 (function() {
   var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   document.querySelectorAll('.signin-logo').forEach(function(img) {
-    img.style.display = (img.classList.contains('logo-mode-dark') ? isDark : !isDark) ? 'block' : 'none';
+    img.style.display = (img.classList.contains('logo-mode-dark') ? isDark: !isDark) ? 'block' : 'none';
   });
 })();
 </script>
 </body>
 </html>
+
 
 

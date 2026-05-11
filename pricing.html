@@ -503,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mLabel.classList.toggle('active', !annual);
     aLabel.classList.toggle('active', annual);
     priceEls.forEach(el => {
-      const val = annual ? el.dataset.annual : el.dataset.monthly;
+      const val = annual ? el.dataset.annual: el.dataset.monthly;
       el.textContent = Number(val).toLocaleString('en-GB');
     });
     billings.forEach(b  => { b.textContent  = annual ? 'per month, billed annually' : 'per month, billed monthly'; });
@@ -539,6 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
 
 
 
