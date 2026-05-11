@@ -1,5 +1,5 @@
 /* ============================================================
-   Amaea Marketing Site — Interactivity
+   Amaea Marketing Site: Interactivity
    ============================================================ */
 
 // ── Theme init (FOUC prevention handled inline in HTML) ─────
@@ -124,11 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const CONVOS = [
       {
         user: 'Which clients should I prioritise this week?',
-        bot:  'Based on regulatory exposure, your top 3 priorities are: (1) Margaret Thompson — annual review 14 months overdue, the longest in your book. (2) Robert Chen — vulnerable client, Consumer Duty breach risk, review 11 months late. (3) 3 RMAR data gaps in Section B — due in 25 days. Resolving these moves your health score from 82 to ~93.'
+        bot:  'Based on regulatory exposure, your top 3 priorities are: (1) Margaret Thompson, annual review 14 months overdue, the longest in your book. (2) Robert Chen, vulnerable client with Consumer Duty breach risk, review 11 months late. (3) 3 RMAR data gaps in Section B, due in 25 days. Resolving these moves your health score from 82 to ~93.'
       },
       {
         user: "What's missing for Robert Chen?",
-        bot:  "Robert Chen (CLI-0089) is a vulnerable client with an annual review 11 months overdue. Missing: Annual Review Suitability Report, Consumer Duty Outcome Assessment, and Vulnerability Re-assessment. Adviser Alex Williams needs to action this immediately — Consumer Duty requires documented fair outcomes for all vulnerable clients."
+        bot:  "Robert Chen (CLI-0089) is a vulnerable client with an annual review 11 months overdue. Missing: Annual Review Suitability Report, Consumer Duty Outcome Assessment, and Vulnerability Re-assessment. Adviser Alex Williams needs to action this immediately; Consumer Duty requires documented fair outcomes for all vulnerable clients."
       }
     ];
 
