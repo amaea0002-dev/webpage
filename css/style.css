@@ -340,9 +340,18 @@ section { padding: var(--section-py) 0; }
 .dash-nav-item.active { background: rgba(255,255,255,0.12); color: #fff; font-weight: 600; }
 .dash-nav-item svg { opacity: 0.7; flex-shrink: 0; }
 .dash-nav-item.active svg { opacity: 1; }
-.dash-main { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.dash-nav-badge { background: rgba(245,158,11,0.28); color: #FCD34D; font-size: 0.55rem; font-weight: 700; padding: 1px 5px; border-radius: 10px; margin-left: auto; }
+.dash-label { font-size: 0.54rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.28); padding: 10px 10px 3px; }
+.dash-user { display: flex; align-items: center; gap: 7px; margin-top: auto; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); }
+.dash-user-avatar { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg,#4C2C4B,#8B6189); display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 800; color: #fff; flex-shrink: 0; }
+.dash-user-info { flex: 1; min-width: 0; }
+.dash-user-name { font-size: 0.64rem; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dash-user-role { font-size: 0.55rem; color: rgba(255,255,255,0.4); }
+.dash-main { padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; }
+.dash-greeting { display: flex; align-items: flex-start; justify-content: space-between; }
+.dash-greeting-sub { font-size: 0.6rem; color: var(--gray-500); margin-bottom: 2px; }
 .dash-top { display: flex; align-items: center; justify-content: space-between; }
-.dash-title { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.03em; color: var(--gray-900); }
+.dash-title { font-size: 0.88rem; font-weight: 800; letter-spacing: -0.03em; color: var(--gray-900); }
 .dash-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .dash-metric {
   background: var(--white); border: 1px solid var(--gray-200);
