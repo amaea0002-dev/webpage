@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Integration partner auto-scroll ──────────────────────────
   const partnerGrid = document.getElementById('partner-grid');
   if (partnerGrid) {
-    const SPEED = 50; // px/s
+    const SPEED = 28; // px/s
     let HALF = 1400; // measured after paint
     let STEP = 280;  // button scroll step, measured after paint
     let paused = false;
