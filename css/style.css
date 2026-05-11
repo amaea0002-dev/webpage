@@ -650,7 +650,6 @@ section { padding: var(--section-py) 0; }
   -webkit-overflow-scrolling: touch;
   position: relative;
   padding: 8px 0;
-  max-width: 680px; margin: 0 auto;
 }
 .partner-grid::-webkit-scrollbar { display: none; }
 .partner-track { display: flex; gap: 0; align-items: center; }
