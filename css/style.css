@@ -649,7 +649,9 @@ section { padding: var(--section-py) 0; }
   transition: box-shadow 0.2s, border-color 0.2s;
 }
 .partner-card:hover { box-shadow: var(--sh-md); border-color: var(--gray-300); }
-.partner-logo-img { height: 30px; width: auto; margin-bottom: 14px; display: block; }
+.partner-logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.partner-logo-img { height: 28px; width: 28px; object-fit: contain; flex-shrink: 0; }
+.partner-logo-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; }
 .partner-logo {
   font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em;
   margin-bottom: 14px;
