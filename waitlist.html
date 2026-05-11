@@ -137,6 +137,107 @@
   </div>
 </section>
 
+<section class="quiz-section" id="plan-finder">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px;">
+      <div class="section-label">Plan finder</div>
+      <h2 class="section-title">Not sure which plan fits your firm?</h2>
+      <p class="section-sub">Answer 5 quick questions and we'll recommend the right plan for you.</p>
+    </div>
+    <div class="quiz-card">
+
+      <div class="quiz-start" id="quiz-start">
+        <div class="quiz-start-icon">
+          <svg width="24" height="24" fill="none" stroke="var(--plum)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h3 style="font-size:1.15rem;font-weight:700;color:var(--gray-900);letter-spacing:-0.02em;margin-bottom:8px;">5 questions. 2 minutes.</h3>
+        <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:28px;max-width:340px;margin-left:auto;margin-right:auto;line-height:1.6;">Tell us about your firm and we'll match you to the Amaea plan that fits — no obligation.</p>
+        <button class="btn btn-primary" id="quiz-start-btn" style="min-width:200px;justify-content:center;">Find my plan →</button>
+      </div>
+
+      <div class="quiz-progress" id="quiz-progress" style="display:none;">
+        <div class="quiz-progress-bar" id="quiz-progress-bar"></div>
+      </div>
+
+      <div id="quiz-steps" style="display:none;">
+
+        <div class="quiz-step" data-step="0">
+          <div class="quiz-step-num">Question 1 of 5</div>
+          <div class="quiz-q">How many FCA-regulated advisers are at your firm?</div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-score="1"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Just me — sole adviser</button>
+            <button class="quiz-option" data-score="1.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>2–3 advisers</button>
+            <button class="quiz-option" data-score="2"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>4–8 advisers</button>
+            <button class="quiz-option" data-score="3"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>9–20 advisers</button>
+            <button class="quiz-option" data-score="4"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>21 or more</button>
+          </div>
+          <div class="quiz-nav"><span></span><button class="btn btn-primary btn-sm quiz-next" disabled>Next →</button></div>
+        </div>
+
+        <div class="quiz-step" data-step="1">
+          <div class="quiz-step-num">Question 2 of 5</div>
+          <div class="quiz-q">How many active clients does your firm manage?</div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-score="1"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Fewer than 100</button>
+            <button class="quiz-option" data-score="2"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>100–350</button>
+            <button class="quiz-option" data-score="3"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>350–1,000</button>
+            <button class="quiz-option" data-score="4"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Over 1,000</button>
+          </div>
+          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next →</button></div>
+        </div>
+
+        <div class="quiz-step" data-step="2">
+          <div class="quiz-step-num">Question 3 of 5</div>
+          <div class="quiz-q">How do you currently handle Consumer Duty compliance?</div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-score="1"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Spreadsheets and manual processes</button>
+            <button class="quiz-option" data-score="1.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>No dedicated system yet — we're just getting started</button>
+            <button class="quiz-option" data-score="2.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>A standalone tool, not connected to our CRM</button>
+            <button class="quiz-option" data-score="3.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>We need full automation with board-level reporting</button>
+          </div>
+          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next →</button></div>
+        </div>
+
+        <div class="quiz-step" data-step="3">
+          <div class="quiz-step-num">Question 4 of 5</div>
+          <div class="quiz-q">Which compliance task is your biggest time drain right now?</div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-score="1.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Keeping annual reviews and suitability letters on track</button>
+            <button class="quiz-option" data-score="2"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Consumer Duty documentation and vulnerable client tracking</button>
+            <button class="quiz-option" data-score="2.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>RMAR preparation and FCA deadline management</button>
+            <button class="quiz-option" data-score="3.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Multi-site oversight and board-level reporting packs</button>
+          </div>
+          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next →</button></div>
+        </div>
+
+        <div class="quiz-step" data-step="4">
+          <div class="quiz-step-num">Question 5 of 5</div>
+          <div class="quiz-q">How important is AI-powered compliance assistance to your firm?</div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-score="1"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Not right now — core tracking is the priority</button>
+            <button class="quiz-option" data-score="2"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Important — we want AI to surface risks and flag Consumer Duty gaps</button>
+            <button class="quiz-option" data-score="3"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Very important — plus RMAR pre-population and FCA-ready reports</button>
+            <button class="quiz-option" data-score="4"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Critical — including custom AI trained on our firm's specific policies</button>
+          </div>
+          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>See my recommendation →</button></div>
+        </div>
+
+      </div>
+
+      <div class="quiz-result" id="quiz-result">
+        <div class="quiz-result-label">Your recommended plan</div>
+        <div class="quiz-result-name" id="quiz-result-name"></div>
+        <div class="quiz-result-price" id="quiz-result-price"></div>
+        <div class="quiz-result-rule"></div>
+        <div class="quiz-result-desc" id="quiz-result-desc"></div>
+        <div class="quiz-result-actions" id="quiz-result-actions"></div>
+        <button class="quiz-restart" id="quiz-restart">← Start over</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section class="wl-founders-callout">
   <div class="container">
     <div class="wl-founders-inner">
@@ -213,6 +314,90 @@ document.getElementById('waitlist-form').addEventListener('submit', function(e) 
   document.getElementById('wl-form-wrap').style.display = 'none';
   document.getElementById('wl-success').style.display = 'flex';
 });
+</script>
+<script>
+(function () {
+  var PLANS = {
+    essentials:   { name: 'Essentials',   price: '<sup>£</sup><span>699</span><span class="price-suffix">/mo</span>',   desc: 'Based on your answers, Essentials covers everything your firm needs right now — client journey tracking, smart alerts, and Consumer Duty basics built for practices your size.' },
+    professional: { name: 'Professional', price: '<sup>£</sup><span>1,599</span><span class="price-suffix">/mo</span>', desc: 'Based on your answers, Professional is your fit — you need more than core tracking. AI-powered Consumer Duty monitoring, RMAR pre-population, and unlimited reports will handle your compliance load.' },
+    scale:        { name: 'Scale',        price: '<sup>£</sup><span>2,199</span><span class="price-suffix">/mo</span>', desc: 'Based on your answers, Scale is built for a firm like yours. Your adviser count, client volume, and reporting requirements need the full integration suite and board-level FCA toolkit.' },
+    enterprise:   { name: 'Enterprise',   price: '<span style="font-size:1.3rem;">Custom pricing</span>',               desc: "Based on your answers, Enterprise is your fit. Your firm's complexity or multi-site structure needs a bespoke solution — our team will tailor a package around you." }
+  };
+
+  function getPlan(avg) {
+    if (avg <= 1.6) return 'essentials';
+    if (avg <= 2.4) return 'professional';
+    if (avg <= 3.2) return 'scale';
+    return 'enterprise';
+  }
+
+  var scores = [];
+  var currentStep = 0;
+  var steps = document.querySelectorAll('#quiz-steps .quiz-step');
+
+  function showStep(idx) {
+    steps.forEach(function(s) { s.classList.remove('active'); });
+    steps[idx].classList.add('active');
+    document.getElementById('quiz-progress-bar').style.width = (((idx + 1) / steps.length) * 100) + '%';
+  }
+
+  document.getElementById('quiz-start-btn').addEventListener('click', function() {
+    document.getElementById('quiz-start').style.display = 'none';
+    document.getElementById('quiz-progress').style.display = 'block';
+    document.getElementById('quiz-steps').style.display = 'block';
+    scores = []; currentStep = 0; showStep(0);
+  });
+
+  steps.forEach(function(step, idx) {
+    var opts = step.querySelectorAll('.quiz-option');
+    var nextBtn = step.querySelector('.quiz-next');
+    var backBtn = step.querySelector('.quiz-back');
+    var pending = null;
+
+    opts.forEach(function(opt) {
+      opt.addEventListener('click', function() {
+        opts.forEach(function(o) { o.classList.remove('selected'); });
+        opt.classList.add('selected');
+        pending = parseFloat(opt.dataset.score);
+        nextBtn.disabled = false;
+      });
+    });
+
+    nextBtn.addEventListener('click', function() {
+      scores[idx] = pending;
+      if (idx < steps.length - 1) { currentStep = idx + 1; showStep(currentStep); }
+      else { showResult(); }
+    });
+
+    if (backBtn) backBtn.addEventListener('click', function() { currentStep = idx - 1; showStep(currentStep); });
+  });
+
+  function showResult() {
+    document.getElementById('quiz-steps').style.display = 'none';
+    document.getElementById('quiz-progress').style.display = 'none';
+    var avg = scores.reduce(function(a, b) { return a + b; }, 0) / scores.length;
+    var key = getPlan(avg);
+    var plan = PLANS[key];
+    document.getElementById('quiz-result-name').textContent = plan.name;
+    document.getElementById('quiz-result-price').innerHTML = plan.price;
+    document.getElementById('quiz-result-desc').textContent = plan.desc;
+    document.getElementById('quiz-result-actions').innerHTML =
+      '<a href="#wl-form-wrap" class="btn btn-primary" onclick="document.getElementById(\'wl-form-wrap\').scrollIntoView({behavior:\'smooth\'});return false;">Join the waitlist →</a>' +
+      '<a href="pricing.html" class="btn btn-secondary">Compare all plans</a>';
+    document.getElementById('quiz-result').classList.add('show');
+  }
+
+  document.getElementById('quiz-restart').addEventListener('click', function() {
+    document.getElementById('quiz-result').classList.remove('show');
+    document.getElementById('quiz-start').style.display = 'block';
+    steps.forEach(function(s) {
+      s.classList.remove('active');
+      s.querySelectorAll('.quiz-option').forEach(function(o) { o.classList.remove('selected'); });
+      var nb = s.querySelector('.quiz-next'); if (nb) nb.disabled = true;
+    });
+    scores = []; currentStep = 0;
+  });
+})();
 </script>
 </body>
 </html>
