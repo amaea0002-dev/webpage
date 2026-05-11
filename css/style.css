@@ -660,15 +660,20 @@ section { padding: var(--section-py) 0; }
 .partner-grid::after  { right: 0; background: linear-gradient(to left,  var(--white), transparent); }
 .partner-track { display: flex; gap: 0; align-items: center; }
 .partner-logo-item {
-  display: flex; align-items: center; gap: 10px;
-  padding: 0 36px; flex-shrink: 0;
+  display: flex; align-items: center;
+  padding: 0 28px; flex-shrink: 0;
   text-decoration: none; color: inherit;
   transition: opacity 0.15s;
 }
 .partner-logo-item:hover { opacity: 0.55; }
+.partner-logo-mark {
+  width: 140px; height: 32px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  flex-shrink: 0; overflow: hidden;
+}
 .partner-divider { width: 1px; height: 36px; background: var(--gray-200); flex-shrink: 0; }
-.partner-logo-img { height: 28px; width: auto; object-fit: contain; flex-shrink: 0; max-width: 160px; display: block; }
-.partner-logo-name { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.02em; }
+.partner-logo-img { max-width: 140px; max-height: 32px; width: auto; height: auto; object-fit: contain; display: block; }
+.partner-logo-name { font-size: 0.9rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
 
 /* ── CTA banner ────────────────────────────────────────────── */
 .cta-banner { background: var(--plum); color: var(--white); text-align: center; padding: 80px 0; }
