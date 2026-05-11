@@ -644,11 +644,12 @@ section { padding: var(--section-py) 0; }
 .partner-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
 .partner-card {
   background: var(--gray-50); border: 1px solid var(--gray-200);
-  border-radius: var(--r-xl); padding: 32px 28px;
+  border-radius: var(--r-xl); padding: 28px;
   display: flex; flex-direction: column; gap: 0;
-  transition: box-shadow 0.2s, border-color 0.2s;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  text-decoration: none; color: inherit; cursor: pointer;
 }
-.partner-card:hover { box-shadow: var(--sh-md); border-color: var(--gray-300); }
+.partner-card:hover { box-shadow: var(--sh-md); border-color: var(--gray-300); transform: translateY(-2px); }
 .partner-logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .partner-logo-img { height: 28px; width: auto; object-fit: contain; flex-shrink: 0; max-width: 140px; }
 .partner-logo-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; }
@@ -663,7 +664,12 @@ section { padding: var(--section-py) 0; }
 .partner-desc { font-size: 0.85rem; color: var(--gray-600); line-height: 1.65; flex: 1; margin-bottom: 20px; }
 .partner-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 600; color: var(--plum); background: var(--plum-tint); border: 1px solid var(--plum-border); border-radius: var(--r-pill); padding: 3px 10px; }
 .partner-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--plum); flex-shrink: 0; }
-@media (max-width: 768px) { .partner-grid { grid-template-columns: 1fr; } }
+.partner-tag-available { background: rgba(245,158,11,0.08); color: #B45309; border-color: rgba(245,158,11,0.25); }
+.partner-tag-available::before { background: #B45309; }
+.partner-tag-custom { background: var(--plum-tint); color: var(--plum-soft); border-color: var(--plum-border); }
+.partner-tag-custom::before { background: var(--plum-soft); }
+@media (max-width: 1024px) { .partner-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 600px)  { .partner-grid { grid-template-columns: 1fr; } }
 
 /* ── CTA banner ────────────────────────────────────────────── */
 .cta-banner { background: var(--plum); color: var(--white); text-align: center; padding: 80px 0; }
