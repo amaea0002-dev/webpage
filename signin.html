@@ -130,6 +130,9 @@
         <div style="text-align:right;margin-bottom:22px;">
           <a href="#" style="font-size:0.8rem;color:var(--gray-500);">Forgot password?</a>
         </div>
+        <div id="signin-error" style="display:none;background:#FEF2F2;border:1px solid rgba(239,68,68,0.25);border-radius:var(--r-md);padding:11px 14px;font-size:0.83rem;color:#B91C1C;margin-bottom:14px;">
+          Incorrect email or password. Please try again.
+        </div>
         <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:0.95rem;padding:13px 24px;">Sign in →</button>
       </form>
       <div class="signin-divider">or</div>
@@ -141,7 +144,7 @@
       <div class="signin-success-ring">
         <svg width="28" height="28" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
-      <h3>You're in.</h3>
+      <h3>Welcome back, <span id="signin-success-name">.</span></h3>
       <p>Taking you to your compliance dashboard now.</p>
       <div class="signin-progress-track">
         <div class="signin-progress-bar" id="signin-progress-bar"></div>
@@ -205,12 +208,34 @@
 
 <script src="js/main.js"></script>
 <script>
+var USERS = {
+  'milan@amaea.ai':  { name: 'Milan', user: 'milan' },
+  'hasna@amaea.ai':  { name: 'Hasna', user: 'hasna' }
+};
+
 document.getElementById('signin-form').addEventListener('submit', function(e) {
   e.preventDefault();
+  var email    = e.target.querySelector('[type="email"]').value.trim().toLowerCase();
+  var password = e.target.querySelector('[type="password"]').value;
+  var errorEl  = document.getElementById('signin-error');
+
+  if (!USERS[email] || password !== 'password123') {
+    errorEl.style.display = 'block';
+    e.target.querySelector('[type="password"]').value = '';
+    return;
+  }
+  errorEl.style.display = 'none';
+
+  // Store user for prototype to pick up
+  var user = USERS[email];
+  localStorage.setItem('amaea-user', user.user);
+
   // Swap to success state
   document.getElementById('signin-form-wrap').style.display = 'none';
   var success = document.getElementById('signin-success');
+  document.getElementById('signin-success-name').textContent = user.name + '.';
   success.style.display = 'block';
+
   // Animate progress bar then redirect
   requestAnimationFrame(function() {
     requestAnimationFrame(function() {
