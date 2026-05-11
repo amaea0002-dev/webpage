@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Integration partner auto-scroll ──────────────────────────
   const partnerGrid = document.getElementById('partner-grid');
   if (partnerGrid) {
-    const CARD_W = 220; // 200px card + 20px gap
+    const CARD_W = 280; // 260px card + 20px gap
     const HALF   = CARD_W * 5; // halfway = duplicate set boundary
     const SPEED  = 50; // px/s
     let paused = false;
