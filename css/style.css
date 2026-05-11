@@ -358,22 +358,24 @@ section { padding: var(--section-py) 0; }
 .dash-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .dash-card {
   background: var(--white); border: 1px solid var(--gray-200);
-  border-radius: 10px; padding: 14px; box-shadow: var(--sh-sm);
+  border-radius: 10px; padding: 12px 14px; box-shadow: var(--sh-sm);
 }
-.dash-card-title { font-size: 0.72rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px; }
-.dash-alert { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--gray-200); }
+/* Match the same label style as metric cards */
+.dash-card-title { font-size: 0.62rem; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+.dash-alert { display: flex; align-items: center; gap: 7px; padding: 5px 0; border-bottom: 1px solid var(--gray-200); }
 .dash-alert:last-child { border-bottom: none; padding-bottom: 0; }
-.dash-alert-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dash-alert-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 .dash-alert-dot.red { background: var(--red); }
 .dash-alert-dot.amber { background: var(--amber); }
 .dash-alert-dot.green { background: var(--green); }
-.dash-alert-text { font-size: 0.68rem; color: var(--gray-600); flex: 1; }
-.dash-score-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.dash-score-big { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; color: var(--gray-900); }
+.dash-alert-text { font-size: 0.66rem; color: var(--gray-600); flex: 1; }
+.dash-score-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 8px; }
+/* Match metric-value size so score feels like the same card family */
+.dash-score-big { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.04em; color: var(--gray-900); }
 .dash-score-sub { font-size: 0.62rem; color: var(--gray-500); }
-.dash-bar-row { margin-bottom: 6px; }
+.dash-bar-row { margin-bottom: 5px; }
 .dash-bar-label { display: flex; justify-content: space-between; font-size: 0.62rem; color: var(--gray-600); margin-bottom: 3px; }
-.dash-bar { height: 4px; background: var(--gray-200); border-radius: 99px; overflow: hidden; }
+.dash-bar { height: 3px; background: var(--gray-200); border-radius: 99px; overflow: hidden; }
 .dash-bar-fill { height: 100%; border-radius: 99px; }
 
 /* ── Trust bar ─────────────────────────────────────────────── */
