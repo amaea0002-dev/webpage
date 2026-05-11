@@ -66,7 +66,7 @@
     <div class="pricing-grid">
 
       <!-- Essentials -->
-      <div class="pricing-card fade-up fade-up-1">
+      <div class="pricing-card fade-up fade-up-1" data-plan="1">
         <div class="pricing-tier">Starter</div>
         <div class="pricing-name">Essentials</div>
         <div class="pricing-desc">For sole advisers and small firms taking compliance control for the first time.</div>
@@ -97,7 +97,7 @@
       </div>
 
       <!-- Professional — featured -->
-      <div class="pricing-card featured fade-up fade-up-2">
+      <div class="pricing-card featured fade-up fade-up-2" data-plan="2">
         <div class="pricing-tier">Most popular</div>
         <div class="pricing-name">Professional</div>
         <div class="pricing-desc">For growing practices that need AI-powered compliance and Consumer Duty coverage.</div>
@@ -128,7 +128,7 @@
       </div>
 
       <!-- Scale -->
-      <div class="pricing-card fade-up fade-up-3">
+      <div class="pricing-card fade-up fade-up-3" data-plan="3">
         <div class="pricing-tier">For established firms</div>
         <div class="pricing-name">Scale</div>
         <div class="pricing-desc">For larger firms and compliance teams that need full coverage and board-level reporting.</div>
@@ -159,7 +159,7 @@
       </div>
 
       <!-- Enterprise -->
-      <div class="pricing-card fade-up fade-up-4">
+      <div class="pricing-card fade-up fade-up-4" data-plan="4">
         <div class="pricing-tier">Networks &amp; groups</div>
         <div class="pricing-name">Enterprise</div>
         <div class="pricing-desc">For networks, DA firms, and multi-site groups with complex, bespoke compliance needs.</div>
@@ -203,7 +203,7 @@
       <h2 class="section-title">Everything you get with Amaea.</h2>
     </div>
     <div style="overflow-x:auto;">
-      <table style="width:100%;border-collapse:collapse;font-size:0.83rem;min-width:640px;">
+      <table id="compare-table" class="compare-table" style="width:100%;border-collapse:collapse;font-size:0.83rem;min-width:640px;">
         <thead>
           <tr>
             <th style="text-align:left;padding:11px 14px;border-bottom:2px solid var(--gray-200);color:var(--gray-500);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;width:32%;">Feature</th>
@@ -499,6 +499,30 @@ document.addEventListener('DOMContentLoaded', () => {
   toggle.addEventListener('click', () => { annual = !annual; update(); });
   toggle.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { annual = !annual; update(); e.preventDefault(); } });
   update();
+});
+
+// ── Plan card → comparison table column highlight ──────────
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.pricing-card[data-plan]');
+  const table = document.getElementById('compare-table');
+  if (!cards.length || !table) return;
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const plan = card.dataset.plan;
+      // Update card selected state
+      cards.forEach(c => c.classList.remove('plan-selected'));
+      card.classList.add('plan-selected');
+      // Update table column highlight
+      table.className = table.className.replace(/\bhighlight-\d\b/g, '').trim();
+      table.classList.add('highlight-' + plan);
+      // Scroll compare section into view if it is not visible
+      const rect = table.getBoundingClientRect();
+      if (rect.top > window.innerHeight || rect.bottom < 0) {
+        table.closest('section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 });
 </script>
 </body>
