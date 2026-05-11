@@ -129,12 +129,15 @@
             </div>
           </div>
           <div class="dash-cards">
-            <div class="dash-card">
-              <div class="dash-card-title">Recent Alerts</div>
-              <div class="dash-alert"><div class="dash-alert-dot red"></div><div class="dash-alert-text">CLI-0047 Annual Review 14 months overdue</div></div>
-              <div class="dash-alert"><div class="dash-alert-dot red"></div><div class="dash-alert-text">CLI-0089 Vulnerable client: SOA missing</div></div>
-              <div class="dash-alert"><div class="dash-alert-dot amber"></div><div class="dash-alert-text">CLI-0163 Suitability letter expired</div></div>
-              <div class="dash-alert"><div class="dash-alert-dot green"></div><div class="dash-alert-text">CLI-0158 Annual review complete</div></div>
+            <div class="dash-card" style="display:flex;flex-direction:column;gap:8px;">
+              <div class="dash-card-title">AI Compliance Assistant</div>
+              <div class="dash-ai-user">
+                <div class="dash-ai-bubble dash-ai-bubble-user">Which clients should I prioritise this week?</div>
+              </div>
+              <div class="dash-ai-bot">
+                <div class="dash-ai-avatar">A</div>
+                <div class="dash-ai-bubble dash-ai-bubble-bot">Margaret Thompson (CLI-0047) is most urgent — annual review 14 months overdue, the longest in your book. Robert Chen (CLI-0089) is next; vulnerable client with SOA missing. Escalate both immediately.</div>
+              </div>
             </div>
             <div class="dash-card">
               <div class="dash-card-title">Compliance Health</div>
