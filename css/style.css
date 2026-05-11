@@ -640,6 +640,28 @@ section { padding: var(--section-py) 0; }
 .testimonial-name { font-size: 0.84rem; font-weight: 700; color: var(--gray-900); }
 .testimonial-role { font-size: 0.74rem; color: var(--gray-500); margin-top: 1px; }
 
+/* ── Integration partners ───────────────────────────────────── */
+.partner-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.partner-card {
+  background: var(--gray-50); border: 1px solid var(--gray-200);
+  border-radius: var(--r-xl); padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 0;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.partner-card:hover { box-shadow: var(--sh-md); border-color: var(--gray-300); }
+.partner-logo {
+  font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+.partner-logo-intelliflo { color: #006EAE; }
+.partner-logo-sharepoint { color: #0078D4; }
+.partner-logo-salesforce  { color: #00A1E0; }
+.partner-type { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gray-500); margin-bottom: 16px; }
+.partner-desc { font-size: 0.85rem; color: var(--gray-600); line-height: 1.65; flex: 1; margin-bottom: 20px; }
+.partner-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 600; color: var(--plum); background: var(--plum-tint); border: 1px solid var(--plum-border); border-radius: var(--r-pill); padding: 3px 10px; }
+.partner-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--plum); flex-shrink: 0; }
+@media (max-width: 768px) { .partner-grid { grid-template-columns: 1fr; } }
+
 /* ── CTA banner ────────────────────────────────────────────── */
 .cta-banner { background: var(--plum); color: var(--white); text-align: center; padding: 80px 0; }
 .cta-banner h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 14px; }
