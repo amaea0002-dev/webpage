@@ -149,7 +149,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .nav.scrolled { box-shadow: var(--sh-md); }
 .nav-inner {
   position: relative;
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center;
   width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
 }
 .nav-links {
@@ -157,7 +157,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
   transform: translate(-50%, -50%);
   display: flex; align-items: center; gap: 4px;
 }
-.nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-right: auto; }
 .nav-logo img { height: 28px; width: auto; }
 .logo-mode-dark { display: none; }
 [data-theme="dark"] .logo-mode-light { display: none; }
