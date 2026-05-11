@@ -661,12 +661,12 @@ section { padding: var(--section-py) 0; }
 }
 .partner-logo-item:hover { opacity: 0.55; }
 .partner-logo-mark {
-  width: 140px; height: 32px;
+  width: 140px; height: 36px;
   display: flex; align-items: center; justify-content: center; gap: 8px;
   flex-shrink: 0; overflow: hidden;
 }
-.partner-divider { width: 1px; height: 36px; background: var(--gray-200); flex-shrink: 0; }
-.partner-logo-img { max-width: 140px; max-height: 32px; width: auto; height: auto; object-fit: contain; display: block; }
+.partner-divider { width: 1px; height: 42px; background: var(--gray-200); flex-shrink: 0; }
+.partner-logo-img { height: 36px; width: auto; max-width: 140px; object-fit: contain; display: block; }
 .partner-logo-name { font-size: 0.9rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
 
 /* ── CTA banner ────────────────────────────────────────────── */
