@@ -224,4 +224,16 @@ document.addEventListener('DOMContentLoaded', () => {
       runLoop();
     }
   })();
+
+  // ── Integration partner slider ────────────────────────────
+  const partnerGrid = document.getElementById('partner-grid');
+  if (partnerGrid) {
+    const cardWidth = 300;
+    document.getElementById('partner-prev')?.addEventListener('click', () => {
+      partnerGrid.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    });
+    document.getElementById('partner-next')?.addEventListener('click', () => {
+      partnerGrid.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    });
+  }
 });

@@ -453,13 +453,23 @@
 <!-- ── Integration partners ─────────────────────────────────── -->
 <section style="padding:80px 0;background:var(--white);">
   <div class="container">
-    <div class="text-center" style="margin-bottom:52px;">
-      <div class="section-label">Integrations</div>
-      <h2 class="section-title">Works with the tools your firm already uses.</h2>
-      <p class="section-sub">No data migration. No new workflows. Amaea connects directly to your existing systems and pulls compliance data automatically.</p>
+    <div class="partner-header">
+      <div>
+        <div class="section-label">Integrations</div>
+        <h2 class="section-title" style="margin-bottom:8px;">Works with the tools your firm already uses.</h2>
+        <p class="section-sub" style="margin-bottom:0;">No data migration. No new workflows. Amaea connects directly to your existing systems.</p>
+      </div>
+      <div class="partner-controls">
+        <button class="partner-btn" id="partner-prev" aria-label="Previous">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="partner-btn" id="partner-next" aria-label="Next">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
     </div>
-    <div class="partner-grid">
-      <a href="features.html#integrations" class="partner-card fade-up fade-up-1">
+    <div class="partner-grid" id="partner-grid">
+      <a href="features.html#integrations" class="partner-card">
         <div class="partner-logo-wrap">
           <img src="assets/intelliflo-logo.svg" alt="Intelliflo" class="partner-logo-img">
         </div>
@@ -467,7 +477,7 @@
         <p class="partner-desc">Pulls client records, valuations, review dates, and adviser activity directly into Amaea.</p>
         <div class="partner-tag">Native integration</div>
       </a>
-      <a href="features.html#integrations" class="partner-card fade-up fade-up-2">
+      <a href="features.html#integrations" class="partner-card">
         <div class="partner-logo-wrap">
           <svg width="28" height="28" viewBox="0 0 28 28" class="partner-logo-img">
             <rect width="13" height="13" fill="#F25022"/>
@@ -481,7 +491,7 @@
         <p class="partner-desc">Connects to your SharePoint libraries to surface suitability letters, SOAs, and compliance records.</p>
         <div class="partner-tag">Native integration</div>
       </a>
-      <a href="features.html#integrations" class="partner-card fade-up fade-up-3">
+      <a href="features.html#integrations" class="partner-card">
         <div class="partner-logo-wrap">
           <img src="https://cdn.simpleicons.org/salesforce/00A1E0" alt="Salesforce" class="partner-logo-img">
           <span class="partner-logo-name" style="color:#00A1E0;">salesforce</span>
@@ -490,33 +500,24 @@
         <p class="partner-desc">Syncs adviser activity and client pipeline data so your compliance position reflects what's on the ground.</p>
         <div class="partner-tag">Native integration</div>
       </a>
-      <a href="features.html#integrations" class="partner-card fade-up fade-up-4">
+      <a href="features.html#integrations" class="partner-card">
         <div class="partner-logo-wrap">
-          <span class="partner-logo-name" style="color:#B45309;">Assureweb</span>
+          <img src="assets/assure-web-logo.webp" alt="Assureweb" class="partner-logo-img">
         </div>
         <div class="partner-type">Protection Platform</div>
         <p class="partner-desc">Brings protection product data and client quote history into your compliance timeline automatically.</p>
         <div class="partner-tag partner-tag-available">Available</div>
       </a>
-      <a href="features.html#integrations" class="partner-card fade-up fade-up-5">
+      <a href="features.html#integrations" class="partner-card">
         <div class="partner-logo-wrap">
-          <span class="partner-logo-name" style="color:#B45309;">Curo</span>
+          <img src="assets/dynamic-planner-logo.jpg" alt="Dynamic Planner" class="partner-logo-img">
         </div>
-        <div class="partner-type">Compliance Platform</div>
-        <p class="partner-desc">Connects Curo Compliance data to give a complete cross-system view of your firm's compliance position.</p>
+        <div class="partner-type">Financial Planning</div>
+        <p class="partner-desc">Links risk-rated portfolios and cashflow models to your compliance records for end-to-end suitability evidence.</p>
         <div class="partner-tag partner-tag-available">Available</div>
       </a>
-      <a href="features.html#integrations" class="partner-card fade-up fade-up-6">
-        <div class="partner-logo-wrap">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--plum)" stroke-width="2" stroke-linecap="round" class="partner-logo-img"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          <span class="partner-logo-name" style="color:var(--plum);">Open API</span>
-        </div>
-        <div class="partner-type">Custom Integration</div>
-        <p class="partner-desc">Connect any platform to Amaea via our REST API. Full documentation provided for enterprise and bespoke setups.</p>
-        <div class="partner-tag partner-tag-custom">Custom</div>
-      </a>
     </div>
-    <p style="text-align:center;font-size:0.82rem;color:var(--gray-500);margin-top:36px;"><a href="features.html#integrations" style="color:var(--plum);font-weight:600;">View all integrations →</a></p>
+    <p style="text-align:center;font-size:0.82rem;color:var(--gray-500);margin-top:28px;"><a href="features.html#integrations" style="color:var(--plum);font-weight:600;">View all integrations →</a></p>
   </div>
 </section>
 

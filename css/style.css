@@ -641,6 +641,10 @@ section { padding: var(--section-py) 0; }
 .testimonial-role { font-size: 0.74rem; color: var(--gray-500); margin-top: 1px; }
 
 /* ── Integration partners ───────────────────────────────────── */
+.partner-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
+.partner-controls { display: flex; gap: 8px; flex-shrink: 0; padding-top: 6px; }
+.partner-btn { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--gray-200); background: var(--white); cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--gray-600); transition: border-color 0.15s, background 0.15s, color 0.15s; }
+.partner-btn:hover { border-color: var(--plum); color: var(--plum); background: var(--plum-tint); }
 .partner-grid {
   display: flex; flex-direction: row; gap: 20px;
   overflow-x: auto; scroll-snap-type: x mandatory;
