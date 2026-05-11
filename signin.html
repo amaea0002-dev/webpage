@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — Amaea</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>(function(){var t=localStorage.getItem('amaea-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>
+    .signin-wrap {
+      min-height: calc(100vh - 68px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px 24px;
+      background: var(--gray-50);
+    }
+    .signin-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--r-xl); padding: 40px;
+      width: 100%; max-width: 420px;
+      box-shadow: var(--sh-lg);
+    }
+    .signin-logo { display: block; height: 32px; margin: 0 auto 24px; }
+    .signin-card h2 {
+      font-size: 1.4rem; font-weight: 800; letter-spacing: -0.04em;
+      color: var(--gray-900); text-align: center; margin-bottom: 6px;
+    }
+    .signin-badge {
+      display: block; text-align: center; margin-bottom: 28px;
+    }
+    .signin-notice {
+      background: var(--plum-tint); border: 1px solid var(--plum-border);
+      border-radius: var(--r-md); padding: 14px 16px;
+      font-size: 0.85rem; color: var(--gray-600); line-height: 1.6;
+      display: none; margin-bottom: 16px;
+    }
+    .signin-notice a { color: var(--plum); font-weight: 600; }
+    .signin-below {
+      text-align: center; font-size: 0.82rem; color: var(--gray-500); margin-top: 20px;
+    }
+    .signin-below a { color: var(--plum); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light">
+      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark">
+    </a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="signin.html" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a demo</a>
+    </div>
+    <button class="theme-toggle" aria-label="Toggle dark mode"></button>
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <a href="features.html">Features</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary mobile-cta">Book a demo</a>
+</div>
+
+<div class="signin-wrap">
+  <div class="signin-card">
+    <img src="assets/logo-plum.png" alt="Amaea" class="signin-logo logo-mode-light">
+    <img src="assets/logo-white.png" alt="Amaea" class="signin-logo logo-mode-dark" style="display:none;">
+    <h2>Sign in to Amaea</h2>
+    <span class="signin-badge">
+      <span style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;background:rgba(245,158,11,0.1);color:#D97706;border:1px solid rgba(245,158,11,0.25);padding:3px 12px;border-radius:var(--r-pill);">Private beta — Q4 2027</span>
+    </span>
+    <div class="signin-notice" id="signin-notice">
+      Amaea is currently in private beta. If you've been onboarded, check your email for your access link. To join the waitlist, <a href="waitlist.html">click here</a>.
+    </div>
+    <form id="signin-form">
+      <div class="form-group" style="margin-bottom:14px;">
+        <label class="form-label">Work email</label>
+        <input class="form-input" type="email" placeholder="Work email" required>
+      </div>
+      <div class="form-group" style="margin-bottom:22px;">
+        <label class="form-label">Password</label>
+        <input class="form-input" type="password" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Sign in</button>
+    </form>
+    <p class="signin-below">Don't have an account? <a href="waitlist.html">Join the waitlist →</a></p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/logo-white.png" alt="Amaea">
+          <span class="footer-logo-text">amaea</span>
+        </div>
+        <p class="footer-tagline">The FCA compliance platform built for UK financial advisers. Every client. Every deadline. Every document.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="features.html#integrations">Integrations</a>
+        <a href="contact.html">Book a demo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Compliance</h4>
+        <a href="#">FCA Consumer Duty</a>
+        <a href="#">Annual Reviews</a>
+        <a href="#">RMAR Filing</a>
+        <a href="#">Vulnerable Clients</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="security.html">Security</a>
+      </div>
+      <div class="footer-col">
+        <h4>Early Access</h4>
+        <a href="waitlist.html">Join the waitlist</a>
+        <a href="founders.html?ref=sp-advanced">SP Advanced Founders</a>
+        <a href="founders.html?ref=robin-powell">Robin Powell Founders</a>
+        <a href="founders.html?ref=cisi">CISI Founders</a>
+        <a href="founders.html?ref=intelliflo">Intelliflo Founders</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">© 2026 Amaea. All rights reserved.</div>
+      <div class="footer-bottom-right">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+document.getElementById('signin-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('signin-notice').style.display = 'block';
+  document.getElementById('signin-form').style.display = 'none';
+});
+// Dark mode logo swap
+(function() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.querySelectorAll('.signin-logo').forEach(img => {
+    img.style.display = (img.classList.contains('logo-mode-dark') ? isDark : !isDark) ? 'block' : 'none';
+  });
+})();
+</script>
+</body>
+</html>
