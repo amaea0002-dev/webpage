@@ -650,7 +650,7 @@ section { padding: var(--section-py) 0; }
 }
 .partner-card:hover { box-shadow: var(--sh-md); border-color: var(--gray-300); }
 .partner-logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.partner-logo-img { height: 28px; width: 28px; object-fit: contain; flex-shrink: 0; }
+.partner-logo-img { height: 28px; width: auto; object-fit: contain; flex-shrink: 0; max-width: 140px; }
 .partner-logo-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; }
 .partner-logo {
   font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em;
