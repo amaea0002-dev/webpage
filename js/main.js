@@ -125,17 +125,22 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const title = chat.querySelector('.ai-chat-title');
-    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    function scrollBottom() { chat.scrollTop = chat.scrollHeight; }
 
     function typeInto(bubble, text, speed) {
       return new Promise(resolve => {
         bubble.classList.add('typing-cursor');
         let i = 0;
+        // Natural rhythm: occasional micro-pauses at punctuation
         function tick() {
           if (i < text.length) {
-            bubble.textContent += text[i++];
-            chat.scrollTop = chat.scrollHeight;
-            setTimeout(tick, speed + Math.random() * speed * 0.4);
+            const ch = text[i++];
+            bubble.textContent += ch;
+            scrollBottom();
+            const pause = /[,.:;!?—]/.test(ch) ? speed * 4 : speed + Math.random() * speed * 0.5;
+            setTimeout(tick, pause);
           } else {
             bubble.classList.remove('typing-cursor');
             resolve();
@@ -158,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wrap.appendChild(lbl);
       }
       chat.appendChild(wrap);
-      chat.scrollTop = chat.scrollHeight;
+      scrollBottom();
       return bubble;
     }
 
@@ -167,30 +172,37 @@ document.addEventListener('DOMContentLoaded', () => {
       wrap.className = 'ai-msg ai-msg-bot';
       wrap.innerHTML = '<div class="ai-bubble ai-typing"><span></span><span></span><span></span></div>';
       chat.appendChild(wrap);
-      chat.scrollTop = chat.scrollHeight;
+      scrollBottom();
       return wrap;
     }
 
-    function clearMsgs() {
-      [...chat.children].forEach(el => { if (el !== title) el.remove(); });
+    async function fadeAndReset() {
+      const msgs = [...chat.children].filter(el => el !== title);
+      msgs.forEach(el => { el.style.transition = 'opacity 0.5s ease'; el.style.opacity = '0'; });
+      await sleep(550);
+      msgs.forEach(el => el.remove());
+      chat.scrollTop = 0;
     }
 
     async function runLoop() {
-      clearMsgs();
       for (const c of CONVOS) {
+        await sleep(180);
         const uBubble = addMsg('user');
-        await typeInto(uBubble, c.user, 40);
-        await sleep(350);
+        await typeInto(uBubble, c.user, 44);
+        await sleep(400);
 
         const typingEl = addTyping();
-        await sleep(Math.min(2400, 700 + c.bot.length * 11));
+        // Thinking time scales with response length, 1.2–2.0s
+        await sleep(1200 + Math.min(800, c.bot.length * 2.8));
         typingEl.remove();
 
         const bBubble = addMsg('bot');
-        await typeInto(bBubble, c.bot, 17);
-        await sleep(1000);
+        await typeInto(bBubble, c.bot, 14);
+        await sleep(1100);
       }
-      await sleep(3500);
+      await sleep(3000);
+      await fadeAndReset();
+      await sleep(500);
       runLoop();
     }
 
