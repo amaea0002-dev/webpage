@@ -148,8 +148,13 @@ button { font-family: inherit; cursor: pointer; border: none; }
 }
 .nav.scrolled { box-shadow: var(--sh-md); }
 .nav-inner {
+  position: relative;
   display: flex; align-items: center; justify-content: space-between;
   width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
+}
+.nav-links {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 4px;
 }
 .nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .nav-logo img { height: 28px; width: auto; }
@@ -157,7 +162,6 @@ button { font-family: inherit; cursor: pointer; border: none; }
 [data-theme="dark"] .logo-mode-light { display: none; }
 [data-theme="dark"] .logo-mode-dark { display: block; }
 .nav-logo-text { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.04em; color: var(--plum); }
-.nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-links a {
   font-size: 0.88rem; font-weight: 500; color: var(--gray-600);
   padding: 6px 14px; border-radius: var(--r-sm);
