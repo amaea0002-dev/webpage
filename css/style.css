@@ -667,6 +667,19 @@ section { padding: var(--section-py) 0; }
 .page-hero { padding: 72px 0 80px; background: var(--gray-50); border-bottom: 1px solid var(--gray-200); text-align: center; }
 .page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.05em; color: var(--gray-900); margin-bottom: 16px; }
 .page-hero p { font-size: 1.05rem; color: var(--gray-600); max-width: 520px; margin: 0 auto; }
+/* ── About page ─────────────────────────────────────────────── */
+.about-section { padding: 80px 0; background: var(--white); }
+.about-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.about-story h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em; color: var(--gray-900); margin-bottom: 24px; }
+.about-story p { font-size: 1rem; color: var(--gray-600); line-height: 1.75; margin-bottom: 18px; }
+.about-story p:last-child { margin-bottom: 0; }
+.about-team-heading { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em; color: var(--gray-900); margin-bottom: 24px; }
+.about-team-cards { display: flex; flex-direction: column; gap: 16px; }
+.about-team-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--r-lg); padding: 20px; display: flex; align-items: flex-start; gap: 16px; }
+.about-team-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 800; color: #fff; flex-shrink: 0; }
+.about-team-name { font-size: 0.95rem; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
+.about-team-role { font-size: 0.78rem; font-weight: 600; color: var(--plum-soft); margin-bottom: 8px; }
+.about-team-bio  { font-size: 0.84rem; color: var(--gray-600); line-height: 1.6; }
 .feature-detail { padding: var(--section-py) 0; }
 .feature-detail:nth-child(even) { background: var(--gray-50); }
 .feature-detail-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
@@ -864,6 +877,12 @@ section { padding: var(--section-py) 0; }
   .nav-links, .nav-cta, .nav > .nav-inner > .theme-toggle { display: none; }
   .hamburger { display: flex; }
   .features-grid, .pain-grid, .testimonials-grid, .steps { grid-template-columns: 1fr; }
+  .about-section { padding: 52px 0; }
+  .about-cols { grid-template-columns: 1fr; gap: 44px; }
+  .about-story h2, .about-team-heading { font-size: 1.35rem; margin-bottom: 16px; }
+  .about-story p { font-size: 0.9rem; margin-bottom: 14px; }
+  .about-team-card { padding: 16px; }
+  .page-hero { padding: 48px 0 52px; }
   .steps::before { display: none; }
   .stats-grid { grid-template-columns: repeat(2,1fr); }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
