@@ -225,15 +225,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })();
 
-  // ── Integration partner slider ────────────────────────────
+  // ── Integration partner auto-scroll ──────────────────────────
   const partnerGrid = document.getElementById('partner-grid');
   if (partnerGrid) {
-    const cardWidth = 300;
-    document.getElementById('partner-prev')?.addEventListener('click', () => {
-      partnerGrid.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    const CARD_W = 220; // 200px card + 20px gap
+    const HALF   = CARD_W * 5; // halfway = duplicate set boundary
+    const SPEED  = 50; // px/s
+    let paused = false;
+    let lastTs = null;
+    let resumeTimer = null;
+
+    function rafStep(ts) {
+      if (lastTs !== null && !paused) {
+        partnerGrid.scrollLeft += SPEED * (ts - lastTs) / 1000;
+        if (partnerGrid.scrollLeft >= HALF) partnerGrid.scrollLeft -= HALF;
+      }
+      lastTs = ts;
+      requestAnimationFrame(rafStep);
+    }
+    requestAnimationFrame(rafStep);
+
+    partnerGrid.addEventListener('mouseenter', () => { paused = true; });
+    partnerGrid.addEventListener('mouseleave', () => { paused = false; });
+    partnerGrid.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+    partnerGrid.addEventListener('touchend', () => {
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { paused = false; }, 2000);
     });
-    document.getElementById('partner-next')?.addEventListener('click', () => {
-      partnerGrid.scrollBy({ left: cardWidth, behavior: 'smooth' });
-    });
+
+    function handleBtn(dir) {
+      paused = true;
+      clearTimeout(resumeTimer);
+      partnerGrid.scrollBy({ left: dir * CARD_W, behavior: 'smooth' });
+      resumeTimer = setTimeout(() => { paused = false; }, 2500);
+    }
+    document.getElementById('partner-prev')?.addEventListener('click', () => handleBtn(-1));
+    document.getElementById('partner-next')?.addEventListener('click', () => handleBtn(1));
   }
 });

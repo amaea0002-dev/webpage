@@ -646,45 +646,35 @@ section { padding: var(--section-py) 0; }
 .partner-btn { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--gray-200); background: var(--white); cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--gray-600); transition: border-color 0.15s, background 0.15s, color 0.15s; }
 .partner-btn:hover { border-color: var(--plum); color: var(--plum); background: var(--plum-tint); }
 .partner-grid {
-  display: flex; flex-direction: row; gap: 20px;
-  overflow-x: auto; scroll-snap-type: x mandatory;
+  overflow-x: scroll; scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 12px;
-  /* hide scrollbar visually but keep scroll */
-  scrollbar-width: none;
+  position: relative;
+  padding-top: 10px; /* buffer so hover lift isn't clipped */
 }
 .partner-grid::-webkit-scrollbar { display: none; }
+.partner-grid::before,
+.partner-grid::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+}
+.partner-grid::before { left: 0; background: linear-gradient(to right, var(--white), transparent); }
+.partner-grid::after  { right: 0; background: linear-gradient(to left,  var(--white), transparent); }
+.partner-track { display: flex; gap: 20px; padding: 0 80px 12px; }
 .partner-card {
   background: var(--gray-50); border: 1px solid var(--gray-200);
-  border-radius: var(--r-xl); padding: 28px;
-  display: flex; flex-direction: column; gap: 0;
+  border-radius: var(--r-xl); padding: 24px;
+  display: flex; flex-direction: column; gap: 16px;
   transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
   text-decoration: none; color: inherit; cursor: pointer;
-  /* fixed card width so they don't stretch */
-  flex: 0 0 280px; width: 280px;
-  scroll-snap-align: start;
+  flex: 0 0 200px; width: 200px;
 }
 .partner-card:hover { box-shadow: var(--sh-md); border-color: var(--gray-300); transform: translateY(-2px); }
-.partner-logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.partner-logo-img { height: 28px; width: auto; object-fit: contain; flex-shrink: 0; max-width: 140px; }
-.partner-logo-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; }
-.partner-logo {
-  font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em;
-  margin-bottom: 14px;
-}
-.partner-logo-intelliflo { color: #006EAE; }
-.partner-logo-sharepoint { color: #0078D4; }
-.partner-logo-salesforce  { color: #00A1E0; }
-.partner-type { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gray-500); margin-bottom: 16px; }
-.partner-desc { font-size: 0.85rem; color: var(--gray-600); line-height: 1.65; flex: 1; margin-bottom: 20px; }
-.partner-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 600; color: var(--plum); background: var(--plum-tint); border: 1px solid var(--plum-border); border-radius: var(--r-pill); padding: 3px 10px; }
+.partner-logo-wrap { display: flex; align-items: center; gap: 10px; }
+.partner-logo-img { height: 28px; width: auto; object-fit: contain; flex-shrink: 0; max-width: 130px; }
+.partner-logo-name { font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; }
+.partner-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 600; color: var(--plum); background: var(--plum-tint); border: 1px solid var(--plum-border); border-radius: var(--r-pill); padding: 3px 10px; align-self: flex-start; }
 .partner-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--plum); flex-shrink: 0; }
 .partner-tag-available { background: rgba(245,158,11,0.08); color: #B45309; border-color: rgba(245,158,11,0.25); }
 .partner-tag-available::before { background: #B45309; }
-.partner-tag-custom { background: var(--plum-tint); color: var(--plum-soft); border-color: var(--plum-border); }
-.partner-tag-custom::before { background: var(--plum-soft); }
-/* partner-grid is a horizontal scroller — no column breakpoints needed */
-@media (max-width: 768px)  { .partner-card { flex: 0 0 240px; width: 240px; padding: 22px; } }
 
 /* ── CTA banner ────────────────────────────────────────────── */
 .cta-banner { background: var(--plum); color: var(--white); text-align: center; padding: 80px 0; }
