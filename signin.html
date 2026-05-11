@@ -21,25 +21,60 @@
       width: 100%; max-width: 420px;
       box-shadow: var(--sh-lg);
     }
-    .signin-logo { display: block; height: 32px; margin: 0 auto 24px; }
+    .signin-logo { display: block; height: 28px; margin: 0 auto 28px; }
     .signin-card h2 {
-      font-size: 1.4rem; font-weight: 800; letter-spacing: -0.04em;
+      font-size: 1.35rem; font-weight: 800; letter-spacing: -0.04em;
       color: var(--gray-900); text-align: center; margin-bottom: 6px;
     }
-    .signin-badge {
-      display: block; text-align: center; margin-bottom: 28px;
+    .signin-sub {
+      text-align: center; font-size: 0.84rem; color: var(--gray-500);
+      margin-bottom: 28px; line-height: 1.5;
     }
-    .signin-notice {
-      background: var(--plum-tint); border: 1px solid var(--plum-border);
-      border-radius: var(--r-md); padding: 14px 16px;
-      font-size: 0.85rem; color: var(--gray-600); line-height: 1.6;
-      display: none; margin-bottom: 16px;
-    }
-    .signin-notice a { color: var(--plum); font-weight: 600; }
     .signin-below {
       text-align: center; font-size: 0.82rem; color: var(--gray-500); margin-top: 20px;
     }
     .signin-below a { color: var(--plum); font-weight: 600; }
+    .signin-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 20px 0; font-size: 0.75rem; color: var(--gray-300);
+    }
+    .signin-divider::before, .signin-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--gray-200);
+    }
+
+    /* Success / redirect state */
+    .signin-success {
+      display: none; text-align: center; padding: 8px 0;
+    }
+    .signin-success-ring {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--plum), var(--plum-mid));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 0 8px var(--plum-tint);
+      animation: ring-pop 0.4s cubic-bezier(0.34,1.4,0.64,1) both;
+    }
+    @keyframes ring-pop {
+      from { transform: scale(0.6); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+    .signin-success h3 {
+      font-size: 1.4rem; font-weight: 800; letter-spacing: -0.04em;
+      color: var(--gray-900); margin-bottom: 6px;
+    }
+    .signin-success p {
+      font-size: 0.85rem; color: var(--gray-500); line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .signin-progress-track {
+      height: 3px; background: var(--gray-200); border-radius: 2px;
+      overflow: hidden; margin-bottom: 20px;
+    }
+    .signin-progress-bar {
+      height: 100%; width: 0%; background: var(--plum);
+      border-radius: 2px;
+      transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
   </style>
 </head>
 <body>
@@ -76,27 +111,44 @@
 
 <div class="signin-wrap">
   <div class="signin-card">
-    <img src="assets/logo-plum.png" alt="Amaea" class="signin-logo logo-mode-light">
-    <img src="assets/logo-white.png" alt="Amaea" class="signin-logo logo-mode-dark" style="display:none;">
-    <h2>Sign in to Amaea</h2>
-    <span class="signin-badge">
-      <span style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;background:rgba(245,158,11,0.1);color:#D97706;border:1px solid rgba(245,158,11,0.25);padding:3px 12px;border-radius:var(--r-pill);">Private beta — Q4 2027</span>
-    </span>
-    <div class="signin-notice" id="signin-notice">
-      Amaea is currently in private beta. If you've been onboarded, check your email for your access link. To join the waitlist, <a href="waitlist.html">click here</a>.
+
+    <!-- Form state -->
+    <div id="signin-form-wrap">
+      <img src="assets/logo-plum.png" alt="Amaea" class="signin-logo logo-mode-light">
+      <img src="assets/logo-white.png" alt="Amaea" class="signin-logo logo-mode-dark" style="display:none;">
+      <h2>Welcome back.</h2>
+      <p class="signin-sub">Sign in to your Amaea dashboard.</p>
+      <form id="signin-form" novalidate>
+        <div class="form-group" style="margin-bottom:14px;">
+          <label class="form-label">Work email</label>
+          <input class="form-input" type="email" placeholder="you@yourfirm.co.uk" required autocomplete="email">
+        </div>
+        <div class="form-group" style="margin-bottom:8px;">
+          <label class="form-label">Password</label>
+          <input class="form-input" type="password" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+        <div style="text-align:right;margin-bottom:22px;">
+          <a href="#" style="font-size:0.8rem;color:var(--gray-500);">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:0.95rem;padding:13px 24px;">Sign in →</button>
+      </form>
+      <div class="signin-divider">or</div>
+      <p class="signin-below">Not yet a customer? <a href="waitlist.html">Join the waitlist →</a></p>
     </div>
-    <form id="signin-form">
-      <div class="form-group" style="margin-bottom:14px;">
-        <label class="form-label">Work email</label>
-        <input class="form-input" type="email" placeholder="Work email" required>
+
+    <!-- Success / redirect state -->
+    <div class="signin-success" id="signin-success">
+      <div class="signin-success-ring">
+        <svg width="28" height="28" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
-      <div class="form-group" style="margin-bottom:22px;">
-        <label class="form-label">Password</label>
-        <input class="form-input" type="password" placeholder="Password" required>
+      <h3>You're in.</h3>
+      <p>Taking you to your compliance dashboard now.</p>
+      <div class="signin-progress-track">
+        <div class="signin-progress-bar" id="signin-progress-bar"></div>
       </div>
-      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Sign in</button>
-    </form>
-    <p class="signin-below">Don't have an account? <a href="waitlist.html">Join the waitlist →</a></p>
+      <a href="https://amaea0002-dev.github.io/prototype/dashboard.html" class="btn btn-primary" style="width:100%;justify-content:center;" id="signin-dashboard-btn">Go to dashboard →</a>
+    </div>
+
   </div>
 </div>
 
@@ -155,13 +207,25 @@
 <script>
 document.getElementById('signin-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  document.getElementById('signin-notice').style.display = 'block';
-  document.getElementById('signin-form').style.display = 'none';
+  // Swap to success state
+  document.getElementById('signin-form-wrap').style.display = 'none';
+  var success = document.getElementById('signin-success');
+  success.style.display = 'block';
+  // Animate progress bar then redirect
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      document.getElementById('signin-progress-bar').style.width = '100%';
+    });
+  });
+  setTimeout(function() {
+    window.location.href = 'https://amaea0002-dev.github.io/prototype/dashboard.html';
+  }, 1600);
 });
+
 // Dark mode logo swap
 (function() {
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  document.querySelectorAll('.signin-logo').forEach(img => {
+  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.querySelectorAll('.signin-logo').forEach(function(img) {
     img.style.display = (img.classList.contains('logo-mode-dark') ? isDark : !isDark) ? 'block' : 'none';
   });
 })();
