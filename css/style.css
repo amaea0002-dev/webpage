@@ -230,6 +230,8 @@ button { font-family: inherit; cursor: pointer; border: none; }
 }
 .mobile-nav a:hover { background: var(--gray-100); color: var(--gray-900); }
 .mobile-nav .mobile-cta { margin-top: 8px; }
+.mobile-nav a.mobile-cta { color: #fff; }
+.mobile-nav a.mobile-cta:hover { color: #fff; background: var(--plum-mid); }
 
 /* ── Page spacer ───────────────────────────────────────────── */
 .page-top { padding-top: var(--nav-h); }
