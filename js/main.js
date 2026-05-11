@@ -228,9 +228,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Integration partner auto-scroll ──────────────────────────
   const partnerGrid = document.getElementById('partner-grid');
   if (partnerGrid) {
-    const CARD_W = 280; // 260px card + 20px gap
-    const HALF   = CARD_W * 5; // halfway = duplicate set boundary
-    const SPEED  = 50; // px/s
+    const SPEED = 50; // px/s
+    let HALF = 1400; // measured after paint
+    let STEP = 280;  // button scroll step, measured after paint
     let paused = false;
     let lastTs = null;
     let resumeTimer = null;
@@ -243,7 +243,16 @@ document.addEventListener('DOMContentLoaded', () => {
       lastTs = ts;
       requestAnimationFrame(rafStep);
     }
-    requestAnimationFrame(rafStep);
+
+    // Measure after first paint so image-dependent widths are finalised
+    requestAnimationFrame(() => {
+      const items = partnerGrid.querySelectorAll('.partner-logo-item');
+      if (items.length >= 6) {
+        HALF = Math.round(items[5].getBoundingClientRect().left - items[0].getBoundingClientRect().left);
+        STEP = Math.round(HALF / 5);
+      }
+      requestAnimationFrame(rafStep);
+    });
 
     partnerGrid.addEventListener('mouseenter', () => { paused = true; });
     partnerGrid.addEventListener('mouseleave', () => { paused = false; });
@@ -256,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleBtn(dir) {
       paused = true;
       clearTimeout(resumeTimer);
-      partnerGrid.scrollBy({ left: dir * CARD_W, behavior: 'smooth' });
+      partnerGrid.scrollBy({ left: dir * STEP, behavior: 'smooth' });
       resumeTimer = setTimeout(() => { paused = false; }, 2500);
     }
     document.getElementById('partner-prev')?.addEventListener('click', () => handleBtn(-1));
