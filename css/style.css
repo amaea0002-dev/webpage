@@ -688,9 +688,10 @@ section { padding: var(--section-py) 0; }
 .pricing-name { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--gray-900); margin-bottom: 6px; }
 .pricing-desc { font-size: 0.8rem; color: var(--gray-500); margin-bottom: 20px; line-height: 1.5; }
 .pricing-price { margin-bottom: 20px; }
-.pricing-amount { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.05em; color: var(--gray-900); line-height: 1; }
-.pricing-amount sup { font-size: 1rem; vertical-align: super; font-weight: 700; }
-.pricing-amount span { font-size: 0.85rem; font-weight: 500; color: var(--gray-500); }
+.pricing-amount { display: flex; align-items: baseline; gap: 2px; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.01em; color: var(--gray-900); line-height: 1; }
+.pricing-amount sup { font-size: 1rem; font-weight: 700; align-self: flex-start; padding-top: 6px; letter-spacing: 0; }
+.pricing-amount .price-value { letter-spacing: -0.01em; }
+.pricing-amount .price-suffix { font-size: 0.85rem; font-weight: 500; color: var(--gray-500); margin-left: 3px; letter-spacing: 0; }
 .pricing-billing { font-size: 0.72rem; color: var(--gray-500); margin-top: 4px; }
 .pricing-custom { font-size: 1.3rem; font-weight: 800; color: var(--gray-900); }
 .pricing-divider { height: 1px; background: var(--gray-200); margin: 20px 0; }
@@ -914,10 +915,13 @@ section { padding: var(--section-py) 0; }
 .founders-plan.featured { border-color: #F59E0B; box-shadow: 0 0 0 1px #F59E0B, var(--sh-lg); }
 .founders-plan-badge { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #F59E0B; margin-bottom: 8px; }
 .founders-plan-name { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.03em; color: var(--gray-900); margin-bottom: 16px; }
-.founders-plan-original { font-size: 1rem; color: var(--gray-400, var(--gray-300)); text-decoration: line-through; margin-bottom: 4px; }
-.founders-plan-original span { font-size: 0.8rem; }
-.founders-plan-price { font-size: 2rem; font-weight: 800; letter-spacing: -0.05em; color: var(--gray-900); line-height: 1; margin-bottom: 10px; }
-.founders-plan-price span { font-size: 0.85rem; font-weight: 500; color: var(--gray-500); }
+.founders-plan-original { display: flex; align-items: baseline; gap: 1px; font-size: 1rem; color: var(--gray-400, var(--gray-300)); text-decoration: line-through; margin-bottom: 4px; }
+.founders-plan-original sup { font-size: 0.65rem; font-weight: 600; align-self: flex-start; padding-top: 3px; }
+.founders-plan-original .price-suffix { font-size: 0.75rem; margin-left: 2px; }
+.founders-plan-price { display: flex; align-items: baseline; gap: 2px; font-size: 2rem; font-weight: 800; letter-spacing: -0.01em; color: var(--gray-900); line-height: 1; margin-bottom: 10px; }
+.founders-plan-price sup { font-size: 0.95rem; font-weight: 700; align-self: flex-start; padding-top: 5px; letter-spacing: 0; }
+.founders-plan-price .price-value { letter-spacing: -0.01em; }
+.founders-plan-price .price-suffix { font-size: 0.85rem; font-weight: 500; color: var(--gray-500); margin-left: 3px; letter-spacing: 0; }
 .founders-plan-price.amber { color: #F59E0B; }
 .founders-plan-saving { display: inline-block; background: rgba(245,158,11,0.12); color: #F59E0B; border: 1px solid rgba(245,158,11,0.25); font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: var(--r-pill); margin-bottom: 20px; letter-spacing: 0.03em; }
 .founders-plan-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
