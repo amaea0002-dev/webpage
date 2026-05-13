@@ -471,6 +471,14 @@ section { padding: var(--section-py) 0; }
 .dash-bar { height: 3px; background: var(--gray-200); border-radius: 99px; overflow: hidden; }
 .dash-bar-fill { height: 100%; border-radius: 99px; }
 
+/* ── Hero screenshot ───────────────────────────────────────── */
+.hero-screenshot {
+  display: block; width: 100%; height: auto;
+  border-radius: 0 0 var(--r-lg) var(--r-lg);
+  object-fit: cover; object-position: top left;
+  min-height: 300px; background: var(--gray-100);
+}
+
 /* ── Hero preview glow ─────────────────────────────────────── */
 .hero-preview-glow {
   position: relative;

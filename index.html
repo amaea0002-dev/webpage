@@ -67,7 +67,15 @@
         <div class="browser-dots"><span></span><span></span><span></span></div>
         <div class="browser-url">app.amaea.io/dashboard</div>
       </div>
-      <div class="dash-preview">
+      <!-- Real app screenshot — drop assets/app-dashboard.png to activate -->
+      <img
+        src="assets/app-dashboard.png"
+        alt="Amaea compliance dashboard"
+        class="hero-screenshot"
+        onerror="this.style.display='none';document.getElementById('hero-mockup').style.display='grid';"
+      >
+      <div class="dash-preview" id="hero-mockup" style="display:none;">
+        <!-- Fallback HTML mockup — shown only if screenshot missing -->
         <!-- Sidebar — matches real app -->
         <div class="dash-sidebar">
           <div class="dash-sidebar-logo">
