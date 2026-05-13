@@ -1395,6 +1395,17 @@ section { padding: var(--section-py) 0; }
 [data-theme="dark"] .amaea-help-card:hover { border-color: rgba(122,63,121,0.4); }
 @media (max-width: 768px) { .amaea-help-grid { grid-template-columns: 1fr; } }
 
+/* ── Horizon feature section — stays dark in both themes ─────── */
+.feature-horizon { background: #0E0A0E; color: #F4EEF8; }
+.feature-horizon .feature-detail-text h2 { color: #F4EEF8; }
+.feature-horizon .feature-detail-text p  { color: rgba(255,255,255,0.6); }
+.feature-horizon .feature-bullets li     { color: rgba(255,255,255,0.65); }
+.feature-horizon .feature-visual         { background: rgba(255,255,255,0.03) !important; border-color: rgba(255,255,255,0.08) !important; }
+[data-theme="dark"] .feature-horizon { background: #0E0A0E; }
+[data-theme="dark"] .feature-horizon .feature-detail-text h2 { color: #F4EEF8; }
+[data-theme="dark"] .feature-horizon .feature-detail-text p  { color: rgba(255,255,255,0.6); }
+[data-theme="dark"] .feature-horizon .feature-bullets li     { color: rgba(255,255,255,0.65); }
+
 /* ── Legal pages ─────────────────────────────────────────────── */
 .legal-content { max-width: 700px; margin: 0 auto; font-size: 0.92rem; color: var(--gray-600); line-height: 1.82; }
 .legal-content h2, .legal-content h3 { font-size: 1.1rem; font-weight: 700; color: var(--gray-900); letter-spacing: -0.02em; margin: 36px 0 10px; }
