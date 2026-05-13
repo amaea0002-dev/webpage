@@ -544,6 +544,8 @@ section { padding: var(--section-py) 0; }
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   max-width: 860px; margin: 44px auto 0;
 }
+/* Orphan card fix — 5 cards: last child that is the only item in its row */
+.story-card:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: 430px; margin-left: auto; margin-right: auto; }
 .story-card {
   background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--r-lg); padding: 24px 26px;
@@ -738,7 +740,9 @@ section { padding: var(--section-py) 0; }
 .testimonial-card {
   background: var(--white); border: 1px solid var(--gray-200);
   border-radius: var(--r-lg); padding: 28px; box-shadow: var(--sh-sm);
+  transition: box-shadow 0.18s, transform 0.18s;
 }
+.testimonial-card:hover { transform: translateY(-2px); box-shadow: var(--sh-md); }
 .testimonial-stars { display: flex; gap: 3px; margin-bottom: 16px; }
 .testimonial-stars span { color: var(--amber); font-size: 0.95rem; }
 .testimonial-quote { font-size: 0.9rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
@@ -828,7 +832,9 @@ section { padding: var(--section-py) 0; }
   background: var(--gray-50); border: 1px solid var(--gray-200);
   border-radius: var(--r-lg); padding: 20px;
   display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start;
+  transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
 }
+.about-team-card:hover { box-shadow: var(--sh-sm); transform: translateY(-1px); border-color: var(--plum-border); }
 .about-team-avatar {
   width: 44px; height: 44px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
@@ -942,8 +948,12 @@ section { padding: var(--section-py) 0; }
 .faq-q-arrow { font-size: 1.1rem; color: var(--gray-400); transition: transform 0.2s; flex-shrink: 0; }
 .faq-item.open .faq-q-arrow { transform: rotate(180deg); color: var(--plum); }
 .faq-item.open .faq-q { color: var(--plum); }
-.faq-a { display: none; padding: 0 0 20px; font-size: 0.88rem; color: var(--gray-600); line-height: 1.7; }
-.faq-item.open .faq-a { display: block; }
+.faq-a {
+  max-height: 0; overflow: hidden; opacity: 0;
+  padding: 0; font-size: 0.88rem; color: var(--gray-600); line-height: 1.7;
+  transition: max-height 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.22s ease, padding 0.3s ease;
+}
+.faq-item.open .faq-a { max-height: 500px; opacity: 1; padding: 0 0 20px; }
 
 /* ── Contact / Demo page ───────────────────────────────────── */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
@@ -1204,3 +1214,54 @@ section { padding: var(--section-py) 0; }
   .quiz-result-actions { flex-direction: column; }
   .quiz-result-actions .btn { width: 100%; justify-content: center; }
 }
+
+/* ── Focus styles ────────────────────────────────────────────── */
+:focus-visible { outline: 2px solid var(--plum); outline-offset: 2px; border-radius: 4px; }
+
+/* ── Amaea Help Grid (compliance pages) ─────────────────────── */
+.amaea-help-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.amaea-help-card {
+  padding: 24px; border: 1px solid var(--gray-200); border-radius: 12px;
+  background: var(--gray-50);
+  transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+}
+.amaea-help-card:hover { box-shadow: var(--sh-md); transform: translateY(-2px); border-color: var(--plum-border); }
+.amaea-help-card-title { font-weight: 700; color: var(--gray-900); margin-bottom: 8px; font-size: 0.9rem; }
+[data-theme="dark"] .amaea-help-card { background: var(--gray-50); border-color: var(--gray-200); }
+[data-theme="dark"] .amaea-help-card:hover { border-color: rgba(122,63,121,0.4); }
+@media (max-width: 768px) { .amaea-help-grid { grid-template-columns: 1fr; } }
+
+/* ── Blog cards ──────────────────────────────────────────────── */
+.blog-card {
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: var(--r-xl); padding: 32px; display: flex; flex-direction: column;
+  transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+}
+.blog-card:hover { box-shadow: var(--sh-md); transform: translateY(-2px); border-color: var(--plum-border); }
+[data-theme="dark"] .blog-card { background: var(--gray-50); border-color: rgba(255,255,255,0.08); }
+
+/* ── Integration cards (integrations page) ───────────────────── */
+.integration-card {
+  padding: 32px; border: 1px solid var(--gray-200); border-radius: var(--r-xl);
+  background: var(--white); transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+}
+.integration-card:hover { box-shadow: var(--sh-md); transform: translateY(-2px); border-color: var(--plum-border); }
+.integration-card-featured { border: 2px solid var(--plum); background: linear-gradient(135deg, var(--gray-50) 0%, var(--plum-tint) 100%); }
+.integration-card-featured:hover { border-color: var(--plum-mid); }
+[data-theme="dark"] .integration-card { background: var(--gray-50); border-color: rgba(255,255,255,0.08); }
+[data-theme="dark"] .integration-card:hover { border-color: rgba(122,63,121,0.4); }
+[data-theme="dark"] .integration-card-featured { border-color: rgba(122,63,121,0.5); background: linear-gradient(135deg, var(--gray-50) 0%, rgba(122,63,121,0.08) 100%); }
+
+/* ── Pricing card hover lift ─────────────────────────────────── */
+.pricing-card { transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s; }
+.pricing-card:not(.featured):hover { transform: translateY(-3px); }
+.pricing-card.featured:hover { transform: translateY(-3px); }
+
+/* ── Step number hover ───────────────────────────────────────── */
+.step { transition: transform 0.18s; }
+.step:hover { transform: translateY(-2px); }
+
+/* ── Smooth table row highlight ──────────────────────────────── */
+.compare-table tbody tr { transition: background 0.15s; }
+.compare-table tbody tr:hover td { background: var(--gray-50); }
+[data-theme="dark"] .compare-table tbody tr:hover td { background: var(--gray-100); }
