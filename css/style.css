@@ -50,43 +50,155 @@
 
 /* ── Dark theme ────────────────────────────────────────────── */
 [data-theme="dark"] {
-  --plum:        #a868a6;
-  --plum-dark:   #7a4878;
-  --plum-mid:    #c084be;
-  --plum-soft:   #c8a4c6;
-  --plum-tint:   rgba(168,104,166,0.12);
-  --plum-border: rgba(168,104,166,0.22);
-  --plum-glow:   rgba(168,104,166,0.25);
-  --white:       #1a0f19;
-  --gray-50:     #211421;
-  --gray-100:    #2b192a;
-  --gray-200:    rgba(255,255,255,0.08);
-  --gray-300:    rgba(255,255,255,0.15);
-  --gray-500:    #a494ae;
-  --gray-600:    #c8b8cc;
-  --gray-900:    #f0eaf2;
-  --nav-bg:      rgba(26,15,25,0.92);
-  --sh-sm: 0 1px 3px rgba(0,0,0,0.35);
-  --sh-md: 0 4px 16px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.25);
-  --sh-lg: 0 8px 40px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.3);
-  --sh-xl: 0 20px 60px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.35);
+  /* Keep the plum rich and brand-true — not washed out lavender */
+  --plum:        #7A3F79;
+  --plum-dark:   #3D1F3C;
+  --plum-mid:    #9B5C99;
+  --plum-soft:   #B87EB6;
+  --plum-tint:   rgba(122,63,121,0.18);
+  --plum-border: rgba(122,63,121,0.32);
+  --plum-glow:   rgba(122,63,121,0.36);
+
+  /* Deep backgrounds — rich dark purple-black, not flat grey */
+  --white:    #0E090E;
+  --gray-50:  #180E17;
+  --gray-100: #211520;
+  --gray-200: rgba(255,255,255,0.09);
+  --gray-300: rgba(255,255,255,0.17);
+
+  /* Text — warm off-white, not pure white */
+  --gray-500: #9E8EAC;
+  --gray-600: #CABDD4;
+  --gray-900: #F3EDF6;
+
+  --nav-bg: rgba(14,9,14,0.94);
+
+  --sh-sm: 0 1px 3px rgba(0,0,0,0.5);
+  --sh-md: 0 4px 16px rgba(0,0,0,0.55), 0 2px 4px rgba(0,0,0,0.3);
+  --sh-lg: 0 8px 40px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+  --sh-xl: 0 20px 60px rgba(0,0,0,0.7), 0 4px 16px rgba(0,0,0,0.5);
 }
-/* These sections use --gray-900 as a background in light mode; preserve dark bg */
-[data-theme="dark"] .problem { background: #120510; }
-[data-theme="dark"] .footer  { background: #0d040c; }
-/* Restore white text in permanently-dark sections (color: var(--white) goes invisible
-   because --white is overridden to a dark surface colour in dark mode) */
+
+/* Sections that are permanently dark (problem/footer use gray-900 bg in light) */
+[data-theme="dark"] .problem { background: #0A050A; }
+[data-theme="dark"] .footer  { background: #080308; }
+
+/* Problem section — keep bright text visible */
 [data-theme="dark"] .problem,
 [data-theme="dark"] .problem .section-title,
 [data-theme="dark"] .pain-title,
-[data-theme="dark"] .problem-bridge p,
+[data-theme="dark"] .problem-bridge p { color: #F3EDF6; }
+
+/* AI section stays dark-on-dark — keep white */
 [data-theme="dark"] .ai-section,
-[data-theme="dark"] .ai-text .section-title,
-[data-theme="dark"] .ai-msg-user .ai-bubble,
+[data-theme="dark"] .ai-text .section-title { color: #fff; }
+
+/* CTA banner */
 [data-theme="dark"] .cta-banner { color: #fff; }
-/* contact-quote uses a --gray-700 fallback that doesn't exist → hardcoded dark; fix */
+
+/* Primary buttons — use a slightly lighter plum so they read on dark backgrounds */
+[data-theme="dark"] .btn-primary {
+  background: #7A3F79;
+  box-shadow: 0 1px 4px rgba(122,63,121,0.4), 0 4px 12px rgba(122,63,121,0.25);
+}
+[data-theme="dark"] .btn-primary:hover {
+  background: #8B4D8A;
+  box-shadow: 0 2px 8px rgba(122,63,121,0.5), 0 6px 18px rgba(122,63,121,0.3);
+}
+
+/* Secondary buttons in dark mode */
+[data-theme="dark"] .btn-secondary {
+  color: #D4A8D2;
+  border-color: rgba(122,63,121,0.4);
+}
+[data-theme="dark"] .btn-secondary:hover {
+  background: rgba(122,63,121,0.12);
+  border-color: rgba(122,63,121,0.6);
+}
+
+/* Feature cards — lift them off the background */
+[data-theme="dark"] .feature-card {
+  background: #180E17;
+  border-color: rgba(255,255,255,0.08);
+}
+[data-theme="dark"] .feature-card:hover {
+  border-color: rgba(122,63,121,0.4);
+  background: #1E1220;
+}
+
+/* Feature icons in dark mode */
+[data-theme="dark"] .feature-icon {
+  background: rgba(122,63,121,0.15);
+  border-color: rgba(122,63,121,0.25);
+}
+
+/* Pricing cards */
+[data-theme="dark"] .pricing-card {
+  background: #180E17;
+  border-color: rgba(255,255,255,0.08);
+}
+[data-theme="dark"] .pricing-card.featured {
+  background: #1E1220;
+  border-color: rgba(122,63,121,0.5);
+}
+
+/* Testimonial cards */
+[data-theme="dark"] .testimonial-card {
+  background: #180E17;
+  border-color: rgba(255,255,255,0.07);
+}
+
+/* Hero gradient */
+[data-theme="dark"] .hero {
+  background: linear-gradient(180deg, #180E17 0%, #0E090E 100%);
+}
+[data-theme="dark"] .hero::before {
+  background: radial-gradient(circle, rgba(122,63,121,0.12) 0%, transparent 70%);
+}
+
+/* Page hero sections */
+[data-theme="dark"] .page-hero {
+  background: linear-gradient(180deg, #180E17 0%, #0E090E 100%);
+}
+
+/* Stats section */
+[data-theme="dark"] .stats { background: #180E17; }
+[data-theme="dark"] .stat-value { color: var(--gray-900); }
+
+/* Story cards already on dark backgrounds — keep readable */
+[data-theme="dark"] .story-card {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.1);
+}
+[data-theme="dark"] .story-card-red {
+  background: rgba(239,68,68,0.06);
+  border-color: rgba(239,68,68,0.2);
+}
+
+/* About team cards */
+[data-theme="dark"] .about-team-card {
+  background: #180E17;
+  border-color: rgba(255,255,255,0.07);
+}
+
+/* FAQ */
+[data-theme="dark"] .faq-item {
+  border-color: rgba(255,255,255,0.08);
+}
+
+/* Compare table */
+[data-theme="dark"] #compare-table th,
+[data-theme="dark"] #compare-table td {
+  border-color: rgba(255,255,255,0.07);
+}
+[data-theme="dark"] #compare-table thead tr:first-child th {
+  border-bottom-color: rgba(255,255,255,0.12);
+}
+
+/* Contact quote */
 [data-theme="dark"] .contact-quote-text { color: var(--gray-600); }
-/* Hero preview inner glow looks wrong on dark */
+
+/* Hero preview */
 [data-theme="dark"] .hero-preview { box-shadow: var(--sh-xl); }
 
 html { font-size: 16px; scroll-behavior: smooth; }
