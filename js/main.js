@@ -28,9 +28,16 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// ── Nav scroll shadow ──────────────────────────────────────
+// ── Nav scroll shadow + hero parallax ──────────────────────
 window.addEventListener('scroll', () => {
   document.querySelector('.nav')?.classList.toggle('scrolled', window.scrollY > 10);
+
+  // Subtle parallax on hero preview — drifts at 0.25x scroll speed
+  const glow = document.querySelector('.hero-preview-glow');
+  if (glow) {
+    const offset = window.scrollY * 0.18;
+    glow.style.transform = `translateY(${offset}px)`;
+  }
 }, { passive: true });
 
 // ── Mobile nav ─────────────────────────────────────────────
