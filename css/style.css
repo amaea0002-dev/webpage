@@ -366,7 +366,12 @@ section { padding: var(--section-py) 0; }
 }
 .hero h1 em {
   font-style: normal;
-  background: linear-gradient(135deg, var(--plum) 0%, var(--plum-mid) 50%, var(--plum-soft) 100%);
+  background: linear-gradient(125deg, var(--plum) 0%, #7A4578 40%, var(--plum-soft) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+[data-theme="dark"] .hero h1 em {
+  background: linear-gradient(125deg, #B878B6 0%, #CC99CA 50%, #DDB8DC 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
@@ -739,6 +744,33 @@ section { padding: var(--section-py) 0; }
 }
 @keyframes cursor-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
+/* ── AI live demo input ─────────────────────────────────────── */
+.ai-chat-wrap { display: flex; flex-direction: column; gap: 12px; }
+.ai-demo-input-wrap {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--r-pill); padding: 8px 8px 8px 18px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.ai-demo-input-wrap:focus-within {
+  border-color: rgba(200,160,200,0.38); background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 0 3px rgba(160,96,160,0.12);
+}
+.ai-demo-input {
+  flex: 1; background: none; border: none; outline: none;
+  font-family: var(--font); font-size: 0.85rem;
+  color: rgba(255,255,255,0.88); min-width: 0;
+}
+.ai-demo-input::placeholder { color: rgba(255,255,255,0.3); }
+.ai-demo-send-btn {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--plum); color: #fff; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: background 0.18s, transform 0.15s;
+}
+.ai-demo-send-btn:hover:not(:disabled) { background: var(--plum-mid); transform: scale(1.06); }
+.ai-demo-send-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
 /* ── Stats ─────────────────────────────────────────────────── */
 .stats { padding: var(--section-py) 0; background: var(--gray-50); }
 .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-top: 48px; }
@@ -750,7 +782,6 @@ section { padding: var(--section-py) 0; }
   transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
 }
 .stat-value.stat-visible { opacity: 1; transform: scale(1); }
-}
 .stat-label { font-size: 0.85rem; color: var(--gray-500); line-height: 1.55; max-width: 160px; margin: 0 auto; }
 
 /* ── Testimonials ──────────────────────────────────────────── */
@@ -1457,3 +1488,58 @@ section { padding: var(--section-py) 0; }
 .compare-table tbody tr { transition: background 0.15s; }
 .compare-table tbody tr:hover td { background: var(--gray-50); }
 [data-theme="dark"] .compare-table tbody tr:hover td { background: var(--gray-100); }
+
+/* ── Section padding helpers (replace inline styles) ─────────── */
+.section-white    { padding: 80px 0; background: var(--white); }
+.section-gray     { padding: 80px 0; background: var(--gray-50); }
+.section-white-sm { padding: 64px 0; background: var(--white); }
+.section-gray-sm  { padding: 64px 0; background: var(--gray-50); }
+.section-plum     { padding: 80px 0; background: var(--plum-dark); }
+
+/* ── Pricing compare table — mobile scroll hint ───────────────── */
+.compare-wrap { position: relative; }
+.compare-wrap::after {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 48px; height: 100%;
+  background: linear-gradient(to right, transparent, var(--white));
+  pointer-events: none;
+  display: none;
+}
+[data-theme="dark"] .compare-wrap::after { background: linear-gradient(to right, transparent, var(--gray-50)); }
+@media (max-width: 768px) {
+  .compare-wrap::after { display: block; }
+  .compare-wrap > div { padding-bottom: 8px; }
+}
+
+/* ── Testimonial card — no stars variant ─────────────────────── */
+.testimonial-card .testimonial-quote { font-size: 0.92rem; }
+
+/* ── AI dark mode input ───────────────────────────────────────── */
+[data-theme="dark"] .ai-demo-send-btn { background: #A060A0; }
+[data-theme="dark"] .ai-demo-send-btn:hover:not(:disabled) { background: #B070B0; }
+
+/* ── Small phone (360px) edge cases ──────────────────────────── */
+@media (max-width: 390px) {
+  .container { padding: 0 14px; }
+  .hero h1 { font-size: 1.72rem; letter-spacing: -0.035em; }
+  .hero-sub { font-size: 0.88rem; }
+  .hero-ctas .btn-lg { padding: 12px 18px; font-size: 0.88rem; }
+  .section-title { font-size: 1.42rem; }
+  .stat-value { font-size: 1.8rem; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .pricing-grid { max-width: 100%; }
+  .pricing-card { padding: 20px 16px; }
+  .feature-card { padding: 18px 16px 22px; }
+  .step { padding: 20px 16px; }
+  .story-card { padding: 16px 18px; }
+  .story-headline { font-size: 0.95rem; }
+  .btn-lg { padding: 12px 20px; font-size: 0.88rem; }
+  .nav-inner { padding: 0 16px; }
+  .page-hero h1 { font-size: 1.6rem; }
+  .footer-grid { gap: 20px; }
+  .footer-col a { font-size: 0.78rem; }
+  .cta-banner h2 { font-size: 1.5rem; }
+  .dash-metric-value { font-size: 1.2rem; }
+  .dash-metrics { gap: 6px; }
+}

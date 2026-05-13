@@ -68,37 +68,34 @@
         <div class="browser-url">app.amaea.io/dashboard</div>
       </div>
       <div class="dash-preview">
-
-        <!-- Sidebar -->
+        <!-- Sidebar — matches real app -->
         <div class="dash-sidebar">
           <div class="dash-sidebar-logo">
             <img src="assets/logo-white.png" alt="Amaea">
           </div>
+          <div style="font-size:0.56rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);padding:0 6px;margin-bottom:6px;">Main</div>
           <div class="dash-nav-item active">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
             Dashboard
           </div>
           <div class="dash-nav-item">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
             Clients
-          </div>
-          <div class="dash-nav-item">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            Analytics
-          </div>
-          <div class="dash-nav-item">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-            AI Insights<span class="dash-nav-badge">4</span>
-          </div>
-          <div class="dash-nav-item">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
-            Reports
           </div>
           <div class="dash-nav-item">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9,11 12,14 22,4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
             Reviews<span class="dash-nav-badge" style="background:rgba(239,68,68,0.28);color:#FCA5A5;">18</span>
           </div>
+          <div class="dash-nav-item">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            Insights<span class="dash-nav-badge">4</span>
+          </div>
+          <div class="dash-nav-item">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+            Reports
+          </div>
           <div class="dash-nav-divider"></div>
+          <div style="font-size:0.56rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);padding:0 6px;margin-bottom:6px;">Settings</div>
           <div class="dash-nav-item">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
             Integrations
@@ -109,58 +106,51 @@
         <div class="dash-main">
           <div class="dash-top">
             <span class="dash-title">Compliance Dashboard</span>
-            <span style="font-size:0.62rem;color:#9088A3;">11 May 2026</span>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#10B981;"></div>
+              <span style="font-size:0.6rem;color:#9088A3;font-weight:500;">Sterling IFA Ltd</span>
+            </div>
           </div>
           <div class="dash-metrics">
             <div class="dash-metric">
-              <div class="dash-metric-label">Missing Documents</div>
-              <div class="dash-metric-value" style="color:#EF4444;">34</div>
+              <div class="dash-metric-label">Missing Docs</div>
+              <div class="dash-metric-value" style="color:#EF4444;font-size:1.6rem;">3</div>
               <div class="dash-metric-trend bad">↑ Action required</div>
             </div>
             <div class="dash-metric">
-              <div class="dash-metric-label">Clients Monitored</div>
-              <div class="dash-metric-value">247</div>
-              <div class="dash-metric-trend">All active</div>
+              <div class="dash-metric-label">Active Clients</div>
+              <div class="dash-metric-value" style="font-size:1.6rem;">247</div>
+              <div class="dash-metric-trend">All monitored</div>
             </div>
             <div class="dash-metric">
               <div class="dash-metric-label">Overdue Reviews</div>
-              <div class="dash-metric-value" style="color:#EF4444;">18</div>
-              <div class="dash-metric-trend bad">↑ Action required</div>
+              <div class="dash-metric-value" style="color:#EF4444;font-size:1.6rem;">18</div>
+              <div class="dash-metric-trend bad">COBS 9.5 breach</div>
             </div>
             <div class="dash-metric">
               <div class="dash-metric-label">RMAR Due</div>
-              <div class="dash-metric-value" style="color:#F59E0B;">25d</div>
-              <div class="dash-metric-trend warn">3 gaps remaining</div>
+              <div class="dash-metric-value" style="color:#F59E0B;font-size:1.6rem;">20d</div>
+              <div class="dash-metric-trend warn">3 gaps in Sec B</div>
             </div>
           </div>
           <div class="dash-cards">
-            <div class="dash-card" style="display:flex;flex-direction:column;gap:9px;">
-              <div class="dash-card-title">AI Compliance Assistant</div>
-              <div class="dash-ai-user">
-                <div class="dash-ai-bubble dash-ai-bubble-user">Which clients should I prioritise this week?</div>
-              </div>
-              <div class="dash-ai-bot">
-                <div class="dash-ai-label">Amaea AI</div>
-                <div class="dash-ai-bubble dash-ai-bubble-bot">Your top priority is Margaret Thompson — annual review 14 months overdue. Robert Chen is next; vulnerable client with SOA missing.</div>
-              </div>
-            </div>
             <div class="dash-card">
               <div class="dash-card-title">Compliance Health</div>
-              <div style="display:flex;align-items:center;gap:12px;">
-                <div class="dash-donut-wrap">
-                  <svg viewBox="0 0 44 44" width="44" height="44" style="transform:rotate(-90deg);display:block;">
-                    <circle cx="22" cy="22" r="17" fill="none" stroke="var(--gray-200)" stroke-width="4"/>
-                    <circle cx="22" cy="22" r="17" fill="none" stroke="#F59E0B" stroke-width="4" stroke-dasharray="87.6 19.2" stroke-linecap="round"/>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div class="dash-donut-wrap" style="width:52px;height:52px;">
+                  <svg viewBox="0 0 44 44" width="52" height="52" style="transform:rotate(-90deg);display:block;">
+                    <circle cx="22" cy="22" r="17" fill="none" stroke="var(--gray-200)" stroke-width="5"/>
+                    <circle cx="22" cy="22" r="17" fill="none" stroke="#F59E0B" stroke-width="5" stroke-dasharray="75.4 31.4" stroke-linecap="round"/>
                   </svg>
-                  <div class="dash-donut-label">82</div>
+                  <div class="dash-donut-label" style="font-size:0.78rem;">71</div>
                 </div>
-                <div style="flex:1;min-width:0;">
+                <div style="flex:1;">
                   <div class="dash-bar-row">
-                    <div class="dash-bar-label"><span>Documentation</span><span style="color:#F59E0B;font-weight:700;">61%</span></div>
-                    <div class="dash-bar"><div class="dash-bar-fill" style="width:61%;background:#F59E0B;"></div></div>
+                    <div class="dash-bar-label"><span>Docs</span><span style="color:#EF4444;font-weight:700;">61%</span></div>
+                    <div class="dash-bar"><div class="dash-bar-fill" style="width:61%;background:#EF4444;"></div></div>
                   </div>
                   <div class="dash-bar-row">
-                    <div class="dash-bar-label"><span>Annual Reviews</span><span style="color:#F59E0B;font-weight:700;">74%</span></div>
+                    <div class="dash-bar-label"><span>Reviews</span><span style="color:#F59E0B;font-weight:700;">74%</span></div>
                     <div class="dash-bar"><div class="dash-bar-fill" style="width:74%;background:#F59E0B;"></div></div>
                   </div>
                   <div class="dash-bar-row" style="margin-bottom:0;">
@@ -170,18 +160,33 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="dash-card" style="grid-column:1/-1;">
-            <div class="dash-card-title">Priority Flags</div>
-            <div class="dash-risk-row">
-              <div class="dash-risk-dot" style="background:#EF4444;"></div>
-              <div class="dash-risk-text">CLI-0047 Margaret Thompson · Annual review 14 months overdue</div>
-              <div class="dash-risk-badge" style="background:#FEF2F2;color:#DC2626;">CRITICAL</div>
+            <div class="dash-card">
+              <div class="dash-card-title">Priority Flags</div>
+              <div class="dash-risk-row">
+                <div class="dash-risk-dot" style="background:#EF4444;"></div>
+                <div class="dash-risk-text">CLI-0047 Margaret Thompson · Review 14mo overdue</div>
+                <div class="dash-risk-badge" style="background:#FEF2F2;color:#DC2626;">CRITICAL</div>
+              </div>
+              <div class="dash-risk-row">
+                <div class="dash-risk-dot" style="background:#F59E0B;"></div>
+                <div class="dash-risk-text">CLI-0089 Robert Chen · Vulnerable, SOA missing</div>
+                <div class="dash-risk-badge" style="background:#FFFBEB;color:#D97706;">HIGH</div>
+              </div>
+              <div class="dash-risk-row" style="border-bottom:none;">
+                <div class="dash-risk-dot" style="background:#F59E0B;"></div>
+                <div class="dash-risk-text">CLI-0132 Priya Singh · Pension transfer, no suitability report</div>
+                <div class="dash-risk-badge" style="background:#FFFBEB;color:#D97706;">HIGH</div>
+              </div>
             </div>
-            <div class="dash-risk-row">
-              <div class="dash-risk-dot" style="background:#F59E0B;"></div>
-              <div class="dash-risk-text">CLI-0089 Robert Chen · Vulnerable client, SOA missing</div>
-              <div class="dash-risk-badge" style="background:#FFFBEB;color:#D97706;">HIGH</div>
+          </div>
+          <div class="dash-card" style="display:flex;flex-direction:column;gap:8px;">
+            <div class="dash-card-title">AI Compliance Assistant</div>
+            <div class="dash-ai-user">
+              <div class="dash-ai-bubble dash-ai-bubble-user">Which clients should I prioritise this week?</div>
+            </div>
+            <div class="dash-ai-bot">
+              <div class="dash-ai-label">Amaea AI · RAG</div>
+              <div class="dash-ai-bubble dash-ai-bubble-bot">Margaret Thompson is your most urgent case — 14 months overdue is an active COBS 9.5 breach. Robert Chen is next: vulnerable client, overdue review, and missing Consumer Duty documentation is the highest-risk combination under PS22/9.</div>
             </div>
           </div>
         </div>
@@ -393,8 +398,16 @@
           <div class="ai-example">"What are my priorities before the RMAR deadline?"</div>
         </div>
       </div>
-      <div class="ai-chat-demo" id="ai-chat-demo">
-        <div class="ai-chat-title">Amaea AI</div>
+      <div class="ai-chat-wrap">
+        <div class="ai-chat-demo" id="ai-chat-demo">
+          <div class="ai-chat-title">Amaea AI</div>
+        </div>
+        <div class="ai-demo-input-wrap">
+          <input class="ai-demo-input" type="text" id="ai-demo-input" placeholder="Ask about your compliance book…" autocomplete="off" maxlength="200">
+          <button class="ai-demo-send-btn" id="ai-demo-send" aria-label="Send">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -403,73 +416,65 @@
 <!-- ── Stats ────────────────────────────────────────────────── -->
 <section class="stats">
   <div class="container text-center">
-    <div class="section-label">By the numbers</div>
-    <h2 class="section-title">Built for firms that take compliance seriously.</h2>
+    <div class="section-label">The platform</div>
+    <h2 class="section-title">Built on the detail that matters.</h2>
     <div class="stats-grid fade-up">
       <div class="stat-item">
-        <div class="stat-value">18+</div>
-        <div class="stat-label">overdue annual reviews surfaced on average within the first week</div>
+        <div class="stat-value">82</div>
+        <div class="stat-label">FCA handbook sections mapped into Amaea's compliance engine</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value">82%</div>
-        <div class="stat-label">average compliance health score across Amaea firms</div>
+        <div class="stat-value">&lt;2 min</div>
+        <div class="stat-label">to surface a full compliance picture across your entire client book</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value">3 hrs</div>
-        <div class="stat-label">saved per adviser per week on compliance administration</div>
+        <div class="stat-value">Nightly</div>
+        <div class="stat-label">automated data sync with all connected integrations</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value">100%</div>
-        <div class="stat-label">of Amaea firms passed their FCA audit with no major findings</div>
+        <div class="stat-value">Live</div>
+        <div class="stat-label">compliance scoring updated in real time as client records change</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Testimonials ─────────────────────────────────────────── -->
+<!-- ── Research quotes ───────────────────────────────────────── -->
 <section class="testimonials">
   <div class="container">
     <div class="text-center">
-      <div class="section-label">Client stories</div>
-      <h2 class="section-title">Trusted by compliance teams who can't afford mistakes.</h2>
+      <div class="section-label">What firms tell us</div>
+      <h2 class="section-title">The same problems. Every firm. Every week.</h2>
+      <p class="section-sub" style="margin:14px auto 0;max-width:560px;">These are direct quotes from compliance officers and directors we spoke to while building Amaea. They describe the problems our platform was built to solve.</p>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card fade-up fade-up-1">
-        <div class="testimonial-stars">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p class="testimonial-quote">"Amaea caught 18 overdue annual reviews we didn't even know about. The FCA examiner would have found every single one of them. It's genuinely changed how we run compliance."</p>
+        <p class="testimonial-quote">"Our annual reviews exist in three places: Intelliflo, a SharePoint folder the adviser manages, and an Excel sheet from 2019. None of them match each other."</p>
         <div class="testimonial-author">
-          <div class="testimonial-avatar">JM</div>
+          <div class="testimonial-avatar">CO</div>
           <div>
-            <div class="testimonial-name">James Morrison</div>
-            <div class="testimonial-role">Head of Compliance, Oakridge Wealth</div>
+            <div class="testimonial-name">Compliance Officer</div>
+            <div class="testimonial-role">Boutique IFA firm, South East England</div>
           </div>
         </div>
       </div>
       <div class="testimonial-card fade-up fade-up-2">
-        <div class="testimonial-stars">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p class="testimonial-quote">"Consumer Duty documentation used to take my team three full days to pull together for the board. With Amaea it's automated. We get a report in minutes."</p>
+        <p class="testimonial-quote">"Consumer Duty documentation is the thing that keeps me up at night. The FCA wants evidence we assessed fair outcomes for every client. Right now I can't prove that."</p>
         <div class="testimonial-author">
-          <div class="testimonial-avatar">SK</div>
+          <div class="testimonial-avatar">CD</div>
           <div>
-            <div class="testimonial-name">Sarah Khan</div>
-            <div class="testimonial-role">Compliance Director, Sterling IFA</div>
+            <div class="testimonial-name">Compliance Director</div>
+            <div class="testimonial-role">Multi-adviser practice, Midlands</div>
           </div>
         </div>
       </div>
       <div class="testimonial-card fade-up fade-up-3">
-        <div class="testimonial-stars">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p class="testimonial-quote">"The AI assistant is remarkable. I can ask it about any client or deadline in plain English and get an instant, accurate answer. It's like having a compliance officer on call 24/7."</p>
+        <p class="testimonial-quote">"RMAR filing is a two-week project. Two weeks of chasing advisers for data that should already be in the system. It happens every year and every year it's the same chaos."</p>
         <div class="testimonial-author">
-          <div class="testimonial-avatar">AR</div>
+          <div class="testimonial-avatar">MD</div>
           <div>
-            <div class="testimonial-name">Alex Roberts</div>
-            <div class="testimonial-role">Managing Partner, Meridian Financial</div>
+            <div class="testimonial-name">Managing Director</div>
+            <div class="testimonial-role">Network AR firm, Yorkshire</div>
           </div>
         </div>
       </div>
