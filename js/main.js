@@ -121,13 +121,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── Contact form ─────────────────────────────────────────
+  // ── Contact form — Formsubmit.co ─────────────────────────
   const contactForm = document.getElementById('demo-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      contactForm.style.display = 'none';
-      document.getElementById('form-success')?.style.setProperty('display', 'block');
+      const btn = contactForm.querySelector('.form-submit');
+      const originalText = btn?.textContent;
+      if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/amaea0002@gmail.com', {
+          method:  'POST',
+          headers: { 'Accept': 'application/json' },
+          body:    new FormData(contactForm),
+        });
+        const json = await res.json();
+        if (json.success === 'true' || json.success === true) {
+          contactForm.style.display = 'none';
+          const success = document.getElementById('form-success');
+          if (success) { success.style.removeProperty('display'); success.style.display = 'block'; }
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch {
+        if (btn) { btn.textContent = originalText; btn.disabled = false; }
+        alert('Something went wrong. Please email us directly at amaea0002@gmail.com');
+      }
     });
   }
 
