@@ -466,6 +466,35 @@ section { padding: var(--section-py) 0; }
 .dash-bar { height: 3px; background: var(--gray-200); border-radius: 99px; overflow: hidden; }
 .dash-bar-fill { height: 100%; border-radius: 99px; }
 
+/* ── Hero preview glow ─────────────────────────────────────── */
+.hero-preview-glow {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.hero-preview-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--r-xl) + 2px);
+  background: linear-gradient(135deg, rgba(64,36,63,0.28) 0%, rgba(139,97,137,0.12) 50%, rgba(64,36,63,0.04) 100%);
+  filter: blur(16px);
+  z-index: -1;
+  transform: translateY(10px) scale(0.98);
+}
+.hero-preview { box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset, var(--sh-xl); max-width: none; margin: 0; }
+
+/* ── Dash risk flags ────────────────────────────────────────── */
+.dash-risk-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 0; border-bottom: 1px solid var(--gray-200);
+  font-size: 0.6rem;
+}
+.dash-risk-row:last-child { border-bottom: none; }
+.dash-risk-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.dash-risk-text { flex: 1; color: var(--gray-600); min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dash-risk-badge { font-size: 0.52rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+
 /* ── Trust bar ─────────────────────────────────────────────── */
 .trust-bar {
   padding: 18px 0 22px;
@@ -1365,6 +1394,22 @@ section { padding: var(--section-py) 0; }
 [data-theme="dark"] .amaea-help-card { background: var(--gray-50); border-color: var(--gray-200); }
 [data-theme="dark"] .amaea-help-card:hover { border-color: rgba(122,63,121,0.4); }
 @media (max-width: 768px) { .amaea-help-grid { grid-template-columns: 1fr; } }
+
+/* ── Legal pages ─────────────────────────────────────────────── */
+.legal-content { max-width: 700px; margin: 0 auto; font-size: 0.92rem; color: var(--gray-600); line-height: 1.82; }
+.legal-content h2, .legal-content h3 { font-size: 1.1rem; font-weight: 700; color: var(--gray-900); letter-spacing: -0.02em; margin: 36px 0 10px; }
+.legal-content h2:first-child, .legal-content h3:first-child { margin-top: 0; }
+.legal-content p { margin-bottom: 28px; }
+.legal-content ul { padding-left: 20px; margin-bottom: 28px; }
+.legal-content li { margin-bottom: 6px; }
+.legal-content a { color: var(--plum); }
+.legal-content a:hover { text-decoration: underline; }
+[data-theme="dark"] .legal-content h2,
+[data-theme="dark"] .legal-content h3 { color: var(--gray-900); }
+
+/* ── Blog responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) { .blog-featured { grid-template-columns: 1fr !important; } }
+@media (max-width: 768px) { .blog-grid-inner { grid-template-columns: 1fr !important; max-width: 480px; margin: 0 auto; } }
 
 /* ── Blog cards ──────────────────────────────────────────────── */
 .blog-card {
