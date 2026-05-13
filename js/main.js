@@ -68,29 +68,18 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeEls.forEach(el => el.classList.add('visible'));
   }
 
-  // ── Stat counter animation ────────────────────────────────
-  function animateCounter(el) {
-    const raw = el.textContent.trim();
-    const target = parseFloat(raw.replace(/[^0-9.]/g, ''));
-    if (!target || isNaN(target)) return;
-    const prefix = raw.match(/^[^0-9]*/)?.[0] ?? '';
-    const suffix = raw.replace(/^[^0-9]*[0-9.]+/, '');
-    const isInt  = Number.isInteger(target);
-    const duration = 1800;
-    const start = performance.now();
-    function step(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = target * eased;
-      el.textContent = prefix + (isInt ? Math.round(current) : current.toFixed(1)) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
+  // ── Stat fade + scale animation ─────────────────────────────
   if ('IntersectionObserver' in window) {
     const statObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); statObs.unobserve(e.target); } });
-    }, { threshold: 0.5 });
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          const idx = [...document.querySelectorAll('.stat-item')].indexOf(e.target.closest('.stat-item'));
+          const delay = (idx >= 0 ? idx : 0) * 100;
+          setTimeout(() => { e.target.classList.add('stat-visible'); }, delay);
+          statObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
     document.querySelectorAll('.stat-value').forEach(el => statObs.observe(el));
   }
 
