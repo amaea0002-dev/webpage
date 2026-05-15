@@ -7,7 +7,7 @@
   <meta name="description" content="Join the Amaea Founders Programme. 200 spots. 20% off your plan for life. Early access to the FCA compliance platform built for UK financial advisers.">
   <script>
   (function(){
-    var valid=['sp-advanced','robin-powell','cisi','intelliflo'];
+    var valid=['fp-advance','robin-powell','cisi','intelliflo'];
     var ref=new URLSearchParams(window.location.search).get('ref');
     if(!ref||!valid.includes(ref))window.location.replace('waitlist.html');
   })();
@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <script>(function(){var t=localStorage.getItem('amaea-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <script>(function(){var t=localStorage.getItem('amaea-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();</script>
 </head>
 <body>
 <!-- ── Launch banner ──────────────────────────────────────── -->
@@ -108,7 +108,7 @@
           <svg width="22" height="22" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <h3>Direct line to the team</h3>
-        <p>Weekly calls with Milan and Hasna during the beta period. Your feedback goes directly into the product, not a support queue.</p>
+        <p>Weekly calls with the team during the beta period. Your feedback goes directly into the product, not a support queue.</p>
       </div>
       <div class="founders-benefit fade-up fade-up-4">
         <div class="founders-benefit-icon">
@@ -290,9 +290,9 @@
           <div class="quiz-q">How many FCA-regulated advisers are at your firm?</div>
           <div class="quiz-options">
             <button class="quiz-option" data-score="1"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Just me (sole adviser)</button>
-            <button class="quiz-option" data-score="1.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>2–3 advisers</button>
-            <button class="quiz-option" data-score="2"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>4–8 advisers</button>
-            <button class="quiz-option" data-score="3"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>9–20 advisers</button>
+            <button class="quiz-option" data-score="1.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>2-3 advisers</button>
+            <button class="quiz-option" data-score="2"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>4-8 advisers</button>
+            <button class="quiz-option" data-score="3"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>9-20 advisers</button>
             <button class="quiz-option" data-score="4"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>21 or more</button>
           </div>
           <div class="quiz-nav"><span></span><button class="btn btn-primary btn-sm quiz-next" disabled>Next →</button></div>
@@ -303,8 +303,8 @@
           <div class="quiz-q">How many active clients does your firm manage?</div>
           <div class="quiz-options">
             <button class="quiz-option" data-score="1"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Fewer than 100</button>
-            <button class="quiz-option" data-score="2"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>100–350</button>
-            <button class="quiz-option" data-score="3"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>350–1,000</button>
+            <button class="quiz-option" data-score="2"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>100-350</button>
+            <button class="quiz-option" data-score="3"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>350-1,000</button>
             <button class="quiz-option" data-score="4"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Over 1,000</button>
           </div>
           <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next →</button></div>
@@ -384,9 +384,9 @@
           <input class="form-input full" type="text" placeholder="FCA firm reference number (optional)">
           <select class="form-input full" required>
             <option value="" disabled selected>Number of advisers</option>
-            <option>1–3</option>
-            <option>4–10</option>
-            <option>11–25</option>
+            <option>1-3</option>
+            <option>4-10</option>
+            <option>11-25</option>
             <option>25+</option>
           </select>
           <select class="form-input full" required>
@@ -445,7 +445,7 @@
       <div class="footer-col">
         <h4>Early Access</h4>
         <a href="waitlist.html">Join the waitlist</a>
-        <a href="founders.html?ref=sp-advanced">SP Advanced Founders</a>
+        <a href="founders.html?ref=fp-advance">FP Advance Founders</a>
         <a href="founders.html?ref=robin-powell">Robin Powell Founders</a>
         <a href="founders.html?ref=cisi">CISI Founders</a>
         <a href="founders.html?ref=intelliflo">Intelliflo Founders</a>
@@ -466,10 +466,10 @@
 <script src="js/main.js"></script>
 <script>
 const REFS = {
-  'sp-advanced': {
-    source: 'SP Advanced Conference',
-    intro: 'You attended SP Advanced 2026, where Amaea was introduced to a select group of advisers. This Founder invitation is for people in that room, one of 200 spots reserved for SP Advanced attendees.',
-    cta: 'Claim your SP Advanced Founder spot'
+  'fp-advance': {
+    source: 'FP Advance Conference',
+    intro: 'You attended FP Advance 2026, where Amaea was introduced to a select group of advisers. This Founder invitation is for people in that room, one of 200 spots reserved for FP Advance attendees.',
+    cta: 'Claim your FP Advance Founder spot'
   },
   'robin-powell': {
     source: 'Robin Powell',

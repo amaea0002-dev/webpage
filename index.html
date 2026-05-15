@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <script>(function(){var t=localStorage.getItem('amaea-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <script>(function(){var t=localStorage.getItem('amaea-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();</script>
 </head>
 <body>
 
@@ -76,7 +76,7 @@
         <div class="browser-dots"><span></span><span></span><span></span></div>
         <div class="browser-url">app.amaea.io/dashboard</div>
       </div>
-      <!-- Real app screenshot — drop assets/app-dashboard.png to activate -->
+      <!-- Real app screenshot - drop assets/app-dashboard.png to activate -->
       <img
         src="assets/app-dashboard.png"
         alt="Amaea compliance dashboard"
@@ -84,8 +84,8 @@
         onerror="this.style.display='none';document.getElementById('hero-mockup').style.display='grid';"
       >
       <div class="dash-preview" id="hero-mockup" style="display:none;">
-        <!-- Fallback HTML mockup — shown only if screenshot missing -->
-        <!-- Sidebar — matches real app -->
+        <!-- Fallback HTML mockup - shown only if screenshot missing -->
+        <!-- Sidebar - matches real app -->
         <div class="dash-sidebar">
           <div class="dash-sidebar-logo">
             <img src="assets/logo-white.png" alt="Amaea">
@@ -125,7 +125,7 @@
             <span class="dash-title">Compliance Dashboard</span>
             <div style="display:flex;align-items:center;gap:8px;">
               <div style="width:6px;height:6px;border-radius:50%;background:#10B981;"></div>
-              <span style="font-size:0.6rem;color:#9088A3;font-weight:500;">Sterling IFA Ltd</span>
+              <span style="font-size:0.6rem;color:#9088A3;font-weight:500;">the model firm we built Amaea against</span>
             </div>
           </div>
           <div class="dash-metrics">
@@ -203,7 +203,7 @@
             </div>
             <div class="dash-ai-bot">
               <div class="dash-ai-label">Amaea AI · RAG</div>
-              <div class="dash-ai-bubble dash-ai-bubble-bot">Margaret Thompson is your most urgent case — 14 months overdue is an active COBS 9.5 breach. Robert Chen is next: vulnerable client, overdue review, and missing Consumer Duty documentation is the highest-risk combination under PS22/9.</div>
+              <div class="dash-ai-bubble dash-ai-bubble-bot">Margaret Thompson is your most urgent case - 14 months overdue is an active COBS 9.5 breach. Robert Chen is next: vulnerable client, overdue review, and missing Consumer Duty documentation is the highest-risk combination under PS22/9.</div>
             </div>
           </div>
         </div>
@@ -260,7 +260,7 @@
           <span class="story-ts">Robert Chen · Annual review</span>
         </div>
         <p class="story-headline">Blank.</p>
-        <p class="story-detail">You ask the admin team. They think it was booked for the 3rd of June, six weeks ago. You call the adviser and find out that booking was cancelled, moved to the 23rd of June. The review happened — but what was the outcome? Is the suitability report on file?</p>
+        <p class="story-detail">You ask the admin team. They think it was booked for the 3rd of June, six weeks ago. You call the adviser and find out that booking was cancelled, moved to the 23rd of June. The review happened - but what was the outcome? Is the suitability report on file?</p>
         <p class="story-statement">Nothing in the system to show it ever happened, let alone the suitability report.</p>
       </div>
 
@@ -400,10 +400,10 @@
         <div class="ai-guardrails">
           <p class="ai-guardrails-title">How Amaea AI stays accurate</p>
           <ul class="ai-guardrails-list">
-            <li>Every answer is grounded in <strong>your firm's live data</strong> + the indexed FCA Handbook — never the LLM's general training</li>
+            <li>Every answer is grounded in <strong>your firm's live data</strong> + the indexed FCA Handbook - never the LLM's general training</li>
             <li>FCA rule references are cited from a <strong>retrieval corpus of 11,645 chunks</strong> (Handbook + Final Notices + Dear CEO + Policy Statements + Thematic Reviews)</li>
             <li>Your firm's data is <strong>never used to train any model</strong>. Anthropic Claude is API-called per request only</li>
-            <li>If the AI doesn't have a confident answer, it says so explicitly — no fabricated rule citations</li>
+            <li>If the AI doesn't have a confident answer, it says so explicitly - no fabricated rule citations</li>
             <li>50-scenario evaluation suite runs continuously against every model release</li>
           </ul>
         </div>
@@ -428,8 +428,8 @@
   <div class="container">
     <div class="text-center">
       <div class="section-label">What it looks like in a working firm</div>
-      <h2 class="section-title">Sterling IFA Ltd · the firm we built Amaea against.</h2>
-      <p class="section-sub" style="margin:14px auto 0;max-width:620px;">A 3-adviser boutique IFA practice modelled on the real shape of UK IFA firms. We use it to test every feature against real-world data complexity. <strong>These are real Amaea numbers, computed live — your firm's will be different.</strong> Real customer outcomes will appear here after public launch.</p>
+      <h2 class="section-title">the model firm we built Amaea against · the firm we built Amaea against.</h2>
+      <p class="section-sub" style="margin:14px auto 0;max-width:620px;">A 3-adviser boutique IFA practice modelled on the real shape of UK IFA firms. We use it to test every feature against real-world data complexity. <strong>These are real Amaea numbers, computed live - your firm's will be different.</strong> Real customer outcomes will appear here after public launch.</p>
     </div>
     <div class="stats-grid fade-up" style="margin-top:44px;">
       <div class="stat-item">
@@ -449,7 +449,7 @@
         <div class="stat-label">Document completeness against the required 19 IFA compliance types</div>
       </div>
     </div>
-    <p class="section-footnote" style="text-align:center;margin-top:32px;font-size:0.84rem;color:var(--gray-500);">Want to see your own firm's numbers? <a href="contact.html" style="color:var(--plum);font-weight:600;">Book a demo</a> — we'll spin up a sandbox seeded with your client structure.</p>
+    <p class="section-footnote" style="text-align:center;margin-top:32px;font-size:0.84rem;color:var(--gray-500);">Want to see your own firm's numbers? <a href="contact.html" style="color:var(--plum);font-weight:600;">Book a demo</a> - we'll spin up a sandbox seeded with your client structure.</p>
   </div>
 </section>
 
@@ -459,7 +459,7 @@
     <div class="text-center">
       <div class="section-label">Security &amp; data</div>
       <h2 class="section-title">Built for the data IFAs handle.</h2>
-      <p class="section-sub" style="margin:14px auto 0;max-width:600px;">Amaea handles regulated client data. Here's exactly how we protect it — and why an FCA-supervised firm can trust us to.</p>
+      <p class="section-sub" style="margin:14px auto 0;max-width:600px;">Amaea handles regulated client data. Here's exactly how we protect it - and why an FCA-supervised firm can trust us to.</p>
     </div>
     <div class="security-grid">
       <div class="security-card">
@@ -481,7 +481,7 @@
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
         <h3>Multi-tenant isolation</h3>
-        <p>Row Level Security enforced at the database layer. Every record carries a firm ID and the database — not application code — refuses cross-firm reads.</p>
+        <p>Row Level Security enforced at the database layer. Every record carries a firm ID and the database - not application code - refuses cross-firm reads.</p>
       </div>
       <div class="security-card">
         <div class="security-icon">
@@ -747,7 +747,7 @@
       <div class="footer-col">
         <h4>Early Access</h4>
         <a href="waitlist.html">Join the waitlist</a>
-        <a href="founders.html?ref=sp-advanced">SP Advanced Founders</a>
+        <a href="founders.html?ref=fp-advance">FP Advance Founders</a>
         <a href="founders.html?ref=robin-powell">Robin Powell Founders</a>
         <a href="founders.html?ref=cisi">CISI Founders</a>
         <a href="founders.html?ref=intelliflo">Intelliflo Founders</a>
