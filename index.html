@@ -12,6 +12,15 @@
 </head>
 <body>
 
+<!-- ── Launch banner ──────────────────────────────────────── -->
+<div class="launch-banner">
+  <div class="launch-banner-inner">
+    <span class="launch-banner-pill">Public launch · September 2028</span>
+    <span class="launch-banner-text">Founders Programme is <strong>invite-only</strong></span>
+    <a href="waitlist.html" class="launch-banner-cta">Join the waitlist →</a>
+  </div>
+</div>
+
 <!-- ── Navigation ──────────────────────────────────────────── -->
 <nav class="nav">
   <div class="nav-inner">
@@ -205,36 +214,25 @@
   </div>
 </section>
 
-<!-- ── Trust bar ────────────────────────────────────────────── -->
-<div class="trust-bar">
-  <p class="trust-label">Trusted by compliance teams across the UK</p>
-  <div class="trust-marquee-wrap">
-    <div class="trust-marquee">
-      <span class="trust-logo">Oakridge Wealth</span>
-      <span class="trust-logo">Sterling IFA</span>
-      <span class="trust-logo">Meridian Financial</span>
-      <span class="trust-logo">Hallmark Advisory</span>
-      <span class="trust-logo">Citadel Planning</span>
-      <span class="trust-logo">Thornfield Wealth</span>
-      <span class="trust-logo">Apex Financial</span>
-      <span class="trust-logo">Brockway &amp; Partners</span>
-      <span class="trust-logo">Pemberton Financial</span>
-      <span class="trust-logo">Beaumont Advisory</span>
-      <span class="trust-logo">Regent Wealth</span>
-      <span class="trust-logo">Clifton Financial</span>
-      <!-- duplicate set for seamless loop -->
-      <span class="trust-logo">Oakridge Wealth</span>
-      <span class="trust-logo">Sterling IFA</span>
-      <span class="trust-logo">Meridian Financial</span>
-      <span class="trust-logo">Hallmark Advisory</span>
-      <span class="trust-logo">Citadel Planning</span>
-      <span class="trust-logo">Thornfield Wealth</span>
-      <span class="trust-logo">Apex Financial</span>
-      <span class="trust-logo">Brockway &amp; Partners</span>
-      <span class="trust-logo">Pemberton Financial</span>
-      <span class="trust-logo">Beaumont Advisory</span>
-      <span class="trust-logo">Regent Wealth</span>
-      <span class="trust-logo">Clifton Financial</span>
+<!-- ── Substance bar ────────────────────────────────────────── -->
+<div class="substance-bar">
+  <p class="substance-label">Built on the detail UK IFA firms actually need</p>
+  <div class="substance-grid">
+    <div class="substance-stat">
+      <span class="substance-num">11,645</span>
+      <span class="substance-stat-label">FCA Handbook + publications indexed for retrieval</span>
+    </div>
+    <div class="substance-stat">
+      <span class="substance-num">19</span>
+      <span class="substance-stat-label">IFA compliance document types auto-extracted</span>
+    </div>
+    <div class="substance-stat">
+      <span class="substance-num">50</span>
+      <span class="substance-stat-label">FCA scenarios in our continuous evaluation suite</span>
+    </div>
+    <div class="substance-stat">
+      <span class="substance-num">EU-West</span>
+      <span class="substance-stat-label">All client data hosted in Ireland · UK GDPR</span>
     </div>
   </div>
 </div>
@@ -399,11 +397,15 @@
         <div class="section-label">Amaea AI</div>
         <h2 class="section-title">Ask anything about your compliance book.</h2>
         <p class="section-sub">Your AI compliance assistant knows every client, every document, and every deadline. Ask it anything, in plain English.</p>
-        <div class="ai-examples">
-          <div class="ai-example">"Which clients should I prioritise this week?"</div>
-          <div class="ai-example">"What's missing for Robert Chen?"</div>
-          <div class="ai-example">"How many vulnerable clients need Consumer Duty documentation?"</div>
-          <div class="ai-example">"What are my priorities before the RMAR deadline?"</div>
+        <div class="ai-guardrails">
+          <p class="ai-guardrails-title">How Amaea AI stays accurate</p>
+          <ul class="ai-guardrails-list">
+            <li>Every answer is grounded in <strong>your firm's live data</strong> + the indexed FCA Handbook — never the LLM's general training</li>
+            <li>FCA rule references are cited from a <strong>retrieval corpus of 11,645 chunks</strong> (Handbook + Final Notices + Dear CEO + Policy Statements + Thematic Reviews)</li>
+            <li>Your firm's data is <strong>never used to train any model</strong>. Anthropic Claude is API-called per request only</li>
+            <li>If the AI doesn't have a confident answer, it says so explicitly — no fabricated rule citations</li>
+            <li>50-scenario evaluation suite runs continuously against every model release</li>
+          </ul>
         </div>
       </div>
       <div class="ai-chat-wrap">
@@ -423,27 +425,87 @@
 
 <!-- ── Stats ────────────────────────────────────────────────── -->
 <section class="stats">
-  <div class="container text-center">
-    <div class="section-label">The platform</div>
-    <h2 class="section-title">Built on the detail that matters.</h2>
-    <div class="stats-grid fade-up">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">What it looks like in a working firm</div>
+      <h2 class="section-title">Sterling IFA Ltd · the firm we built Amaea against.</h2>
+      <p class="section-sub" style="margin:14px auto 0;max-width:620px;">A 3-adviser boutique IFA practice modelled on the real shape of UK IFA firms. We use it to test every feature against real-world data complexity. <strong>These are real Amaea numbers, computed live — your firm's will be different.</strong> Real customer outcomes will appear here after public launch.</p>
+    </div>
+    <div class="stats-grid fade-up" style="margin-top:44px;">
       <div class="stat-item">
-        <div class="stat-value">82</div>
-        <div class="stat-label">FCA handbook sections mapped into Amaea's compliance engine</div>
+        <div class="stat-value">88<span style="font-size:0.55em;color:var(--gray-400);">/100</span></div>
+        <div class="stat-label">Live compliance health score · computed from doc completeness, review status, and open flag severity</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value">&lt;2 min</div>
-        <div class="stat-label">to surface a full compliance picture across your entire client book</div>
+        <div class="stat-value">261</div>
+        <div class="stat-label">Active clients tracked across 3 advisers · every journey stage visible</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value">Nightly</div>
-        <div class="stat-label">automated data sync with all connected integrations</div>
+        <div class="stat-value">875</div>
+        <div class="stat-label">Completed reviews indexed with full audit trail · 98% completion rate</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value">Live</div>
-        <div class="stat-label">compliance scoring updated in real time as client records change</div>
+        <div class="stat-value">99%</div>
+        <div class="stat-label">Document completeness against the required 19 IFA compliance types</div>
       </div>
     </div>
+    <p class="section-footnote" style="text-align:center;margin-top:32px;font-size:0.84rem;color:var(--gray-500);">Want to see your own firm's numbers? <a href="contact.html" style="color:var(--plum);font-weight:600;">Book a demo</a> — we'll spin up a sandbox seeded with your client structure.</p>
+  </div>
+</section>
+
+<!-- ── Security & Data ──────────────────────────────────────── -->
+<section class="security-section">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Security &amp; data</div>
+      <h2 class="section-title">Built for the data IFAs handle.</h2>
+      <p class="section-sub" style="margin:14px auto 0;max-width:600px;">Amaea handles regulated client data. Here's exactly how we protect it — and why an FCA-supervised firm can trust us to.</p>
+    </div>
+    <div class="security-grid">
+      <div class="security-card">
+        <div class="security-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>EU data residency</h3>
+        <p>All client data stored in EU-West (Ireland). No US transfer of personal data. Hosted on Supabase + Vercel EU regions.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </div>
+        <h3>UK GDPR &amp; DPA 2018</h3>
+        <p>Sub-processor list, DPIA, and Data Processing Agreement in preparation for public launch. Right-to-erasure pipelines built into the product.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>Multi-tenant isolation</h3>
+        <p>Row Level Security enforced at the database layer. Every record carries a firm ID and the database — not application code — refuses cross-firm reads.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Your data trains nothing</h3>
+        <p>Claude is API-called per request only. Voyage AI embeddings stay in your firm's isolated table. No model training on customer data, ever.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 12l3 3 7-7"/></svg>
+        </div>
+        <h3>Encryption</h3>
+        <p>TLS 1.3 in transit, AES-256 at rest. Document storage uses signed URLs with short expiry. Adviser auth via JWT with firm-scoped claims.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3>Append-only audit trail</h3>
+        <p>Compliance events stored with 7-year retention aligned to FCA SYSC 9. Every flag, review, and upload is timestamped and immutable.</p>
+      </div>
+    </div>
+    <p class="security-footnote">Security questionnaire, DPA, and sub-processor list in preparation. Email <a href="contact.html">us via the contact form</a> to be added to the early-disclosure list.</p>
   </div>
 </section>
 
