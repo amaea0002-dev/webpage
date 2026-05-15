@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── Contact form — Formsubmit.co ─────────────────────────
+  // ── Contact form → /api/demo (Resend) ────────────────────
   const contactForm = document.getElementById('demo-form');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
@@ -137,23 +137,31 @@ document.addEventListener('DOMContentLoaded', () => {
       const originalText = btn?.textContent;
       if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
 
+      // Convert FormData to a plain object so we can send JSON.
+      // Strip out formsubmit-only hidden fields (those prefixed with _).
+      const payload = {};
+      for (const [k, v] of new FormData(contactForm).entries()) {
+        if (k.startsWith('_')) continue;
+        payload[k] = v;
+      }
+
       try {
-        const res = await fetch('https://formsubmit.co/ajax/amaea0002@gmail.com', {
+        const res = await fetch('/api/demo', {
           method:  'POST',
-          headers: { 'Accept': 'application/json' },
-          body:    new FormData(contactForm),
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload),
         });
-        const json = await res.json();
-        if (json.success === 'true' || json.success === true) {
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.ok) {
           contactForm.style.display = 'none';
           const success = document.getElementById('form-success');
           if (success) { success.style.removeProperty('display'); success.style.display = 'block'; }
         } else {
-          throw new Error('Submission failed');
+          throw new Error(json.error || 'Submission failed');
         }
       } catch {
         if (btn) { btn.textContent = originalText; btn.disabled = false; }
-        alert('Something went wrong. Please email us directly at amaea0002@gmail.com');
+        alert('Something went wrong. Please email us directly at founders@amaea.co.uk');
       }
     });
   }
@@ -265,101 +273,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       runLoop();
     }
-  })();
-
-  // ── Live AI demo input ──────────────────────────────────────
-  (function () {
-    const demoInput = document.getElementById('ai-demo-input');
-    const demoSend  = document.getElementById('ai-demo-send');
-    const demoChat  = document.getElementById('ai-chat-demo');
-    if (!demoInput || !demoSend || !demoChat) return;
-
-    const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-    function addMsg(type, text) {
-      const wrap = document.createElement('div');
-      wrap.className = `ai-msg ai-msg-${type}`;
-      const bubble = document.createElement('div');
-      bubble.className = 'ai-bubble';
-      bubble.textContent = text;
-      wrap.appendChild(bubble);
-      if (type === 'bot') {
-        const lbl = document.createElement('div');
-        lbl.className = 'ai-msg-label';
-        lbl.textContent = 'Amaea AI · Just now';
-        wrap.appendChild(lbl);
-      }
-      demoChat.appendChild(wrap);
-      demoChat.scrollTop = demoChat.scrollHeight;
-      return bubble;
-    }
-
-    function addTyping() {
-      const wrap = document.createElement('div');
-      wrap.className = 'ai-msg ai-msg-bot';
-      wrap.innerHTML = '<div class="ai-bubble ai-typing"><span></span><span></span><span></span></div>';
-      demoChat.appendChild(wrap);
-      demoChat.scrollTop = demoChat.scrollHeight;
-      return wrap;
-    }
-
-    async function typeInto(bubble, text) {
-      bubble.classList.add('typing-cursor');
-      for (let i = 0; i < text.length; i++) {
-        bubble.textContent += text[i];
-        demoChat.scrollTop = demoChat.scrollHeight;
-        const pause = /[,.:;!?]/.test(text[i]) ? 56 : 13 + Math.random() * 8;
-        await sleep(pause);
-      }
-      bubble.classList.remove('typing-cursor');
-    }
-
-    async function sendLiveDemo() {
-      const q = demoInput.value.trim();
-      if (!q) return;
-      demoInput.value = '';
-      demoSend.disabled = true;
-      demoInput.disabled = true;
-
-      addMsg('user', q);
-      const typingEl = addTyping();
-
-      try {
-        const res = await fetch('https://amaea.vercel.app/api/public/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: q, firmName: 'Sterling IFA Ltd' })
-        });
-        const data = await res.json();
-        typingEl.remove();
-
-        const wrap = document.createElement('div');
-        wrap.className = 'ai-msg ai-msg-bot';
-        const bubble = document.createElement('div');
-        bubble.className = 'ai-bubble';
-        wrap.appendChild(bubble);
-        const lbl = document.createElement('div');
-        lbl.className = 'ai-msg-label';
-        lbl.textContent = 'Amaea AI · Just now';
-        wrap.appendChild(lbl);
-        demoChat.appendChild(wrap);
-
-        const text = data.reply || data.message || data.response || 'Something went wrong — please try again.';
-        await typeInto(bubble, text);
-      } catch {
-        typingEl.remove();
-        addMsg('bot', 'I\'m unable to reach the server right now. Try refreshing the page.');
-      }
-
-      demoSend.disabled = false;
-      demoInput.disabled = false;
-      demoInput.focus();
-    }
-
-    demoSend.addEventListener('click', sendLiveDemo);
-    demoInput.addEventListener('keydown', e => {
-      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendLiveDemo(); }
-    });
   })();
 
   // ── Integration partner auto-scroll ──────────────────────────

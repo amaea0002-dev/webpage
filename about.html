@@ -94,30 +94,32 @@
   </div>
 </section>
 
-<!-- Vision, Mission, Values -->
+<!-- Mission & Vision -->
+<style>
+  .purpose-block { max-width:720px; margin:0 auto; padding-left:32px; border-left:3px solid var(--plum); }
+  .purpose-block + .purpose-block { margin-top:56px; }
+  .purpose-label { font-size:0.72rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--plum); margin-bottom:14px; }
+  .purpose-statement { font-size:1.55rem; font-weight:700; line-height:1.4; letter-spacing:-0.025em; color:var(--gray-900); margin:0; }
+  @media (max-width:640px) {
+    .purpose-block { padding-left:24px; border-left-width:2px; }
+    .purpose-statement { font-size:1.2rem; }
+  }
+</style>
 <section style="padding:80px 0;background:var(--white);">
   <div class="container">
-    <div class="text-center" style="margin-bottom:52px;">
+    <div class="text-center" style="margin-bottom:56px;">
       <div class="section-label">Purpose</div>
       <h2 class="section-title">Why we exist.</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;max-width:960px;margin:0 auto;">
-      <div style="padding:36px;background:linear-gradient(135deg,#2D1A2C,#40243F);border-radius:16px;color:#fff;">
-        <div style="font-size:0.68rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:16px;">Vision</div>
-        <p style="font-size:1.1rem;font-weight:700;line-height:1.5;letter-spacing:-0.02em;margin:0;">A financial services industry where compliance protects every client and creates no burden for any firm.</p>
-      </div>
-      <div style="padding:36px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:16px;">
-        <div style="font-size:0.68rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray-400);margin-bottom:16px;">Mission</div>
-        <p style="font-size:1.1rem;font-weight:700;line-height:1.5;letter-spacing:-0.02em;color:var(--gray-900);margin:0;">To make regulatory compliance a property of systems, not a burden on people - starting with UK IFA firms.</p>
-      </div>
-      <div style="padding:36px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:16px;">
-        <div style="font-size:0.68rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray-400);margin-bottom:16px;">Values</div>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
-          <li style="font-size:0.88rem;font-weight:600;color:var(--gray-900);">Evidence-first - we build what advisers actually need, not what sounds good.</li>
-          <li style="font-size:0.88rem;font-weight:600;color:var(--gray-900);">Honest - no overpromising, no fabricated stats, no enterprise bloat.</li>
-          <li style="font-size:0.88rem;font-weight:600;color:var(--gray-900);">Built to last - compliance is not a feature, it is the product.</li>
-        </ul>
-      </div>
+
+    <div class="purpose-block">
+      <div class="purpose-label">Mission</div>
+      <p class="purpose-statement">To make regulatory compliance a property of systems, not a burden on people — starting with UK IFA firms.</p>
+    </div>
+
+    <div class="purpose-block">
+      <div class="purpose-label">Vision</div>
+      <p class="purpose-statement">A financial services industry where compliance protects every client and creates no burden for any firm.</p>
     </div>
   </div>
 </section>
