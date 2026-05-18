@@ -4,30 +4,42 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/*
+ * Palette aligned with the app's design tokens
+ * (amaea-app/src/lib/design/tokens.ts) and the intranet's intranet.css.
+ * All three Amaea surfaces (marketing site, intranet, product) share the
+ * same brand colours so the brand reads identically across every
+ * touchpoint. Change a colour token here, change it in tokens.ts and
+ * intranet.css too.
+ *
+ * Radius + shadow + layout tokens below stay marketing-specific
+ * (larger radii / heavier hero shadows are appropriate for landing
+ * pages) — only colour is forced into parity.
+ */
 :root {
-  --plum:        #40243F;
-  --plum-dark:   #2D1A2C;
+  --plum:        #40243F;   /* primary action / brand */
+  --plum-dark:   #2A1729;   /* token.plumDeep — sidebar bg in app + intranet */
   --plum-mid:    #5A3558;
-  --plum-soft:   #8B6189;
-  --plum-tint:   rgba(64,36,63,0.07);
-  --plum-border: rgba(64,36,63,0.14);
+  --plum-soft:   #6B5C7B;   /* token.ink3 — secondary plum-leaning text */
+  --plum-tint:   rgba(64,36,63,0.06);  /* token.plumSoft */
+  --plum-border: rgba(64,36,63,0.18);  /* token.plumRing */
   --plum-glow:   rgba(64,36,63,0.22);
 
   --white:    #FFFFFF;
-  --gray-50:  #F8F7FA;
-  --gray-100: #F2F0F5;
-  --gray-200: #E6E3EC;
-  --gray-300: #CCC8D6;
+  --gray-50:  #F9F8FA;             /* token.surface2 */
+  --gray-100: #F0EDF4;             /* token.lineSoft */
+  --gray-200: #E8E6ED;             /* token.line */
+  --gray-300: #D1CDD8;
   --gray-400: #A89DB8;
-  --gray-500: #8B809C;
-  --gray-600: #4A4260;
-  --gray-700: #322B45;
-  --gray-900: #16111E;
+  --gray-500: #9088A3;             /* token.mute */
+  --gray-600: #6B5C7B;             /* token.ink3 */
+  --gray-700: #3C354A;             /* token.ink2 */
+  --gray-900: #17131E;             /* token.ink */
 
-  --green:   #10B981;
-  --amber:   #F59E0B;
-  --red:     #EF4444;
-  --blue:    #3B82F6;
+  --green:   #059669;              /* token.green */
+  --amber:   #D97706;              /* token.amber */
+  --red:     #EF4444;              /* token.red */
+  --blue:    #2563EB;              /* token.blue */
 
   --font: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
 
@@ -329,7 +341,7 @@ section { padding: var(--section-py) 0; }
 /* ── Hero ──────────────────────────────────────────────────── */
 .hero {
   padding: 116px 0 96px;
-  background: linear-gradient(180deg, #F8F7FA 0%, #FFFFFF 60%);
+  background: linear-gradient(180deg, #F9F8FA 0%, #FFFFFF 60%);
   text-align: center;
   position: relative;
   overflow: hidden;
