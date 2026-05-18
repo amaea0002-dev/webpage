@@ -67,6 +67,10 @@
 
     <div class="wl-form-card" id="wl-form-wrap">
       <form class="wl-form" id="waitlist-form" novalidate>
+        <!-- Honeypot — real users leave this empty; bots fill it. Hidden from sighted users + screen readers. -->
+        <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+          <label>Company website (leave blank)<input type="text" name="company_url" tabindex="-1" autocomplete="off"></label>
+        </div>
         <div class="wl-fields">
           <input class="form-input" type="text" name="name" placeholder="Your name" required autocomplete="name">
           <input class="form-input" type="email" name="email" placeholder="Work email" required autocomplete="email">

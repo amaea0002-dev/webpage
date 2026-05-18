@@ -68,9 +68,10 @@
           <div class="contact-form-sub">Fill in your details and we'll be in touch within one business day to schedule a 30-minute walkthrough.</div>
 
           <form id="demo-form" novalidate>
-            <input type="hidden" name="_subject" value="New demo request - Amaea">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
+            <!-- Honeypot — real users leave this empty; bots fill it. Hidden from sighted users + screen readers. -->
+            <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+              <label>Company website (leave blank)<input type="text" name="company_url" tabindex="-1" autocomplete="off"></label>
+            </div>
             <div class="form-grid">
               <div class="form-group">
                 <label class="form-label" for="first-name">First name *</label>

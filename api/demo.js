@@ -4,6 +4,11 @@
 // submission as an email to founders@amaea.co.uk via the Resend HTTP API.
 // No package install required — uses native fetch.
 //
+// Defences against form spam:
+//   - Honeypot field "company_url" — hidden in HTML, bots fill it, real users don't
+//   - Best-effort per-IP rate limit (5 submissions per 10 min on a warm instance)
+//   - Cloudflare Bot Fight Mode is the primary edge defence (configured in CF)
+//
 // Env required:
 //   RESEND_API_KEY  — Resend account API key (re_...).
 // Env optional:
@@ -13,6 +18,28 @@
 
 const TO_DEFAULT   = 'founders@amaea.co.uk'
 const FROM_DEFAULT = 'Amaea Demo Requests <hello@amaea.co.uk>'
+
+const RATE_WINDOW_MS = 10 * 60 * 1000
+const RATE_MAX       = 5
+const ipHits = new Map()
+
+function clientIp(req) {
+  const fwd = req.headers['x-forwarded-for']
+  if (typeof fwd === 'string' && fwd.length) return fwd.split(',')[0].trim()
+  return req.headers['x-real-ip'] || req.socket?.remoteAddress || 'unknown'
+}
+
+function rateLimited(ip) {
+  const now = Date.now()
+  const hits = (ipHits.get(ip) || []).filter(t => now - t < RATE_WINDOW_MS)
+  if (hits.length >= RATE_MAX) {
+    ipHits.set(ip, hits)
+    return true
+  }
+  hits.push(now)
+  ipHits.set(ip, hits)
+  return false
+}
 
 function escapeHtml(s) {
   return String(s ?? '')
@@ -41,14 +68,21 @@ export default async function handler(req, res) {
     return res.status(500).json({ ok: false, error: 'Server misconfigured' })
   }
 
-  // Vercel parses application/json bodies automatically; multipart/form-data and
-  // urlencoded need manual parsing. The contact form sends FormData (multipart),
-  // but the frontend can also send JSON — accept both.
+  const ip = clientIp(req)
+  if (rateLimited(ip)) {
+    return res.status(429).json({ ok: false, error: 'Too many submissions. Please try again later.' })
+  }
+
   let body = req.body
   if (typeof body === 'string') {
     try { body = JSON.parse(body) } catch { body = {} }
   }
   if (!body || typeof body !== 'object') body = {}
+
+  // Honeypot — real users leave this empty. Silent 200 to avoid signalling.
+  if (String(body.company_url ?? '').trim()) {
+    return res.status(200).json({ ok: true })
+  }
 
   const firstName   = String(body.first_name   ?? '').trim()
   const lastName    = String(body.last_name    ?? '').trim()

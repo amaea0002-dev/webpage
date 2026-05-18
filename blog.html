@@ -141,12 +141,64 @@
       <div class="section-label" style="margin-bottom:16px;">Stay informed</div>
       <h2 style="font-size:1.5rem;font-weight:800;letter-spacing:-0.04em;color:var(--gray-900);margin-bottom:10px;">Get the Amaea compliance brief</h2>
       <p style="font-size:0.9rem;color:var(--gray-500);margin-bottom:28px;max-width:420px;margin-left:auto;margin-right:auto;">Monthly FCA regulatory updates, enforcement pattern analysis, and product news. No noise.</p>
-      <form style="display:flex;gap:10px;max-width:400px;margin:0 auto;" onsubmit="this.querySelector('button').textContent='Subscribed ✓';this.querySelector('button').disabled=true;this.querySelector('input').value='';event.preventDefault();fetch('https://formsubmit.co/ajax/hello@amaea.co.uk',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(this)});">
-        <input type="hidden" name="_subject" value="Blog newsletter signup - Amaea">
-        <input type="email" name="email" placeholder="your@firm.co.uk" required style="flex:1;padding:11px 16px;border:1px solid var(--gray-200);border-radius:var(--r-pill);font-size:0.85rem;background:var(--white);color:var(--gray-900);outline:none;font-family:inherit;">
-        <button type="submit" class="btn btn-primary" style="white-space:nowrap;">Subscribe</button>
+      <form id="newsletter-form" style="display:flex;gap:10px;max-width:400px;margin:0 auto;" novalidate>
+        <!-- Honeypot — real users leave this empty; bots fill it. Hidden from sighted users + screen readers. -->
+        <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+          <label>Company website (leave blank)<input type="text" name="company_url" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <input id="newsletter-email" type="email" name="email" placeholder="your@firm.co.uk" required style="flex:1;padding:11px 16px;border:1px solid var(--gray-200);border-radius:var(--r-pill);font-size:0.85rem;background:var(--white);color:var(--gray-900);outline:none;font-family:inherit;">
+        <button id="newsletter-submit" type="submit" class="btn btn-primary" style="white-space:nowrap;">Subscribe</button>
       </form>
+      <p id="newsletter-error" role="alert" aria-live="polite" style="display:none;margin-top:12px;font-size:0.8rem;color:#b91c1c;"></p>
     </div>
+    <script>
+      // Newsletter submission → /api/newsletter (Resend → founders@amaea.co.uk)
+      (function () {
+        var form    = document.getElementById('newsletter-form');
+        var input   = document.getElementById('newsletter-email');
+        var btn     = document.getElementById('newsletter-submit');
+        var errorEl = document.getElementById('newsletter-error');
+        if (!form || !input || !btn) return;
+        function showError(msg) { if (errorEl) { errorEl.textContent = msg; errorEl.style.display = 'block'; } }
+        function clearError()   { if (errorEl) errorEl.style.display = 'none'; }
+        input.addEventListener('input', clearError);
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          clearError();
+          var payload = {};
+          new FormData(form).forEach(function (v, k) { payload[k] = v; });
+          var email = (payload.email || '').toString().trim();
+          if (!email) { showError('Please enter your email.'); return; }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('That doesn’t look like a valid email address.'); return; }
+          var originalLabel = btn.textContent;
+          btn.disabled = true;
+          btn.textContent = 'Subscribing…';
+          fetch('/api/newsletter', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify(payload),
+          })
+            .then(function (res) { return res.json().catch(function () { return {}; }).then(function (json) { return { ok: res.ok, json: json }; }); })
+            .then(function (r) {
+              if (r.ok && r.json && r.json.ok) {
+                btn.textContent = 'Subscribed ✓';
+                input.value = '';
+              } else {
+                throw new Error((r.json && r.json.error) || 'Submission failed');
+              }
+            })
+            .catch(function (err) {
+              btn.disabled = false;
+              btn.textContent = originalLabel;
+              showError(
+                (err && err.message && err.message !== 'Submission failed')
+                  ? err.message
+                  : 'Something went wrong. Please try again, or email hello@amaea.co.uk.'
+              );
+            });
+        });
+      })();
+    </script>
 
   </div>
 </section>
