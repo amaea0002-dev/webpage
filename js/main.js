@@ -8,6 +8,58 @@
   document.documentElement.setAttribute('data-theme', t);
 })();
 
+// ── Cookie consent banner ───────────────────────────────────
+// UK GDPR + PECR: ask consent before setting non-essential cookies.
+// Currently the site sets ZERO non-essential cookies (no analytics yet),
+// but the banner is in place so any future analytics opt-in is gated.
+// "Reject" must be as easy to choose as "Accept" (ICO guidance).
+(function () {
+  var KEY = 'amaea-cookie-consent'
+  if (localStorage.getItem(KEY)) return  // user already chose
+  if (typeof document === 'undefined') return
+
+  function mount() {
+    if (document.getElementById('cookie-banner')) return  // already mounted
+    var html = '' +
+      '<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">' +
+        '<div class="cookie-banner-inner">' +
+          '<div class="cookie-banner-content">' +
+            '<p class="cookie-banner-title">Cookies on Amaea</p>' +
+            '<p class="cookie-banner-text">We use essential cookies to make this site work. We’d like to set optional cookies to help us improve it. You can change your mind any time. <a href="/privacy">Privacy policy</a>.</p>' +
+          '</div>' +
+          '<div class="cookie-banner-actions">' +
+            '<button type="button" class="btn btn-ghost btn-sm" id="cookie-reject">Reject optional</button>' +
+            '<button type="button" class="btn btn-primary btn-sm" id="cookie-accept">Accept all</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    var wrap = document.createElement('div')
+    wrap.innerHTML = html
+    document.body.appendChild(wrap.firstChild)
+
+    var banner = document.getElementById('cookie-banner')
+    requestAnimationFrame(function () { banner.classList.add('show') })
+
+    function dismiss(choice) {
+      try { localStorage.setItem(KEY, choice) } catch (e) { /* private mode */ }
+      banner.classList.remove('show')
+      setTimeout(function () { banner.remove() }, 250)
+      // Hook for future analytics — only load if user accepted.
+      if (choice === 'accepted' && typeof window.amaeaLoadAnalytics === 'function') {
+        window.amaeaLoadAnalytics()
+      }
+    }
+    document.getElementById('cookie-accept').addEventListener('click', function () { dismiss('accepted') })
+    document.getElementById('cookie-reject').addEventListener('click', function () { dismiss('rejected') })
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', mount)
+  } else {
+    mount()
+  }
+})()
+
 // ── Theme toggle ────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
   const handleTheme = () => {
