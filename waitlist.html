@@ -68,10 +68,10 @@
     <div class="wl-form-card" id="wl-form-wrap">
       <form class="wl-form" id="waitlist-form" novalidate>
         <div class="wl-fields">
-          <input class="form-input" type="text" placeholder="Your name" required>
-          <input class="form-input" type="email" placeholder="Work email" required>
-          <input class="form-input" type="text" placeholder="Firm name" required style="grid-column:span 2;">
-          <select class="form-input" style="grid-column:span 2;">
+          <input class="form-input" type="text" name="name" placeholder="Your name" required autocomplete="name">
+          <input class="form-input" type="email" name="email" placeholder="Work email" required autocomplete="email">
+          <input class="form-input" type="text" name="firm" placeholder="Firm name" required autocomplete="organization" style="grid-column:span 2;">
+          <select class="form-input" name="advisers" style="grid-column:span 2;">
             <option value="" disabled selected>Number of advisers</option>
             <option>1-3</option>
             <option>4-10</option>
@@ -79,7 +79,11 @@
             <option>25+</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary wl-submit">Join the waitlist</button>
+        <div class="wl-error" id="wl-error" role="alert" aria-live="polite" style="display:none;">
+          <svg class="wl-error-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span id="wl-error-text">Something went wrong. Please try again.</span>
+        </div>
+        <button type="submit" class="btn btn-primary wl-submit" id="wl-submit">Join the waitlist</button>
       </form>
     </div>
 
@@ -317,11 +321,83 @@
 </div>
 <script src="js/main.js"></script>
 <script>
-document.getElementById('waitlist-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  document.getElementById('wl-form-wrap').style.display = 'none';
-  document.getElementById('wl-success').style.display = 'flex';
-});
+// Waitlist submission → /api/waitlist (Resend → founders@amaea.co.uk)
+(function () {
+  var form     = document.getElementById('waitlist-form');
+  var wrap     = document.getElementById('wl-form-wrap');
+  var success  = document.getElementById('wl-success');
+  var errorEl  = document.getElementById('wl-error');
+  var errorTxt = document.getElementById('wl-error-text');
+  var submit   = document.getElementById('wl-submit');
+  if (!form || !submit) return;
+
+  function showError(msg) {
+    if (errorTxt) errorTxt.textContent = msg;
+    if (errorEl)  errorEl.style.display = 'flex';
+  }
+  function clearError() {
+    if (errorEl) errorEl.style.display = 'none';
+  }
+
+  // Clear the inline error as the user starts editing — feels responsive.
+  form.querySelectorAll('input, select').forEach(function (el) {
+    el.addEventListener('input', clearError);
+    el.addEventListener('change', clearError);
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearError();
+
+    // Lightweight client-side validation. Mirrors the server's checks
+    // so a user gets feedback before the round-trip.
+    var fd = new FormData(form);
+    var name  = (fd.get('name')  || '').toString().trim();
+    var email = (fd.get('email') || '').toString().trim();
+    var firm  = (fd.get('firm')  || '').toString().trim();
+    if (!name || !email || !firm) {
+      showError('Please fill in your name, work email, and firm name.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError('That doesn’t look like a valid email address.');
+      return;
+    }
+
+    var originalLabel = submit.textContent;
+    submit.disabled = true;
+    submit.textContent = 'Joining…';
+
+    var payload = {};
+    fd.forEach(function (v, k) { payload[k] = v; });
+
+    fetch('/api/waitlist', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload),
+    })
+      .then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (json) { return { ok: res.ok, json: json }; });
+      })
+      .then(function (r) {
+        if (r.ok && r.json && r.json.ok) {
+          if (wrap)    wrap.style.display    = 'none';
+          if (success) success.style.display = 'flex';
+        } else {
+          throw new Error((r.json && r.json.error) || 'Submission failed');
+        }
+      })
+      .catch(function (err) {
+        submit.disabled = false;
+        submit.textContent = originalLabel;
+        showError(
+          (err && err.message && err.message !== 'Submission failed')
+            ? err.message
+            : 'Something went wrong. Please try again, or email us at founders@amaea.co.uk.'
+        );
+      });
+  });
+})();
 </script>
 <script>
 (function () {

@@ -36,10 +36,17 @@
   --gray-700: #3C354A;             /* token.ink2 */
   --gray-900: #17131E;             /* token.ink */
 
-  --green:   #059669;              /* token.green */
-  --amber:   #D97706;              /* token.amber */
-  --red:     #EF4444;              /* token.red */
-  --blue:    #2563EB;              /* token.blue */
+  --green:        #059669;         /* token.green */
+  --green-bg:     #ECFDF5;
+  --green-border: #86EFAC;
+  --amber:        #D97706;         /* token.amber */
+  --amber-bg:     #FFFBEB;
+  --amber-border: #FCD34D;
+  --red:          #EF4444;         /* token.red */
+  --red-bg:       #FEF2F2;
+  --red-border:   #FCA5A5;
+  --blue:         #2563EB;         /* token.blue */
+  --blue-bg:      #EFF6FF;
 
   --font: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
 
@@ -1541,9 +1548,29 @@ section { padding: var(--section-py) 0; }
 .wl-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
 .wl-submit { width: 100%; justify-content: center; font-size: 1rem; padding: 14px 24px; }
 .wl-success { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 400px; margin: 0 auto; padding: 40px 0; }
-.wl-success-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(16,185,129,0.1); display: flex; align-items: center; justify-content: center; }
+.wl-success-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(5,150,105,0.10); display: flex; align-items: center; justify-content: center; }
 .wl-success h3 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; color: var(--gray-900); }
 .wl-success p { font-size: 0.9rem; color: var(--gray-500); text-align: center; }
+
+/* Inline error block for waitlist + (mirrored) contact form. Same visual
+   language across both: tonal red bg + token border + circled-! icon. */
+.wl-error,
+.form-error {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 11px 14px;
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  border-radius: var(--r-md);
+  color: var(--red);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.wl-error-icon,
+.form-error-icon { flex-shrink: 0; color: var(--red); }
 .wl-social-proof { font-size: 0.82rem; color: var(--gray-500); margin-top: 20px; }
 .wl-social-proof span { font-weight: 700; color: var(--gray-900); }
 .wl-features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }

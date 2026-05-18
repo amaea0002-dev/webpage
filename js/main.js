@@ -131,19 +131,54 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Contact form → /api/demo (Resend) ────────────────────
   const contactForm = document.getElementById('demo-form');
   if (contactForm) {
+    const errorEl  = document.getElementById('form-error');
+    const errorTxt = document.getElementById('form-error-text');
+
+    function showError(msg) {
+      if (errorTxt) errorTxt.textContent = msg;
+      if (errorEl)  errorEl.style.display = 'flex';
+    }
+    function clearError() {
+      if (errorEl) errorEl.style.display = 'none';
+    }
+
+    // Clear the inline error as the user starts editing.
+    contactForm.querySelectorAll('input, select, textarea').forEach((el) => {
+      el.addEventListener('input', clearError);
+      el.addEventListener('change', clearError);
+    });
+
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      clearError();
+
       const btn = contactForm.querySelector('.form-submit');
       const originalText = btn?.textContent;
-      if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
 
-      // Convert FormData to a plain object so we can send JSON.
-      // Strip out formsubmit-only hidden fields (those prefixed with _).
+      // Build payload first so we can validate before disabling the submit
+      // button. Strip out formsubmit-only hidden fields (those prefixed with _).
       const payload = {};
       for (const [k, v] of new FormData(contactForm).entries()) {
         if (k.startsWith('_')) continue;
         payload[k] = v;
       }
+
+      // Mirror the server's validation so the user gets feedback without
+      // a round-trip.
+      const firstName = (payload.first_name || '').toString().trim();
+      const lastName  = (payload.last_name  || '').toString().trim();
+      const email     = (payload.email      || '').toString().trim();
+      const firm      = (payload.firm       || '').toString().trim();
+      if (!firstName || !lastName || !email || !firm) {
+        showError('Please fill in your name, work email, and firm.');
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError('That doesn’t look like a valid email address.');
+        return;
+      }
+
+      if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
 
       try {
         const res = await fetch('/api/demo', {
@@ -159,9 +194,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           throw new Error(json.error || 'Submission failed');
         }
-      } catch {
+      } catch (err) {
         if (btn) { btn.textContent = originalText; btn.disabled = false; }
-        alert('Something went wrong. Please email us directly at founders@amaea.co.uk');
+        const msg = (err && err.message && err.message !== 'Submission failed')
+          ? err.message
+          : 'Something went wrong. Please try again, or email us at founders@amaea.co.uk.';
+        showError(msg);
       }
     });
   }
