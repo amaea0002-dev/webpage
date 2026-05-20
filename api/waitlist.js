@@ -20,8 +20,15 @@
 const TO_DEFAULT   = 'founders@amaea.co.uk'
 const FROM_DEFAULT = 'Amaea Waitlist <hello@amaea.co.uk>'
 
+const { rateLimit } = require('./_rate-limit')
+
 const RATE_WINDOW_MS = 10 * 60 * 1000
 const RATE_MAX       = 5
+
+// In-memory fallback for when Upstash env vars aren't configured.
+// Per-instance only, so the effective cap is N × RATE_MAX. Distributed
+// limit kicks in automatically once the Upstash Marketplace integration
+// is installed (no redeploy needed).
 const ipHits = new Map()
 
 function clientIp(req) {
@@ -30,7 +37,9 @@ function clientIp(req) {
   return req.headers['x-real-ip'] || req.socket?.remoteAddress || 'unknown'
 }
 
-function rateLimited(ip) {
+async function rateLimited(ip) {
+  const r = await rateLimit(`waitlist:${ip}`, RATE_MAX, RATE_WINDOW_MS)
+  if (r.configured) return !r.ok
   const now = Date.now()
   const hits = (ipHits.get(ip) || []).filter(t => now - t < RATE_WINDOW_MS)
   if (hits.length >= RATE_MAX) {
@@ -70,7 +79,7 @@ export default async function handler(req, res) {
   }
 
   const ip = clientIp(req)
-  if (rateLimited(ip)) {
+  if (await rateLimited(ip)) {
     return res.status(429).json({ ok: false, error: 'Too many submissions. Please try again later.' })
   }
 

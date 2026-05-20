@@ -1,0 +1,9 @@
+# Design-process artefacts — kept locally, excluded from deployment.
+HOMEPAGE-COPY-AUDIT-*.md
+DESIGN.md
+.design-references/
+.impeccable/
+
+# Local tooling state.
+.claude/
+.DS_Store

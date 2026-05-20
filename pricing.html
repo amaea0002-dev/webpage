@@ -8,15 +8,17 @@
   <title>Pricing | Amaea FCA Compliance Platform</title>
   <meta name="description" content="Simple, transparent pricing for Amaea. Plans for boutique IFA firms and large compliance teams. No setup fees, no hidden costs.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script>(function(){var t=localStorage.getItem('amaea-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <!-- ── Launch banner ──────────────────────────────────────── -->
 <div class="launch-banner">
   <div class="launch-banner-inner">
-    <span class="launch-banner-pill">Public launch · September 2028</span>
+    <span class="launch-banner-pill">Public launch · September 2028 · Design partners onboarding now</span>
     <span class="launch-banner-text">Founders Programme is <strong>invite-only</strong></span>
     <a href="waitlist" class="launch-banner-cta">Join the waitlist →</a>
   </div>
@@ -26,8 +28,8 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light">
-      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark">
+      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light" width="40" height="40" decoding="async">
+      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark" width="40" height="40" decoding="async">
     </a>
     <div class="nav-links">
       <a href="about">About</a>
@@ -54,12 +56,11 @@
   <a href="contact" class="btn btn-primary mobile-cta">Book a demo</a>
 </div>
 
-<div class="page-top">
+<main class="page-top" id="main" tabindex="-1">
 
 <!-- ── Page hero ────────────────────────────────────────────── -->
 <section class="page-hero">
   <div class="container">
-    <div class="section-label">Pricing</div>
     <h1>Simple pricing, no surprises.</h1>
     <p>Plans that scale with your firm. No setup fees. A minimum 3-month commitment applies after the free trial period.</p>
 
@@ -75,7 +76,7 @@
 </section>
 
 <!-- ── Pricing cards ─────────────────────────────────────────── -->
-<section style="padding:56px 0 80px;background:var(--gray-50);">
+<section class="pricing-grid-section">
   <div class="container">
     <div class="pricing-grid">
 
@@ -94,14 +95,14 @@
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
           <li><span class="check">✓</span> Up to 100 active clients</li>
-          <li><span class="check">✓</span> Client journey tracking (3 stages)</li>
-          <li><span class="check">✓</span> Compliance health dashboard</li>
-          <li><span class="check">✓</span> Smart alerts &amp; deadline reminders</li>
-          <li><span class="check">✓</span> Intelliflo read integration</li>
+          <li><span class="check">✓</span> Client journey · 17 doc types tracked</li>
+          <li><span class="check">✓</span> Annual review sweep · COBS 9.5 nightly cron</li>
+          <li><span class="check">✓</span> Append-only audit trail · 7-year retention</li>
+          <li><span class="check">✓</span> Intelliflo read integration · AES-256-GCM tokens</li>
           <li><span class="check">✓</span> 5 standard PDF reports</li>
           <li><span class="cross">✕</span> AI compliance assistant</li>
-          <li><span class="cross">✕</span> Consumer Duty monitoring</li>
-          <li><span class="cross">✕</span> RMAR pre-population</li>
+          <li><span class="cross">✕</span> Consumer Duty (PS22/9) monitoring</li>
+          <li><span class="cross">✕</span> RMAR auto-population</li>
         </ul>
         <div class="pricing-cta">
           <a href="contact" class="btn btn-secondary">Book a demo</a>
@@ -124,12 +125,12 @@
         <ul class="pricing-features">
           <li><span class="check">✓</span> Up to 350 active clients</li>
           <li><span class="check">✓</span> Everything in Essentials, plus:</li>
-          <li><span class="check">✓</span> AI compliance assistant</li>
-          <li><span class="check">✓</span> Consumer Duty monitoring &amp; scoring</li>
-          <li><span class="check">✓</span> Vulnerable client enhanced tracking</li>
-          <li><span class="check">✓</span> RMAR pre-population</li>
-          <li><span class="check">✓</span> Consumer Duty annual assessment report</li>
-          <li><span class="check">✓</span> SharePoint &amp; Salesforce integrations</li>
+          <li><span class="check">✓</span> AI compliance assistant · RAG against 11,645-chunk FCA corpus</li>
+          <li><span class="check">✓</span> Consumer Duty (PS22/9) · per-outcome assessment record</li>
+          <li><span class="check">✓</span> Vulnerability re-assessment · FG21/1 12-month threshold</li>
+          <li><span class="check">✓</span> RMAR auto-population · sections B/D/E/G/H, GABRIEL CSV</li>
+          <li><span class="check">✓</span> Consumer Duty board pack from live data</li>
+          <li><span class="check">✓</span> SharePoint &amp; Salesforce · OAuth, scoped tokens</li>
           <li><span class="check">✓</span> Unlimited reports</li>
         </ul>
         <div class="pricing-cta">
@@ -153,9 +154,9 @@
         <ul class="pricing-features">
           <li><span class="check">✓</span> Up to 1,000 active clients</li>
           <li><span class="check">✓</span> Everything in Professional, plus:</li>
-          <li><span class="check">✓</span> Full integration suite (Intelliflo, Salesforce, SharePoint)</li>
-          <li><span class="check">✓</span> Board-level compliance reporting packs</li>
-          <li><span class="check">✓</span> FCA visit preparation toolkit</li>
+          <li><span class="check">✓</span> Full integration suite · Intelliflo, Salesforce, SharePoint, Curo, Assureweb</li>
+          <li><span class="check">✓</span> Board-level packs · live data, gaps flagged</li>
+          <li><span class="check">✓</span> FCA visit preparation pack · evidence bundles per rule</li>
           <li><span class="check">✓</span> Custom report builder</li>
           <li><span class="check">✓</span> Dedicated onboarding &amp; training</li>
         </ul>
@@ -193,7 +194,7 @@
     </div>
 
     <!-- Trust note -->
-    <p style="text-align:center;font-size:0.82rem;color:var(--gray-500);margin-top:36px;">
+    <p class="compare-footnote">
       All plans include a 30-day free trial. No credit card required. A 3-month minimum commitment applies after the trial.
     </p>
   </div>
@@ -202,164 +203,157 @@
 <!-- ── Comparison table ─────────────────────────────────────── -->
 <section class="section-white-sm">
   <div class="container">
-    <div class="text-center" style="margin-bottom:48px;">
-      <div class="section-label">Compare plans</div>
-      <h2 class="section-title">Everything you get with Amaea.</h2>
+    <div class="text-center mb-12">
+      <h2 class="section-title">What's in each plan, side by side.</h2>
     </div>
-    <div class="compare-wrap"><div style="overflow-x:auto;">
-      <table id="compare-table" class="compare-table" style="width:100%;border-collapse:collapse;font-size:0.83rem;min-width:640px;table-layout:fixed;">
+    <div class="compare-wrap"><div class="compare-scroll">
+      <table id="compare-table" class="compare-table compare-table-el">
         <thead>
           <tr>
-            <th style="text-align:left;padding:11px 14px;border-bottom:2px solid var(--gray-200);color:var(--gray-500);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;width:28%;">Feature</th>
-            <th style="text-align:center;padding:11px 14px;border-bottom:2px solid var(--gray-200);color:var(--gray-900);font-weight:700;width:18%;">Essentials</th>
-            <th style="text-align:center;padding:11px 14px;border-bottom:2px solid var(--plum);color:var(--plum);font-weight:800;width:18%;">Professional</th>
-            <th style="text-align:center;padding:11px 14px;border-bottom:2px solid var(--gray-200);color:var(--gray-900);font-weight:700;width:18%;">Scale</th>
-            <th style="text-align:center;padding:11px 14px;border-bottom:2px solid var(--gray-200);color:var(--gray-900);font-weight:700;width:18%;">Enterprise</th>
+            <th class="cmp-head--label">Feature</th>
+            <th class="cmp-head--name">Essentials</th>
+            <th class="cmp-head--name is-featured">Professional</th>
+            <th class="cmp-head--name">Scale</th>
+            <th class="cmp-head--name">Enterprise</th>
           </tr>
           <tr>
-            <td style="padding:6px 14px 14px;color:var(--gray-500);font-size:0.75rem;"></td>
-            <td style="padding:6px 14px 14px;text-align:center;color:var(--gray-500);font-size:0.78rem;font-weight:600;">£699/mo</td>
-            <td style="padding:6px 14px 14px;text-align:center;color:var(--plum);font-size:0.78rem;font-weight:700;">£1,599/mo</td>
-            <td style="padding:6px 14px 14px;text-align:center;color:var(--gray-500);font-size:0.78rem;font-weight:600;">£2,199/mo</td>
-            <td style="padding:6px 14px 14px;text-align:center;color:var(--gray-500);font-size:0.78rem;font-weight:600;">Custom</td>
+            <td class="cmp-price-row__label"></td>
+            <td class="cmp-price">£699/mo</td>
+            <td class="cmp-price is-featured">£1,599/mo</td>
+            <td class="cmp-price">£2,199/mo</td>
+            <td class="cmp-price">Custom</td>
           </tr>
         </thead>
         <tbody>
           <!-- Capacity -->
-          <tr style="background:var(--gray-50);">
-            <td colspan="5" style="padding:9px 14px;font-size:0.7rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.07em;">Capacity</td>
+          <tr class="cmp-group"><td colspan="5">Capacity</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Active clients</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">100</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--plum);font-weight:600;">350</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">1,000</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">Unlimited</td>
+            <td class="cmp-cell cmp-cell--label">Active clients</td>
+            <td class="cmp-cell cmp-cell--value">100</td>
+            <td class="cmp-cell cmp-cell--plum">350</td>
+            <td class="cmp-cell cmp-cell--value">1,000</td>
+            <td class="cmp-cell cmp-cell--value">Unlimited</td>
           </tr>
           <!-- Core compliance -->
-          <tr style="background:var(--gray-50);">
-            <td colspan="5" style="padding:9px 14px;font-size:0.7rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.07em;">Core compliance</td>
+          <tr class="cmp-group"><td colspan="5">Core compliance</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Client journey tracking (3 stages)</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td class="cmp-cell cmp-cell--label">Client journey tracking (3 stages)</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Compliance health dashboard</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td class="cmp-cell cmp-cell--label">Compliance health dashboard</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Smart alerts &amp; deadline reminders</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td class="cmp-cell cmp-cell--label">Smart alerts &amp; deadline reminders</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Document checklist per milestone</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td class="cmp-cell cmp-cell--label">Document checklist per milestone</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
           </tr>
           <!-- Consumer Duty -->
-          <tr style="background:var(--gray-50);">
-            <td colspan="5" style="padding:9px 14px;font-size:0.7rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.07em;">Consumer Duty</td>
+          <tr class="cmp-group"><td colspan="5">Consumer Duty</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Consumer Duty health score</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">&#x2715;</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td class="cmp-cell cmp-cell--label">Consumer Duty health score</td>
+            <td class="cmp-cell cmp-cell--miss">&#x2715;</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Vulnerable client tracking</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">&#x2715;</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td class="cmp-cell cmp-cell--label">Vulnerable client tracking</td>
+            <td class="cmp-cell cmp-cell--miss">&#x2715;</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Annual Consumer Duty assessment report</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">&#x2715;</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td class="cmp-cell cmp-cell--label">Annual Consumer Duty assessment report</td>
+            <td class="cmp-cell cmp-cell--miss">&#x2715;</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
           </tr>
           <!-- AI & Reporting -->
-          <tr style="background:var(--gray-50);">
-            <td colspan="5" style="padding:9px 14px;font-size:0.7rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.07em;">AI &amp; Reporting</td>
+          <tr class="cmp-group"><td colspan="5">AI &amp; Reporting</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">AI compliance assistant</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">&#x2715;</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">Custom-trained</td>
+            <td class="cmp-cell cmp-cell--label">AI compliance assistant</td>
+            <td class="cmp-cell cmp-cell--miss">&#x2715;</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--value">Custom-trained</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">RMAR pre-population</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">&#x2715;</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td class="cmp-cell cmp-cell--label">RMAR pre-population</td>
+            <td class="cmp-cell cmp-cell--miss">&#x2715;</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Reports</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">5 standard</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--plum);font-weight:600;">Unlimited</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">Unlimited + custom builder</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">Custom board packs</td>
+            <td class="cmp-cell cmp-cell--label">Reports</td>
+            <td class="cmp-cell cmp-cell--value">5 standard</td>
+            <td class="cmp-cell cmp-cell--plum">Unlimited</td>
+            <td class="cmp-cell cmp-cell--value">Unlimited + custom builder</td>
+            <td class="cmp-cell cmp-cell--value">Custom board packs</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Board-level compliance packs</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">&#x2715;</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">&#x2715;</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td class="cmp-cell cmp-cell--label">Board-level compliance packs</td>
+            <td class="cmp-cell cmp-cell--miss">&#x2715;</td>
+            <td class="cmp-cell cmp-cell--miss">&#x2715;</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
           </tr>
           <!-- Integrations -->
-          <tr style="background:var(--gray-50);">
-            <td colspan="5" style="padding:9px 14px;font-size:0.7rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.07em;">Integrations</td>
+          <tr class="cmp-group"><td colspan="5">Integrations</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Intelliflo</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">Read only</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td class="cmp-cell cmp-cell--label">Intelliflo</td>
+            <td class="cmp-cell cmp-cell--check">Read only</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">SharePoint &amp; Salesforce</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">&#x2715;</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓ Both</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓ Both</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓ Both</td>
+            <td class="cmp-cell cmp-cell--label">SharePoint &amp; Salesforce</td>
+            <td class="cmp-cell cmp-cell--miss">&#x2715;</td>
+            <td class="cmp-cell cmp-cell--check">✓ Both</td>
+            <td class="cmp-cell cmp-cell--check">✓ Both</td>
+            <td class="cmp-cell cmp-cell--check">✓ Both</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Open API &amp; custom integrations</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">&#x2715;</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">&#x2715;</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-300);font-weight:700;">&#x2715;</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">✓</td>
+            <td class="cmp-cell cmp-cell--label">Open API &amp; custom integrations</td>
+            <td class="cmp-cell cmp-cell--miss">&#x2715;</td>
+            <td class="cmp-cell cmp-cell--miss">&#x2715;</td>
+            <td class="cmp-cell cmp-cell--miss">&#x2715;</td>
+            <td class="cmp-cell cmp-cell--check">✓</td>
           </tr>
           <!-- Support -->
-          <tr style="background:var(--gray-50);">
-            <td colspan="5" style="padding:9px 14px;font-size:0.7rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.07em;">Support</td>
+          <tr class="cmp-group"><td colspan="5">Support</td>
           </tr>
           <tr>
-            <td style="padding:11px 14px;color:var(--gray-600);border-bottom:1px solid var(--gray-200);">Onboarding &amp; training</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-900);font-weight:600;">Self-serve</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">Guided</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">Dedicated</td>
-            <td style="padding:11px 14px;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--green);font-weight:700;">On-site</td>
+            <td class="cmp-cell cmp-cell--label">Onboarding &amp; training</td>
+            <td class="cmp-cell cmp-cell--value">Self-serve</td>
+            <td class="cmp-cell cmp-cell--check">Guided</td>
+            <td class="cmp-cell cmp-cell--check">Dedicated</td>
+            <td class="cmp-cell cmp-cell--check">On-site</td>
           </tr>
         </tbody>
       </table>
@@ -393,7 +387,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Is Amaea GDPR compliant and secure? <span class="faq-q-arrow">↓</span></button>
-        <div class="faq-a">Yes. Amaea is hosted on UK/EU infrastructure, fully GDPR compliant, and SOC 2 Type II certified. All data is encrypted in transit and at rest. We process client data solely on your instructions as a data processor under your firm's GDPR framework. We never use your client data for any purpose outside of providing the Amaea service.</div>
+        <div class="faq-a">Amaea is built to UK GDPR principles and hosted on UK/EU infrastructure, with TLS 1.3 in transit and AES-256 at rest. We provide an Article 28 Data Processing Agreement to every customer and process client data solely on your instructions, never for any purpose outside of providing the Amaea service. SOC 2 Type I assessment is planned for 2027 ahead of public launch; Type II follows once we have 12 months of operating evidence. Full posture on our <a href="security">security page</a>.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Do you offer discounts for networks or AR firms? <span class="faq-q-arrow">↓</span></button>
@@ -406,9 +400,9 @@
 <!-- ── CTA ───────────────────────────────────────────────────── -->
 <section class="cta-banner">
   <div class="container">
-    <h2>Start your free 30-day trial.</h2>
-    <p>No credit card. No setup fees. Just better FCA compliance from day one.</p>
-    <div class="flex items-center gap-4" style="justify-content:center;flex-wrap:wrap;">
+    <h2>Bring a real client. We'll show you what Amaea does with it.</h2>
+    <p>30 minutes. We use one of your firm's hardest compliance cases (anonymised). You see exactly what flags, when, and how the audit trail reads.</p>
+    <div class="flex items-center gap-4 cta-row">
       <a href="contact" class="btn btn-secondary btn-lg">Book a demo</a>
     </div>
   </div>
@@ -419,10 +413,10 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="assets/logo-white.png" alt="Amaea">
+          <img src="assets/logo-white.png" alt="Amaea" width="40" height="40" decoding="async">
           <span class="footer-logo-text">amaea</span>
         </div>
-        <p class="footer-tagline">The FCA compliance platform built for UK financial advisers.</p>
+        <p class="footer-tagline">The FCA compliance platform built for UK financial advisers. Every client. Every deadline. Every document.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
@@ -461,7 +455,7 @@
   </div>
 </footer>
 
-</div>
+</main>
 <script src="js/main.js"></script>
 <script>
 // Pricing toggle specific logic

@@ -8,15 +8,17 @@
   <title>About | Amaea FCA Compliance Platform</title>
   <meta name="description" content="Amaea was built to give IFA compliance teams a platform that tracks every client journey, surfaces gaps, and keeps them ahead of the FCA.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script>(function(){var t=localStorage.getItem('amaea-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <!-- ── Launch banner ──────────────────────────────────────── -->
 <div class="launch-banner">
   <div class="launch-banner-inner">
-    <span class="launch-banner-pill">Public launch · September 2028</span>
+    <span class="launch-banner-pill">Public launch · September 2028 · Design partners onboarding now</span>
     <span class="launch-banner-text">Founders Programme is <strong>invite-only</strong></span>
     <a href="waitlist" class="launch-banner-cta">Join the waitlist →</a>
   </div>
@@ -26,8 +28,8 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light">
-      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark">
+      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light" width="40" height="40" decoding="async">
+      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark" width="40" height="40" decoding="async">
     </a>
     <div class="nav-links">
       <a href="about" class="active">About</a>
@@ -54,11 +56,10 @@
   <a href="contact" class="btn btn-primary mobile-cta">Book a demo</a>
 </div>
 
-<div class="page-top">
+<main class="page-top" id="main" tabindex="-1">
 
 <section class="page-hero">
   <div class="container">
-    <div class="section-label">About</div>
     <h1>Building the compliance platform<br>advisers deserve.</h1>
     <p>Amaea was founded after years of watching talented compliance teams drown in spreadsheets, missed reviews, and manual documentation. There's a better way.</p>
   </div>
@@ -82,7 +83,7 @@
         <h2 class="about-team-heading">The team</h2>
         <div class="about-team-cards">
           <div class="about-team-card">
-            <div class="about-team-avatar" style="background:linear-gradient(135deg,#4C2C4B,#8B6189);">H</div>
+            <div class="about-team-avatar about-team-avatar--plum-gradient">H</div>
             <div class="about-team-info">
               <div class="about-team-name">Hasna Sahul Hameed</div>
               <div class="about-team-role">CEO &amp; Founder</div>
@@ -98,25 +99,25 @@
 
 <!-- Mission & Vision -->
 <style>
-  .purpose-block { max-width:720px; margin:0 auto; padding-left:32px; border-left:3px solid var(--plum); }
+  .purpose-block { max-width:720px; margin:0 auto; padding-left:32px; border-left:1px solid var(--plum); }
   .purpose-block + .purpose-block { margin-top:56px; }
   .purpose-label { font-size:0.72rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--plum); margin-bottom:14px; }
   .purpose-statement { font-size:1.55rem; font-weight:700; line-height:1.4; letter-spacing:-0.025em; color:var(--gray-900); margin:0; }
   @media (max-width:640px) {
-    .purpose-block { padding-left:24px; border-left-width:2px; }
+    .purpose-block { padding-left:24px; }
     .purpose-statement { font-size:1.2rem; }
   }
 </style>
-<section style="padding:80px 0;background:var(--white);">
+<section class="section-white">
   <div class="container">
-    <div class="text-center" style="margin-bottom:56px;">
+    <div class="text-center mb-14">
       <div class="section-label">Purpose</div>
       <h2 class="section-title">Why we exist.</h2>
     </div>
 
     <div class="purpose-block">
       <div class="purpose-label">Mission</div>
-      <p class="purpose-statement">To make regulatory compliance a property of systems, not a burden on people — starting with UK IFA firms.</p>
+      <p class="purpose-statement">To make regulatory compliance a property of systems, not a burden on people. Starting with UK IFA firms.</p>
     </div>
 
     <div class="purpose-block">
@@ -127,18 +128,17 @@
 </section>
 
 <!-- Values -->
-<section style="padding:80px 0;background:var(--gray-50);">
+<section class="section-gray">
   <div class="container">
-    <div class="text-center" style="margin-bottom:48px;">
-      <div class="section-label">Values</div>
+    <div class="text-center mb-12">
       <h2 class="section-title">What we stand for.</h2>
-      <p class="section-sub" style="max-width:560px;margin:14px auto 0;">The principles that shape how we work and how we treat each other, every day, not just when it's easy.</p>
+      <p class="section-sub col-560">The principles that shape how we work and how we treat each other, every day, not just when it's easy.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card fade-up fade-up-1">
         <div class="feature-icon">
           <!-- Simplicity: a clean square outline -->
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
         </div>
         <h3 class="feature-title">Simplicity</h3>
         <p class="feature-desc">We make complex things clear: in our product and in how we work. Clarity is our competitive advantage.</p>
@@ -146,7 +146,7 @@
       <div class="feature-card fade-up fade-up-2">
         <div class="feature-icon">
           <!-- Integrity: shield with check -->
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
         </div>
         <h3 class="feature-title">Integrity</h3>
         <p class="feature-desc">Trust is the foundation of compliance and of our relationships. We do what we say, and we say what we mean.</p>
@@ -154,7 +154,7 @@
       <div class="feature-card fade-up fade-up-3">
         <div class="feature-icon">
           <!-- Build for People: people icon -->
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <h3 class="feature-title">Build for People</h3>
         <p class="feature-desc">We build technology that genuinely helps people do their jobs better. Real problems, real solutions.</p>
@@ -162,7 +162,7 @@
       <div class="feature-card fade-up fade-up-4">
         <div class="feature-icon">
           <!-- Respect: handshake / balanced scales -->
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M7 6v14"/><path d="M17 6v14"/><path d="M3 12h6l-3-6-3 6z"/><path d="M15 12h6l-3-6-3 6z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M7 6v14"/><path d="M17 6v14"/><path d="M3 12h6l-3-6-3 6z"/><path d="M15 12h6l-3-6-3 6z"/></svg>
         </div>
         <h3 class="feature-title">Respect</h3>
         <p class="feature-desc">We treat each other with professionalism, fairness, and trust, especially when we disagree.</p>
@@ -170,7 +170,7 @@
       <div class="feature-card fade-up fade-up-5">
         <div class="feature-icon">
           <!-- Learn and Improve: trending-up arrow -->
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
         <h3 class="feature-title">Learn and Improve</h3>
         <p class="feature-desc">We continuously develop ourselves, our product, and our thinking. Standing still is falling behind.</p>
@@ -182,8 +182,8 @@
 <!-- CTA -->
 <section class="cta-banner">
   <div class="container">
-    <h2>Interested in shaping Amaea?</h2>
-    <p>We're talking to IFA compliance teams now. Your input will directly influence what we build.</p>
+    <h2>Help us build the next bit.</h2>
+    <p>We're onboarding design partners now. If you run compliance at an IFA firm and a real case from your book sounds like it would benefit from a system that does the chasing, we want to talk.</p>
     <a href="contact" class="btn btn-secondary btn-lg">Book a conversation</a>
   </div>
 </section>
@@ -193,7 +193,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="assets/logo-white.png" alt="Amaea">
+          <img src="assets/logo-white.png" alt="Amaea" width="40" height="40" decoding="async">
           <span class="footer-logo-text">amaea</span>
         </div>
         <p class="footer-tagline">The FCA compliance platform built for UK financial advisers. Every client. Every deadline. Every document.</p>
@@ -235,7 +235,7 @@
   </div>
 </footer>
 
-</div>
+</main>
 <script src="js/main.js"></script>
 </body>
 </html>

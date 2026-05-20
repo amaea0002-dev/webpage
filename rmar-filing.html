@@ -8,15 +8,17 @@
   <title>RMAR Filing | Amaea</title>
   <meta name="description" content="The FCA's Retail Mediation Activities Return: what it covers, what trips firms up, and how to prepare it without weeks of manual data gathering.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script>(function(){var t=localStorage.getItem('amaea-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <!-- ── Launch banner ──────────────────────────────────────── -->
 <div class="launch-banner">
   <div class="launch-banner-inner">
-    <span class="launch-banner-pill">Public launch · September 2028</span>
+    <span class="launch-banner-pill">Public launch · September 2028 · Design partners onboarding now</span>
     <span class="launch-banner-text">Founders Programme is <strong>invite-only</strong></span>
     <a href="waitlist" class="launch-banner-cta">Join the waitlist →</a>
   </div>
@@ -26,8 +28,8 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light">
-      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark">
+      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light" width="40" height="40" decoding="async">
+      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark" width="40" height="40" decoding="async">
     </a>
     <div class="nav-links">
       <a href="about">About</a>
@@ -54,11 +56,10 @@
   <a href="contact" class="btn btn-primary mobile-cta">Book a demo</a>
 </div>
 
-<div class="page-top">
+<main class="page-top" id="main" tabindex="-1">
 
 <section class="page-hero">
   <div class="container">
-    <div class="section-label">RMAR Filing</div>
     <h1>The RMAR: stop<br>dreading it.</h1>
     <p>The Retail Mediation Activities Return is an annual FCA submission. For most compliance teams it means weeks of manual data gathering from disconnected systems. Amaea pre-populates it automatically.</p>
   </div>
@@ -66,39 +67,46 @@
 
 <section class="section-white">
   <div class="container">
-    <div class="text-center" style="margin-bottom:52px;">
-      <div class="section-label">What the RMAR covers</div>
-      <h2 class="section-title">The sections that matter most for IFAs.</h2>
-      <p class="section-sub">The RMAR has multiple sections. For adviser firms, these are the ones that require the most data, and cause the most problems at submission time.</p>
+    <div class="text-center mb-13">
+      <div class="section-label">What Amaea covers</div>
+      <h2 class="section-title">Five sections, pre-filled from your live data.</h2>
+      <p class="section-sub">Sections B, D, E, G, and H are the ones Amaea populates automatically. Each exports as CSV ready for GABRIEL upload.</p>
     </div>
     <div class="features-grid fade-up">
       <div class="feature-card fade-up-1">
         <div class="feature-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
         </div>
-        <h3 class="feature-title">Section A: Firm Details</h3>
-        <p class="feature-desc">Firm registration, adviser headcount, and revenue breakdown by regulated activity. Generally straightforward, but mismatches with FCA Connect data trigger queries.</p>
+        <h3 class="feature-title">Section B · Complaints</h3>
+        <p class="feature-desc">Drawn from the complaint log. Cross-checked against DISP 1.6: FOS rights communicated, 5-day acknowledgement, 8-week final response. Mismatches surface as draft-time warnings, not post-submission queries.</p>
       </div>
       <div class="feature-card fade-up-2">
         <div class="feature-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
         </div>
-        <h3 class="feature-title">Section B: Complaints</h3>
-        <p class="feature-desc">Complaint volumes by category, resolution times, and redress paid. The most commonly incorrect section; advisers don't always log complaints formally, so data is unreliable at submission time.</p>
+        <h3 class="feature-title">Section D · Financial resources</h3>
+        <p class="feature-desc">Pulled from the firm's connected platform feed (Intelliflo etc.). Revenue, regulated activity split, and capital position aligned to the FCA's GABRIEL data dictionary.</p>
       </div>
       <div class="feature-card fade-up-3">
         <div class="feature-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h3 class="feature-title">Section F: Business Volumes</h3>
-        <p class="feature-desc">Policies arranged, funds under advice, and premium volumes by product type. Requires extraction and aggregation from your CRM (typically Intelliflo) for the full reporting period.</p>
+        <h3 class="feature-title">Section E · PII renewal</h3>
+        <p class="feature-desc">Pulled from the policy schedule you upload at renewal. Limits, exclusions, and renewal date checked against the SUP 9.2 minimum. Schedule expiry triggers an in-app reminder 60 days out.</p>
       </div>
       <div class="feature-card fade-up-4">
         <div class="feature-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
         </div>
-        <h3 class="feature-title">Section K: Consumer Duty</h3>
-        <p class="feature-desc">Vulnerable customer percentages and Consumer Duty outcome data. Introduced under Consumer Duty requirements and catching many firms unprepared, particularly around vulnerable client figures.</p>
+        <h3 class="feature-title">Section G · Adviser roster</h3>
+        <p class="feature-desc">Pulled from the live roster table. Only currently-active advisers are counted; SMCR roles tagged correctly; leavers excluded from headcount as of the reporting cut-off.</p>
+      </div>
+      <div class="feature-card fade-up-4">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3 class="feature-title">Section H · Training records</h3>
+        <p class="feature-desc">Drawn from the T&amp;C record set against each adviser. CPD hours, attainment, SPS evidence. Gaps surface as flags before submission, not after the FCA queries the return.</p>
       </div>
     </div>
   </div>
@@ -106,29 +114,29 @@
 
 <section class="section-gray-sm">
   <div class="container">
-    <div style="max-width:640px;margin:0 auto;">
-      <h2 style="font-size:1.5rem;font-weight:800;letter-spacing:-0.04em;color:var(--gray-900);margin-bottom:8px;">The most common RMAR errors</h2>
-      <p style="font-size:0.95rem;color:var(--gray-600);margin-bottom:28px;">Errors submitted to the FCA can trigger a follow-up review. These are the gaps we see in almost every firm that prepares their RMAR manually.</p>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
-        <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:var(--gray-600);">
-          <span style="color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px;">✕</span>
+    <div class="reading-col-narrow">
+      <h2 class="compliance-sub-head">The most common RMAR errors</h2>
+      <p class="compliance-sub-intro">Errors submitted to the FCA can trigger a follow-up review. These are the gaps we see in almost every firm that prepares their RMAR manually.</p>
+      <ul class="compliance-list">
+        <li>
+          <span class="mark mark--fail">✕</span>
           <span>Complaint data inconsistent with FCA's own Register; firms submit different numbers than FCA already holds</span>
         </li>
-        <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:var(--gray-600);">
-          <span style="color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px;">✕</span>
+        <li>
+          <span class="mark mark--fail">✕</span>
           <span>Business volumes don't reconcile to Intelliflo data; manual extraction introduces errors under deadline pressure</span>
         </li>
-        <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:var(--gray-600);">
-          <span style="color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px;">✕</span>
+        <li>
+          <span class="mark mark--fail">✕</span>
           <span>Vulnerable client percentage can't be verified; no single system tracked it across the year</span>
         </li>
-        <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:var(--gray-600);">
-          <span style="color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px;">✕</span>
+        <li>
+          <span class="mark mark--fail">✕</span>
           <span>Submission made late or with known errors because data gaps couldn't be resolved in time</span>
         </li>
       </ul>
-      <div style="margin-top:36px;">
-        <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:14px;">Amaea pre-populates your RMAR from Intelliflo and SharePoint, flagging gaps weeks before the deadline.</p>
+      <div class="compliance-sub-cta">
+        <p class="compliance-sub-cta-text">Amaea pre-fills sections B/D/E/G/H from Intelliflo + SharePoint, runs the DISP 1.6 cross-check, and exports a CSV ready for GABRIEL.</p>
         <a href="contact" class="btn btn-secondary">Book a demo →</a>
       </div>
     </div>
@@ -137,25 +145,25 @@
 
 <section class="section-white-sm">
   <div class="container">
-    <div style="max-width:800px;margin:0 auto;">
-      <div class="section-label" style="margin-bottom:12px;">How Amaea helps</div>
-      <h2 style="font-size:1.5rem;font-weight:800;letter-spacing:-0.04em;color:var(--gray-900);margin-bottom:32px;">RMAR pre-populated from your live compliance data.</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-        <div class="amaea-help-card">
-          <div class="amaea-help-card-title">Section B complaints data, always current</div>
-          <p style="font-size:0.82rem;color:var(--gray-600);line-height:1.6;margin:0;">Amaea logs every complaint, tracks resolution timelines, and captures redress amounts throughout the year. When RMAR submission time comes, Section B is already populated - not reconstructed from memory the week before the deadline.</p>
+    <div class="reading-col-wide">
+      <div class="section-label help-section-label">How Amaea helps</div>
+      <h2 class="help-section-head">RMAR submission, the honest version.</h2>
+      <div class="amaea-help-grid">
+        <div class="amaea-help-card fade-up fade-up-1">
+          <div class="amaea-help-card-title">First run is the hard one</div>
+          <p class="amaea-help-card-body">The first time you run Amaea's RMAR draft, expect to spend an afternoon reconciling discrepancies between what Intelliflo says and what the spreadsheet you've been using says. From the next quarter onwards, the same run takes under an hour.</p>
         </div>
-        <div class="amaea-help-card">
-          <div class="amaea-help-card-title">Consumer Duty Section K, automated</div>
-          <p style="font-size:0.82rem;color:var(--gray-600);line-height:1.6;margin:0;">Section K requires you to demonstrate Consumer Duty monitoring across all four outcome areas. Amaea collects this data continuously throughout the year. No last-minute scramble to gather evidence - it's already in the system.</p>
+        <div class="amaea-help-card fade-up fade-up-2">
+          <div class="amaea-help-card-title">DISP 1.6 cross-check on complaints</div>
+          <p class="amaea-help-card-body">Section B is checked against DISP 1.6: was FOS notified, was the 5-day acknowledgement sent, did the final response arrive inside 8 weeks? Where any of these are missing, the system tells you in the draft. Not after the return is submitted and the FCA queries it.</p>
         </div>
-        <div class="amaea-help-card">
-          <div class="amaea-help-card-title">Data gap identification ahead of deadline</div>
-          <p style="font-size:0.82rem;color:var(--gray-600);line-height:1.6;margin:0;">Amaea identifies which RMAR data points are incomplete and flags them weeks before the submission deadline, not the night before. You have time to resolve gaps properly, not under pressure.</p>
+        <div class="amaea-help-card fade-up fade-up-3">
+          <div class="amaea-help-card-title">Gap report before the deadline</div>
+          <p class="amaea-help-card-body">Run the gap report 30 days before submission. It lists every incomplete data point with the underlying record, so you have a real list to work through. Not "Section G is empty" with no context. Each gap links straight to the client or document that needs an update.</p>
         </div>
-        <div class="amaea-help-card">
-          <div class="amaea-help-card-title">One-click RMAR report generation</div>
-          <p style="font-size:0.82rem;color:var(--gray-600);line-height:1.6;margin:0;">Generate a draft RMAR submission report in minutes, pre-populated from your connected data sources. Review, adjust, and submit. What used to take days of cross-referencing across Intelliflo, SharePoint, and manual logs now takes an hour.</p>
+        <div class="amaea-help-card fade-up fade-up-4">
+          <div class="amaea-help-card-title">Exports as CSV for GABRIEL</div>
+          <p class="amaea-help-card-body">Each section exports as a CSV in the column layout GABRIEL expects. The CSV header is the same field-name format as the FCA's own data dictionary. Paste into GABRIEL, validate, submit. No manual re-keying.</p>
         </div>
       </div>
     </div>
@@ -164,8 +172,8 @@
 
 <section class="cta-banner">
   <div class="container">
-    <h2>RMAR pre-populated. Gaps flagged. Deadline met.</h2>
-    <p>Amaea pulls your RMAR data from connected systems automatically, so you spend time reviewing, not gathering.</p>
+    <h2>Bring last year's RMAR. We'll run Amaea against it.</h2>
+    <p>30 minutes. Bring an anonymised copy of your last RMAR. We show you which sections Amaea would have pre-filled, what the DISP 1.6 cross-check would have flagged, and what the GABRIEL-ready CSV looks like.</p>
     <a href="contact" class="btn btn-secondary btn-lg">Book a demo</a>
   </div>
 </section>
@@ -175,7 +183,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="assets/logo-white.png" alt="Amaea">
+          <img src="assets/logo-white.png" alt="Amaea" width="40" height="40" decoding="async">
           <span class="footer-logo-text">amaea</span>
         </div>
         <p class="footer-tagline">The FCA compliance platform built for UK financial advisers. Every client. Every deadline. Every document.</p>
@@ -217,7 +225,7 @@
   </div>
 </footer>
 
-</div>
+</main>
 <script src="js/main.js"></script>
 </body>
 </html>

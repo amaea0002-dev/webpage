@@ -8,15 +8,17 @@
   <title>Integrations | Amaea FCA Compliance Platform</title>
   <meta name="description" content="Amaea connects with Intelliflo, SharePoint, Salesforce, and more. No data migration, no new workflows.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script>(function(){var t=localStorage.getItem('amaea-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <!-- ── Launch banner ──────────────────────────────────────── -->
 <div class="launch-banner">
   <div class="launch-banner-inner">
-    <span class="launch-banner-pill">Public launch · September 2028</span>
+    <span class="launch-banner-pill">Public launch · September 2028 · Design partners onboarding now</span>
     <span class="launch-banner-text">Founders Programme is <strong>invite-only</strong></span>
     <a href="waitlist" class="launch-banner-cta">Join the waitlist →</a>
   </div>
@@ -26,8 +28,8 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light">
-      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark">
+      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light" width="40" height="40" decoding="async">
+      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark" width="40" height="40" decoding="async">
     </a>
     <div class="nav-links">
       <a href="about">About</a>
@@ -54,131 +56,129 @@
   <a href="contact" class="btn btn-primary mobile-cta">Book a demo</a>
 </div>
 
-<div class="page-top">
+<main class="page-top" id="main" tabindex="-1">
 
 <section class="page-hero">
   <div class="container">
-    <div class="section-label">Integrations</div>
-    <h1>Works with the tools<br>your firm already uses.</h1>
-    <p>No data migration. No new workflows. Amaea connects directly to your existing systems and keeps your compliance data current automatically.</p>
+    <h1>OAuth in. Encrypted at rest.<br><em>No data migration.</em></h1>
+    <p>Every integration is OAuth-authenticated. Tokens are encrypted with AES-256-GCM at the application layer: the encryption key sits in a Vercel environment variable, not in the database. Sync is nightly by default; on-demand pull available per integration.</p>
   </div>
 </section>
 
 <!-- Core integrations -->
-<section style="padding:80px 0;background:var(--white);">
+<section class="integrations-section">
   <div class="container">
-    <div class="text-center" style="margin-bottom:56px;">
-      <div class="section-label">Core integrations</div>
+    <div class="text-center section-head-center">
       <h2 class="section-title">Built for the systems IFA firms actually use.</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+    <div class="integrations-grid">
 
       <!-- Intelliflo -->
-      <div class="integration-card">
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-          <div style="width:52px;height:52px;border-radius:12px;background:#F3F2F6;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <img src="assets/intelliflo-logo.svg" alt="Intelliflo" style="width:32px;height:32px;object-fit:contain;">
+      <div class="integration-card fade-up fade-up-1">
+        <div class="integration-card-head">
+          <div class="integration-card-logo">
+            <img loading="lazy" decoding="async" src="assets/intelliflo-logo.svg" alt="Intelliflo" class="int-thumb-32">
           </div>
           <div>
-            <div style="font-weight:800;font-size:1rem;color:var(--gray-900);">Intelliflo</div>
-            <div style="font-size:0.75rem;color:var(--green);font-weight:600;">Available now</div>
+            <div class="integration-card-title">Intelliflo</div>
+            <div class="integration-card-status integration-card-status--live">Available now</div>
           </div>
         </div>
-        <p style="font-size:0.85rem;color:var(--gray-600);line-height:1.65;margin:0 0 16px;">The dominant CRM for UK IFA firms. Amaea reads your client data, review history, and document records from Intelliflo automatically - no manual uploads, no double-entry. Changes in Intelliflo sync to Amaea daily.</p>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--green);font-weight:700;">✓</span> Client records and review history</li>
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--green);font-weight:700;">✓</span> Document status and file references</li>
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--green);font-weight:700;">✓</span> Adviser assignments and client ownership</li>
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--green);font-weight:700;">✓</span> Automatic daily sync</li>
+        <p class="integration-card-desc">The dominant CRM for UK IFA firms. Amaea reads your client data, review history, and document records from Intelliflo automatically - no manual uploads, no double-entry. Changes in Intelliflo sync to Amaea daily.</p>
+        <ul class="integration-bullets">
+          <li><span class="tick">✓</span> Client records and review history</li>
+          <li><span class="tick">✓</span> Document status and file references</li>
+          <li><span class="tick">✓</span> Adviser assignments and client ownership</li>
+          <li><span class="tick">✓</span> Automatic daily sync</li>
         </ul>
       </div>
 
       <!-- SharePoint -->
-      <div class="integration-card">
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-          <div style="width:52px;height:52px;border-radius:12px;background:#F3F2F6;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <div class="integration-card fade-up fade-up-2">
+        <div class="integration-card-head">
+          <div class="integration-card-logo">
             <svg width="28" height="28" viewBox="0 0 28 28"><rect width="13" height="13" fill="#F25022"/><rect x="15" width="13" height="13" fill="#7FBA00"/><rect y="15" width="13" height="13" fill="#00A4EF"/><rect x="15" y="15" width="13" height="13" fill="#FFB900"/></svg>
           </div>
           <div>
-            <div style="font-weight:800;font-size:1rem;color:var(--gray-900);">Microsoft SharePoint</div>
-            <div style="font-size:0.75rem;color:var(--green);font-weight:600;">Available - Professional &amp; Scale</div>
+            <div class="integration-card-title">Microsoft SharePoint</div>
+            <div class="integration-card-status integration-card-status--live">Available - Professional &amp; Scale</div>
           </div>
         </div>
-        <p style="font-size:0.85rem;color:var(--gray-600);line-height:1.65;margin:0 0 16px;">Most IFA firms store suitability letters, fact finds, and client correspondence in SharePoint. Amaea reads these documents directly, classifies them by client and document type, and updates compliance records without anyone moving a file.</p>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--green);font-weight:700;">✓</span> Automatic document classification</li>
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--green);font-weight:700;">✓</span> Suitability letters, fact finds, SOAs</li>
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--green);font-weight:700;">✓</span> Client matching by name and reference</li>
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--green);font-weight:700;">✓</span> No file migration required</li>
+        <p class="integration-card-desc">Most IFA firms store suitability letters, fact finds, and client correspondence in SharePoint. Amaea reads these documents directly, classifies them by client and document type, and updates compliance records without anyone moving a file.</p>
+        <ul class="integration-bullets">
+          <li><span class="tick">✓</span> Automatic document classification</li>
+          <li><span class="tick">✓</span> Suitability letters, fact finds, SOAs</li>
+          <li><span class="tick">✓</span> Client matching by name and reference</li>
+          <li><span class="tick">✓</span> No file migration required</li>
         </ul>
       </div>
 
       <!-- Salesforce -->
-      <div class="integration-card">
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-          <div style="width:52px;height:52px;border-radius:12px;background:#F3F2F6;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <div class="integration-card fade-up fade-up-3">
+        <div class="integration-card-head">
+          <div class="integration-card-logo">
             <svg width="36" height="26" viewBox="0 0 100 70" fill="#00A1E0"><path d="M41.5,7C45.1,2.6,50.4,0,56.3,0c8.1,0,15.1,4.8,18.5,11.8c3.1-1.4,6.6-2.2,10.2-2.2C98.3,9.6,108,19.3,108,31.1S98.3,52.6,85,52.6c-1.3,0-2.5-0.1-3.7-0.3c-3,5.5-8.8,9.3-15.4,9.3c-2.8,0-5.4-0.7-7.7-1.9c-3.5,7.1-10.8,12-19.3,12c-8.2,0-15.3-5-18.5-12.3c-1.6,0.4-3.3,0.6-5.1,0.6C7,59.6,0,52.6,0,44c0-7.6,5.3-14.1,12.4-15.9c-1.3-2.8-2-5.9-2-9.1C10.4,8.5,16.7,1.3,27,1.3c3.6,0,7,1.1,9.7,3"/></svg>
           </div>
           <div>
-            <div style="font-weight:800;font-size:1rem;color:var(--gray-900);">Salesforce</div>
-            <div style="font-size:0.75rem;color:var(--green);font-weight:600;">Available - Professional &amp; Scale</div>
+            <div class="integration-card-title">Salesforce</div>
+            <div class="integration-card-status integration-card-status--live">Available - Professional &amp; Scale</div>
           </div>
         </div>
-        <p style="font-size:0.85rem;color:var(--gray-600);line-height:1.65;margin:0 0 16px;">For firms that use Salesforce as their primary CRM. Amaea connects to your Salesforce instance to read client records, review schedules, and task notes, keeping compliance data in sync without duplicating your workflow.</p>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--green);font-weight:700;">✓</span> Client and account record sync</li>
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--green);font-weight:700;">✓</span> Review and task history</li>
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--green);font-weight:700;">✓</span> Bi-directional compliance flag sync</li>
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--green);font-weight:700;">✓</span> Custom field mapping</li>
+        <p class="integration-card-desc">For firms that use Salesforce as their primary CRM. Amaea connects to your Salesforce instance to read client records, review schedules, and task notes, keeping compliance data in sync without duplicating your workflow.</p>
+        <ul class="integration-bullets">
+          <li><span class="tick">✓</span> Client and account record sync</li>
+          <li><span class="tick">✓</span> Review and task history</li>
+          <li><span class="tick">✓</span> Bi-directional compliance flag sync</li>
+          <li><span class="tick">✓</span> Custom field mapping</li>
         </ul>
       </div>
 
       <!-- Document Import -->
-      <div class="integration-card integration-card-featured">
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-          <div style="width:52px;height:52px;border-radius:12px;background:#40243F;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <div class="integration-card integration-card-featured fade-up fade-up-4">
+        <div class="integration-card-head">
+          <div class="integration-card-logo integration-card-logo--dark">
             <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
           </div>
           <div>
-            <div style="font-weight:800;font-size:1rem;color:var(--gray-900);">AI Document Import</div>
-            <div style="font-size:0.75rem;color:var(--plum);font-weight:600;">All plans · No CRM needed</div>
+            <div class="integration-card-title">AI Document Import</div>
+            <div class="integration-card-status integration-card-status--feature">All plans · No CRM needed</div>
           </div>
         </div>
-        <p style="font-size:0.85rem;color:var(--gray-600);line-height:1.65;margin:0 0 16px;">Not yet connected to a CRM? Drop your existing documents directly into Amaea. The AI reads each file, identifies the client, classifies the document type, and files it against the right record - no manual data entry.</p>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--plum);font-weight:700;">✓</span> PDF, JPG, PNG document support</li>
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--plum);font-weight:700;">✓</span> AI classification and client matching</li>
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--plum);font-weight:700;">✓</span> Resolves missing document flags automatically</li>
-          <li style="font-size:0.8rem;color:var(--gray-600);display:flex;gap:8px;"><span style="color:var(--plum);font-weight:700;">✓</span> Ideal while Intelliflo integration is being set up</li>
+        <p class="integration-card-desc">Not yet connected to a CRM? Drop your existing documents directly into Amaea. The AI reads each file, identifies the client, classifies the document type, and files it against the right record - no manual data entry.</p>
+        <ul class="integration-bullets">
+          <li><span class="tick tick--feature">✓</span> PDF, JPG, PNG document support</li>
+          <li><span class="tick tick--feature">✓</span> AI classification and client matching</li>
+          <li><span class="tick tick--feature">✓</span> Resolves missing document flags automatically</li>
+          <li><span class="tick tick--feature">✓</span> Ideal while Intelliflo integration is being set up</li>
         </ul>
       </div>
 
       <!-- Dynamic Planner -->
-      <div class="integration-card">
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-          <div style="width:52px;height:52px;border-radius:12px;background:#F3F2F6;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <img src="assets/dynamic-planner-logo.jpg" alt="Dynamic Planner" style="width:40px;height:40px;object-fit:contain;border-radius:6px;">
+      <div class="integration-card fade-up fade-up-5">
+        <div class="integration-card-head">
+          <div class="integration-card-logo">
+            <img loading="lazy" decoding="async" src="assets/dynamic-planner-logo.jpg" alt="Dynamic Planner" class="int-thumb-40">
           </div>
           <div>
-            <div style="font-weight:800;font-size:1rem;color:var(--gray-900);">Dynamic Planner</div>
-            <div style="font-size:0.75rem;color:#D97706;font-weight:600;">Coming soon</div>
+            <div class="integration-card-title">Dynamic Planner</div>
+            <div class="integration-card-status integration-card-status--soon">Coming soon</div>
           </div>
         </div>
-        <p style="font-size:0.85rem;color:var(--gray-600);line-height:1.65;margin:0;">Risk profiling and cashflow planning data from Dynamic Planner synced to Amaea, keeping suitability records current without duplicating assessments.</p>
+        <p class="integration-card-desc integration-card-desc--last">Risk profiling and cashflow planning data from Dynamic Planner synced to Amaea, keeping suitability records current without duplicating assessments.</p>
       </div>
 
       <!-- DocuSign -->
-      <div class="integration-card">
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-          <div style="width:52px;height:52px;border-radius:12px;background:#F3F2F6;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <img src="assets/docusign-logo.png" alt="DocuSign" style="width:40px;height:40px;object-fit:contain;border-radius:6px;">
+      <div class="integration-card fade-up fade-up-6">
+        <div class="integration-card-head">
+          <div class="integration-card-logo">
+            <img loading="lazy" decoding="async" src="assets/docusign-logo.png" alt="DocuSign" class="int-thumb-40">
           </div>
           <div>
-            <div style="font-weight:800;font-size:1rem;color:var(--gray-900);">DocuSign</div>
-            <div style="font-size:0.75rem;color:#D97706;font-weight:600;">Coming soon</div>
+            <div class="integration-card-title">DocuSign</div>
+            <div class="integration-card-status integration-card-status--soon">Coming soon</div>
           </div>
         </div>
-        <p style="font-size:0.85rem;color:var(--gray-600);line-height:1.65;margin:0;">When a client signs a document via DocuSign, Amaea updates the compliance record automatically. No manual confirmation, no document chasing.</p>
+        <p class="integration-card-desc integration-card-desc--last">When a client signs a document via DocuSign, Amaea updates the compliance record automatically. No manual confirmation, no document chasing.</p>
       </div>
 
     </div>
@@ -186,11 +186,11 @@
 </section>
 
 <!-- Don't see yours -->
-<section style="padding:64px 0;background:var(--gray-50);">
+<section class="integrations-cta-section">
   <div class="container">
-    <div style="max-width:600px;margin:0 auto;text-align:center;">
-      <h2 style="font-size:1.4rem;font-weight:800;letter-spacing:-0.04em;color:var(--gray-900);margin-bottom:12px;">Don't see your system?</h2>
-      <p style="font-size:0.88rem;color:var(--gray-600);line-height:1.65;margin-bottom:24px;">We add new integrations based on what firms actually use. If your CRM or document management system isn't listed, get in touch and we'll tell you what's on the roadmap.</p>
+    <div class="integrations-ask">
+      <h2>Don't see your system?</h2>
+      <p>If your platform exposes documents over OAuth or REST, we can integrate it. Tell us what you use and we'll tell you whether it's a week's work or three. Usually before the call ends.</p>
       <a href="contact" class="btn btn-secondary">Get in touch →</a>
     </div>
   </div>
@@ -198,8 +198,8 @@
 
 <section class="cta-banner">
   <div class="container">
-    <h2>Connect Amaea to your existing systems.</h2>
-    <p>No data migration. No new workflows. Up and running in days.</p>
+    <h2>Tell us your stack. We'll tell you the integration scope.</h2>
+    <p>30 minutes. Bring the system you currently use for client records, documents, and reviews. We tell you exactly what Amaea would pull, how the OAuth handshake works, and what's on the roadmap.</p>
     <a href="contact" class="btn btn-secondary btn-lg">Book a demo</a>
   </div>
 </section>
@@ -209,7 +209,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="assets/logo-white.png" alt="Amaea">
+          <img src="assets/logo-white.png" alt="Amaea" width="40" height="40" decoding="async">
           <span class="footer-logo-text">amaea</span>
         </div>
         <p class="footer-tagline">The FCA compliance platform built for UK financial advisers. Every client. Every deadline. Every document.</p>
@@ -251,7 +251,7 @@
   </div>
 </footer>
 
-</div>
+</main>
 <script src="js/main.js"></script>
 </body>
 </html>

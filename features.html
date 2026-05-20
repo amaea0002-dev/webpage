@@ -6,17 +6,19 @@
   <link rel="icon" type="image/png" href="/assets/logo-plum.png">
   <link rel="apple-touch-icon" href="/assets/logo-plum.png">
   <title>Features | Amaea FCA Compliance Platform</title>
-  <meta name="description" content="Explore Amaea's full feature set: client journey tracking, Consumer Duty monitoring, AI compliance assistant, FCA-ready reports, and more.">
+  <meta name="description" content="What Amaea actually does: 17 doc types tracked, COBS 9.5 nightly review sweep, PS22/9 Consumer Duty monitoring, RMAR auto-population for sections B/D/E/G/H, AES-256-GCM-encrypted integrations.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script>(function(){var t=localStorage.getItem('amaea-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <!-- ── Launch banner ──────────────────────────────────────── -->
 <div class="launch-banner">
   <div class="launch-banner-inner">
-    <span class="launch-banner-pill">Public launch · September 2028</span>
+    <span class="launch-banner-pill">Public launch · September 2028 · Design partners onboarding now</span>
     <span class="launch-banner-text">Founders Programme is <strong>invite-only</strong></span>
     <a href="waitlist" class="launch-banner-cta">Join the waitlist →</a>
   </div>
@@ -26,8 +28,8 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light">
-      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark">
+      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light" width="40" height="40" decoding="async">
+      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark" width="40" height="40" decoding="async">
     </a>
     <div class="nav-links">
       <a href="about">About</a>
@@ -54,14 +56,13 @@
   <a href="contact" class="btn btn-primary mobile-cta">Book a demo</a>
 </div>
 
-<div class="page-top">
+<main class="page-top" id="main" tabindex="-1">
 
 <!-- ── Page hero ────────────────────────────────────────────── -->
 <section class="page-hero">
   <div class="container">
-    <div class="section-label">Platform Features</div>
-    <h1>Built for FCA compliance, end to end.</h1>
-    <p>Every feature in Amaea was designed around the real compliance challenges facing UK financial adviser firms, from initial client onboarding to financial reporting.</p>
+    <h1>What Amaea actually does.</h1>
+    <p>Seven systems, each grounded in a specific FCA rule. We've tried to write this the way an engineer would describe it to a compliance officer: what the product does, when it runs, what it cites.</p>
   </div>
 </section>
 
@@ -71,53 +72,53 @@
     <div class="feature-detail-inner">
       <div class="feature-detail-text fade-up">
         <div class="feature-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><line x1="7" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="17" y2="12"/></svg>
         </div>
-        <h2>Client Journey Tracking</h2>
-        <p>Every client relationship has three compliance stages: Initial Engagement, Ad-hoc Work, and Annual Reviews. Amaea maps the complete journey for every client, flagging exactly where documentation is missing or overdue.</p>
+        <h2>Client journey</h2>
+        <p>Three compliance stages per client: initial engagement, ad-hoc work, annual reviews. Each stage carries its own document set: 17 types in total. The system knows which are missing, which are expired, and which expire in the next 90 days.</p>
         <ul class="feature-bullets">
-          <li>Stage-by-stage compliance visibility for every client in your book</li>
-          <li>Milestone tracking: fact find, suitability reports, client agreements, AML checks</li>
-          <li>Colour-coded status: Compliant, At Risk, Overdue, Breach</li>
-          <li>Click any milestone to review the document checklist instantly</li>
-          <li>Adviser-level compliance view: see performance across your entire team</li>
+          <li>17 doc types tracked: fact find, suitability report, ATR, Consumer Duty outcome, vulnerability assessment, AML CDD, client agreement, ID&amp;V, source-of-funds, PI cover note, T&amp;C record, complaint log, fees disclosure, key facts illustration, drawdown review, ongoing services log, fee benchmarking</li>
+          <li>Expiry windows configurable per doc type; defaults match FCA file-completeness expectations</li>
+          <li>"Missing" vs "expired" tracked separately, so the audit-trail reason is correct when a flag is closed</li>
+          <li>Adviser roll-up: per-adviser breach count and missing-doc count, sortable</li>
+          <li>Every flag carries the specific rule citation (COBS, SYSC, FG21/1 etc.), visible on the audit log</li>
         </ul>
       </div>
-      <div class="feature-visual fade-up" style="background:linear-gradient(135deg,#F9F8FA,#F3F2F6);">
+      <div class="feature-visual feature-visual--surface fade-up">
         <div class="feature-visual-inner">
           <!-- Simplified client journey timeline mockup -->
-          <div style="background:#fff;border-radius:12px;border:1px solid #E8E6ED;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-            <div style="font-size:0.72rem;font-weight:800;color:#17131E;letter-spacing:-0.02em;margin-bottom:14px;">Margaret Thompson · CLI-0047</div>
-            <div style="display:flex;flex-direction:column;gap:0;">
-              <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6366F1;margin-bottom:6px;">Initial Work</div>
-              <div style="display:flex;align-items:flex-start;gap:10px;padding-bottom:12px;">
-                <div style="width:10px;height:10px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:3px;"></div>
+          <div class="mockup-panel">
+            <div class="mockup-panel-title mockup-panel-title--tight">Margaret Thompson · CLI-0047</div>
+            <div class="mockup-stack">
+              <div class="mockup-stage mockup-stage--initial">Initial Work</div>
+              <div class="mockup-row-line">
+                <div class="mockup-dot mockup-dot--10 mockup-dot--green"></div>
                 <div>
-                  <div style="font-size:0.78rem;font-weight:600;color:#17131E;">Initial Client Engagement</div>
-                  <div style="font-size:0.68rem;color:#059669;font-weight:600;">Mar 2023 · Compliant</div>
+                  <div class="mockup-tile-cell">Initial Client Engagement</div>
+                  <div class="mockup-status mockup-status--green">Mar 2023 · Compliant</div>
                 </div>
               </div>
-              <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D97706;margin-bottom:6px;">Ad-hoc Work</div>
-              <div style="display:flex;align-items:flex-start;gap:10px;padding-bottom:12px;">
-                <div style="width:10px;height:10px;border-radius:50%;background:#D97706;flex-shrink:0;margin-top:3px;"></div>
+              <div class="mockup-stage mockup-stage--adhoc">Ad-hoc Work</div>
+              <div class="mockup-row-line">
+                <div class="mockup-dot mockup-dot--10 mockup-dot--amber"></div>
                 <div>
-                  <div style="font-size:0.78rem;font-weight:600;color:#17131E;">Pension Drawdown Review</div>
-                  <div style="font-size:0.68rem;color:#D97706;font-weight:600;">Sep 2023 · Missing document</div>
+                  <div class="mockup-tile-cell">Pension Drawdown Review</div>
+                  <div class="mockup-status mockup-status--amber">Sep 2023 · Missing document</div>
                 </div>
               </div>
-              <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8B6189;margin-bottom:6px;">Annual Reviews</div>
-              <div style="display:flex;align-items:flex-start;gap:10px;padding-bottom:12px;">
-                <div style="width:10px;height:10px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:3px;"></div>
+              <div class="mockup-stage mockup-stage--annual">Annual Reviews</div>
+              <div class="mockup-row-line">
+                <div class="mockup-dot mockup-dot--10 mockup-dot--green"></div>
                 <div>
-                  <div style="font-size:0.78rem;font-weight:600;color:#17131E;">Annual Review: March 2024</div>
-                  <div style="font-size:0.68rem;color:#059669;font-weight:600;">Mar 2024 · Compliant</div>
+                  <div class="mockup-tile-cell">Annual Review: March 2024</div>
+                  <div class="mockup-status mockup-status--green">Mar 2024 · Compliant</div>
                 </div>
               </div>
-              <div style="display:flex;align-items:flex-start;gap:10px;">
-                <div style="width:10px;height:10px;border-radius:50%;background:#EF4444;flex-shrink:0;margin-top:3px;"></div>
+              <div class="mockup-row-flex">
+                <div class="mockup-dot mockup-dot--10 mockup-dot--red"></div>
                 <div>
-                  <div style="font-size:0.78rem;font-weight:600;color:#EF4444;">Annual Review 2: Overdue</div>
-                  <div style="font-size:0.68rem;color:#EF4444;font-weight:600;">Due Mar 2025 · 14 months elapsed</div>
+                  <div class="mockup-overdue-title">Annual Review 2: Overdue</div>
+                  <div class="mockup-overdue-meta">Due Mar 2025 · 14 months elapsed</div>
                 </div>
               </div>
             </div>
@@ -134,53 +135,53 @@
     <div class="feature-detail-inner">
       <div class="feature-detail-text fade-up">
         <div class="feature-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
-        <h2>Consumer Duty Monitoring</h2>
-        <p>Consumer Duty requires ongoing evidence of fair outcomes across every client interaction. Amaea automates the monitoring so you always know exactly where you stand.</p>
+        <h2>Consumer Duty (PS22/9)</h2>
+        <p>The four outcomes tracked per client per year: products &amp; services, price &amp; value, consumer understanding, consumer support. Vulnerability re-assessments raised automatically the day a client crosses the 12-month FG21/1 threshold.</p>
         <ul class="feature-bullets">
-          <li>Automated vulnerable client identification and enhanced monitoring</li>
-          <li>Real-time Consumer Duty health score across four FCA outcome areas</li>
-          <li>Fair value assessment tracking and documentation status</li>
-          <li>One-click Consumer Duty annual assessment report for the board</li>
-          <li>Escalation workflows for high-risk clients requiring immediate action</li>
+          <li>Per-client outcome assessment record: one row per outcome per year, with the evidence document referenced</li>
+          <li>Fair-value gaps surface as risk flags with the specific PS22/9 outcome cited (not a generic "review needed")</li>
+          <li>FG21/1 12-month vulnerability re-assessment threshold enforced by a nightly cron</li>
+          <li>Board-pack export: four-outcome roll-up, vulnerable-client cohort numbers, year-on-year delta</li>
+          <li>If the AI helped draft an outcome justification, the audit trail records prompt + response SHA-256s</li>
         </ul>
       </div>
       <div class="feature-visual fade-up">
         <div class="feature-visual-inner">
-          <div style="background:#fff;border-radius:12px;border:1px solid #E8E6ED;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-            <div style="font-size:0.72rem;font-weight:800;color:#17131E;margin-bottom:14px;">Consumer Duty Assessment</div>
-            <div style="margin-bottom:14px;">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                <span style="font-size:0.72rem;font-weight:600;color:#47405A;">Products &amp; Services</span>
-                <span style="font-size:0.72rem;font-weight:700;color:#059669;">82%</span>
+          <div class="mockup-panel">
+            <div class="mockup-panel-title">Consumer Duty Assessment</div>
+            <div class="mb-3">
+              <div class="mockup-progress-row">
+                <span class="mockup-progress-label">Products &amp; Services</span>
+                <span class="mockup-progress-value">82%</span>
               </div>
-              <div style="height:5px;background:#E8E6ED;border-radius:99px;overflow:hidden;"><div style="width:82%;height:100%;background:#059669;border-radius:99px;"></div></div>
+              <div class="mockup-progress"><span style="width:82%;"></span></div>
             </div>
-            <div style="margin-bottom:14px;">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                <span style="font-size:0.72rem;font-weight:600;color:#47405A;">Price &amp; Value</span>
-                <span style="font-size:0.72rem;font-weight:700;color:#059669;">76%</span>
+            <div class="mb-3">
+              <div class="mockup-progress-row">
+                <span class="mockup-progress-label">Price &amp; Value</span>
+                <span class="mockup-progress-value">76%</span>
               </div>
-              <div style="height:5px;background:#E8E6ED;border-radius:99px;overflow:hidden;"><div style="width:76%;height:100%;background:#059669;border-radius:99px;"></div></div>
+              <div class="mockup-progress"><span style="width:76%;"></span></div>
             </div>
-            <div style="margin-bottom:14px;">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                <span style="font-size:0.72rem;font-weight:600;color:#47405A;">Consumer Understanding</span>
-                <span style="font-size:0.72rem;font-weight:700;color:#D97706;">61%</span>
+            <div class="mb-3">
+              <div class="mockup-progress-row">
+                <span class="mockup-progress-label">Consumer Understanding</span>
+                <span class="mockup-progress-value is-amber">61%</span>
               </div>
-              <div style="height:5px;background:#E8E6ED;border-radius:99px;overflow:hidden;"><div style="width:91%;height:100%;background:#D97706;border-radius:99px;"></div></div>
+              <div class="mockup-progress"><span class="is-amber" style="width:91%;"></span></div>
             </div>
             <div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                <span style="font-size:0.72rem;font-weight:600;color:#47405A;">Consumer Support</span>
-                <span style="font-size:0.72rem;font-weight:700;color:#D97706;">78%</span>
+              <div class="mockup-progress-row">
+                <span class="mockup-progress-label">Consumer Support</span>
+                <span class="mockup-progress-value is-amber">78%</span>
               </div>
-              <div style="height:5px;background:#E8E6ED;border-radius:99px;overflow:hidden;"><div style="width:78%;height:100%;background:#D97706;border-radius:99px;"></div></div>
+              <div class="mockup-progress"><span class="is-amber" style="width:78%;"></span></div>
             </div>
-            <div style="margin-top:14px;padding-top:14px;border-top:1px solid #E8E6ED;display:flex;align-items:center;justify-content:space-between;">
-              <span style="font-size:0.68rem;color:#9088A3;">Overall score</span>
-              <span style="font-size:1.2rem;font-weight:800;color:#40243F;letter-spacing:-0.03em;">82<span style="font-size:0.72rem;font-weight:500;color:#9088A3;">/100</span></span>
+            <div class="mockup-summary-row">
+              <span class="mockup-summary-label">Overall score</span>
+              <span class="mockup-summary-value">82<span class="mockup-summary-suffix">/100</span></span>
             </div>
           </div>
         </div>
@@ -195,52 +196,52 @@
     <div class="feature-detail-inner">
       <div class="feature-detail-text fade-up">
         <div class="feature-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
         </div>
-        <h2>Smart Compliance Alerts</h2>
-        <p>Amaea monitors every deadline, every document expiry, and every regulatory obligation, and tells you exactly what needs attention before it becomes a problem.</p>
+        <h2>Annual review sweep</h2>
+        <p>A nightly cron evaluates every overdue review against COBS 9.5. If no reason is recorded, a flag is raised. If a reason is recorded, an FCA-trained AI assesses it against the rule's actual sufficiency test (bereavement, illness, documented unavailability) and either resolves the flag or escalates it, with the reasoning written to the audit log.</p>
         <ul class="feature-bullets">
-          <li>Annual review deadline alerts at 60, 30, and 7 days before breach</li>
-          <li>Suitability letter expiry notifications with adviser attribution</li>
-          <li>FCA regulatory deadline calendar: RMAR, Consumer Duty, T&C reviews</li>
-          <li>Vulnerable client enhanced monitoring triggers</li>
-          <li>Risk-prioritised alert queue: most critical first, always</li>
+          <li>Runs nightly · idempotent · cursor-paginated so it resumes cleanly if a run is interrupted</li>
+          <li>COBS 9.5 sufficiency test, not a date-based rule: "the review was delayed because the client was abroad for three months" passes; "we forgot" doesn't</li>
+          <li>Every AI decision attaches prompt SHA-256, response SHA-256, model version, and timestamp to the flag's audit trail</li>
+          <li>Flag escalations follow the firm's configured escalation matrix; no email goes out without an assignee</li>
+          <li>Special-category client data (Article 9 UK GDPR) is held in-process: never logged, never sent to the LLM in the clear</li>
         </ul>
       </div>
       <div class="feature-visual fade-up">
         <div class="feature-visual-inner">
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="width:8px;height:8px;border-radius:50%;background:#EF4444;flex-shrink:0;margin-top:4px;"></div>
+          <div class="alert-stack">
+            <div class="mockup-tile mockup-tile--row">
+              <div class="mockup-dot mockup-dot--8 mockup-dot--red"></div>
               <div>
-                <div style="font-size:0.78rem;font-weight:600;color:#17131E;">Annual Review Breach: Margaret Thompson</div>
-                <div style="font-size:0.68rem;color:#9088A3;margin-top:2px;">14 months overdue · James Morrison · CLI-0047</div>
+                <div class="mockup-tile-cell">Annual Review Breach: Margaret Thompson</div>
+                <div class="mockup-tile-meta">14 months overdue · James Morrison · CLI-0047</div>
               </div>
-              <span style="margin-left:auto;flex-shrink:0;background:#FEF2F2;color:#EF4444;font-size:0.62rem;font-weight:700;padding:2px 7px;border-radius:99px;border:1px solid rgba(239,68,68,0.2);">Breach</span>
+              <span class="mockup-pill mockup-pill--danger">Breach</span>
             </div>
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="width:8px;height:8px;border-radius:50%;background:#EF4444;flex-shrink:0;margin-top:4px;"></div>
+            <div class="mockup-tile mockup-tile--row">
+              <div class="mockup-dot mockup-dot--8 mockup-dot--red"></div>
               <div>
-                <div style="font-size:0.78rem;font-weight:600;color:#17131E;">Vulnerable Client: SOA Missing</div>
-                <div style="font-size:0.68rem;color:#9088A3;margin-top:2px;">Robert Chen · Consumer Duty risk · CLI-0089</div>
+                <div class="mockup-tile-cell">Vulnerable Client: SOA Missing</div>
+                <div class="mockup-tile-meta">Robert Chen · Consumer Duty risk · CLI-0089</div>
               </div>
-              <span style="margin-left:auto;flex-shrink:0;background:#FEF2F2;color:#EF4444;font-size:0.62rem;font-weight:700;padding:2px 7px;border-radius:99px;border:1px solid rgba(239,68,68,0.2);">Urgent</span>
+              <span class="mockup-pill mockup-pill--danger">Urgent</span>
             </div>
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="width:8px;height:8px;border-radius:50%;background:#D97706;flex-shrink:0;margin-top:4px;"></div>
+            <div class="mockup-tile mockup-tile--row">
+              <div class="mockup-dot mockup-dot--8 mockup-dot--amber"></div>
               <div>
-                <div style="font-size:0.78rem;font-weight:600;color:#17131E;">RMAR Section B: 3 gaps remaining</div>
-                <div style="font-size:0.68rem;color:#9088A3;margin-top:2px;">Due 31 May · 25 days remaining</div>
+                <div class="mockup-tile-cell">RMAR Section B: 3 gaps remaining</div>
+                <div class="mockup-tile-meta">Due 31 May · 25 days remaining</div>
               </div>
-              <span style="margin-left:auto;flex-shrink:0;background:#FFFBEB;color:#D97706;font-size:0.62rem;font-weight:700;padding:2px 7px;border-radius:99px;border:1px solid rgba(245,158,11,0.2);">25 days</span>
+              <span class="mockup-pill mockup-pill--warn">25 days</span>
             </div>
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="width:8px;height:8px;border-radius:50%;background:#D97706;flex-shrink:0;margin-top:4px;"></div>
+            <div class="mockup-tile mockup-tile--row">
+              <div class="mockup-dot mockup-dot--8 mockup-dot--amber"></div>
               <div>
-                <div style="font-size:0.78rem;font-weight:600;color:#17131E;">Suitability Letter Expired: Anne Morrison</div>
-                <div style="font-size:0.68rem;color:#9088A3;margin-top:2px;">Due for renewal before next review · CLI-0163</div>
+                <div class="mockup-tile-cell">Suitability Letter Expired: Anne Morrison</div>
+                <div class="mockup-tile-meta">Due for renewal before next review · CLI-0163</div>
               </div>
-              <span style="margin-left:auto;flex-shrink:0;background:#FFFBEB;color:#D97706;font-size:0.62rem;font-weight:700;padding:2px 7px;border-radius:99px;border:1px solid rgba(245,158,11,0.2);">At Risk</span>
+              <span class="mockup-pill mockup-pill--warn">At Risk</span>
             </div>
           </div>
         </div>
@@ -255,28 +256,29 @@
     <div class="feature-detail-inner">
       <div class="feature-detail-text fade-up">
         <div class="feature-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
         </div>
-        <h2>AI Compliance Assistant</h2>
-        <p>Ask questions about your compliance book the same way you'd ask a colleague, in plain English. The Amaea AI has deep knowledge of every client, every document, and every regulatory obligation across your firm.</p>
+        <h2>AI assistant with hash-verifiable audit trail</h2>
+        <p>Claude Sonnet 4.6 retrieval-grounded against your firm's records + an 11,645-chunk FCA Handbook corpus. Every response writes prompt + response SHA-256s, model version, and request ID to the audit log: the same record the FCA would read if they queried what the model actually said on the day.</p>
         <ul class="feature-bullets">
-          <li>Natural language queries across your entire client book</li>
-          <li>Instant client-level and adviser-level compliance summaries</li>
-          <li>Priority recommendations ranked by regulatory exposure</li>
-          <li>FCA regulation awareness: Consumer Duty, COBS, TCF</li>
-          <li>Always available: no waiting for weekly compliance reports</li>
+          <li><strong>Retrieval first, generation second.</strong> The model is told to cite from the corpus or refuse; "I don't have a confident answer" is a first-class response, not an error state</li>
+          <li><strong>Per-firm vector isolation.</strong> pgvector table protected by RLS; the database refuses cross-firm reads, not application code</li>
+          <li><strong>Article 9 redaction.</strong> Vulnerability, health, and ethnicity fields are redacted before the prompt is built; the LLM never sees the raw values</li>
+          <li><strong>Zero training.</strong> Anthropic API is called per request only; Zero Data Retention in progress with the vendor</li>
+          <li><strong>50-scenario eval suite</strong> runs against every model release; the current best is documented internally before cutover</li>
+          <li><strong>Disclaimer on every surface</strong> rendering AI output: decision support, not regulated advice</li>
         </ul>
       </div>
-      <div class="feature-visual fade-up" style="background:linear-gradient(135deg,#2D1A2C,#40243F);">
+      <div class="feature-visual feature-visual--plum fade-up">
         <div class="feature-visual-inner">
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="font-size:0.65rem;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:2px;">Amaea AI</div>
-            <div style="align-self:flex-end;max-width:85%;">
-              <div style="background:rgba(255,255,255,0.15);padding:9px 13px;border-radius:14px 14px 4px 14px;font-size:0.78rem;color:#fff;line-height:1.5;">How many vulnerable clients need action?</div>
+          <div class="flex flex-col gap-10">
+            <div class="ai-mockup-label">Amaea AI</div>
+            <div class="ai-mockup-msg-user">
+              <div class="ai-mockup-bubble-user">How many vulnerable clients need action?</div>
             </div>
-            <div style="align-self:flex-start;max-width:90%;">
-              <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);padding:9px 13px;border-radius:14px 14px 14px 4px;font-size:0.78rem;color:rgba(255,255,255,0.85);line-height:1.5;">You have 9 vulnerable clients. 4 are fully compliant, 3 have incomplete documentation, and 2 have overdue reviews. The 2 with overdue reviews: Robert Chen (CLI-0089) and Priya Singh (CLI-0132) are your highest Consumer Duty exposure and need immediate action.</div>
-              <div style="font-size:0.62rem;color:rgba(255,255,255,0.35);margin-top:4px;">Amaea AI · Just now</div>
+            <div class="ai-mockup-msg-ai">
+              <div class="ai-mockup-bubble-ai">You have 9 vulnerable clients. 4 are fully compliant, 3 have incomplete documentation, and 2 have overdue reviews. The 2 with overdue reviews: Robert Chen (CLI-0089) and Priya Singh (CLI-0132) are your highest Consumer Duty exposure and need immediate action.</div>
+              <div class="ai-mockup-meta">Amaea AI · Just now</div>
             </div>
           </div>
         </div>
@@ -291,48 +293,48 @@
     <div class="feature-detail-inner">
       <div class="feature-detail-text fade-up">
         <div class="feature-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
         </div>
-        <h2>FCA-Ready Reports</h2>
-        <p>Stop spending days compiling compliance data manually. Amaea pre-populates every report from your connected systems, so generating an RMAR or Consumer Duty assessment takes minutes, not days.</p>
+        <h2>RMAR auto-population</h2>
+        <p>Sections B, D, E, G, and H pre-filled from your live data. Each section exports as a CSV ready for GABRIEL upload. The first time you run it, expect to spend an afternoon reconciling discrepancies; from the next quarter onwards, the same run takes under an hour.</p>
         <ul class="feature-bullets">
-          <li>RMAR (Retail Mediation Activities Return): pre-populated from live data</li>
-          <li>Consumer Duty annual assessment: board-ready in one click</li>
-          <li>Annual compliance report with health score trend</li>
-          <li>Adviser performance summaries with documentation gap analysis</li>
-          <li>Client-level compliance certificates for file audits</li>
+          <li><strong>Section B:</strong> complaints, drawn from the complaint log and cross-checked against DISP 1.6 (FOS rights communicated, 5-day acknowledgement, 8-week final response)</li>
+          <li><strong>Section D:</strong> financial resources, pulled from the firm's connected platform feed</li>
+          <li><strong>Section E:</strong> PII renewal status, pulled from the policy schedule you upload at renewal</li>
+          <li><strong>Section G:</strong> adviser roster, pulled from the live roster table; only currently-active advisers counted</li>
+          <li><strong>Section H:</strong> training records, drawn from the T&amp;C record set against each adviser</li>
         </ul>
       </div>
       <div class="feature-visual fade-up">
         <div class="feature-visual-inner">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="width:32px;height:32px;background:#EEF2FF;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
-                <svg width="16" height="16" fill="none" stroke="#6366F1" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="report-grid-2">
+            <div class="mockup-tile">
+              <div class="report-tile-icon report-tile-icon--info">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
               </div>
-              <div style="font-size:0.78rem;font-weight:700;color:#17131E;margin-bottom:4px;">RMAR Report</div>
-              <div style="font-size:0.68rem;color:#9088A3;line-height:1.4;">Retail Mediation Activities Return: pre-populated</div>
+              <div class="mockup-tile-title">RMAR Report</div>
+              <div class="mockup-tile-summary">Retail Mediation Activities Return: pre-populated</div>
             </div>
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="width:32px;height:32px;background:rgba(64,36,63,0.07);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
-                <svg width="16" height="16" fill="none" stroke="#8B6189" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div class="mockup-tile">
+              <div class="report-tile-icon report-tile-icon--plum">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <div style="font-size:0.78rem;font-weight:700;color:#17131E;margin-bottom:4px;">Consumer Duty</div>
-              <div style="font-size:0.68rem;color:#9088A3;line-height:1.4;">Annual assessment report: board ready</div>
+              <div class="mockup-tile-title">Consumer Duty</div>
+              <div class="mockup-tile-summary">Annual assessment report: board ready</div>
             </div>
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="width:32px;height:32px;background:#ECFDF5;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
-                <svg width="16" height="16" fill="none" stroke="#059669" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <div class="mockup-tile">
+              <div class="report-tile-icon report-tile-icon--ok">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
               </div>
-              <div style="font-size:0.78rem;font-weight:700;color:#17131E;margin-bottom:4px;">Compliance Review</div>
-              <div style="font-size:0.68rem;color:#9088A3;line-height:1.4;">Annual board report with health score trend</div>
+              <div class="mockup-tile-title">Compliance Review</div>
+              <div class="mockup-tile-summary">Annual board report with health score trend</div>
             </div>
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="width:32px;height:32px;background:#FFFBEB;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
-                <svg width="16" height="16" fill="none" stroke="#D97706" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <div class="mockup-tile">
+              <div class="report-tile-icon report-tile-icon--warn">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
               </div>
-              <div style="font-size:0.78rem;font-weight:700;color:#17131E;margin-bottom:4px;">Adviser Summary</div>
-              <div style="font-size:0.68rem;color:#9088A3;line-height:1.4;">Per-adviser compliance performance report</div>
+              <div class="mockup-tile-title">Adviser Summary</div>
+              <div class="mockup-tile-summary">Per-adviser compliance performance report</div>
             </div>
           </div>
         </div>
@@ -347,46 +349,47 @@
     <div class="feature-detail-inner">
       <div class="feature-detail-text fade-up">
         <div class="feature-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <!-- Open book — the FCA Handbook + publications corpus. -->
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
         <div class="section-label">Amaea Horizon</div>
-        <h2>When the FCA moves,<br>Amaea already knows.</h2>
-        <p>Most firms find out about regulatory changes weeks after publication - through newsletters, consultants, or worse, an FCA query. Amaea Horizon monitors every FCA publication, guidance update, and Dear CEO letter the moment it goes live, and surfaces exactly what it means for your firm.</p>
+        <h2>FCA publications, indexed the day they ship.</h2>
+        <p>Our retrieval corpus already holds 11,645 chunks across 150 sources: the Handbook, Final Notices, Dear CEO letters, Policy Statements, Thematic Reviews. New publications are ingested on a daily cron. The personalised "what this means for your firm" layer is on the public-launch roadmap and not yet shipped; the corpus itself is live and queryable inside the AI assistant today.</p>
         <ul class="feature-bullets">
-          <li>Real-time monitoring of FCA publications, policy statements, and guidance</li>
-          <li>AI analysis of how each update affects your specific client book</li>
-          <li>Automatic alerts when a regulatory change creates a compliance gap</li>
-          <li>Governance page updated automatically - no manual checking required</li>
-          <li>Your firm stays ahead. Not catching up.</li>
+          <li>Daily ingest of FCA publications: chunked, embedded with Voyage AI, written to a per-firm-isolated pgvector table</li>
+          <li>Every chunk carries source, publication date, and section reference; citations the AI returns are clickable through to the original PDF</li>
+          <li><strong>Roadmap</strong>: per-firm impact analysis ("does this affect your client book?"), targeted for the Q1-2028 release</li>
+          <li>If the AI can't find a confident answer in the corpus, it says so explicitly. No fabricated rule citations</li>
+          <li>Continuous evaluation suite (50 FCA-scenario gold set) runs against every model release before we cut over</li>
         </ul>
       </div>
       <div class="feature-visual fade-up">
         <div class="feature-visual-inner">
           <div style="font-size:0.6rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--plum-soft);margin-bottom:14px;">FCA Horizon · Live</div>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
-                <span style="font-size:0.62rem;font-weight:700;padding:2px 8px;border-radius:4px;background:#ECFDF5;color:#047857;letter-spacing:0.04em;">New</span>
-                <span style="font-size:0.62rem;color:#9088A3;">2 hours ago</span>
+          <div class="flex flex-col gap-10">
+            <div class="mockup-tile">
+              <div class="mockup-row-between">
+                <span class="horizon-badge horizon-badge--new">New</span>
+                <span class="mockup-caption">2 hours ago</span>
               </div>
-              <div style="font-size:0.78rem;font-weight:700;color:#17131E;margin-bottom:4px;">FCA Dear CEO Letter - Consumer Duty 2025 Review</div>
-              <div style="font-size:0.68rem;color:#9088A3;line-height:1.5;">3 gaps identified for review. Board report evidence requirements updated.</div>
+              <div class="mockup-tile-title">FCA Dear CEO Letter - Consumer Duty 2025 Review</div>
+              <div class="mockup-summary-lg">3 gaps identified for review. Board report evidence requirements updated.</div>
             </div>
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
-                <span style="font-size:0.62rem;font-weight:700;padding:2px 8px;border-radius:4px;background:#FFFBEB;color:#B45309;letter-spacing:0.04em;">Update</span>
-                <span style="font-size:0.62rem;color:#9088A3;">Yesterday</span>
+            <div class="mockup-tile">
+              <div class="mockup-row-between">
+                <span class="horizon-badge horizon-badge--update">Update</span>
+                <span class="mockup-caption">Yesterday</span>
               </div>
-              <div style="font-size:0.78rem;font-weight:700;color:#17131E;margin-bottom:4px;">FCA Guidance - Vulnerable Customer Identification Q3 2025</div>
-              <div style="font-size:0.68rem;color:#9088A3;line-height:1.5;">Proactive identification requirements clarified. Review your client touchpoint processes.</div>
+              <div class="mockup-tile-title">FCA Guidance - Vulnerable Customer Identification Q3 2025</div>
+              <div class="mockup-summary-lg">Proactive identification requirements clarified. Review your client touchpoint processes.</div>
             </div>
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
-                <span style="font-size:0.62rem;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(64,36,63,0.08);color:var(--plum);letter-spacing:0.04em;">Policy</span>
-                <span style="font-size:0.62rem;color:#9088A3;">3 days ago</span>
+            <div class="mockup-tile">
+              <div class="mockup-row-between">
+                <span class="horizon-badge horizon-badge--policy">Policy</span>
+                <span class="mockup-caption">3 days ago</span>
               </div>
-              <div style="font-size:0.78rem;font-weight:700;color:#17131E;margin-bottom:4px;">Advice/Guidance Boundary Review - CP24/2 Update</div>
-              <div style="font-size:0.68rem;color:#9088A3;line-height:1.5;">Targeted support proposals progressing. No immediate action required.</div>
+              <div class="mockup-tile-title">Advice/Guidance Boundary Review - CP24/2 Update</div>
+              <div class="mockup-summary-lg">Targeted support proposals progressing. No immediate action required.</div>
             </div>
           </div>
         </div>
@@ -401,77 +404,77 @@
     <div class="feature-detail-inner">
       <div class="feature-detail-text fade-up">
         <div class="feature-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
         </div>
-        <h2>Seamless Integrations</h2>
-        <p>Amaea connects with the systems your firm already uses. No data migration, no disruption to existing workflows, just instant compliance visibility layered on top of your existing setup.</p>
+        <h2>Integrations</h2>
+        <p>OAuth-authenticated. Tokens encrypted with AES-256-GCM at the application layer; the encryption key sits in a Vercel environment variable, not in the database. Sync is nightly by default; on-demand pull available per integration.</p>
         <ul class="feature-bullets">
-          <li>Intelliflo: client data, valuations, review dates</li>
-          <li>Microsoft SharePoint: document storage and retrieval</li>
-          <li>Salesforce: CRM data and adviser activity</li>
-          <li>Dynamic Planner: risk-rated portfolios and cashflow models</li>
-          <li>DocuSign, Evidentli, ThreeSixty, FCA Connect, and more</li>
+          <li><strong>Intelliflo:</strong> client records, review dates, valuations; nightly delta sync</li>
+          <li><strong>SharePoint:</strong> document pull; new files routed to the correct client via filename heuristic + confirmation prompt</li>
+          <li><strong>Salesforce, Curo, Assureweb:</strong> same OAuth + encrypted-token pattern; available on request</li>
+          <li><strong>Dynamic Planner, ThreeSixty, Evidentli, DocuSign:</strong> REST-based, scoped tokens, read-only by default</li>
+          <li>If you're on a platform that exposes documents over OAuth or REST, we can integrate it. Tell us what you use and we'll tell you whether it's a week's work or three</li>
         </ul>
       </div>
       <div class="feature-visual fade-up">
         <div class="feature-visual-inner">
-          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9088A3;margin-bottom:8px;">Connected</div>
+          <div class="mockup-eyebrow">Connected</div>
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px;">
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="width:34px;height:34px;border-radius:7px;background:#113ad6;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-                <img src="assets/intelliflo-logo.svg" alt="Intelliflo" style="width:100%;height:100%;object-fit:contain;display:block;">
+            <div class="mockup-tile mockup-tile--inline">
+              <div class="int-tile-icon" style="background:#113ad6;">
+                <img loading="lazy" decoding="async" src="assets/intelliflo-logo.svg" alt="Intelliflo" class="fill-img">
               </div>
               <div>
-                <div style="font-size:0.75rem;font-weight:700;color:#17131E;">Intelliflo</div>
-                <div style="display:inline-flex;align-items:center;gap:3px;background:#ECFDF5;color:#059669;font-size:0.58rem;font-weight:700;padding:1px 6px;border-radius:99px;margin-top:3px;">Connected</div>
+                <div class="mockup-tile-name">Intelliflo</div>
+                <div class="mockup-pill mockup-pill--ok mockup-pill--mini">Connected</div>
               </div>
             </div>
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="width:34px;height:34px;border-radius:7px;background:#fff;border:1px solid #E8E6ED;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:6px;">
+            <div class="mockup-tile mockup-tile--inline">
+              <div class="int-tile-icon" style="background:#fff;">
                 <svg viewBox="0 0 28 28" style="width:100%;height:100%;display:block;"><rect width="13" height="13" fill="#F25022"/><rect x="15" width="13" height="13" fill="#7FBA00"/><rect y="15" width="13" height="13" fill="#00A4EF"/><rect x="15" y="15" width="13" height="13" fill="#FFB900"/></svg>
               </div>
               <div>
-                <div style="font-size:0.75rem;font-weight:700;color:#17131E;">SharePoint</div>
-                <div style="display:inline-flex;align-items:center;gap:3px;background:#ECFDF5;color:#059669;font-size:0.58rem;font-weight:700;padding:1px 6px;border-radius:99px;margin-top:3px;">Connected</div>
+                <div class="mockup-tile-name">SharePoint</div>
+                <div class="mockup-pill mockup-pill--ok mockup-pill--mini">Connected</div>
               </div>
             </div>
           </div>
-          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9088A3;margin-bottom:8px;">Available</div>
+          <div class="mockup-eyebrow">Available</div>
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;">
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="width:34px;height:34px;border-radius:7px;background:#fff;border:1px solid #E8E6ED;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:3px;">
-                <img src="assets/dynamic-planner-logo.jpg" alt="Dynamic Planner" style="width:100%;height:100%;object-fit:contain;display:block;">
+            <div class="mockup-tile mockup-tile--inline">
+              <div class="mockup-icon-square">
+                <img loading="lazy" decoding="async" src="assets/dynamic-planner-logo.jpg" alt="Dynamic Planner" class="fill-img">
               </div>
               <div>
-                <div style="font-size:0.75rem;font-weight:700;color:#17131E;">Dynamic Planner</div>
-                <div style="display:inline-flex;align-items:center;gap:3px;background:#FFFBEB;color:#D97706;font-size:0.58rem;font-weight:700;padding:1px 6px;border-radius:99px;margin-top:3px;">Available</div>
+                <div class="mockup-tile-name">Dynamic Planner</div>
+                <div class="mockup-pill mockup-pill--warn mockup-pill--mini">Available</div>
               </div>
             </div>
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-              <div style="width:34px;height:34px;border-radius:7px;background:#fff;border:1px solid #E8E6ED;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:3px;">
-                <img src="assets/docusign-logo.png" alt="DocuSign" style="width:100%;height:100%;object-fit:contain;display:block;">
+            <div class="mockup-tile mockup-tile--inline">
+              <div class="mockup-icon-square">
+                <img loading="lazy" decoding="async" src="assets/docusign-logo.png" alt="DocuSign" class="fill-img">
               </div>
               <div>
-                <div style="font-size:0.75rem;font-weight:700;color:#17131E;">DocuSign</div>
-                <div style="display:inline-flex;align-items:center;gap:3px;background:#FFFBEB;color:#D97706;font-size:0.58rem;font-weight:700;padding:1px 6px;border-radius:99px;margin-top:3px;">Available</div>
+                <div class="mockup-tile-name">DocuSign</div>
+                <div class="mockup-pill mockup-pill--warn mockup-pill--mini">Available</div>
               </div>
             </div>
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+            <div class="mockup-tile mockup-tile--inline">
               <div style="width:34px;height:34px;border-radius:7px;background:#12121a;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:0;">
-                <img src="assets/evidentli-logo.png" alt="Evidentli" style="width:100%;height:100%;object-fit:contain;display:block;">
+                <img loading="lazy" decoding="async" src="assets/evidentli-logo.png" alt="Evidentli" class="fill-img">
               </div>
               <div>
-                <div style="font-size:0.75rem;font-weight:700;color:#17131E;">Evidentli</div>
-                <div style="display:inline-flex;align-items:center;gap:3px;background:#FFFBEB;color:#D97706;font-size:0.58rem;font-weight:700;padding:1px 6px;border-radius:99px;margin-top:3px;">Available</div>
+                <div class="mockup-tile-name">Evidentli</div>
+                <div class="mockup-pill mockup-pill--warn mockup-pill--mini">Available</div>
               </div>
             </div>
-            <div style="background:#fff;border:1px solid #E8E6ED;border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+            <div class="mockup-tile mockup-tile--inline">
               <div style="width:34px;height:34px;border-radius:7px;background:#1C1635;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:0;">
-                <img src="assets/threesixty-logo.png" alt="ThreeSixty" style="width:100%;height:100%;object-fit:contain;display:block;">
+                <img loading="lazy" decoding="async" src="assets/threesixty-logo.png" alt="ThreeSixty" class="fill-img">
               </div>
               <div>
-                <div style="font-size:0.75rem;font-weight:700;color:#17131E;">ThreeSixty</div>
-                <div style="display:inline-flex;align-items:center;gap:3px;background:#FFFBEB;color:#D97706;font-size:0.58rem;font-weight:700;padding:1px 6px;border-radius:99px;margin-top:3px;">Available</div>
+                <div class="mockup-tile-name">ThreeSixty</div>
+                <div class="mockup-pill mockup-pill--warn mockup-pill--mini">Available</div>
               </div>
             </div>
           </div>
@@ -484,8 +487,8 @@
 <!-- ── CTA ───────────────────────────────────────────────────── -->
 <section class="cta-banner">
   <div class="container">
-    <h2>Ready to see it in action?</h2>
-    <p>Book a 30-minute demo and we'll walk you through every feature with your firm's specific compliance challenges in mind.</p>
+    <h2>Run a real client through Amaea with us.</h2>
+    <p>30 minutes. We use one of your firm's hardest compliance cases (anonymised). You see exactly what surfaces, how the audit trail reads, and what the RMAR export looks like.</p>
     <div class="flex items-center gap-4" style="justify-content:center;flex-wrap:wrap;">
       <a href="contact" class="btn btn-secondary btn-lg">Book a demo</a>
       <a href="pricing" class="btn btn-ghost btn-lg" style="color:rgba(255,255,255,0.8);">View pricing →</a>
@@ -498,10 +501,10 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="assets/logo-white.png" alt="Amaea">
+          <img src="assets/logo-white.png" alt="Amaea" width="40" height="40" decoding="async">
           <span class="footer-logo-text">amaea</span>
         </div>
-        <p class="footer-tagline">The FCA compliance platform built for UK financial advisers.</p>
+        <p class="footer-tagline">The FCA compliance platform built for UK financial advisers. Every client. Every deadline. Every document.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
@@ -540,7 +543,7 @@
   </div>
 </footer>
 
-</div>
+</main>
 <script src="js/main.js"></script>
 </body>
 </html>

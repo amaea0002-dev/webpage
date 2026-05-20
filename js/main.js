@@ -81,10 +81,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ── Nav scroll shadow + hero parallax ──────────────────────
+// Cache the reduced-motion query once; the listener fires on every scroll
+// frame so we don't want to ask the media query each time.
+const _scrollReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 window.addEventListener('scroll', () => {
   document.querySelector('.nav')?.classList.toggle('scrolled', window.scrollY > 10);
 
-  // Subtle parallax on hero preview — drifts at 0.25x scroll speed
+  // Subtle parallax on hero preview — drifts at 0.18x scroll speed.
+  // Skipped entirely for users who prefer reduced motion.
+  if (_scrollReducedMotion.matches) return;
   const glow = document.querySelector('.hero-preview-glow');
   if (glow) {
     const offset = window.scrollY * 0.18;
@@ -96,23 +101,66 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger');
   const mobileNav = document.querySelector('.mobile-nav');
+
+  function closeMobileNav() {
+    if (!mobileNav) return;
+    mobileNav.classList.remove('open');
+    hamburger?.setAttribute('aria-expanded', 'false');
+    document.body.style.removeProperty('overflow');
+    // Return focus to the trigger so keyboard users don't get stranded.
+    hamburger?.focus({ preventScroll: true });
+  }
+
   if (hamburger && mobileNav) {
     hamburger.addEventListener('click', () => {
-      const open = mobileNav.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', open);
+      const willOpen = !mobileNav.classList.contains('open');
+      mobileNav.classList.toggle('open', willOpen);
+      hamburger.setAttribute('aria-expanded', String(willOpen));
+      // Prevent background scroll while the drawer is up.
+      document.body.style.overflow = willOpen ? 'hidden' : '';
+      if (willOpen) {
+        // Focus the first link so keyboard nav lands inside the drawer.
+        const firstLink = mobileNav.querySelector('a');
+        // Defer one frame so the open transition has started before focus moves.
+        requestAnimationFrame(() => firstLink?.focus({ preventScroll: true }));
+      }
     });
+    // Clicking a link closes the drawer (and returns focus).
     mobileNav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => mobileNav.classList.remove('open'));
+      a.addEventListener('click', closeMobileNav);
+    });
+    // Esc closes the drawer; Tab/Shift+Tab loops focus inside it.
+    document.addEventListener('keydown', (e) => {
+      if (!mobileNav.classList.contains('open')) return;
+      if (e.key === 'Escape') { closeMobileNav(); return; }
+      if (e.key !== 'Tab') return;
+      const focusables = mobileNav.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last  = focusables[focusables.length - 1];
+      const active = document.activeElement;
+      // Treat focus outside the drawer as if it were on the first item.
+      const inside = mobileNav.contains(active);
+      if (e.shiftKey && (active === first || !inside)) {
+        e.preventDefault();
+        last.focus({ preventScroll: true });
+      } else if (!e.shiftKey && (active === last || !inside)) {
+        e.preventDefault();
+        first.focus({ preventScroll: true });
+      }
     });
   }
 
-  // ── Set active nav link ──────────────────────────────────
+  // ── Set active nav link + aria-current ───────────────────
   const path = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(a => {
     const href = a.getAttribute('href');
     if (href === path || (path === '' && href === 'index.html') ||
         (path === 'index.html' && href === 'index.html')) {
       a.classList.add('active');
+      a.setAttribute('aria-current', 'page');
     }
   });
 
@@ -256,10 +304,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Honoured by both JS-driven animations below. Users who set
+  // prefers-reduced-motion get a static first frame instead.
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ── AI chat typing animation ──────────────────────────────
   (function () {
     const chat = document.getElementById('ai-chat-demo');
     if (!chat) return;
+    // For reduced-motion users: render the first conversation
+    // statically and stop. They still see the example, just no typing.
+    if (prefersReducedMotion) {
+      const first = {
+        user: 'Which clients should I prioritise this week?',
+        bot:  'Based on regulatory exposure, your top 3 priorities are: (1) Margaret Thompson, annual review 14 months overdue, the longest in your book. (2) Robert Chen, vulnerable client with Consumer Duty breach risk, review 11 months late. (3) 3 RMAR data gaps in Section B, due in 25 days. Resolving these moves your health score from 82 to ~93.',
+      };
+      const u = document.createElement('div'); u.className = 'ai-msg ai-msg-user';
+      const ub = document.createElement('div'); ub.className = 'ai-bubble'; ub.textContent = first.user; u.appendChild(ub);
+      const b = document.createElement('div'); b.className = 'ai-msg ai-msg-bot';
+      const bb = document.createElement('div'); bb.className = 'ai-bubble'; bb.textContent = first.bot; b.appendChild(bb);
+      const lbl = document.createElement('div'); lbl.className = 'ai-msg-label'; lbl.textContent = 'Amaea AI · Just now'; b.appendChild(lbl);
+      chat.appendChild(u); chat.appendChild(b);
+      return;
+    }
 
     const CONVOS = [
       {
@@ -371,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const SPEED = 28; // px/s
     let HALF = 1400; // measured after paint
     let STEP = 280;  // button scroll step, measured after paint
-    let paused = false;
+    let paused = prefersReducedMotion; // start paused for users who opt out of motion
     let lastTs = null;
     let resumeTimer = null;
 
@@ -391,7 +458,9 @@ document.addEventListener('DOMContentLoaded', () => {
         HALF = Math.round(items[5].getBoundingClientRect().left - items[0].getBoundingClientRect().left);
         STEP = Math.round(HALF / 5);
       }
-      requestAnimationFrame(rafStep);
+      // Only start the rAF loop if motion is allowed — reduced-motion users
+      // can still operate the prev/next buttons to scroll manually.
+      if (!prefersReducedMotion) requestAnimationFrame(rafStep);
     });
 
     partnerGrid.addEventListener('mouseenter', () => { paused = true; });

@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-20T00:00:00Z",
+  "title": "Design System: Amaea",
+  "extensions": {
+    "colorMeta": {
+      "deep-plum": {
+        "role": "primary",
+        "displayName": "Deep Plum",
+        "canonical": "#40243F",
+        "tonalRamp": ["#1A0F19", "#2A1729", "#3A1F36", "#40243F", "#5A3558", "#785376", "#B898BB", "#F2E8F1"]
+      },
+      "plum-dark": {
+        "role": "primary",
+        "displayName": "Plum Dark",
+        "canonical": "#2A1729",
+        "tonalRamp": ["#15090F", "#1F0F1A", "#2A1729", "#3A1F36", "#5A3558", "#785376", "#B898BB", "#F2E8F1"]
+      },
+      "plum-mid": {
+        "role": "primary",
+        "displayName": "Plum Mid",
+        "canonical": "#5A3558",
+        "tonalRamp": ["#1A0F19", "#2A1729", "#3A1F36", "#40243F", "#5A3558", "#785376", "#B898BB", "#F2E8F1"]
+      },
+      "plum-soft": {
+        "role": "neutral",
+        "displayName": "Plum Soft",
+        "canonical": "#6B5C7B",
+        "tonalRamp": ["#17131E", "#3C354A", "#4F465E", "#6B5C7B", "#867693", "#A89DB8", "#D1CDD8", "#F0EDF4"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#17131E",
+        "tonalRamp": ["#0B0810", "#17131E", "#3C354A", "#6B5C7B", "#9088A3", "#D1CDD8", "#E8E6ED", "#F9F8FA"]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink Secondary",
+        "canonical": "#3C354A",
+        "tonalRamp": ["#17131E", "#3C354A", "#4F465E", "#6B5C7B", "#9088A3", "#D1CDD8", "#E8E6ED", "#F9F8FA"]
+      },
+      "subdued": {
+        "role": "neutral",
+        "displayName": "Subdued Text",
+        "canonical": "#6B5C7B",
+        "tonalRamp": ["#17131E", "#3C354A", "#4F465E", "#6B5C7B", "#9088A3", "#D1CDD8", "#E8E6ED", "#F9F8FA"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "canonical": "#9088A3",
+        "tonalRamp": ["#17131E", "#3C354A", "#6B5C7B", "#9088A3", "#A89DB8", "#D1CDD8", "#E8E6ED", "#F9F8FA"]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Canvas",
+        "canonical": "#FFFFFF",
+        "tonalRamp": ["#0D070D", "#160F16", "#1E1520", "#3C354A", "#9088A3", "#E8E6ED", "#F9F8FA", "#FFFFFF"]
+      },
+      "surface-warm": {
+        "role": "neutral",
+        "displayName": "Surface Warm",
+        "canonical": "#F9F8FA",
+        "tonalRamp": ["#17131E", "#3C354A", "#6B5C7B", "#9088A3", "#D1CDD8", "#E8E6ED", "#F0EDF4", "#F9F8FA"]
+      },
+      "line-soft": {
+        "role": "neutral",
+        "displayName": "Line Soft",
+        "canonical": "#F0EDF4",
+        "tonalRamp": ["#17131E", "#3C354A", "#6B5C7B", "#9088A3", "#D1CDD8", "#E8E6ED", "#F0EDF4", "#F9F8FA"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "#E8E6ED",
+        "tonalRamp": ["#17131E", "#3C354A", "#6B5C7B", "#9088A3", "#D1CDD8", "#E8E6ED", "#F0EDF4", "#F9F8FA"]
+      },
+      "green": {
+        "role": "secondary",
+        "displayName": "Status Green (Met)",
+        "canonical": "#059669",
+        "tonalRamp": ["#022C19", "#04432B", "#067347", "#059669", "#10B981", "#34D399", "#86EFAC", "#ECFDF5"]
+      },
+      "amber": {
+        "role": "secondary",
+        "displayName": "Status Amber (Approaching)",
+        "canonical": "#D97706",
+        "tonalRamp": ["#3F1F02", "#783E05", "#B86209", "#D97706", "#F59E0B", "#FBBF24", "#FCD34D", "#FFFBEB"]
+      },
+      "red": {
+        "role": "secondary",
+        "displayName": "Status Red (Breach)",
+        "canonical": "#EF4444",
+        "tonalRamp": ["#3F0808", "#7F0F0F", "#B91C1C", "#EF4444", "#F87171", "#FCA5A5", "#FECACA", "#FEF2F2"]
+      },
+      "blue": {
+        "role": "secondary",
+        "displayName": "Status Blue (Info)",
+        "canonical": "#2563EB",
+        "tonalRamp": ["#0A1A3F", "#143087", "#1D4ED8", "#2563EB", "#3B82F6", "#60A5FA", "#93C5FD", "#EFF6FF"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero h1 only. The narrative opener of the surface." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles. Anchors of each long-scroll fold." },
+      "title": { "displayName": "Title", "purpose": "Card headings, feature card titles, callout headers." },
+      "body": { "displayName": "Body", "purpose": "Default paragraph copy. Cap line length at 65–75ch." },
+      "label": { "displayName": "Label", "purpose": "Form labels, metadata captions, footer column headings." }
+    },
+    "shadows": [
+      { "name": "sh-sm",   "value": "0 1px 2px rgba(22,17,30,0.04), 0 2px 6px rgba(22,17,30,0.06)", "purpose": "Resting state for nav on scroll, chips, secondary buttons." },
+      { "name": "sh-md",   "value": "0 2px 4px rgba(22,17,30,0.04), 0 6px 20px rgba(22,17,30,0.08), 0 1px 2px rgba(22,17,30,0.03)", "purpose": "Card hover, hover on secondary surfaces." },
+      { "name": "sh-lg",   "value": "0 4px 8px rgba(22,17,30,0.04), 0 12px 40px rgba(22,17,30,0.10), 0 2px 4px rgba(22,17,30,0.04)", "purpose": "Feature card hover, hero preview at rest." },
+      { "name": "sh-xl",   "value": "0 8px 16px rgba(22,17,30,0.06), 0 24px 64px rgba(22,17,30,0.14), 0 4px 8px rgba(22,17,30,0.05)", "purpose": "Hero dashboard mockup, modal-grade lift." },
+      { "name": "sh-glow", "value": "0 0 0 1px rgba(64,36,63,0.18), 0 4px 24px rgba(64,36,63,0.22)", "purpose": "Plum-tinted glow under focus or emphasis surfaces." }
+    ],
+    "motion": [
+      { "name": "ease",         "value": "cubic-bezier(0.25, 0.46, 0.45, 0.94)", "purpose": "Default easing for state transitions." },
+      { "name": "ease-out",     "value": "cubic-bezier(0.0, 0.0, 0.2, 1.0)",      "purpose": "Exit/dismiss transitions." },
+      { "name": "stripe-ease",  "value": "cubic-bezier(0.32, 0.72, 0, 1)",         "purpose": "Page enter, view transition, press feedback. Crisp, no overshoot." },
+      { "name": "ease-spring",  "value": "cubic-bezier(0.34, 1.4, 0.64, 1)",       "purpose": "DEPRECATED. Causes overshoot. Do not use for new code." }
+    ],
+    "breakpoints": [
+      { "name": "mobile-sm", "value": "420px" },
+      { "name": "mobile",    "value": "768px" },
+      { "name": "tablet",    "value": "1024px" },
+      { "name": "desktop",   "value": "1160px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The default call-to-action. Pill-shaped, deep plum, carries a 3-layer plum-tinted shadow; hover lifts 1px.",
+      "html": "<button class=\"ds-btn-primary\">Book a demo <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/><polyline points=\"12 5 19 12 12 19\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #40243F; color: #FFFFFF; font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 600; font-size: 0.88rem; letter-spacing: -0.01em; border: none; border-radius: 999px; padding: 12px 24px; cursor: pointer; white-space: nowrap; box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 1px 3px rgba(64,36,63,0.3), 0 4px 14px rgba(64,36,63,0.22); transition: background 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); } .ds-btn-primary:hover { background: #4D2D4C; transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 2px 6px rgba(64,36,63,0.35), 0 8px 24px rgba(64,36,63,0.28); } .ds-btn-primary:focus-visible { outline: 2px solid #40243F; outline-offset: 3px; } .ds-btn-primary:active { transform: scale(0.97); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Pill button for secondary actions. White surface, plum text, 1.5px plum-tinted border.",
+      "html": "<button class=\"ds-btn-secondary\">See all features</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: #FFFFFF; color: #40243F; font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 600; font-size: 0.88rem; letter-spacing: -0.01em; border: 1.5px solid rgba(64,36,63,0.18); border-radius: 999px; padding: 12px 24px; cursor: pointer; white-space: nowrap; box-shadow: 0 1px 2px rgba(22,17,30,0.04), 0 2px 6px rgba(22,17,30,0.06); transition: background 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.2s, box-shadow 0.2s; } .ds-btn-secondary:hover { transform: translateY(-1px); border-color: #6B5C7B; background: #F9F8FA; box-shadow: 0 2px 4px rgba(22,17,30,0.04), 0 6px 20px rgba(22,17,30,0.08); } .ds-btn-secondary:focus-visible { outline: 2px solid #40243F; outline-offset: 3px; } .ds-btn-secondary:active { transform: scale(0.97); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Tertiary CTA. No background or border, muted text. Hover fills with plum tint.",
+      "html": "<button class=\"ds-btn-ghost\">Sign in</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #9088A3; font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 600; font-size: 0.88rem; letter-spacing: -0.01em; border: none; border-radius: 999px; padding: 12px 20px; cursor: pointer; transition: background 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.2s; } .ds-btn-ghost:hover { background: rgba(64,36,63,0.06); color: #40243F; } .ds-btn-ghost:focus-visible { outline: 2px solid #40243F; outline-offset: 3px; }"
+    },
+    {
+      "name": "Feature Card",
+      "kind": "card",
+      "refersTo": "card-feature",
+      "description": "Standard content card. Icon top-left, title, body copy. Border at rest, 4px lift + sh-lg on hover.",
+      "html": "<article class=\"ds-card-feature\"><div class=\"ds-feature-icon\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polyline points=\"9 11 12 14 22 4\"/><path d=\"M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11\"/></svg></div><h3 class=\"ds-card-feature-title\">Annual review sweep</h3><p class=\"ds-card-feature-desc\">A nightly cron evaluates every overdue review against COBS 9.5's actual sufficiency test, with the reasoning attached to the audit log.</p></article>",
+      "css": ".ds-card-feature { background: #FFFFFF; border: 1px solid #E8E6ED; border-radius: 24px; padding: 28px 28px 32px; display: flex; flex-direction: column; gap: 14px; transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.22s; } .ds-card-feature:hover { transform: translateY(-4px); box-shadow: 0 4px 8px rgba(22,17,30,0.04), 0 12px 40px rgba(22,17,30,0.10), 0 2px 4px rgba(22,17,30,0.04); border-color: rgba(64,36,63,0.18); } .ds-feature-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(122, 63, 121, 0.06); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #40243F; margin-bottom: 22px; transition: background 0.2s, color 0.2s, transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); } .ds-card-feature:hover .ds-feature-icon { background: #40243F; color: #FFFFFF; transform: translateY(-1px); } .ds-card-feature-title { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 1.15rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em; color: #17131E; margin: 0; } .ds-card-feature-desc { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 0.95rem; font-weight: 400; line-height: 1.55; color: #6B5C7B; margin: 0; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Default text field. Surface-warm background, 1.5px border, 12px radius. Focus lifts to canvas with a 3px plum-tint ring.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field-label\" for=\"ds-input-email\">Work email *</label><input class=\"ds-input\" id=\"ds-input-email\" type=\"email\" placeholder=\"james@oakridgewealth.co.uk\" aria-required=\"true\"></div>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-field-label { font-size: 0.78rem; font-weight: 600; color: #6B5C7B; } .ds-input { width: 100%; background: #F9F8FA; border: 1.5px solid #E8E6ED; border-radius: 12px; padding: 11px 14px; font-family: inherit; font-size: 0.88rem; color: #17131E; outline: none; transition: border-color 0.15s, box-shadow 0.15s, background 0.15s; } .ds-input::placeholder { color: #9088A3; } .ds-input:focus { border-color: #6B5C7B; background: #FFFFFF; box-shadow: 0 0 0 3px rgba(64,36,63,0.06); }"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "Fixed top nav. Translucent canvas with 10px backdrop-blur. Logo left, centred links, right-side CTA pair.",
+      "html": "<nav class=\"ds-nav\"><div class=\"ds-nav-inner\"><a href=\"/\" class=\"ds-nav-logo\"><span class=\"ds-nav-logo-text\">amaea</span></a><div class=\"ds-nav-links\"><a href=\"#\" class=\"ds-nav-link\">About</a><a href=\"#\" class=\"ds-nav-link\">Features</a><a href=\"#\" class=\"ds-nav-link ds-nav-link-active\" aria-current=\"page\">Pricing</a><a href=\"#\" class=\"ds-nav-link\">Contact</a></div><div class=\"ds-nav-cta\"><button class=\"ds-nav-ghost\">Sign in</button><button class=\"ds-nav-primary\">Book a demo</button></div></div></nav>",
+      "css": ".ds-nav { position: relative; height: 68px; background: rgba(255,255,255,0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(22,17,30,0.08); display: flex; align-items: center; font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-nav-inner { position: relative; display: flex; align-items: center; width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 28px; } .ds-nav-logo { display: flex; align-items: center; gap: 10px; margin-right: auto; text-decoration: none; } .ds-nav-logo-text { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.04em; color: #40243F; } .ds-nav-links { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; gap: 2px; } .ds-nav-link { font-size: 0.88rem; font-weight: 500; color: #6B5C7B; text-decoration: none; padding: 8px 14px; border-radius: 999px; transition: color 0.15s, background 0.15s; } .ds-nav-link:hover { color: #40243F; background: rgba(64,36,63,0.04); } .ds-nav-link-active { color: #40243F; font-weight: 700; } .ds-nav-cta { display: flex; gap: 8px; margin-left: auto; } .ds-nav-ghost { background: transparent; color: #9088A3; font-weight: 600; font-size: 0.8rem; border: none; border-radius: 999px; padding: 8px 18px; cursor: pointer; transition: background 0.2s, color 0.2s; } .ds-nav-ghost:hover { background: rgba(64,36,63,0.06); color: #40243F; } .ds-nav-primary { background: #40243F; color: #FFFFFF; font-weight: 600; font-size: 0.8rem; border: none; border-radius: 999px; padding: 8px 18px; cursor: pointer; box-shadow: 0 1px 3px rgba(64,36,63,0.3), 0 4px 14px rgba(64,36,63,0.22); transition: background 0.2s, transform 0.2s, box-shadow 0.2s; } .ds-nav-primary:hover { background: #4D2D4C; transform: translateY(-1px); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Plum Office",
+    "overview": "Amaea is software for compliance officers at UK financial advice firms — a role that lives inside FCA rule references, document expiry dates, and audit trails. The visual system serves that role by deliberately departing from every default the category reaches for. Navy-and-gold fintech says 'trust us, we're old money.' SaaS purple-on-cream says 'we'll handle the boring stuff for you.' Amaea says neither. The primary is plum, a colour the category does not recognise — confident enough to use it everywhere, restrained enough not to make it loud.\n\nThe whole surface is warm grays with a slight magenta undertone, generous spacing, and pill-shaped controls. Motion is Stripe-grade — crisp, no overshoot, no choreography. The product is technical (RAG against 11,645 FCA Handbook chunks, COBS 9.5 nightly sweeps, RMAR section pre-population) and the design refuses to flatten that into an 'AI-powered everything' template. Every flourish that would suggest sales theatre — gradient text, hero-metric grids, identical icon-headline-text cards, eyebrows above every heading — is suspect.\n\nThe system is for senior practitioners who keep tabs open for years. It should feel like a tool, not a launch.",
+    "keyCharacteristics": [
+      "Plum primary (#40243F) used as committed brand colour, not hedged with neutrals around the edges",
+      "Warm magenta-tinted neutrals throughout — no cool slate, no cream",
+      "Pill-shaped buttons (radius 999px) against soft-rounded cards (radius 18–24px) — generous geometry, no hard corners",
+      "Subtly layered always: cards carry low-elevation shadow at rest; hover deepens",
+      "Stripe-style motion: cubic-bezier(0.32, 0.72, 0, 1), durations 80–360ms, no bounce",
+      "Honesty over polish in voice; the design follows"
+    ],
+    "rules": [
+      { "name": "The Plum Departure Rule", "body": "The primary is plum because the FCA-fintech category default is navy. If a surface design would read identically with navy substituted in, the plum isn't doing its job. Commit to it.", "section": "colors" },
+      { "name": "The Warm Neutral Rule", "body": "All grays carry magenta. Never substitute a cool gray (#64748B, #94A3B8) or a pure neutral (#888, #666) — they read as a different brand. When in doubt, lean warmer.", "section": "colors" },
+      { "name": "The Status-as-Function Rule", "body": "Status colours are functional, not decorative. Red is for FCA breach severity, never for a decorative pop or 'important' accent. If you're tempted to use red for emphasis, use weight + size instead.", "section": "colors" },
+      { "name": "The Weight-Not-Decoration Rule", "body": "Hierarchy comes from weight (400 → 600 → 700 → 800) and scale (≥1.25 ratio between steps), not from colour shifts, gradients, or decorative weight oscillation. If a heading needs gradient text to be noticed, the scale is too flat.", "section": "typography" },
+      { "name": "The Eyebrow Restraint Rule", "body": "Tiny uppercase tracked labels above section headings exist in the system but should appear at most twice per page. Every-section eyebrows are AI scaffolding; cut them.", "section": "typography" },
+      { "name": "The Layered-Always Rule", "body": "Cards do not sit flat. A resting card carries sh-sm; hover lifts to sh-md or sh-lg. A card with box-shadow: none reads as a placeholder, not a card.", "section": "elevation" },
+      { "name": "The Ink-Tinted-Shadow Rule", "body": "Shadows are rgba(22, 17, 30, *) (ink-tinted), not rgba(0, 0, 0, *). Pure-black shadows read foreign against the warm-gray neutral ramp.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Deep Plum (#40243F) as the brand colour on primary buttons, brand glows, and key accents. Commit to it; don't hedge with neutrals around the edges.",
+      "Do tint every gray toward magenta. The neutral ramp is --gray-50 through --gray-900 defined in :root of css/style.css — consume them via var(--gray-*), never reinvent.",
+      "Do use the radius scale: --r-sm (6px), --r-md (12px), --r-lg (18px), --r-xl (24px), --r-2xl (32px), --r-pill (999px). Buttons are always --r-pill; cards are --r-xl or --r-2xl.",
+      "Do use the Stripe ease cubic-bezier(0.32, 0.72, 0, 1) and the --ease / --ease-out tokens. Crisp, no overshoot.",
+      "Do carry shadows in --sh-sm through --sh-xl (ink-tinted 3-layer shadows defined in :root). Hover lifts one step.",
+      "Do ground every feature claim in a specific FCA rule citation (COBS 9.5, PS22/9, FG21/1, DISP 1.6, SYSC 9) — the design follows the copy's voice.",
+      "Do maintain WCAG AA contrast: ≥4.5:1 for small text. Verify --gray-500 on canvas; today it's borderline at ~4.2:1.",
+      "Do keep the launch banner above the nav. The honesty signal is doing real work."
+    ],
+    "donts": [
+      "Don't use navy-and-gold or any fintech-luxury palette. That's the category default the brand explicitly departs from.",
+      "Don't use the SaaS gradient template (purple-to-pink hero gradients, gradient-on-white card backgrounds, gradient-text headlines). Solid plum is the answer.",
+      "Don't use background-clip: text with a gradient. Emphasis is via weight and size, not colour-shift effects.",
+      "Don't use backdrop-filter: blur() decoratively. The nav uses 10px blur as voice; that's the entire glassmorphism budget for the site.",
+      "Don't use --ease-spring / --spring (cubic-bezier(0.34, 1.4, 0.64, 1)) for new code. The 1.4 y-value causes overshoot, which is the 'delightful bounce' AI tell. The token survives in the codebase but is on its way out.",
+      "Don't add an eyebrow label above every section heading. One or two per page is voice; every section is AI rhythm.",
+      "Don't use border-left or border-right greater than 1px as a colored accent on cards, alerts, or callouts. The side-stripe pattern is banned.",
+      "Don't hard-code colour values in HTML style= attributes or CSS rules. Use var(--plum), var(--gray-900), etc. The current features.html has 43 inline-style violations that break dark mode; this is a known cleanup item.",
+      "Don't use SVG strokes / fills with hard-coded hex inside the dashboard mockup. Use stroke=\"currentColor\" + a CSS class, so theme switching propagates.",
+      "Don't reach for em dashes (—) in body copy. Use commas, colons, periods, or restructured sentences. The site has 25 em dashes on index.html alone — that's a cleanup item too.",
+      "Don't repeat 'Book a demo / See all features' as the CTA pair on every page. Differentiate the CTA per surface (Show me the audit trail, View the price, Map an integration).",
+      "Don't ship <img> PNGs at 1024×1024 when displaying at 40px. Use sized variants; aim for SVG.",
+      "Don't mock a customer testimonial. Anonymous-but-clean reads as filler. If the quote is from research, frame it as research ('themes from 27 compliance officers we interviewed in 2025')."
+    ]
+  }
+}

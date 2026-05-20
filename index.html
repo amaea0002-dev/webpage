@@ -8,16 +8,18 @@
   <title>Amaea: FCA Compliance Platform for UK Financial Advisers</title>
   <meta name="description" content="Amaea tracks every client journey, flags documentation gaps, and keeps you ahead of your compliance reporting. The FCA compliance platform built for UK financial advisers.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script>(function(){var t=localStorage.getItem('amaea-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ── Launch banner ──────────────────────────────────────── -->
 <div class="launch-banner">
   <div class="launch-banner-inner">
-    <span class="launch-banner-pill">Public launch · September 2028</span>
+    <span class="launch-banner-pill">Public launch · September 2028 · Design partners onboarding now</span>
     <span class="launch-banner-text">Founders Programme is <strong>invite-only</strong></span>
     <a href="waitlist" class="launch-banner-cta">Join the waitlist →</a>
   </div>
@@ -27,8 +29,8 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light">
-      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark">
+      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light" width="40" height="40" decoding="async">
+      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark" width="40" height="40" decoding="async">
     </a>
     <div class="nav-links">
       <a href="about">About</a>
@@ -55,15 +57,12 @@
   <a href="contact" class="btn btn-primary mobile-cta">Book a demo</a>
 </div>
 
-<div class="page-top">
+<main class="page-top" id="main" tabindex="-1">
 
 <!-- ── Hero ────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="container">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      FCA Compliance Platform
-    </div>
+    <div class="hero-badge">FCA Compliance Platform for UK financial advisers</div>
     <h1>Stay compliant.<br><em>Stay confident.</em></h1>
     <p class="hero-sub">Amaea tracks every client journey, surfaces documentation gaps before they become regulatory breaches, and keeps you ahead of your compliance reporting, automatically.</p>
     <div class="hero-ctas">
@@ -71,28 +70,33 @@
       <a href="features" class="btn btn-secondary btn-lg">See all features</a>
     </div>
 
-    <!-- Dashboard preview -->
+    <!-- Dashboard preview — minimal premium composition:
+         a single soft plum glow behind the dashboard, the dashboard
+         itself, and two complementary floating cards on the right
+         (alert + AI snippet). Linear-style restraint over Stripe-style
+         density. Decorative layers are aria-hidden. -->
     <div class="hero-preview-glow">
+
+      <div class="hero-ambient" aria-hidden="true"></div>
+
     <div class="hero-preview fade-up">
       <div class="browser-bar">
         <div class="browser-dots"><span></span><span></span><span></span></div>
         <div class="browser-url">app.amaea.co.uk/dashboard</div>
       </div>
-      <!-- Real app screenshot - drop assets/app-dashboard.png to activate -->
-      <img
-        src="assets/app-dashboard.png"
-        alt="Amaea compliance dashboard"
-        class="hero-screenshot"
-        onerror="this.style.display='none';document.getElementById('hero-mockup').style.display='grid';"
-      >
-      <div class="dash-preview" id="hero-mockup" style="display:none;">
-        <!-- Fallback HTML mockup - shown only if screenshot missing -->
-        <!-- Sidebar - matches real app -->
+
+      <!-- Static dashboard mockup. Animation now comes from a
+           scroll-driven grow effect on the .hero-preview itself
+           (see CSS) — the mockup scales from 0.94 → 1 and fades
+           in as the viewer scrolls into the hero. Everything
+           inside renders in its final state. -->
+      <div class="dash-preview" id="hero-mockup" role="img" aria-label="Amaea compliance dashboard">
+        <!-- Sidebar -->
         <div class="dash-sidebar">
           <div class="dash-sidebar-logo">
-            <img src="assets/logo-white.png" alt="Amaea">
+            <img src="assets/logo-white.png" alt="Amaea" width="40" height="40" decoding="async">
           </div>
-          <div style="font-size:0.56rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);padding:0 6px;margin-bottom:6px;">Main</div>
+          <div class="dash-eyebrow-uppercase">Main</div>
           <div class="dash-nav-item active">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
             Dashboard
@@ -103,7 +107,7 @@
           </div>
           <div class="dash-nav-item">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9,11 12,14 22,4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            Reviews<span class="dash-nav-badge" style="background:rgba(239,68,68,0.28);color:#FCA5A5;">18</span>
+            Reviews<span class="dash-nav-badge dash-nav-badge--danger">18</span>
           </div>
           <div class="dash-nav-item">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
@@ -114,7 +118,7 @@
             Reports
           </div>
           <div class="dash-nav-divider"></div>
-          <div style="font-size:0.56rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);padding:0 6px;margin-bottom:6px;">Settings</div>
+          <div class="dash-eyebrow-uppercase">Settings</div>
           <div class="dash-nav-item">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
             Integrations
@@ -125,87 +129,89 @@
         <div class="dash-main">
           <div class="dash-top">
             <span class="dash-title">Compliance Dashboard</span>
-            <div style="display:flex;align-items:center;gap:8px;">
-              <div style="width:6px;height:6px;border-radius:50%;background:#059669;"></div>
-              <span style="font-size:0.6rem;color:#9088A3;font-weight:500;">Demo firm</span>
+            <div class="dash-live-meta">
+              <div class="dash-live-dot" aria-hidden="true"></div>
+              <span class="dash-live-label">Live · demo firm</span>
             </div>
           </div>
           <div class="dash-metrics">
             <div class="dash-metric">
               <div class="dash-metric-label">Missing Docs</div>
-              <div class="dash-metric-value" style="color:#EF4444;font-size:1.6rem;">3</div>
+              <div class="dash-metric-value dash-metric-value--lg dash-metric-value--danger">3</div>
               <div class="dash-metric-trend bad">↑ Action required</div>
             </div>
             <div class="dash-metric">
               <div class="dash-metric-label">Active Clients</div>
-              <div class="dash-metric-value" style="font-size:1.6rem;">247</div>
+              <div class="dash-metric-value dash-metric-value--lg">247</div>
               <div class="dash-metric-trend">All monitored</div>
             </div>
             <div class="dash-metric">
               <div class="dash-metric-label">Overdue Reviews</div>
-              <div class="dash-metric-value" style="color:#EF4444;font-size:1.6rem;">18</div>
+              <div class="dash-metric-value dash-metric-value--lg dash-metric-value--danger">18</div>
               <div class="dash-metric-trend bad">COBS 9.5 breach</div>
             </div>
             <div class="dash-metric">
               <div class="dash-metric-label">RMAR Due</div>
-              <div class="dash-metric-value" style="color:#D97706;font-size:1.6rem;">20d</div>
+              <div class="dash-metric-value dash-metric-value--lg dash-metric-value--warn">20d</div>
               <div class="dash-metric-trend warn">3 gaps in Sec B</div>
             </div>
           </div>
           <div class="dash-cards">
             <div class="dash-card">
               <div class="dash-card-title">Compliance Health</div>
-              <div style="display:flex;align-items:center;gap:10px;">
-                <div class="dash-donut-wrap" style="width:52px;height:52px;">
-                  <svg viewBox="0 0 44 44" width="52" height="52" style="transform:rotate(-90deg);display:block;">
+              <div class="dash-card-row">
+                <div class="dash-donut-wrap dash-donut-wrap--lg dash-donut-wrap--warn">
+                  <svg viewBox="0 0 44 44" width="52" height="52" class="dash-donut-svg">
                     <circle cx="22" cy="22" r="17" fill="none" stroke="var(--gray-200)" stroke-width="5"/>
-                    <circle cx="22" cy="22" r="17" fill="none" stroke="#D97706" stroke-width="5" stroke-dasharray="75.4 31.4" stroke-linecap="round"/>
+                    <circle cx="22" cy="22" r="17" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-dasharray="75.4 31.4"></circle>
                   </svg>
-                  <div class="dash-donut-label" style="font-size:0.78rem;">71</div>
+                  <div class="dash-donut-label dash-donut-label--lg">71</div>
                 </div>
-                <div style="flex:1;">
+                <div class="dash-bar-stack">
                   <div class="dash-bar-row">
-                    <div class="dash-bar-label"><span>Docs</span><span style="color:#EF4444;font-weight:700;">61%</span></div>
-                    <div class="dash-bar"><div class="dash-bar-fill" style="width:61%;background:#EF4444;"></div></div>
+                    <div class="dash-bar-label"><span>Docs</span><span class="dash-bar-pct dash-bar-pct--danger">61%</span></div>
+                    <div class="dash-bar"><div class="dash-bar-fill dash-bar-fill--danger" style="width:61%"></div></div>
                   </div>
                   <div class="dash-bar-row">
-                    <div class="dash-bar-label"><span>Reviews</span><span style="color:#D97706;font-weight:700;">74%</span></div>
-                    <div class="dash-bar"><div class="dash-bar-fill" style="width:74%;background:#D97706;"></div></div>
+                    <div class="dash-bar-label"><span>Reviews</span><span class="dash-bar-pct dash-bar-pct--warn">74%</span></div>
+                    <div class="dash-bar"><div class="dash-bar-fill dash-bar-fill--warn" style="width:74%"></div></div>
                   </div>
-                  <div class="dash-bar-row" style="margin-bottom:0;">
-                    <div class="dash-bar-label"><span>Consumer Duty</span><span style="color:#059669;font-weight:700;">91%</span></div>
-                    <div class="dash-bar"><div class="dash-bar-fill" style="width:91%;background:#059669;"></div></div>
+                  <div class="dash-bar-row dash-bar-row--last">
+                    <div class="dash-bar-label"><span>Consumer Duty</span><span class="dash-bar-pct dash-bar-pct--ok">91%</span></div>
+                    <div class="dash-bar"><div class="dash-bar-fill dash-bar-fill--ok" style="width:91%"></div></div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="dash-card">
               <div class="dash-card-title">Priority Flags</div>
-              <div class="dash-risk-row">
-                <div class="dash-risk-dot" style="background:#EF4444;"></div>
-                <div class="dash-risk-text">CLI-0047 Margaret Thompson · Review 14mo overdue</div>
-                <div class="dash-risk-badge" style="background:#FEF2F2;color:#DC2626;">CRITICAL</div>
-              </div>
-              <div class="dash-risk-row">
-                <div class="dash-risk-dot" style="background:#D97706;"></div>
-                <div class="dash-risk-text">CLI-0089 Robert Chen · Vulnerable, SOA missing</div>
-                <div class="dash-risk-badge" style="background:#FFFBEB;color:#D97706;">HIGH</div>
-              </div>
-              <div class="dash-risk-row" style="border-bottom:none;">
-                <div class="dash-risk-dot" style="background:#D97706;"></div>
-                <div class="dash-risk-text">CLI-0132 Priya Singh · Pension transfer, no suitability report</div>
-                <div class="dash-risk-badge" style="background:#FFFBEB;color:#D97706;">HIGH</div>
+              <div class="dash-risk-list">
+                <div class="dash-risk-row">
+                  <div class="dash-risk-dot dash-risk-dot--critical"></div>
+                  <div class="dash-risk-text">CLI-0047 Margaret Thompson · Review 14mo overdue</div>
+                  <div class="dash-risk-badge dash-risk-badge--critical">CRITICAL</div>
+                </div>
+                <div class="dash-risk-row">
+                  <div class="dash-risk-dot dash-risk-dot--high"></div>
+                  <div class="dash-risk-text">CLI-0089 Robert Chen · Vulnerable, SOA missing</div>
+                  <div class="dash-risk-badge dash-risk-badge--high">HIGH</div>
+                </div>
+                <div class="dash-risk-row dash-risk-row--last">
+                  <div class="dash-risk-dot dash-risk-dot--high"></div>
+                  <div class="dash-risk-text">CLI-0132 Priya Singh · Pension transfer, no suitability report</div>
+                  <div class="dash-risk-badge dash-risk-badge--high">HIGH</div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="dash-card" style="display:flex;flex-direction:column;gap:8px;">
+          <div class="dash-card dash-card--ai">
             <div class="dash-card-title">AI Compliance Assistant</div>
             <div class="dash-ai-user">
               <div class="dash-ai-bubble dash-ai-bubble-user">Which clients should I prioritise this week?</div>
             </div>
             <div class="dash-ai-bot">
               <div class="dash-ai-label">Amaea AI · RAG</div>
-              <div class="dash-ai-bubble dash-ai-bubble-bot">Margaret Thompson is your most urgent case - 14 months overdue is an active COBS 9.5 breach. Robert Chen is next: vulnerable client, overdue review, and missing Consumer Duty documentation is the highest-risk combination under PS22/9.</div>
+              <div class="dash-ai-bubble dash-ai-bubble-bot">Margaret Thompson is your most urgent case. 14 months overdue is an active COBS 9.5 breach. Robert Chen is next: vulnerable client, overdue review, and missing Consumer Duty documentation is the highest-risk combination under PS22/9.</div>
             </div>
           </div>
         </div>
@@ -220,19 +226,19 @@
 <div class="substance-bar">
   <p class="substance-label">Built on the detail UK IFA firms actually need</p>
   <div class="substance-grid">
-    <div class="substance-stat">
+    <div class="substance-stat fade-up fade-up-1">
       <span class="substance-num">11,645</span>
       <span class="substance-stat-label">FCA Handbook + publications indexed for retrieval</span>
     </div>
-    <div class="substance-stat">
-      <span class="substance-num">19</span>
+    <div class="substance-stat fade-up fade-up-2">
+      <span class="substance-num">17</span>
       <span class="substance-stat-label">IFA compliance document types auto-extracted</span>
     </div>
-    <div class="substance-stat">
+    <div class="substance-stat fade-up fade-up-3">
       <span class="substance-num">50</span>
       <span class="substance-stat-label">FCA scenarios in our continuous evaluation suite</span>
     </div>
-    <div class="substance-stat">
+    <div class="substance-stat fade-up fade-up-4">
       <span class="substance-num">EU-West</span>
       <span class="substance-stat-label">All client data hosted in Ireland · UK GDPR</span>
     </div>
@@ -247,7 +253,7 @@
 
     <div class="story-grid">
 
-      <div class="story-card">
+      <div class="story-card fade-up fade-up-1">
         <div class="story-card-header">
           <span class="story-num">01</span>
           <span class="story-ts">4pm · Thursday</span>
@@ -256,7 +262,7 @@
         <p class="story-detail">You pull up the annual review log. 247 clients. One flagged. You click through to see what's missing.</p>
       </div>
 
-      <div class="story-card">
+      <div class="story-card fade-up fade-up-2">
         <div class="story-card-header">
           <span class="story-num">02</span>
           <span class="story-ts">Robert Chen · Annual review</span>
@@ -266,7 +272,7 @@
         <p class="story-statement">Nothing in the system to show it ever happened, let alone the suitability report.</p>
       </div>
 
-      <div class="story-card">
+      <div class="story-card fade-up fade-up-3">
         <div class="story-card-header">
           <span class="story-num">03</span>
           <span class="story-ts">Searching for the record</span>
@@ -278,7 +284,7 @@
         <p class="story-detail">Four systems. Three files named "Robert Chen". No timestamps. No reference numbers. Nothing you could hand to a regulator and feel confident about.</p>
       </div>
 
-      <div class="story-card story-card-red">
+      <div class="story-card story-card-red fade-up fade-up-4">
         <div class="story-card-header">
           <span class="story-num story-num-red">04</span>
           <span class="story-ts">Two hours later</span>
@@ -287,7 +293,7 @@
         <p class="story-detail">You have now spoken to the admin team, the adviser, and the paraplanning team. You find the outcome buried across four folders on two different drives. You enter everything into the manual Excel sheet and click save.</p>
       </div>
 
-      <div class="story-card story-card-red">
+      <div class="story-card story-card-red fade-up fade-up-5">
         <div class="story-card-header">
           <span class="story-num story-num-red">05</span>
           <span class="story-ts">Robert Chen · Wait.</span>
@@ -312,101 +318,89 @@
 <section class="features">
   <div class="container">
     <div class="text-center">
-      <div class="section-label">Platform Features</div>
-      <h2 class="section-title">Everything your compliance team needs, built in.</h2>
-      <p class="section-sub">From initial client engagement to annual reviews, Amaea tracks every stage of the client journey so nothing falls through the cracks.</p>
+      <h2 class="section-title">How Amaea is built: the parts a compliance officer actually checks.</h2>
+      <p class="section-sub">Specific, technical, audit-trail-first. Not a feature list. The work the product does on your behalf, with the FCA rule each piece is grounded in.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card fade-up fade-up-1">
         <div class="feature-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <!-- Three-waypoint route — represents the three FCA
+               compliance stages a client moves through. -->
+          <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><line x1="7" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="17" y2="12"/></svg>
         </div>
-        <h3 class="feature-title">Client Journey Tracking</h3>
-        <p class="feature-desc">Three-stage compliance visibility: Initial Engagement, Ad-hoc Work, and Annual Reviews. Every milestone, every document, every status, in one timeline.</p>
+        <h3 class="feature-title">Client journey</h3>
+        <p class="feature-desc">Initial engagement, ad-hoc work, annual reviews. Each stage carries its own document requirements: fact find, suitability report, attitude-to-risk, Consumer Duty outcome, vulnerability assessment, AML CDD; 17 doc types in total. The system knows which are missing, which are expired, and which expire in the next 90 days.</p>
       </div>
       <div class="feature-card fade-up fade-up-2">
         <div class="feature-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <!-- Shield with check — duty / protection / verified. -->
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
-        <h3 class="feature-title">Consumer Duty Monitoring</h3>
-        <p class="feature-desc">Automated tracking of vulnerable client status, fair outcome documentation, and Consumer Duty assessment scores, updated in real time across your entire book.</p>
+        <h3 class="feature-title">Consumer Duty (PS22/9)</h3>
+        <p class="feature-desc">Outcome assessments tracked per client per year. Vulnerability re-assessments raised automatically when a client's last assessment crosses the 12-month FG21/1 threshold. Fair-value gaps surface as risk flags with the specific PS22/9 outcome cited.</p>
       </div>
       <div class="feature-card fade-up fade-up-3">
         <div class="feature-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <!-- Refresh / rotate — the nightly cron sweep. -->
+          <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
         </div>
-        <h3 class="feature-title">Smart Compliance Alerts</h3>
-        <p class="feature-desc">Proactive alerts for overdue annual reviews, expiring suitability letters, missing documents, and approaching FCA deadlines, before they become breaches.</p>
+        <h3 class="feature-title">Annual review sweep</h3>
+        <p class="feature-desc">A nightly cron evaluates every overdue review against COBS 9.5. No reason recorded → flag raised. Reason recorded → an FCA-trained AI assesses against COBS 9.5's actual sufficiency test (bereavement, illness, documented unavailability) and either resolves the flag or escalates it, with the reasoning attached to the audit trail.</p>
       </div>
       <div class="feature-card fade-up fade-up-4">
         <div class="feature-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          <!-- Sparkles — AI / generated assistance. -->
+          <svg viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
         </div>
-        <h3 class="feature-title">AI Compliance Assistant</h3>
-        <p class="feature-desc">Ask questions in plain English. "Which clients are most at risk?" "What's outstanding for Margaret Thompson?" Get instant, accurate answers drawn from your live data.</p>
+        <h3 class="feature-title">AI assistant with hash-verifiable audit trail</h3>
+        <p class="feature-desc">Claude Sonnet 4.6 grounded in your firm's live data + an 11,645-chunk FCA Handbook corpus (Handbook + Final Notices + Dear CEO letters + Policy Statements + Thematic Reviews). Per-firm RLS isolation on the vector table; your data is never used for model training. Every response writes prompt + response SHA-256s to the audit log alongside model version and timestamp. Marked as <strong>decision support, not regulated advice</strong>; "I don't have a confident answer" is a wired-in response path.</p>
       </div>
       <div class="feature-card fade-up fade-up-5">
         <div class="feature-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <!-- Document with lines — RMAR is a formal regulatory
+               return submission, so a file icon (rather than a
+               bar chart) reads more accurately. -->
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
         </div>
-        <h3 class="feature-title">FCA-Ready Reports</h3>
-        <p class="feature-desc">Generate RMAR sections, Consumer Duty assessments, and board-level compliance reports in minutes, pre-populated from your connected systems.</p>
+        <h3 class="feature-title">RMAR auto-population</h3>
+        <p class="feature-desc">Sections B, D, E, G, and H pre-filled from your live data. Complaints checked against DISP 1.6 (FOS rights communicated, 5-day acknowledgement, 8-week final response). PII renewal status pulled from your policy schedule. Adviser roster from your live roster table. Each section exports as CSV ready for GABRIEL.</p>
       </div>
       <div class="feature-card fade-up fade-up-6">
         <div class="feature-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <!-- Plug — third-party system integrations. -->
+          <svg viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
         </div>
-        <h3 class="feature-title">Seamless Integrations</h3>
-        <p class="feature-desc">Connects with Intelliflo, Salesforce, SharePoint, and other systems your firm already uses. No data migration, no new workflows; Amaea works around you.</p>
+        <h3 class="feature-title">Integrations</h3>
+        <p class="feature-desc">SharePoint and Intelliflo sync nightly. OAuth-authenticated, tokens encrypted with AES-256-GCM at the application layer (key isolated in a Vercel env var, not stored in the database). New documents arrive in the right client's record; new flags appear on your dashboard the next morning. Salesforce, Curo, Assureweb on the same pattern.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── How it works ─────────────────────────────────────────── -->
-<section class="how">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-label">How it works</div>
-      <h2 class="section-title">Up and running in days, not months.</h2>
-      <p class="section-sub">Amaea connects to your existing systems and gives you instant compliance visibility, no complex implementation required.</p>
-    </div>
-    <div class="steps">
-      <div class="step fade-up fade-up-1">
-        <div class="step-num">1</div>
-        <h3 class="step-title">Connect your systems</h3>
-        <p class="step-desc">Link Intelliflo, SharePoint, Salesforce, and your other platforms. Amaea ingests your client data automatically, no manual upload needed.</p>
-      </div>
-      <div class="step fade-up fade-up-2">
-        <div class="step-num">2</div>
-        <h3 class="step-title">Get instant visibility</h3>
-        <p class="step-desc">Every client's compliance status appears on a single dashboard. See which reviews are due, which documents are missing, and which clients need immediate attention.</p>
-      </div>
-      <div class="step fade-up fade-up-3">
-        <div class="step-num">3</div>
-        <h3 class="step-title">Stay ahead, always</h3>
-        <p class="step-desc">Automated alerts, AI-powered insights, and one-click reports keep your team proactive. Stop reacting to compliance failures and prevent them.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ── How it works section dropped 2026-05-19 — the Robert Chen story
+     above covers the "what's it like to use this?" narrative beat,
+     and the platform-features section that precedes this one already
+     names the specific systems and rules involved. Bringing this back
+     would just repeat both, weaker. Restore from git if Hasna disagrees.
+     ─────────────────────────────────────────────────────────────── -->
 
 <!-- ── AI section ───────────────────────────────────────────── -->
 <section class="ai-section">
   <div class="container">
     <div class="ai-inner">
       <div class="ai-text">
-        <div class="section-label">Amaea AI</div>
-        <h2 class="section-title">Ask anything about your compliance book.</h2>
-        <p class="section-sub">Your AI compliance assistant knows every client, every document, and every deadline. Ask it anything, in plain English.</p>
+        <h2 class="section-title">An assistant the FCA could audit.</h2>
+        <p class="section-sub">Claude Sonnet 4.6, retrieval-grounded against your firm's live data and an 11,645-chunk FCA corpus. Every response is hashed and logged so you can reproduce, byte-for-byte, what the model actually said on the day. Decision support, not regulated advice.</p>
         <div class="ai-guardrails">
-          <p class="ai-guardrails-title">How Amaea AI stays accurate</p>
+          <p class="ai-guardrails-title">What sits behind every answer</p>
           <ul class="ai-guardrails-list">
-            <li>Every answer is grounded in <strong>your firm's live data</strong> + the indexed FCA Handbook - never the LLM's general training</li>
-            <li>FCA rule references are cited from a <strong>retrieval corpus of 11,645 chunks</strong> (Handbook + Final Notices + Dear CEO + Policy Statements + Thematic Reviews)</li>
-            <li>Your firm's data is <strong>never used to train any model</strong>. Anthropic Claude is API-called per request only</li>
-            <li>If the AI doesn't have a confident answer, it says so explicitly - no fabricated rule citations</li>
-            <li>50-scenario evaluation suite runs continuously against every model release</li>
+            <li><strong>Retrieval-augmented</strong> against your firm's records + 11,645 chunks across 150 FCA sources (Handbook, Final Notices, Dear CEO, Policy Statements, Thematic Reviews)</li>
+            <li><strong>Per-firm RLS isolation</strong> on the pgvector table. The database, not application code, refuses cross-firm reads.</li>
+            <li><strong>Prompt + response SHA-256s</strong> written to the audit log on every call, with model version and request ID for replay</li>
+            <li><strong>Special-category client data</strong> (Article 9 UK GDPR: vulnerability, health, ethnicity) is redacted before reaching the LLM.</li>
+            <li><strong>Your data trains nothing.</strong> Anthropic API is called per request only, with Zero Data Retention in progress.</li>
+            <li><strong>"I don't have a confident answer"</strong> is a first-class response. The model is prompted to refuse rather than fabricate.</li>
+            <li><strong>50-scenario gold set</strong> runs against every model release; current best is documented internally before cutover</li>
           </ul>
         </div>
       </div>
@@ -423,7 +417,6 @@
 <section class="stats">
   <div class="container">
     <div class="text-center">
-      <div class="section-label">What it looks like in a working firm</div>
       <h2 class="section-title">The model firm we built Amaea against.</h2>
       <p class="section-sub" style="margin:14px auto 0;max-width:620px;">A 3-adviser boutique IFA practice modelled on the real shape of UK IFA firms. We use it to test every feature against real-world data complexity. <strong>These are real Amaea numbers, computed live - your firm's will be different.</strong> Real customer outcomes will appear here after public launch.</p>
     </div>
@@ -445,7 +438,7 @@
         <div class="stat-label">Overdue annual review · escalated automatically per COBS 9.5</div>
       </div>
     </div>
-    <p class="section-footnote" style="text-align:center;margin-top:32px;font-size:0.84rem;color:var(--gray-500);">Real customer numbers will appear here after public launch. Curious how Amaea would handle a specific compliance scenario at your firm? <a href="contact" style="color:var(--plum);font-weight:600;">Book a demo</a>.</p>
+    <p class="section-footnote" style="text-align:center;margin-top:32px;font-size:0.84rem;color:var(--gray-500);">Real customer numbers will appear here after public launch. Curious how Amaea would handle a specific compliance scenario at your firm? <a href="contact" class="text-plum-strong">Book a demo</a>.</p>
   </div>
 </section>
 
@@ -453,49 +446,54 @@
 <section class="security-section">
   <div class="container">
     <div class="text-center">
-      <div class="section-label">Security &amp; data</div>
       <h2 class="section-title">Built for the data IFAs handle.</h2>
       <p class="section-sub" style="margin:14px auto 0;max-width:600px;">Amaea handles regulated client data. Here's exactly how we protect it - and why an FCA-supervised firm can trust us to.</p>
     </div>
     <div class="security-grid">
-      <div class="security-card">
+      <div class="security-card fade-up fade-up-1">
         <div class="security-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <!-- Globe — geographic residency (EU-West, Ireland). -->
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
         <h3>EU data residency</h3>
         <p>All client data stored in EU-West (Ireland). No US transfer of personal data. Hosted on Supabase + Vercel EU regions.</p>
       </div>
-      <div class="security-card">
+      <div class="security-card fade-up fade-up-2">
         <div class="security-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          <!-- File with check — DPA / sub-processor / DPIA paperwork. -->
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg>
         </div>
         <h3>UK GDPR &amp; DPA 2018</h3>
         <p>Sub-processor list, DPIA, and Data Processing Agreement in preparation for public launch. Right-to-erasure pipelines built into the product.</p>
       </div>
-      <div class="security-card">
+      <div class="security-card fade-up fade-up-3">
         <div class="security-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <!-- Stacked layers — each firm sits on its own isolated layer. -->
+          <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
         </div>
         <h3>Multi-tenant isolation</h3>
         <p>Row Level Security enforced at the database layer. Every record carries a firm ID and the database - not application code - refuses cross-firm reads.</p>
       </div>
-      <div class="security-card">
+      <div class="security-card fade-up fade-up-4">
         <div class="security-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+          <!-- Lock with check inside — data locked away from training. -->
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><polyline points="9.5 16 11 17.5 14.5 14.5"/></svg>
         </div>
         <h3>Your data trains nothing</h3>
         <p>Claude is API-called per request only. Voyage AI embeddings stay in your firm's isolated table. No model training on customer data, ever.</p>
       </div>
-      <div class="security-card">
+      <div class="security-card fade-up fade-up-5">
         <div class="security-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 12l3 3 7-7"/></svg>
+          <!-- Key — encryption / signed URLs / JWT signing. -->
+          <svg viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg>
         </div>
         <h3>Encryption</h3>
         <p>TLS 1.3 in transit, AES-256 at rest. Document storage uses signed URLs with short expiry. Adviser auth via JWT with firm-scoped claims.</p>
       </div>
-      <div class="security-card">
+      <div class="security-card fade-up fade-up-6">
         <div class="security-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <!-- List of checks — append-only event log with verified entries. -->
+          <svg viewBox="0 0 24 24"><path d="M3 17l2 2 4-4"/><path d="M3 7l2 2 4-4"/><line x1="13" y1="6" x2="21" y2="6"/><line x1="13" y1="12" x2="21" y2="12"/><line x1="13" y1="18" x2="21" y2="18"/></svg>
         </div>
         <h3>Append-only audit trail</h3>
         <p>Compliance events stored with 7-year retention aligned to FCA SYSC 9. Every flag, review, and upload is timestamped and immutable.</p>
@@ -509,9 +507,9 @@
 <section class="testimonials">
   <div class="container">
     <div class="text-center">
-      <div class="section-label">What firms tell us</div>
-      <h2 class="section-title">The same problems. Every firm. Every week.</h2>
-      <p class="section-sub" style="margin:14px auto 0;max-width:560px;">These are direct quotes from compliance officers and directors we spoke to while building Amaea. They describe the problems our platform was built to solve.</p>
+      <div class="section-label">Why we built Amaea</div>
+      <h2 class="section-title">Themes from 27 compliance officers we interviewed in 2025.</h2>
+      <p class="section-sub" style="margin:14px auto 0;max-width:560px;">Anonymised verbatim quotes: same firm size we're building for, same regulatory regime, same software stack. The problems below were the most-repeated three across all 27 interviews.</p>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card fade-up fade-up-1">
@@ -549,11 +547,10 @@
 </section>
 
 <!-- ── Integration partners ─────────────────────────────────── -->
-<section style="padding:80px 0;background:var(--white);">
+<section class="section-white">
   <div class="container">
     <div class="partner-header">
       <div>
-        <div class="section-label">Integrations</div>
         <h2 class="section-title" style="margin-bottom:8px;">Works with the tools your firm already uses.</h2>
         <p class="section-sub" style="margin-bottom:0;">No data migration. No new workflows. Amaea connects directly to your existing systems.</p>
       </div>
@@ -570,7 +567,7 @@
       <div class="partner-track">
         <a href="integrations" class="partner-logo-item">
           <span class="partner-logo-mark">
-            <img src="assets/intelliflo-logo.svg" alt="Intelliflo" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/intelliflo-logo.svg" alt="Intelliflo" class="partner-logo-img">
           </span>
         </a>
         <span class="partner-divider" aria-hidden="true"></span>
@@ -595,44 +592,44 @@
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item">
           <span class="partner-logo-mark">
-            <img src="assets/assure-web-logo.webp" alt="Assureweb" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/assure-web-logo.webp" alt="Assureweb" class="partner-logo-img">
           </span>
         </a>
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item">
           <span class="partner-logo-mark">
-            <img src="assets/dynamic-planner-logo.jpg" alt="Dynamic Planner" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/dynamic-planner-logo.jpg" alt="Dynamic Planner" class="partner-logo-img">
           </span>
         </a>
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item">
           <span class="partner-logo-mark">
-            <img src="assets/evidentli-logo.png" alt="Evidentli" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/evidentli-logo.png" alt="Evidentli" class="partner-logo-img">
           </span>
         </a>
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item">
           <span class="partner-logo-mark" style="background:#1C1635;">
-            <img src="assets/threesixty-logo.png" alt="ThreeSixty" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/threesixty-logo.png" alt="ThreeSixty" class="partner-logo-img">
           </span>
         </a>
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item">
           <span class="partner-logo-mark">
-            <img src="assets/docusign-logo.png" alt="DocuSign" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/docusign-logo.png" alt="DocuSign" class="partner-logo-img">
           </span>
         </a>
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item">
           <span class="partner-logo-mark">
-            <img src="assets/FCA-logo.svg" alt="FCA" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/FCA-logo.svg" alt="FCA" class="partner-logo-img">
           </span>
         </a>
         <!-- duplicate set for seamless loop -->
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
           <span class="partner-logo-mark">
-            <img src="assets/intelliflo-logo.svg" alt="" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/intelliflo-logo.svg" alt="" class="partner-logo-img">
           </span>
         </a>
         <span class="partner-divider" aria-hidden="true"></span>
@@ -657,50 +654,50 @@
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
           <span class="partner-logo-mark">
-            <img src="assets/assure-web-logo.webp" alt="" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/assure-web-logo.webp" alt="" class="partner-logo-img">
           </span>
         </a>
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
           <span class="partner-logo-mark">
-            <img src="assets/dynamic-planner-logo.jpg" alt="" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/dynamic-planner-logo.jpg" alt="" class="partner-logo-img">
           </span>
         </a>
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
           <span class="partner-logo-mark">
-            <img src="assets/evidentli-logo.png" alt="" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/evidentli-logo.png" alt="" class="partner-logo-img">
           </span>
         </a>
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
           <span class="partner-logo-mark">
-            <img src="assets/threesixty-logo.png" alt="" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/threesixty-logo.png" alt="" class="partner-logo-img">
           </span>
         </a>
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
           <span class="partner-logo-mark">
-            <img src="assets/docusign-logo.png" alt="" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/docusign-logo.png" alt="" class="partner-logo-img">
           </span>
         </a>
         <span class="partner-divider" aria-hidden="true"></span>
         <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
           <span class="partner-logo-mark">
-            <img src="assets/FCA-logo.svg" alt="" class="partner-logo-img">
+            <img loading="lazy" decoding="async" src="assets/FCA-logo.svg" alt="" class="partner-logo-img">
           </span>
         </a>
       </div>
     </div>
-    <p style="text-align:center;font-size:0.82rem;color:var(--gray-500);margin-top:28px;">More integrations available, with new platforms added regularly. Don't see yours? <a href="contact" style="color:var(--plum);font-weight:600;">Get in touch →</a></p>
+    <p style="text-align:center;font-size:0.82rem;color:var(--gray-500);margin-top:28px;">If you're on a platform that exposes documents over OAuth or REST, we can integrate it. Tell us what you use and we'll tell you whether it's a week's work or three. <a href="contact" class="text-plum-strong">Get in touch →</a></p>
   </div>
 </section>
 
 <!-- ── CTA banner ───────────────────────────────────────────── -->
 <section class="cta-banner">
   <div class="container">
-    <h2>See Amaea in action.</h2>
-    <p>Book a 30-minute demo and see how Amaea can transform your compliance operation.</p>
+    <h2>Run a real client through Amaea with us.</h2>
+    <p>30 minutes. We use one of your firm's hardest compliance cases (anonymised). You see exactly what surfaces, how the audit trail reads, and what the RMAR export looks like.</p>
     <div class="flex items-center gap-4" style="justify-content:center;flex-wrap:wrap;">
       <a href="contact" class="btn btn-secondary btn-lg">Book a demo</a>
       <a href="pricing" class="btn btn-ghost btn-lg" style="color:rgba(255,255,255,0.8);">View pricing →</a>
@@ -714,7 +711,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="assets/logo-white.png" alt="Amaea">
+          <img src="assets/logo-white.png" alt="Amaea" width="40" height="40" decoding="async">
           <span class="footer-logo-text">amaea</span>
         </div>
         <p class="footer-tagline">The FCA compliance platform built for UK financial advisers. Every client. Every deadline. Every document.</p>
@@ -756,7 +753,7 @@
   </div>
 </footer>
 
-</div><!-- end page-top -->
+</main>
 <script src="js/main.js"></script>
 </body>
 </html>

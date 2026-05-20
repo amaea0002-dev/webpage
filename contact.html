@@ -6,17 +6,19 @@
   <link rel="icon" type="image/png" href="/assets/logo-plum.png">
   <link rel="apple-touch-icon" href="/assets/logo-plum.png">
   <title>Book a Demo | Amaea FCA Compliance Platform</title>
-  <meta name="description" content="Book a 30-minute demo of Amaea. See how our FCA compliance platform can transform your firm's compliance operation.">
+  <meta name="description" content="Book a 30-minute demo of Amaea. Bring one of your firm's hardest compliance cases (anonymised). We'll show you exactly what flags, when, and how the audit trail reads.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script>(function(){var t=localStorage.getItem('amaea-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <!-- ── Launch banner ──────────────────────────────────────── -->
 <div class="launch-banner">
   <div class="launch-banner-inner">
-    <span class="launch-banner-pill">Public launch · September 2028</span>
+    <span class="launch-banner-pill">Public launch · September 2028 · Design partners onboarding now</span>
     <span class="launch-banner-text">Founders Programme is <strong>invite-only</strong></span>
     <a href="waitlist" class="launch-banner-cta">Join the waitlist →</a>
   </div>
@@ -26,8 +28,8 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light">
-      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark">
+      <img src="assets/logo-plum.png" alt="Amaea" class="logo-mode-light" width="40" height="40" decoding="async">
+      <img src="assets/logo-white.png" alt="Amaea" class="logo-mode-dark" width="40" height="40" decoding="async">
     </a>
     <div class="nav-links">
       <a href="about">About</a>
@@ -54,10 +56,10 @@
   <a href="contact" class="btn btn-primary mobile-cta">Book a demo</a>
 </div>
 
-<div class="page-top">
+<main class="page-top" id="main" tabindex="-1">
 
 <!-- ── Contact / Demo section ───────────────────────────────── -->
-<section style="padding:64px 0 80px;background:var(--gray-50);border-bottom:1px solid var(--gray-200);">
+<section class="contact-section">
   <div class="container">
     <div class="contact-grid">
 
@@ -69,26 +71,26 @@
 
           <form id="demo-form" novalidate>
             <!-- Honeypot — real users leave this empty; bots fill it. Hidden from sighted users + screen readers. -->
-            <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+            <div aria-hidden="true" class="honeypot">
               <label>Company website (leave blank)<input type="text" name="company_url" tabindex="-1" autocomplete="off"></label>
             </div>
             <div class="form-grid">
               <div class="form-group">
                 <label class="form-label" for="first-name">First name *</label>
-                <input class="form-input" type="text" id="first-name" name="first_name" placeholder="James" required>
+                <input class="form-input" type="text" id="first-name" name="first_name" placeholder="James" required aria-required="true" aria-describedby="form-error-text">
               </div>
               <div class="form-group">
                 <label class="form-label" for="last-name">Last name *</label>
-                <input class="form-input" type="text" id="last-name" name="last_name" placeholder="Morrison" required>
+                <input class="form-input" type="text" id="last-name" name="last_name" placeholder="Morrison" required aria-required="true" aria-describedby="form-error-text">
               </div>
             </div>
             <div class="form-group">
               <label class="form-label" for="email">Work email *</label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="james@oakridgewealth.co.uk" required>
+              <input class="form-input" type="email" id="email" name="email" placeholder="james@oakridgewealth.co.uk" required aria-required="true" aria-describedby="form-error-text">
             </div>
             <div class="form-group">
               <label class="form-label" for="firm">Firm name *</label>
-              <input class="form-input" type="text" id="firm" name="firm" placeholder="Oakridge Wealth Management" required>
+              <input class="form-input" type="text" id="firm" name="firm" placeholder="Oakridge Wealth Management" required aria-required="true" aria-describedby="form-error-text">
             </div>
             <div class="form-grid">
               <div class="form-group">
@@ -120,17 +122,17 @@
               <textarea class="form-textarea" id="message" name="message" placeholder="e.g. Keeping on top of Consumer Duty documentation across 200+ clients…"></textarea>
             </div>
             <div class="form-error" id="form-error" role="alert" aria-live="polite">
-              <svg class="form-error-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <svg class="form-error-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
               <span id="form-error-text">Something went wrong. Please try again.</span>
             </div>
             <button type="submit" class="btn btn-primary btn-lg form-submit">Book my demo →</button>
-            <p class="form-legal">By submitting this form you agree to Amaea's <a href="privacy" style="color:var(--plum-soft);text-decoration:underline;">Privacy Policy</a>. We'll never share your details with third parties.</p>
+            <p class="form-legal">By submitting this form you agree to Amaea's <a href="privacy" class="link-plum-soft-u">Privacy Policy</a>. We'll never share your details with third parties.</p>
           </form>
 
-          <div id="form-success" class="form-success">
+          <div id="form-success" class="form-success" role="status" aria-live="polite">
             <div class="form-success-icon">✓</div>
             <h3>You're booked in!</h3>
-            <p>We'll be in touch within one business day to confirm your demo time. In the meantime, feel free to explore the <a href="features" style="color:var(--plum);">features page</a>.</p>
+            <p>We'll be in touch within one business day to confirm your demo time. In the meantime, feel free to explore the <a href="features" class="text-plum">features page</a>.</p>
           </div>
         </div>
       </div>
@@ -138,13 +140,14 @@
       <!-- Info side -->
       <div class="contact-info fade-up fade-up-2">
         <div class="section-label">30-minute demo</div>
-        <h2>See Amaea transform your compliance operation.</h2>
-        <p>We'll walk you through the platform with your firm's specific challenges in mind, from live client journey tracking to Consumer Duty scoring and RMAR preparation.</p>
+        <h2>Bring a real client. We'll show you what Amaea does with it.</h2>
+        <p>30 minutes. We use one of your firm's hardest compliance cases (anonymised). You see exactly what flags, when, which FCA rule it cites, and how the audit trail reads.</p>
 
         <div class="demo-benefits">
           <div class="demo-benefit">
             <div class="demo-benefit-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <!-- Monitor / live walkthrough — what you'll see on screen. -->
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
             <div class="demo-benefit-text">
               <strong>Live platform walkthrough</strong>
@@ -153,7 +156,8 @@
           </div>
           <div class="demo-benefit">
             <div class="demo-benefit-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <!-- Speech bubble with question — Q&amp;A on regulation. -->
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/><path d="M10 9.5a2 2 0 0 1 3.8.9c0 1.5-2 2-2 2.5"/><line x1="12" y1="15.5" x2="12.01" y2="15.5"/></svg>
             </div>
             <div class="demo-benefit-text">
               <strong>FCA compliance Q&amp;A</strong>
@@ -162,7 +166,8 @@
           </div>
           <div class="demo-benefit">
             <div class="demo-benefit-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <!-- Plug — integration scoping; matches the homepage integrations card. -->
+              <svg viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
             </div>
             <div class="demo-benefit-text">
               <strong>Integration scoping</strong>
@@ -171,7 +176,8 @@
           </div>
           <div class="demo-benefit">
             <div class="demo-benefit-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.9 19.79 19.79 0 0 1 1.61 3.27 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+              <!-- Handshake / conversation — no-pressure stance. -->
+              <svg viewBox="0 0 24 24"><path d="M11 17H7a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-1"/><polyline points="9 13 12 16 15 13"/><line x1="12" y1="9" x2="12" y2="16"/></svg>
             </div>
             <div class="demo-benefit-text">
               <strong>No obligation, no pressure</strong>
@@ -190,11 +196,10 @@
 </section>
 
 <!-- ── What happens next ─────────────────────────────────────── -->
-<section style="padding:64px 0;background:var(--white);">
+<section class="section-white-sm">
   <div class="container">
-    <div class="text-center" style="margin-bottom:48px;">
-      <div class="section-label">What happens next</div>
-      <h2 class="section-title">Three steps to full compliance confidence.</h2>
+    <div class="text-center mb-12">
+      <h2 class="section-title">Demo → trial → live in 5 days.</h2>
     </div>
     <div class="steps" style="max-width:700px;margin:0 auto;">
       <div class="step fade-up fade-up-1">
@@ -209,8 +214,8 @@
       </div>
       <div class="step fade-up fade-up-3">
         <div class="step-num">3</div>
-        <h3 class="step-title">Full compliance visibility</h3>
-        <p class="step-desc">See every client, every deadline, every documentation gap, from day one. No more surprises. No more missed reviews.</p>
+        <h3 class="step-title">Live within 5 business days</h3>
+        <p class="step-desc">Intelliflo + SharePoint connected, client records imported, compliance team trained. Enterprise setups with multi-site complexity typically take 2-3 weeks.</p>
       </div>
     </div>
   </div>
@@ -220,7 +225,7 @@
 <section class="cta-banner">
   <div class="container">
     <h2>Prefer to talk first?</h2>
-    <p>Email us at <a href="mailto:hello@amaea.co.uk" style="color:rgba(255,255,255,0.9);text-decoration:underline;">hello@amaea.co.uk</a> and we'll get back to you within one business day.</p>
+    <p>Email us at <a href="mailto:hello@amaea.co.uk" class="link-on-dark">hello@amaea.co.uk</a> and we'll get back to you within one business day.</p>
   </div>
 </section>
 
@@ -229,10 +234,10 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="assets/logo-white.png" alt="Amaea">
+          <img src="assets/logo-white.png" alt="Amaea" width="40" height="40" decoding="async">
           <span class="footer-logo-text">amaea</span>
         </div>
-        <p class="footer-tagline">The FCA compliance platform built for UK financial advisers.</p>
+        <p class="footer-tagline">The FCA compliance platform built for UK financial advisers. Every client. Every deadline. Every document.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
@@ -271,7 +276,7 @@
   </div>
 </footer>
 
-</div>
+</main>
 <script src="js/main.js"></script>
 </body>
 </html>
