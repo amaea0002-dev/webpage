@@ -49,8 +49,8 @@
       "muted": {
         "role": "neutral",
         "displayName": "Muted",
-        "canonical": "#9088A3",
-        "tonalRamp": ["#17131E", "#3C354A", "#6B5C7B", "#9088A3", "#A89DB8", "#D1CDD8", "#E8E6ED", "#F9F8FA"]
+        "canonical": "#756B8B",
+        "tonalRamp": ["#17131E", "#3C354A", "#6B5C7B", "#756B8B", "#9088A3", "#D1CDD8", "#E8E6ED", "#F9F8FA"]
       },
       "canvas": {
         "role": "neutral",

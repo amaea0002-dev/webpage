@@ -9,7 +9,7 @@ colors:
   ink: "#17131E"
   ink-2: "#3C354A"
   subdued: "#6B5C7B"
-  muted: "#9088A3"
+  muted: "#756B8B"
   canvas: "#FFFFFF"
   surface-warm: "#F9F8FA"
   line-soft: "#F0EDF4"
@@ -139,7 +139,7 @@ The neutral ramp is *not* slate. Every step carries a magenta-warm undertone tha
 - **Surface Warm** (`#F9F8FA`): Alt-section backgrounds, input field interiors at rest. Off-white with a plum hint.
 - **Line Soft** (`#F0EDF4`): Divider lines, faint separators.
 - **Line** (`#E8E6ED`): Card borders, table cell borders.
-- **Muted** (`#9088A3`): De-emphasised metadata, placeholder text, "ghost" CTA labels. Approaches 4.5:1 contrast on white — reserve for ≥14px or backgrounds tinted to surface-warm or darker.
+- **Muted** (`#756B8B`): De-emphasised metadata, placeholder text, "ghost" CTA labels. Tuned to ~5:1 on white so it's safe for sub-14px text. Still reads as muted; restraint comes from the cool plum-leaning hue, not low contrast.
 - **Subdued** (`#6B5C7B`): Secondary body copy, captions, form-label text.
 - **Ink 2** (`#3C354A`): Body emphasis, sub-headings.
 - **Ink** (`#17131E`): Primary text. Tinted near-black, not pure `#000`.
@@ -254,7 +254,7 @@ A custom in-page mockup of the product (not a screenshot), built with the system
 - **Do** use the Stripe ease `cubic-bezier(0.32, 0.72, 0, 1)` and the `--ease` / `--ease-out` tokens. Crisp, no overshoot.
 - **Do** carry shadows in `--sh-sm` through `--sh-xl` (ink-tinted 3-layer shadows defined in `:root`). Hover lifts one step.
 - **Do** ground every feature claim in a specific FCA rule citation (COBS 9.5, PS22/9, FG21/1, DISP 1.6, SYSC 9) — the design follows the copy's voice.
-- **Do** maintain WCAG AA contrast: ≥4.5:1 for small text. Verify `--gray-500` on canvas; today it's borderline at ~4.2:1.
+- **Do** maintain WCAG AA contrast: ≥4.5:1 for small text. `--gray-500` (`#756B8B`) now sits at ~5:1 on canvas; safe for body-adjacent muted copy.
 - **Do** keep the launch banner above the nav. The honesty signal is doing real work.
 
 ### Don't:
