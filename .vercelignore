@@ -7,3 +7,6 @@ DESIGN.md
 # Local tooling state.
 .claude/
 .DS_Store
+
+# Build inputs — Vercel installs from package.json + lockfile.
+node_modules/
