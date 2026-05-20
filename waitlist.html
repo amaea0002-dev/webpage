@@ -20,7 +20,7 @@
   <div class="launch-banner-inner">
     <span class="launch-banner-pill">Public launch · September 2028 · Design partners onboarding now</span>
     <span class="launch-banner-text">Founders Programme is <strong>invite-only</strong></span>
-    <a href="waitlist" class="launch-banner-cta">Join the waitlist →</a>
+    <a href="waitlist" class="launch-banner-cta">Join the waitlist <span aria-hidden="true">→</span></a>
   </div>
 </div>
 
@@ -172,7 +172,7 @@
         </div>
         <h3 class="quiz-start-h">5 questions. 2 minutes.</h3>
         <p class="quiz-start-desc">Tell us about your firm and we'll match you to the Amaea plan that fits, with no obligation.</p>
-        <button class="btn btn-primary btn-min-200" id="quiz-start-btn">Find my plan →</button>
+        <button class="btn btn-primary btn-min-200" id="quiz-start-btn">Find my plan <span aria-hidden="true">→</span></button>
       </div>
 
       <div class="quiz-progress" id="quiz-progress" style="display:none;">
@@ -191,7 +191,7 @@
             <button class="quiz-option" role="radio" aria-checked="false" data-score="3"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>9-20 advisers</button>
             <button class="quiz-option" role="radio" aria-checked="false" data-score="4"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>21 or more</button>
           </div>
-          <div class="quiz-nav"><span></span><button class="btn btn-primary btn-sm quiz-next" disabled>Next →</button></div>
+          <div class="quiz-nav"><span></span><button class="btn btn-primary btn-sm quiz-next" disabled>Next <span aria-hidden="true">→</span></button></div>
         </div>
 
         <div class="quiz-step" data-step="1">
@@ -203,7 +203,7 @@
             <button class="quiz-option" role="radio" aria-checked="false" data-score="3"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>350-1,000</button>
             <button class="quiz-option" role="radio" aria-checked="false" data-score="4"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Over 1,000</button>
           </div>
-          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next →</button></div>
+          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next <span aria-hidden="true">→</span></button></div>
         </div>
 
         <div class="quiz-step" data-step="2">
@@ -215,7 +215,7 @@
             <button class="quiz-option" role="radio" aria-checked="false" data-score="2.5"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>A standalone tool, not connected to our CRM</button>
             <button class="quiz-option" role="radio" aria-checked="false" data-score="3.5"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>We need full automation with board-level reporting</button>
           </div>
-          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next →</button></div>
+          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next <span aria-hidden="true">→</span></button></div>
         </div>
 
         <div class="quiz-step" data-step="3">
@@ -227,7 +227,7 @@
             <button class="quiz-option" role="radio" aria-checked="false" data-score="2.5"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>RMAR preparation and FCA deadline management</button>
             <button class="quiz-option" role="radio" aria-checked="false" data-score="3.5"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Multi-site oversight and board-level reporting packs</button>
           </div>
-          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next →</button></div>
+          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next <span aria-hidden="true">→</span></button></div>
         </div>
 
         <div class="quiz-step" data-step="4">
@@ -239,7 +239,7 @@
             <button class="quiz-option" role="radio" aria-checked="false" data-score="3"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Very important, plus RMAR pre-population and FCA-ready reports</button>
             <button class="quiz-option" role="radio" aria-checked="false" data-score="4"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Critical, including custom AI trained on our firm's specific policies</button>
           </div>
-          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>See my recommendation →</button></div>
+          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>See my recommendation <span aria-hidden="true">→</span></button></div>
         </div>
 
       </div>
@@ -474,7 +474,7 @@
     document.getElementById('quiz-result-price').innerHTML = plan.price;
     document.getElementById('quiz-result-desc').textContent = plan.desc;
     document.getElementById('quiz-result-actions').innerHTML =
-      '<a href="#wl-form-wrap" class="btn btn-primary" onclick="document.getElementById(\'wl-form-wrap\').scrollIntoView({behavior:\'smooth\'});return false;">Join the waitlist →</a>' +
+      '<a href="#wl-form-wrap" class="btn btn-primary" onclick="document.getElementById(\'wl-form-wrap\').scrollIntoView({behavior:\'smooth\'});return false;">Join the waitlist <span aria-hidden="true">→</span></a>' +
       '<a href="pricing" class="btn btn-secondary">Compare all plans</a>';
     document.getElementById('quiz-result').classList.add('show');
   }
