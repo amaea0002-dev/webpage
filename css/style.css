@@ -5023,3 +5023,181 @@ section { padding: var(--section-py) 0; }
   }
   [data-theme="dark"] .compare-table-el thead th { background: var(--gray-50); }
 }
+
+/* ──────────────────────────────────────────────────────────────
+ * Premium component upgrades — 2026-05-20
+ * Surgical refinements across five sections:
+ *   1. Pricing comparison table  (pricing.html)
+ *   2. Stats sections             (index.html substance bar + stats)
+ *   3. Testimonials bento layout  (index.html)
+ *   4. FAQ accordion polish       (pricing.html)
+ *   5. AI chat citation chips     (index.html, dark surface)
+ * Each block keeps existing class names so the JS handlers
+ * (FAQ toggle, compare-table highlight, AI typing) keep working.
+ * ────────────────────────────────────────────────────────────── */
+
+/* ── #1 Pricing comparison table — premium restyle ──────────── */
+.compare-table .cmp-cell--check svg,
+.compare-table .cmp-cell--miss svg {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: -3px;
+}
+.compare-table .cmp-cell--check { color: var(--plum); font-weight: 600; }
+.compare-table .cmp-cell--miss  { color: var(--gray-300); }
+.compare-table tbody td + td:not(.cmp-cell--label),
+.compare-table thead th + th {
+  border-left: 1px dashed var(--gray-200);
+}
+.compare-table .cmp-head--name {
+  padding: 22px 14px 16px;
+  font-size: 0.9rem;
+}
+.compare-table .cmp-head--name.is-featured {
+  border-top: 2px solid var(--plum);
+  border-bottom-color: var(--plum);
+}
+.compare-table .cmp-price {
+  font-size: 0.92rem;
+  color: var(--gray-900);
+  font-weight: 700;
+  padding-bottom: 18px;
+}
+.compare-table .cmp-price.is-featured {
+  color: var(--plum);
+  font-weight: 800;
+}
+.compare-table .cmp-group td {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--plum);
+  padding-top: 24px;
+  padding-bottom: 10px;
+  background: transparent;
+}
+[data-theme="dark"] .compare-table .cmp-cell--check { color: var(--plum-soft); }
+[data-theme="dark"] .compare-table .cmp-cell--miss  { color: rgba(200,150,200,0.22); }
+[data-theme="dark"] .compare-table tbody td + td:not(.cmp-cell--label),
+[data-theme="dark"] .compare-table thead th + th {
+  border-left-color: rgba(200,150,200,0.10);
+}
+[data-theme="dark"] .compare-table .cmp-group td { color: var(--plum-soft); }
+
+/* #2 Stats card treatment was reverted on 2026-05-20 — user
+ * preferred the original flat layout for both the substance bar
+ * and the model-firm stats. Section intentionally left blank.
+ */
+
+/* ── #3 Testimonials bento — 1 featured + 2 supporting ──────── */
+.testimonials-grid:has(.testimonial-card--featured) {
+  grid-template-columns: 1.35fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: 16px;
+}
+.testimonial-card--featured {
+  grid-row: 1 / span 2;
+  padding: 36px 32px;
+  background: var(--plum-tint);
+  border-color: var(--plum-border);
+}
+.testimonial-card--featured .testimonial-quote {
+  font-size: 1.1rem;
+  font-style: normal;
+  color: var(--gray-900);
+  font-weight: 500;
+  line-height: 1.55;
+  position: relative;
+}
+.testimonial-card--featured .testimonial-quote::before {
+  content: '\201C';
+  display: block;
+  font-size: 3rem;
+  line-height: 0.7;
+  color: var(--plum);
+  font-family: Georgia, 'Times New Roman', serif;
+  margin: -4px 0 12px;
+  opacity: 0.5;
+}
+.testimonial-card--featured .testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  font-size: 0.95rem;
+  background: var(--plum);
+  color: var(--white);
+}
+.testimonial-card--featured .testimonial-name { font-size: 0.95rem; }
+[data-theme="dark"] .testimonial-card--featured {
+  background: rgba(160,96,160,0.10);
+  border-color: var(--plum-border);
+}
+[data-theme="dark"] .testimonial-card--featured .testimonial-quote {
+  color: rgba(242,234,245,0.92);
+}
+@media (max-width: 860px) {
+  .testimonials-grid:has(.testimonial-card--featured) {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  .testimonial-card--featured { grid-row: auto; padding: 28px 24px; }
+  .testimonial-card--featured .testimonial-quote { font-size: 1rem; }
+}
+
+/* ── #4 FAQ accordion — number badges + plum hairlines ──────── */
+.faq-item { border-bottom-color: var(--plum-border-faint); transition: background 0.22s var(--ease-out); }
+.faq-q { transition: color 0.22s var(--ease-out); }
+.faq-q-text { flex: 1 1 auto; text-align: left; }
+.faq-q-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 22px;
+  padding: 0 8px;
+  background: var(--plum-tint);
+  color: var(--plum);
+  border-radius: 11px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  transition: background 0.22s var(--ease-out), color 0.22s var(--ease-out);
+}
+.faq-item.open                { background: var(--plum-tint-faint); }
+.faq-item.open .faq-q-num     { background: var(--plum); color: var(--white); }
+.faq-q-arrow                  { transition: transform 0.32s var(--ease-out), color 0.22s var(--ease-out); }
+[data-theme="dark"] .faq-item                 { border-bottom-color: var(--plum-tint-deep); }
+[data-theme="dark"] .faq-item.open            { background: rgba(160,96,160,0.06); }
+[data-theme="dark"] .faq-q-num                { background: var(--plum-tint); color: var(--plum-soft); }
+[data-theme="dark"] .faq-item.open .faq-q-num { background: var(--plum); color: var(--white); }
+
+/* ── #5 AI chat — citation chips on bot bubbles ─────────────── */
+.ai-citations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.ai-citation {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px 3px 8px;
+  background: rgba(160,96,160,0.12);
+  border: 1px solid rgba(200,150,200,0.22);
+  color: rgba(225,195,225,0.92);
+  border-radius: 6px;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  animation: msg-in 0.32s cubic-bezier(0.22,1,0.36,1) both;
+}
+.ai-citation::before {
+  content: '\00A7';
+  opacity: 0.55;
+  font-weight: 400;
+}

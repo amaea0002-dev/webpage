@@ -323,15 +323,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!chat) return;
     // For reduced-motion users: render the first conversation
     // statically and stop. They still see the example, just no typing.
+    // Helper: build a citations row of FCA rule chips. Inserted
+    // into the bot wrap after typing finishes so the markup matches
+    // the visual order: bubble → citations → "Amaea AI · Just now".
+    function buildCitations(refs) {
+      const row = document.createElement('div');
+      row.className = 'ai-citations';
+      refs.forEach(r => {
+        const chip = document.createElement('span');
+        chip.className = 'ai-citation';
+        chip.textContent = r;
+        row.appendChild(chip);
+      });
+      return row;
+    }
+
     if (prefersReducedMotion) {
       const first = {
         user: 'Which clients should I prioritise this week?',
         bot:  'Based on regulatory exposure, your top 3 priorities are: (1) Margaret Thompson, annual review 14 months overdue, the longest in your book. (2) Robert Chen, vulnerable client with Consumer Duty breach risk, review 11 months late. (3) 3 RMAR data gaps in Section B, due in 25 days. Resolving these moves your health score from 82 to ~93.',
+        citations: ['COBS 9.5', 'PS22/9', 'SUP 16.12'],
       };
       const u = document.createElement('div'); u.className = 'ai-msg ai-msg-user';
       const ub = document.createElement('div'); ub.className = 'ai-bubble'; ub.textContent = first.user; u.appendChild(ub);
       const b = document.createElement('div'); b.className = 'ai-msg ai-msg-bot';
       const bb = document.createElement('div'); bb.className = 'ai-bubble'; bb.textContent = first.bot; b.appendChild(bb);
+      b.appendChild(buildCitations(first.citations));
       const lbl = document.createElement('div'); lbl.className = 'ai-msg-label'; lbl.textContent = 'Amaea AI · Just now'; b.appendChild(lbl);
       chat.appendChild(u); chat.appendChild(b);
       return;
@@ -340,11 +357,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const CONVOS = [
       {
         user: 'Which clients should I prioritise this week?',
-        bot:  'Based on regulatory exposure, your top 3 priorities are: (1) Margaret Thompson, annual review 14 months overdue, the longest in your book. (2) Robert Chen, vulnerable client with Consumer Duty breach risk, review 11 months late. (3) 3 RMAR data gaps in Section B, due in 25 days. Resolving these moves your health score from 82 to ~93.'
+        bot:  'Based on regulatory exposure, your top 3 priorities are: (1) Margaret Thompson, annual review 14 months overdue, the longest in your book. (2) Robert Chen, vulnerable client with Consumer Duty breach risk, review 11 months late. (3) 3 RMAR data gaps in Section B, due in 25 days. Resolving these moves your health score from 82 to ~93.',
+        citations: ['COBS 9.5', 'PS22/9', 'SUP 16.12']
       },
       {
         user: "What's missing for Robert Chen?",
-        bot:  "Robert Chen (CLI-0089) is a vulnerable client with an annual review 11 months overdue. Missing: Annual Review Suitability Report, Consumer Duty Outcome Assessment, and Vulnerability Re-assessment. Adviser Alex Williams needs to action this immediately; Consumer Duty requires documented fair outcomes for all vulnerable clients."
+        bot:  "Robert Chen (CLI-0089) is a vulnerable client with an annual review 11 months overdue. Missing: Annual Review Suitability Report, Consumer Duty Outcome Assessment, and Vulnerability Re-assessment. Adviser Alex Williams needs to action this immediately; Consumer Duty requires documented fair outcomes for all vulnerable clients.",
+        citations: ['COBS 9.5', 'FG21/1', 'PS22/9']
       }
     ];
 
@@ -422,6 +441,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const bBubble = addMsg('bot');
         await typeInto(bBubble, c.bot, 14);
+        if (c.citations && c.citations.length) {
+          const wrap = bBubble.parentElement;
+          const label = wrap.querySelector('.ai-msg-label');
+          wrap.insertBefore(buildCitations(c.citations), label);
+          scrollBottom();
+        }
         await sleep(1100);
       }
       await sleep(3000);
