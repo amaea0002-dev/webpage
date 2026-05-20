@@ -210,7 +210,7 @@ In dark mode all four scale up — `0.04`/`0.06` ambient becomes `0.5`/`0.6` bec
 
 - **Shape:** Full pill (radius 999px). No exceptions — square or 8px-radius buttons read foreign.
 - **Primary:** Background Deep Plum (`#40243F`), text white, padding `12px 24px`, weight 600. Carries a 3-layer plum-tinted shadow at rest (inset highlight + key + diffuse), deepens on hover. Hover also lifts `translateY(-1px)`; press scales to `0.97`.
-- **Secondary:** Background canvas, text Deep Plum, border `1.5px` solid `--plum-border` (`rgba(64,36,63,0.18)`), `sh-sm` at rest. Hover deepens to `sh-md`, background to `surface-warm`, border to `plum-soft`.
+- **Secondary:** Background canvas, text Deep Plum, border `1.5px` solid `--plum-border-2` (`rgba(64,36,63,0.18)`), `sh-sm` at rest. Hover deepens to `sh-md`, background to `surface-warm`, border to `plum-soft`.
 - **Ghost:** No background, no border, text Muted. Hover fills with `plum-tint` (~6% plum on canvas) and switches text to Deep Plum. Used for tertiary CTAs only.
 - **Size variants:** `btn-sm` (padding `8px 18px`, 0.8rem), default (12×24, 0.88rem), `btn-lg` (15×34, 1rem). **Touch-target caveat:** `btn-sm` falls below the 44×44 WCAG AAA target — raise on `(pointer: coarse)` or mobile breakpoints.
 
@@ -218,7 +218,7 @@ In dark mode all four scale up — `0.04`/`0.06` ambient becomes `0.5`/`0.6` bec
 
 - **Corner Style:** `--r-xl` (24px) for feature cards, story cards, pricing tiles. `--r-2xl` (32px) for the hero dashboard preview only.
 - **Background:** Canvas. In dark mode, plum-black `#160F16` with a `+1` step to `#1E1520` on hover.
-- **Border:** 1px `--gray-200` (`#E8E6ED`). On hover, shifts to `--plum-border`.
+- **Border:** 1px `--gray-200` (`#E8E6ED`). On hover, shifts to `--plum-border-2`.
 - **Shadow:** None at rest *for inline content cards* (the border carries the structure); `sh-lg` on hover with a `translateY(-4px)` lift. The hero preview and standout cards (founders callout) carry `sh-xl` at rest per the layered-always rule.
 - **Internal Padding:** `28px 28px 32px` for feature cards (bottom-heavier — the title sits closer to the icon, copy breathes below).
 
@@ -226,7 +226,7 @@ In dark mode all four scale up — `0.04`/`0.06` ambient becomes `0.5`/`0.6` bec
 
 - **Style:** Background `--gray-50` (`#F9F8FA`) at rest, border `1.5px` solid `--gray-200`, radius `--r-md` (12px), padding `11px 14px`, body font, 0.88rem.
 - **Placeholder colour:** `--gray-500` (`#9088A3`) — accessible but reads as de-emphasised.
-- **Focus:** Border shifts to `--plum-soft`, background lifts to canvas, and a 3px `--plum-tint` ring appears outside the border. No outline. The combination reads as "lifted into focus."
+- **Focus:** Border shifts to `--plum-soft`, background lifts to canvas, and a 3px `--plum-tint-2` ring appears outside the border. No outline. The combination reads as "lifted into focus."
 - **Error:** Inline error message with `role="alert"` and `aria-live="polite"` below the field group. Inputs link to it via `aria-describedby`. Required state carries `aria-required="true"`.
 
 ### Navigation
