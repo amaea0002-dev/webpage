@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "Amaea marketing site — static HTML/CSS/JS with Vercel-deployed API routes.",
+  "packageManager": "pnpm@10.33.4",
   "scripts": {
     "build": "lightningcss --minify --bundle css/style.css -o css/style.css && esbuild js/main.js --minify --allow-overwrite --target=es2020 --outfile=js/main.js",
     "build:check": "lightningcss --minify --bundle css/style.css -o /tmp/_check.css && esbuild js/main.js --minify --target=es2020 --outfile=/tmp/_check.js && echo 'build check OK'"
@@ -10,5 +11,11 @@
   "devDependencies": {
     "esbuild": "^0.24.0",
     "lightningcss-cli": "^1.27.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "lightningcss-cli"
+    ]
   }
 }
