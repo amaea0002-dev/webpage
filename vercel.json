@@ -3,6 +3,12 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.amaea.co.uk" }],
+      "destination": "https://amaea.co.uk/$1",
+      "permanent": true
+    },
+    {
       "source": "/signin",
       "destination": "https://app.amaea.co.uk/login",
       "permanent": true
