@@ -242,6 +242,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── Newsletter form → /api/newsletter (Resend) ───────────
+  // Previously lived as inline <script> on /blog. Moved here so
+  // it caches with the rest of main.js and the page markup stays
+  // declarative.
+  const newsForm = document.getElementById('newsletter-form');
+  if (newsForm) {
+    const newsInput = document.getElementById('newsletter-email');
+    const newsBtn   = document.getElementById('newsletter-submit');
+    const newsErr   = document.getElementById('newsletter-error');
+    const showNewsErr  = (msg) => { if (newsErr) { newsErr.textContent = msg; newsErr.style.display = 'block'; } };
+    const clearNewsErr = ()    => { if (newsErr) newsErr.style.display = 'none'; };
+    newsInput?.addEventListener('input', clearNewsErr);
+    newsForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearNewsErr();
+      const payload = {};
+      new FormData(newsForm).forEach((v, k) => { payload[k] = v; });
+      const email = (payload.email || '').toString().trim();
+      if (!email) { showNewsErr('Please enter your email.'); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showNewsErr('That doesn’t look like a valid email address.'); return;
+      }
+      const originalLabel = newsBtn?.textContent;
+      if (newsBtn) { newsBtn.disabled = true; newsBtn.textContent = 'Subscribing…'; }
+      try {
+        const res = await fetch('/api/newsletter', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.ok) {
+          if (newsBtn) newsBtn.textContent = 'Subscribed ✓';
+          if (newsInput) newsInput.value = '';
+        } else {
+          throw new Error(json.error || 'Submission failed');
+        }
+      } catch (err) {
+        if (newsBtn) { newsBtn.disabled = false; newsBtn.textContent = originalLabel; }
+        const msg = err && err.message && err.message !== 'Submission failed'
+          ? err.message
+          : 'Something went wrong. Please try again, or email hello@amaea.co.uk.';
+        showNewsErr(msg);
+      }
+    });
+  }
+
   // ── Contact form → /api/demo (Resend) ────────────────────
   const contactForm = document.getElementById('demo-form');
   if (contactForm) {
