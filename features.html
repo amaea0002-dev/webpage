@@ -66,7 +66,7 @@
   <div class="container">
     <span class="page-hero-eyebrow">7 systems · 11,645 FCA chunks · 17 doc types · 50-scenario eval</span>
     <h1>What Amaea actually does.</h1>
-    <p>Each system points back to a specific FCA rule. Written the way an engineer would describe it to a compliance officer: what the product does, when it runs, and which paragraph it cites.</p>
+    <p>Each system points back to a specific FCA rule. What it does, when it runs, and which paragraph it cites.</p>
   </div>
 </section>
 
@@ -95,7 +95,7 @@
           <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><line x1="7" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="17" y2="12"/></svg>
         </div>
         <h2>Client journey</h2>
-        <p>Three compliance stages per client: initial engagement, ad-hoc work, annual reviews. Each stage carries its own document set: 17 types in total. The system knows which are missing, which are expired, and which expire in the next 90 days.</p>
+        <p>Every client moves through three FCA-defined stages. Each stage carries its own document set, its own expiry windows, and its own audit-trail expectations.</p>
         <dl class="feature-specs">
           <dt>Doc types</dt><dd>17 tracked (fact find, suitability, ATR, AML CDD, Consumer Duty outcome, vulnerability assessment, T&amp;C, PI cover, drawdown review, fee benchmarking, …)</dd>
           <dt>Stages</dt><dd>Initial engagement · Ad-hoc work · Annual reviews</dd>
@@ -163,7 +163,7 @@
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
         <h2>Consumer Duty (PS22/9)</h2>
-        <p>The four outcomes tracked per client per year: products &amp; services, price &amp; value, consumer understanding, consumer support. Vulnerability re-assessments raised automatically the day a client crosses the 12-month FG21/1 threshold.</p>
+        <p>Consumer Duty wants per-outcome evidence, per client, every year. Most firms can demonstrate two of the four. The audit fails on the missing two.</p>
         <dl class="feature-specs">
           <dt>Outcomes</dt><dd>4 per client per year: products &amp; services · price &amp; value · understanding · support</dd>
           <dt>Re-assess</dt><dd>12-month FG21/1 threshold enforced by nightly cron</dd>
@@ -179,6 +179,11 @@
       <div class="feature-visual fade-up">
         <div class="feature-visual-inner">
           <div class="mockup-panel">
+            <div class="mockup-panel-meta">
+              <span class="mockup-panel-eyebrow">Demo firm · Q1 2026</span>
+              <span class="mockup-panel-meta-sep" aria-hidden="true">·</span>
+              <span class="mockup-panel-meta-text">247 clients</span>
+            </div>
             <div class="mockup-panel-title">Consumer Duty Assessment</div>
             <div class="mb-3">
               <div class="mockup-progress-row">
@@ -212,6 +217,11 @@
               <span class="mockup-summary-label">Overall score</span>
               <span class="mockup-summary-value">82<span class="mockup-summary-suffix">/100</span></span>
             </div>
+            <div class="mockup-chips-row">
+              <span class="mockup-chip mockup-chip--warn">2 fair-value flags</span>
+              <span class="mockup-chip mockup-chip--info">9 vulnerable clients</span>
+              <span class="mockup-chip mockup-chip--ok">Board pack ready</span>
+            </div>
           </div>
         </div>
       </div>
@@ -219,7 +229,7 @@
   </div>
 </section>
 
-<!-- ── Feature 3: Smart Alerts ──────────────────────────────── -->
+<!-- ── Feature 3: Annual review sweep ───────────────────────── -->
 <section class="feature-detail" id="alerts">
   <div class="container">
     <div class="feature-detail-inner">
@@ -228,7 +238,7 @@
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
         </div>
         <h2>Annual review sweep</h2>
-        <p>A nightly cron evaluates every overdue review against COBS 9.5. If no reason is recorded, a flag is raised. If a reason is recorded, an FCA-trained AI assesses it against the rule's actual sufficiency test (bereavement, illness, documented unavailability) and either resolves the flag or escalates it, with the reasoning written to the audit log.</p>
+        <p>COBS 9.5 doesn't ask whether the review was late. It asks whether the reason it was late is sufficient. The sweep runs nightly and applies the actual rule test, not a date check.</p>
         <dl class="feature-specs">
           <dt>Runs</dt><dd>Nightly · idempotent · cursor-paginated (resumes cleanly on interruption)</dd>
           <dt>Logic</dt><dd>COBS 9.5 sufficiency test, not a date check. "Abroad three months" passes; "we forgot" doesn't</dd>
@@ -291,8 +301,8 @@
         <div class="feature-icon">
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
         </div>
-        <h2>AI assistant with hash-verifiable audit trail</h2>
-        <p>Claude Sonnet 4.6 retrieval-grounded against your firm's records + an 11,645-chunk FCA Handbook corpus. Every response writes prompt + response SHA-256s, model version, and request ID to the audit log: the same record the FCA would read if they queried what the model actually said on the day.</p>
+        <h2>An assistant the FCA could audit.</h2>
+        <p>Every answer writes a row to the audit log: prompt hash, response hash, model version, citations, timestamp. The same row the FCA reads if they ask what the model said on the day.</p>
         <dl class="feature-specs">
           <dt>Model</dt><dd>Claude Sonnet 4.6 · retrieval-grounded, told to cite or refuse</dd>
           <dt>Corpus</dt><dd>11,645 chunks across Handbook + Final Notices + Dear CEO + Policy Statements + Thematic Reviews</dd>
@@ -334,7 +344,7 @@
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
         </div>
         <h2>RMAR auto-population</h2>
-        <p>Sections B, D, E, G, and H pre-filled from your live data. Each section exports as a CSV ready for GABRIEL upload. The first time you run it, expect to spend an afternoon reconciling discrepancies; from the next quarter onwards, the same run takes under an hour.</p>
+        <p>First quarter: an afternoon reconciling between Intelliflo and the spreadsheet you've been keeping. Every quarter after that: under an hour, end to end.</p>
         <dl class="feature-specs">
           <dt>Sections</dt><dd>B · D · E · G · H pre-filled from live data</dd>
           <dt>Format</dt><dd>CSV per section, ready for GABRIEL upload</dd>
@@ -395,7 +405,7 @@
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
         <h2>FCA publications, indexed the day they ship.</h2>
-        <p>Our retrieval corpus already holds 11,645 chunks across 150 sources: the Handbook, Final Notices, Dear CEO letters, Policy Statements, Thematic Reviews. New publications are ingested on a daily cron. The personalised "what this means for your firm" layer is on the public-launch roadmap and not yet shipped; the corpus itself is live and queryable inside the AI assistant today.</p>
+        <p>The FCA Handbook is not static. Final Notices ship weekly. Dear CEO letters land without warning. The corpus stays current via a daily cron; the AI assistant queries it on every call.</p>
         <dl class="feature-specs">
           <dt>Sources</dt><dd>150 FCA publications: Handbook, Final Notices, Dear CEO letters, Policy Statements, Thematic Reviews</dd>
           <dt>Chunks</dt><dd>11,645 indexed; every chunk carries source, date, and section reference</dd>
@@ -455,7 +465,7 @@
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
         </div>
         <h2>Integrations</h2>
-        <p>OAuth-authenticated. Tokens encrypted with AES-256-GCM at the application layer; the encryption key sits in a Vercel environment variable, not in the database. Sync is nightly by default; on-demand pull available per integration.</p>
+        <p>Reads the systems your audit trail is already scattered across. New documents arrive in the right client's record the next morning.</p>
         <dl class="feature-specs">
           <dt>Live</dt><dd>Intelliflo · SharePoint — OAuth, nightly delta sync</dd>
           <dt>On request</dt><dd>Salesforce · Curo · Assureweb — same OAuth + encrypted-token pattern</dd>
