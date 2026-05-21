@@ -1215,6 +1215,17 @@ section { padding: var(--section-py) 0; }
   grid-auto-rows: 1fr;
   align-items: stretch;
 }
+/* Modifier: 2×2 grid for pages with exactly 4 feature-cards
+ * (compliance pages — vulnerability drivers / FCA expects / etc.).
+ * The default 3-col grid leaves the 4th card stranded on row 2;
+ * 2×2 reads as a deliberate composition with wider, more readable
+ * cards. */
+.features-grid--2x2 {
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 768px) {
+  .features-grid--2x2 { grid-template-columns: 1fr; }
+}
 .feature-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -1678,12 +1689,92 @@ main { counter-reset: feature-detail; }
 .feature-detail-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
 .feature-detail:nth-child(even) .feature-detail-inner { direction: rtl; }
 .feature-detail:nth-child(even) .feature-detail-inner > * { direction: ltr; }
-.feature-detail-text .feature-icon { margin-bottom: 20px; }
-.feature-detail-text h2 { font-size: 1.7rem; font-weight: 800; letter-spacing: -0.04em; color: var(--gray-900); margin-bottom: 14px; }
-.feature-detail-text p { font-size: 0.95rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 20px; }
+.feature-detail-text .feature-icon { margin-bottom: 16px; }
+.feature-detail-text h2 {
+  font-size: clamp(1.7rem, 2.4vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.024em;
+  color: var(--gray-900);
+  margin-bottom: 18px;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.feature-detail-text p {
+  font-size: 1.02rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  max-width: 38rem;
+}
 .feature-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .feature-bullets li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--gray-600); }
 .feature-bullets li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Feature spec strip ───────────────────────────────────────
+ * Replaces the 5-bullet list inside each feature-detail with a
+ * tabular spec block. Reads like a product datasheet: short
+ * label in eyebrow caps, fact in slightly larger body. More
+ * scannable, more confident, less repetitive. */
+.feature-specs {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  row-gap: 10px;
+  column-gap: 24px;
+  padding: 20px 0 20px;
+  margin: 0 0 22px;
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+}
+.feature-specs dt {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  align-self: baseline;
+  padding-top: 1px;
+}
+.feature-specs dd {
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: var(--gray-900);
+  margin: 0;
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Citation row at the bottom of the text column. Small plum
+ * pills that anchor each section to specific FCA rules. */
+.feature-cites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.feature-cite {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--plum);
+  background: var(--plum-tint-1, rgba(64, 36, 63, 0.04));
+  border: 1px solid var(--plum-border-1, rgba(64, 36, 63, 0.1));
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  font-variant-numeric: tabular-nums;
+}
+.feature-cite-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-right: 6px;
+  align-self: center;
+}
+@media (max-width: 768px) {
+  .feature-specs { grid-template-columns: 1fr; row-gap: 4px; }
+  .feature-specs dd { margin-bottom: 10px; }
+  .feature-specs dt { padding-top: 6px; }
+}
 .feature-visual {
   background: var(--gray-100); border: 1px solid var(--gray-200);
   border-radius: var(--r-xl); padding: 32px; min-height: 320px;
@@ -2020,14 +2111,38 @@ main { counter-reset: feature-detail; }
 
 /* ── Waitlist page ─────────────────────────────────────────── */
 .wl-hero { padding: 96px 0 80px; background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%); text-align: center; }
-.wl-launch-chip {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--plum-tint-2); color: var(--plum);
-  border: 1px solid var(--plum-border-2); border-radius: var(--r-pill);
-  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
-  padding: 6px 14px; margin-bottom: 28px;
+/* Typographic meta line above the title.
+ * Replaces the previous plum chip — same launch-date info, no chip
+ * chrome. Label in plum eyebrow caps, date in body weight after a
+ * small plum bullet so the eye reads "field · value", not a tag. */
+.wl-meta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  font-size: 0.85rem;
+  color: var(--gray-700);
+  font-variant-numeric: tabular-nums;
 }
-.wl-chip-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--plum); flex-shrink: 0; }
+.wl-meta-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--plum);
+}
+.wl-meta-bullet {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--plum);
+}
+.wl-meta-when {
+  font-weight: 600;
+  color: var(--gray-900);
+  letter-spacing: -0.01em;
+}
 .wl-title { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -0.05em; color: var(--gray-900); line-height: 1.1; margin-bottom: 20px; }
 .wl-title em { font-style: normal; color: var(--plum); }
 .wl-sub { font-size: 1.05rem; color: var(--gray-600); max-width: 560px; margin: 0 auto 40px; line-height: 1.65; }
@@ -2268,71 +2383,52 @@ main { counter-reset: feature-detail; }
 ::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gray-400, var(--gray-300)); }
 
-/* ── Amaea Help list (compliance pages) ───────────────────────
-   Reworked 2026-05-21 from 2-col card grid to single-column
-   editorial spec list. The card-grid version left visual gaps
-   where bodies were short. The spec-list reads as one continuous
-   document with numbered markers, tight typography, and hairline
-   separators between items — denser, more deliberate, closer to
-   how a compliance officer reads a policy excerpt.
-
-   Counter-styling uses CSS counter on the grid; each card gets
-   a numeric marker (01, 02, ...) rendered in plum at the left.
-   No JS, no markup change required beyond the four .html pages
-   already wired up. */
+/* ── Amaea Help Grid (compliance pages) ─────────────────────── */
 .amaea-help-grid {
   counter-reset: amaea-help;
-  display: flex;
-  flex-direction: column;
-  max-width: 920px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
 .amaea-help-card {
   counter-increment: amaea-help;
   position: relative;
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 32px;
-  align-items: baseline;
-  padding: 28px 0 28px 0;
-  border-top: 1px solid var(--card-border);
-  background: transparent;
-  border-radius: 0;
-  transition: background 0.22s var(--ease, cubic-bezier(0.32, 0.72, 0, 1));
-}
-.amaea-help-card:last-child {
-  border-bottom: 1px solid var(--card-border);
+  padding: 28px 28px 32px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--r-lg);
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s var(--ease, cubic-bezier(0.32, 0.72, 0, 1)),
+              box-shadow 0.22s var(--ease, cubic-bezier(0.32, 0.72, 0, 1)),
+              border-color 0.22s,
+              background 0.22s;
 }
 .amaea-help-card::before {
   content: counter(amaea-help, decimal-leading-zero);
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-family: var(--font);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   color: var(--plum);
-  letter-spacing: -0.02em;
+  margin-bottom: 14px;
   font-variant-numeric: tabular-nums;
-  line-height: 1.2;
 }
 .amaea-help-card:hover {
-  background: var(--plum-tint-1, rgba(64, 36, 63, 0.04));
-  transform: none;
-  box-shadow: none;
-  border-top-color: var(--plum-border-2, rgba(64, 36, 63, 0.18));
-}
-.amaea-help-card:hover + .amaea-help-card {
-  border-top-color: var(--plum-border-2, rgba(64, 36, 63, 0.18));
+  transform: translateY(-3px);
+  box-shadow: var(--sh-md);
+  border-color: var(--card-border-hover);
 }
 .amaea-help-card-title {
   font-weight: 700;
   color: var(--gray-900);
-  margin-bottom: 8px;
-  font-size: 1.05rem;
+  margin-bottom: 10px;
+  font-size: 1.02rem;
   letter-spacing: -0.02em;
+  line-height: 1.35;
 }
 @media (max-width: 768px) {
-  .amaea-help-card { grid-template-columns: 44px 1fr; gap: 18px; padding: 22px 0; }
-  .amaea-help-card::before { font-size: 1.15rem; }
-  .amaea-help-card-title { font-size: 0.98rem; }
+  .amaea-help-grid { grid-template-columns: 1fr; }
 }
 
 /* (Horizon feature now inherits standard light .feature-detail styling.) */
@@ -3128,9 +3224,8 @@ main { counter-reset: feature-detail; }
 
 /* Helper paragraph inside amaea-help-card — the visual body text. */
 .amaea-help-card-body {
-  font-size: 0.92rem; color: var(--gray-600);
+  font-size: 0.9rem; color: var(--gray-600);
   line-height: 1.7; margin: 0;
-  max-width: 62ch;
 }
 
 /* Generic max-width text columns used across compliance pages. */
@@ -6275,6 +6370,7 @@ main { counter-reset: feature-detail; }
 .testimonials-grid,
 .pricing-grid,
 .stats-grid,
+.amaea-help-grid,
 .blog-grid-3,
 .blog-grid-inner,
 .integrations-grid,
@@ -6294,6 +6390,7 @@ main { counter-reset: feature-detail; }
 /* 2b. Card body absorbs the slack so bottoms align */
 .feature-desc,
 .pain-desc,
+.amaea-help-card-body,
 .blog-card-summary,
 .pricing-features,
 .step-desc,
@@ -6318,6 +6415,7 @@ main { counter-reset: feature-detail; }
 .pain-grid,
 .testimonials-grid,
 .pricing-grid,
+.amaea-help-grid,
 .integrations-grid { row-gap: 28px; }
 
 /* 5. Layered-always hover refinement.
