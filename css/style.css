@@ -2923,14 +2923,70 @@ main { counter-reset: feature-detail; }
 .legal-section { padding: 72px 0 96px; background: var(--white); }
 [data-theme="dark"] .legal-section { background: var(--white); }
 
+/* Glossary TOC — active entry highlight (wired by scroll-spy in
+   js/main.js: adds .is-active to the <li><a> whose anchor target
+   is currently nearest the top of the viewport). */
+.glossary-toc .legal-toc-list a.is-active {
+  color: var(--plum);
+  font-weight: 600;
+  background: var(--plum-tint-2, rgba(64, 36, 63, 0.06));
+  border-radius: var(--r-sm, 6px);
+}
+[data-theme="dark"] .glossary-toc .legal-toc-list a.is-active {
+  background: rgba(146, 88, 160, 0.18);
+}
+
+/* Glossary back-to-top button — floating bottom-right. Renders
+   only when scrolled past 600px via .is-visible class added in JS. */
+.glossary-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  background: var(--white);
+  border: 1px solid var(--card-border);
+  border-radius: var(--r-pill);
+  box-shadow: var(--sh-md);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.22s var(--ease, cubic-bezier(0.32, 0.72, 0, 1)),
+              transform 0.22s var(--ease, cubic-bezier(0.32, 0.72, 0, 1)),
+              border-color 0.22s, color 0.22s;
+  z-index: 50;
+}
+.glossary-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.glossary-top:hover { color: var(--plum); border-color: var(--plum-border-2, rgba(64, 36, 63, 0.18)); }
+.glossary-top:focus-visible { outline: 2px solid var(--plum); outline-offset: 3px; }
+@media (max-width: 640px) {
+  .glossary-top-label { display: none; }
+  .glossary-top { padding: 10px; }
+}
+
 /* Trailing "document control" block at the foot of legal pages —
-   small grey footnote separated from the body by a hairline. */
-.legal-doc-control {
+   small grey footnote separated from the body by a hairline.
+   .glossary-closing-note shares the styling but names the
+   glossary context (used on /glossary for the "missing-entry"
+   email prompt rather than a legal sign-off). */
+.legal-doc-control,
+.glossary-closing-note {
   margin-top: 48px; padding-top: 24px;
   border-top: 1px solid var(--gray-200);
   color: var(--gray-500); font-size: 0.88rem;
 }
-[data-theme="dark"] .legal-doc-control { border-top-color: var(--plum-tint-3); }
+[data-theme="dark"] .legal-doc-control,
+[data-theme="dark"] .glossary-closing-note { border-top-color: var(--plum-tint-3); }
 
 /* TBC placeholder span — used in legal pages where a Companies
    House / ICO reference is pending. */
