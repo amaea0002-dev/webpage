@@ -148,7 +148,7 @@
         <div aria-hidden="true" class="honeypot">
           <label>Company website (leave blank)<input type="text" name="company_url" tabindex="-1" autocomplete="off"></label>
         </div>
-        <input id="newsletter-email" type="email" name="email" placeholder="your@firm.co.uk" required class="newsletter-input">
+        <input id="newsletter-email" type="email" name="email" placeholder="your@firm.co.uk" autocomplete="email" required class="newsletter-input" aria-label="Work email">
         <button id="newsletter-submit" type="submit" class="btn btn-primary newsletter-submit">Subscribe</button>
       </form>
       <p id="newsletter-error" class="newsletter-error" role="alert" aria-live="polite" style="display:none;"></p>
@@ -256,7 +256,7 @@
 </footer>
 
 </main>
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
 
