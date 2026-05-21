@@ -3327,9 +3327,13 @@ main { counter-reset: feature-detail; }
 .help-section-head {
   font-size: 1.5rem; font-weight: 800;
   letter-spacing: -0.04em; color: var(--gray-900);
-  margin-bottom: 32px;
+  margin-bottom: 12px;
 }
 .help-section-label { margin-bottom: 12px; }
+.help-section-sub {
+  font-size: 0.95rem; color: var(--gray-600);
+  line-height: 1.7; margin-bottom: 32px; max-width: 56rem;
+}
 
 /* Margin helpers */
 .mb-13 { margin-bottom: 52px; }
