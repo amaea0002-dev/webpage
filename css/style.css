@@ -5528,15 +5528,37 @@ main { counter-reset: feature-detail; }
  * ────────────────────────────────────────────────────────────── */
 
 /* ── #1 Pricing comparison table — premium restyle ──────────── */
-.compare-table .cmp-cell--check svg,
-.compare-table .cmp-cell--miss svg {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  vertical-align: -3px;
-}
+/* Replaced inline SVGs in each check/miss cell with a CSS
+ * pseudo-element marker. Cuts dozens of SVG nodes from the table
+ * markup; the cell contents are now sr-only span only. */
 .compare-table .cmp-cell--check { color: var(--plum); font-weight: 600; }
 .compare-table .cmp-cell--miss  { color: var(--gray-300); }
+.compare-table .cmp-cell--check::before {
+  content: "✓";
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--plum);
+  display: inline-block;
+  line-height: 1;
+}
+.compare-table .cmp-cell--miss::before {
+  content: "—";
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray-300);
+  display: inline-block;
+  line-height: 1;
+}
+/* Screen-reader-only helper used by check/miss cells (and elsewhere). */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
 .compare-table tbody td + td:not(.cmp-cell--label),
 .compare-table thead th + th {
   border-left: 1px dashed var(--gray-200);
@@ -5795,14 +5817,16 @@ main { counter-reset: feature-detail; }
   .partner-network-callout-arrow { margin-left: auto; }
 }
 
-/* Pricing ROI framing — sits below the 4-tier card grid, anchors the
- * Professional price against industry-standard reference costs. For
- * Sarah persona (junior CO building MD case). */
+/* Pricing ROI framing — sits between the hero and the 4-tier card
+ * grid, anchoring the Professional price against industry-standard
+ * reference costs before the buyer sees the price tags. */
+.pricing-roi-section {
+  padding: 12px 0 0;
+  background: var(--gray-50);
+}
 .pricing-roi {
   max-width: 760px;
-  /* Margin-bottom adds breathing room before the comparison table below
-   * (was visually merging with it per /impeccable critique pass #3). */
-  margin: 40px auto 56px;
+  margin: 32px auto 0;
   padding: 28px 32px;
   background: var(--plum-tint-1);
   border: 1px solid var(--plum-border-1);
