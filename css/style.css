@@ -2348,6 +2348,10 @@ section { padding: var(--section-py) 0; }
 .int-tile-icon--solid { background: #113ad6; border-color: transparent; padding: 0; }
 .int-tile-icon--dark  { background: #12121a; border-color: transparent; padding: 0; }
 .int-tile-icon--midnight { background: #1C1635; border-color: transparent; padding: 0; }
+/* White container for partner logos that ship as colour-blocks on a
+ * white background (Microsoft). Theme-invariant by design — the
+ * partner's brand identity shouldn't change with the visitor's theme. */
+.int-tile-icon--white { background: #fff; }
 .int-tile-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .int-tile-name { font-size: 0.75rem; font-weight: 700; color: var(--gray-900); }
 .int-tile-pill {
@@ -5212,6 +5216,68 @@ section { padding: var(--section-py) 0; }
   opacity: 0.55;
   font-weight: 400;
 }
+
+/* ──────────────────────────────────────────────────────────────
+ * features.html distill — 2026-05-21
+ * Extracted from inline styles. Each class is purpose-built;
+ * resist generalising until two more uses appear.
+ * ────────────────────────────────────────────────────────────── */
+.fca-horizon-eyebrow {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--plum-soft);
+  margin-bottom: 14px;
+}
+.int-tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.int-tiles-grid--gap-bottom { margin-bottom: 14px; }
+
+/* CTA banner sits on the dark plum surface; ghost-button text needs
+ * white-on-dark. Contextual override replaces inline color: rgba()
+ * on individual CTA links. */
+.cta-banner .btn-ghost { color: rgba(255,255,255,0.8); }
+.cta-banner .btn-ghost:hover { color: rgba(255,255,255,1); }
+
+/* ──────────────────────────────────────────────────────────────
+ * index.html distill — 2026-05-21
+ * Repeated inline styles → narrowly-named classes. The width on
+ * .section-sub--narrow is normalised to 600px (the three uses were
+ * within 60px of each other and one width is easier to maintain).
+ * ────────────────────────────────────────────────────────────── */
+.section-sub--narrow {
+  max-width: 600px;
+  margin-top: 14px;
+}
+.section-footnote {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 0.84rem;
+  color: var(--gray-500);
+}
+.stat-value-suffix {
+  font-size: 0.55em;
+  color: var(--gray-400);
+}
+.partner-aside {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--gray-500);
+  margin-top: 28px;
+}
+.svg-block {
+  flex-shrink: 0;
+  display: block;
+}
+/* Partner brand colours — theme-invariant by design (SharePoint blue
+ * and Salesforce cyan don't change with the visitor's theme). */
+.partner-logo-name--sharepoint { color: #0078D4; }
+.partner-logo-name--salesforce { color: #00A1E0; }
+.partner-logo-mark--midnight   { background: #1C1635; }
 
 /* ──────────────────────────────────────────────────────────────
  * Display typography — Newsreader for h1/h2 at display sizes
