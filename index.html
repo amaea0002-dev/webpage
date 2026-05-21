@@ -66,8 +66,8 @@
     <h1>Stay compliant.<br><em>Stay confident.</em></h1>
     <p class="hero-sub">Amaea tracks every client journey, surfaces documentation gaps before they become regulatory breaches, and keeps you ahead of your compliance reporting, automatically.</p>
     <div class="hero-ctas">
-      <a href="contact" class="btn btn-primary btn-lg">Book a demo</a>
-      <a href="features" class="btn btn-secondary btn-lg">See all features</a>
+      <a href="features" class="btn btn-primary btn-lg">Show me the audit trail</a>
+      <a href="annual-reviews" class="btn btn-secondary btn-lg">See COBS 9.5 in action</a>
     </div>
 
     <!-- Dashboard preview — minimal premium composition:
@@ -222,29 +222,6 @@
   </div>
 </section>
 
-<!-- ── Substance bar ────────────────────────────────────────── -->
-<div class="substance-bar">
-  <p class="substance-label">Built on the detail UK IFA firms actually need</p>
-  <div class="substance-grid">
-    <div class="substance-stat fade-up fade-up-1">
-      <span class="substance-num">11,645</span>
-      <span class="substance-stat-label">FCA Handbook + publications indexed for retrieval</span>
-    </div>
-    <div class="substance-stat fade-up fade-up-2">
-      <span class="substance-num">17</span>
-      <span class="substance-stat-label">IFA compliance document types auto-extracted</span>
-    </div>
-    <div class="substance-stat fade-up fade-up-3">
-      <span class="substance-num">50</span>
-      <span class="substance-stat-label">FCA scenarios in our continuous evaluation suite</span>
-    </div>
-    <div class="substance-stat fade-up fade-up-4">
-      <span class="substance-num">EU-West</span>
-      <span class="substance-stat-label">All client data hosted in Ireland · UK GDPR</span>
-    </div>
-  </div>
-</div>
-
 <!-- ── Problem ──────────────────────────────────────────────── -->
 <section class="problem">
   <div class="container">
@@ -384,6 +361,31 @@
      would just repeat both, weaker. Restore from git if Hasna disagrees.
      ─────────────────────────────────────────────────────────────── -->
 
+<!-- ── Substance bar — moved 2026-05-21 after Features per /impeccable
+     critique: credentials shouldn't front-load before the problem
+     narrative has earned the reader's attention. ─────────────────── -->
+<div class="substance-bar">
+  <p class="substance-label">Built on the detail UK IFA firms actually need</p>
+  <div class="substance-grid">
+    <div class="substance-stat fade-up fade-up-1">
+      <span class="substance-num">11,645</span>
+      <span class="substance-stat-label">FCA Handbook + publications indexed for retrieval</span>
+    </div>
+    <div class="substance-stat fade-up fade-up-2">
+      <span class="substance-num">17</span>
+      <span class="substance-stat-label">IFA compliance document types auto-extracted</span>
+    </div>
+    <div class="substance-stat fade-up fade-up-3">
+      <span class="substance-num">50</span>
+      <span class="substance-stat-label">FCA scenarios in our continuous evaluation suite</span>
+    </div>
+    <div class="substance-stat fade-up fade-up-4">
+      <span class="substance-num">EU-West</span>
+      <span class="substance-stat-label">All client data hosted in Ireland · UK GDPR</span>
+    </div>
+  </div>
+</div>
+
 <!-- ── AI section ───────────────────────────────────────────── -->
 <section class="ai-section">
   <div class="container">
@@ -443,63 +445,53 @@
 </section>
 
 <!-- ── Security & Data ──────────────────────────────────────── -->
+<!-- Densified 2026-05-21 from 6-up icon grid to a dark-plum panel
+     (left = tabular claims, right = direct procurement aside).
+     Per /impeccable critique: compliance buyers want a security
+     questionnaire excerpt + a path to the full PDF, not a feature
+     wall. Lets serious prospects self-identify without a demo
+     round-trip. ────────────────────────────────────────────── -->
 <section class="security-section">
   <div class="container">
-    <div class="text-center">
-      <h2 class="section-title">Built for the data IFAs handle.</h2>
-      <p class="section-sub section-sub--narrow">Amaea handles regulated client data. Here's exactly how we protect it - and why an FCA-supervised firm can trust us to.</p>
+    <div class="security-panel">
+      <div class="security-panel-text">
+        <h2 class="section-title">The posture an FCA-regulated firm can trust.</h2>
+        <p class="section-sub">Six questions every compliance officer asks. The full questionnaire is one click away.</p>
+        <dl class="security-claims">
+          <div class="security-claim">
+            <dt>Data residency</dt>
+            <dd>EU-West (Ireland). Supabase + Vercel EU regions. No US transfer of personal data.</dd>
+          </div>
+          <div class="security-claim">
+            <dt>Tenant isolation</dt>
+            <dd>Row Level Security enforced at the database layer. The database, not application code, refuses cross-firm reads.</dd>
+          </div>
+          <div class="security-claim">
+            <dt>Encryption</dt>
+            <dd>TLS 1.3 in transit, AES-256 at rest. Document storage uses signed URLs with short expiry; adviser auth via JWT with firm-scoped claims.</dd>
+          </div>
+          <div class="security-claim">
+            <dt>Training</dt>
+            <dd>Your data trains nothing. Claude is API-called per request only. Voyage AI embeddings stay in your firm's isolated table.</dd>
+          </div>
+          <div class="security-claim">
+            <dt>Audit trail</dt>
+            <dd>Append-only event log, 7-year retention aligned to FCA SYSC 9. Every flag, review, and upload is timestamped and immutable.</dd>
+          </div>
+          <div class="security-claim">
+            <dt>UK GDPR &amp; DPA 2018</dt>
+            <dd>Sub-processor list, DPIA, and Data Processing Agreement in preparation for launch. Right-to-erasure pipelines built into the product.</dd>
+          </div>
+        </dl>
+      </div>
+      <aside class="security-panel-aside fade-up">
+        <div class="section-label section-label--on-dark">For procurement</div>
+        <h3 class="security-aside-title">Request the security questionnaire.</h3>
+        <p class="security-aside-sub">Sub-processor list, DPA, encryption details, audit-trail design, training register. One PDF, sent to your work email. No demo call required.</p>
+        <a class="btn btn-primary btn-lg" href="mailto:security@amaea.co.uk?subject=Security%20questionnaire%20request&amp;body=I%27d%20like%20a%20copy%20of%20the%20Amaea%20security%20questionnaire.%0A%0AMy%20firm%3A%20%0AMy%20role%3A%20%0AClient%20count%3A%20">Request the questionnaire <span aria-hidden="true">→</span></a>
+        <p class="security-aside-note">Or join the <a href="waitlist">launch waitlist</a> to receive it automatically when public launch opens.</p>
+      </aside>
     </div>
-    <div class="security-grid">
-      <div class="security-card fade-up fade-up-1">
-        <div class="security-icon">
-          <!-- Globe — geographic residency (EU-West, Ireland). -->
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <h3>EU data residency</h3>
-        <p>All client data stored in EU-West (Ireland). No US transfer of personal data. Hosted on Supabase + Vercel EU regions.</p>
-      </div>
-      <div class="security-card fade-up fade-up-2">
-        <div class="security-icon">
-          <!-- File with check — DPA / sub-processor / DPIA paperwork. -->
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg>
-        </div>
-        <h3>UK GDPR &amp; DPA 2018</h3>
-        <p>Sub-processor list, DPIA, and Data Processing Agreement in preparation for public launch. Right-to-erasure pipelines built into the product.</p>
-      </div>
-      <div class="security-card fade-up fade-up-3">
-        <div class="security-icon">
-          <!-- Stacked layers — each firm sits on its own isolated layer. -->
-          <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-        </div>
-        <h3>Multi-tenant isolation</h3>
-        <p>Row Level Security enforced at the database layer. Every record carries a firm ID and the database - not application code - refuses cross-firm reads.</p>
-      </div>
-      <div class="security-card fade-up fade-up-4">
-        <div class="security-icon">
-          <!-- Lock with check inside — data locked away from training. -->
-          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><polyline points="9.5 16 11 17.5 14.5 14.5"/></svg>
-        </div>
-        <h3>Your data trains nothing</h3>
-        <p>Claude is API-called per request only. Voyage AI embeddings stay in your firm's isolated table. No model training on customer data, ever.</p>
-      </div>
-      <div class="security-card fade-up fade-up-5">
-        <div class="security-icon">
-          <!-- Key — encryption / signed URLs / JWT signing. -->
-          <svg viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg>
-        </div>
-        <h3>Encryption</h3>
-        <p>TLS 1.3 in transit, AES-256 at rest. Document storage uses signed URLs with short expiry. Adviser auth via JWT with firm-scoped claims.</p>
-      </div>
-      <div class="security-card fade-up fade-up-6">
-        <div class="security-icon">
-          <!-- List of checks — append-only event log with verified entries. -->
-          <svg viewBox="0 0 24 24"><path d="M3 17l2 2 4-4"/><path d="M3 7l2 2 4-4"/><line x1="13" y1="6" x2="21" y2="6"/><line x1="13" y1="12" x2="21" y2="12"/><line x1="13" y1="18" x2="21" y2="18"/></svg>
-        </div>
-        <h3>Append-only audit trail</h3>
-        <p>Compliance events stored with 7-year retention aligned to FCA SYSC 9. Every flag, review, and upload is timestamped and immutable.</p>
-      </div>
-    </div>
-    <p class="section-footnote">Security questionnaire, DPA, and sub-processor list in preparation. Email <a href="contact">us via the contact form</a> to be added to the early-disclosure list.</p>
   </div>
 </section>
 
@@ -507,7 +499,6 @@
 <section class="testimonials">
   <div class="container">
     <div class="text-center">
-      <div class="section-label">Why we built Amaea</div>
       <h2 class="section-title">Themes from 27 compliance officers we interviewed in 2025.</h2>
       <p class="section-sub section-sub--narrow">Anonymised verbatim quotes: same firm size we're building for, same regulatory regime, same software stack. The problems below were the most-repeated three across all 27 interviews.</p>
     </div>
@@ -547,148 +538,62 @@
 </section>
 
 <!-- ── Integration partners ─────────────────────────────────── -->
+<!-- Replaced auto-scrolling logo carousel with a static integration
+     matrix 2026-05-21 per /impeccable critique: procurement teams
+     screenshot tables like this and email them internally; carousels
+     they ignore. Aligned to integrations.html canonical list. ── -->
 <section class="section-white">
   <div class="container">
-    <div class="partner-header">
-      <div>
-        <h2 class="section-title" style="margin-bottom:8px;">Works with the tools your firm already uses.</h2>
-        <p class="section-sub mb-0">No data migration. No new workflows. Amaea connects directly to your existing systems.</p>
-      </div>
-      <div class="partner-controls">
-        <button class="partner-btn" id="partner-prev" aria-label="Previous">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="partner-btn" id="partner-next" aria-label="Next">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
+    <div class="text-center">
+      <h2 class="section-title">Works with the tools your firm already uses.</h2>
+      <p class="section-sub">No data migration. No new workflows. OAuth-authenticated, AES-256-GCM token storage, nightly sync.</p>
     </div>
-    <div class="partner-grid" id="partner-grid">
-      <div class="partner-track">
-        <a href="integrations" class="partner-logo-item">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/intelliflo-logo.svg" alt="Intelliflo" class="partner-logo-img">
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item">
-          <span class="partner-logo-mark">
-            <svg width="20" height="20" viewBox="0 0 28 28" class="svg-block">
-              <rect width="13" height="13" fill="#F25022"/>
-              <rect x="15" width="13" height="13" fill="#7FBA00"/>
-              <rect y="15" width="13" height="13" fill="#00A4EF"/>
-              <rect x="15" y="15" width="13" height="13" fill="#FFB900"/>
-            </svg>
-            <span class="partner-logo-name partner-logo-name--sharepoint">SharePoint</span>
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item">
-          <span class="partner-logo-mark">
-            <svg width="28" height="20" viewBox="0 0 100 70" fill="#00A1E0"><path d="M41.5,7C45.1,2.6,50.4,0,56.3,0c8.1,0,15.1,4.8,18.5,11.8c3.1-1.4,6.6-2.2,10.2-2.2C98.3,9.6,108,19.3,108,31.1S98.3,52.6,85,52.6c-1.3,0-2.5-0.1-3.7-0.3c-3,5.5-8.8,9.3-15.4,9.3c-2.8,0-5.4-0.7-7.7-1.9c-3.5,7.1-10.8,12-19.3,12c-8.2,0-15.3-5-18.5-12.3c-1.6,0.4-3.3,0.6-5.1,0.6C7,59.6,0,52.6,0,44c0-7.6,5.3-14.1,12.4-15.9c-1.3-2.8-2-5.9-2-9.1C10.4,8.5,16.7,1.3,27,1.3c3.6,0,7,1.1,9.7,3"/></svg>
-            <span class="partner-logo-name partner-logo-name--salesforce">Salesforce</span>
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/assure-web-logo.webp" alt="Assureweb" class="partner-logo-img">
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/dynamic-planner-logo.jpg" alt="Dynamic Planner" class="partner-logo-img">
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/evidentli-logo.png" alt="Evidentli" class="partner-logo-img">
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item">
-          <span class="partner-logo-mark partner-logo-mark--midnight">
-            <img loading="lazy" decoding="async" src="assets/threesixty-logo.png" alt="ThreeSixty" class="partner-logo-img">
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/docusign-logo.png" alt="DocuSign" class="partner-logo-img">
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/FCA-logo.svg" alt="FCA" class="partner-logo-img">
-          </span>
-        </a>
-        <!-- duplicate set for seamless loop -->
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/intelliflo-logo.svg" alt="" class="partner-logo-img">
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
-          <span class="partner-logo-mark">
-            <svg width="20" height="20" viewBox="0 0 28 28" class="svg-block">
-              <rect width="13" height="13" fill="#F25022"/>
-              <rect x="15" width="13" height="13" fill="#7FBA00"/>
-              <rect y="15" width="13" height="13" fill="#00A4EF"/>
-              <rect x="15" y="15" width="13" height="13" fill="#FFB900"/>
-            </svg>
-            <span class="partner-logo-name partner-logo-name--sharepoint">SharePoint</span>
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
-          <span class="partner-logo-mark">
-            <svg width="28" height="20" viewBox="0 0 100 70" fill="#00A1E0"><path d="M41.5,7C45.1,2.6,50.4,0,56.3,0c8.1,0,15.1,4.8,18.5,11.8c3.1-1.4,6.6-2.2,10.2-2.2C98.3,9.6,108,19.3,108,31.1S98.3,52.6,85,52.6c-1.3,0-2.5-0.1-3.7-0.3c-3,5.5-8.8,9.3-15.4,9.3c-2.8,0-5.4-0.7-7.7-1.9c-3.5,7.1-10.8,12-19.3,12c-8.2,0-15.3-5-18.5-12.3c-1.6,0.4-3.3,0.6-5.1,0.6C7,59.6,0,52.6,0,44c0-7.6,5.3-14.1,12.4-15.9c-1.3-2.8-2-5.9-2-9.1C10.4,8.5,16.7,1.3,27,1.3c3.6,0,7,1.1,9.7,3"/></svg>
-            <span class="partner-logo-name partner-logo-name--salesforce">Salesforce</span>
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/assure-web-logo.webp" alt="" class="partner-logo-img">
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/dynamic-planner-logo.jpg" alt="" class="partner-logo-img">
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/evidentli-logo.png" alt="" class="partner-logo-img">
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/threesixty-logo.png" alt="" class="partner-logo-img">
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/docusign-logo.png" alt="" class="partner-logo-img">
-          </span>
-        </a>
-        <span class="partner-divider" aria-hidden="true"></span>
-        <a href="integrations" class="partner-logo-item" aria-hidden="true" tabindex="-1">
-          <span class="partner-logo-mark">
-            <img loading="lazy" decoding="async" src="assets/FCA-logo.svg" alt="" class="partner-logo-img">
-          </span>
-        </a>
-      </div>
-    </div>
+    <table class="int-matrix">
+      <thead>
+        <tr>
+          <th scope="col">System</th>
+          <th scope="col">Status</th>
+          <th scope="col">Integration depth</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Intelliflo</th>
+          <td><span class="int-status int-status--live">Live</span></td>
+          <td>Two-way · daily sync · all plans</td>
+        </tr>
+        <tr>
+          <th scope="row">Microsoft SharePoint</th>
+          <td><span class="int-status int-status--live">Live</span></td>
+          <td>Document read · daily sync · Professional &amp; Scale</td>
+        </tr>
+        <tr>
+          <th scope="row">Salesforce</th>
+          <td><span class="int-status int-status--live">Live</span></td>
+          <td>Bi-directional · client records + compliance flags · Professional &amp; Scale</td>
+        </tr>
+        <tr>
+          <th scope="row">Manual / CSV import</th>
+          <td><span class="int-status int-status--live">Live</span></td>
+          <td>For firms without a CRM · all plans</td>
+        </tr>
+        <tr>
+          <th scope="row">Dynamic Planner</th>
+          <td><span class="int-status int-status--soon">Coming soon</span></td>
+          <td>Risk + cashflow read · keeps suitability records current</td>
+        </tr>
+        <tr>
+          <th scope="row">DocuSign</th>
+          <td><span class="int-status int-status--soon">Coming soon</span></td>
+          <td>E-sign for suitability reports · audit-trail link-back</td>
+        </tr>
+        <tr>
+          <th scope="row">Your platform</th>
+          <td><span class="int-status int-status--request">On request</span></td>
+          <td>OAuth or REST · typically 1-3 weeks · scoped per call</td>
+        </tr>
+      </tbody>
+    </table>
     <p class="partner-aside">If you're on a platform that exposes documents over OAuth or REST, we can integrate it. Tell us what you use and we'll tell you whether it's a week's work or three. <a href="contact" class="text-plum-strong">Get in touch <span aria-hidden="true">→</span></a></p>
   </div>
 </section>

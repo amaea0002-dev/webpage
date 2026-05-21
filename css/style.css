@@ -851,7 +851,116 @@ section { padding: var(--section-py) 0; }
 }
 
 /* ── Security & Data section ──────────────────────────────── */
-.security-section { padding: var(--section-py) 0; background: var(--gray-50); }
+/* Security section restyled 2026-05-21 from 6-up icon grid to a
+ * dark-plum panel (left = tabular claims dl, right = procurement
+ * aside). The old .security-grid / .security-card / .security-icon
+ * rules below are retained as historical context but no longer
+ * referenced; safe to delete in a later cleanup. */
+.security-section {
+  padding: var(--section-py) 0;
+  background: var(--plum-dark);
+  color: var(--overlay-text);
+}
+.security-panel {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+.security-panel-text .section-title {
+  color: #F2EAF5;
+  text-align: left;
+}
+.security-panel-text .section-sub {
+  color: var(--overlay-emph);
+  text-align: left;
+  margin: 14px 0 36px;
+  max-width: none;
+}
+.security-claims {
+  display: flex;
+  flex-direction: column;
+}
+.security-claim {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: 28px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(200,150,200,0.10);
+}
+.security-claim:last-child { border-bottom: none; }
+.security-claim dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--plum-soft);
+  text-transform: uppercase;
+  padding-top: 2px;
+}
+.security-claim dd {
+  font-size: 0.92rem;
+  color: var(--overlay-text);
+  line-height: 1.6;
+  margin: 0;
+}
+.security-panel-aside {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(200,150,200,0.10);
+  border-radius: var(--r-xl);
+  padding: 32px 28px;
+  position: sticky;
+  top: calc(var(--nav-h) + var(--launch-h, 0px) + 24px);
+}
+.security-panel-aside .section-label {
+  margin-bottom: 16px;
+}
+.security-aside-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  color: #F2EAF5;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+.security-aside-sub {
+  font-size: 0.92rem;
+  color: var(--overlay-emph);
+  margin-bottom: 24px;
+  line-height: 1.55;
+}
+.security-panel-aside .btn-primary {
+  width: 100%;
+  justify-content: center;
+}
+.security-aside-note {
+  font-size: 0.78rem;
+  color: var(--overlay-emph);
+  margin-top: 18px;
+  line-height: 1.55;
+}
+.security-aside-note a {
+  color: #F2EAF5;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.security-aside-note a:hover { color: #fff; }
+
+@media (max-width: 860px) {
+  .security-panel {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .security-panel-aside { position: static; }
+  .security-claim {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 16px 0;
+  }
+}
+
+/* Legacy .security-grid / .security-card / .security-icon CSS lives
+ * below for now. Section no longer uses them; safe to delete. */
 .security-grid {
   margin-top: 44px;
   display: grid;
@@ -5245,6 +5354,101 @@ section { padding: var(--section-py) 0; }
   max-width: 600px;
   margin-top: 14px;
 }
+/* Form success "share with my MD" line — added for Sarah persona
+ * 2026-05-21 per /impeccable critique. Sarah is the junior research
+ * decision-influencer; she needs a friction-free way to forward the
+ * site to a decision-maker. */
+.form-success-share {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--plum-border-1);
+  font-size: 0.84rem;
+  color: var(--gray-500);
+}
+
+/* ──────────────────────────────────────────────────────────────
+ * Integration matrix (replaces auto-scroll partner carousel)
+ * 2026-05-21. Photographable table for procurement teams.
+ * ────────────────────────────────────────────────────────────── */
+.int-matrix {
+  width: 100%;
+  max-width: 980px;
+  margin: 56px auto 0;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.int-matrix thead th {
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  padding: 12px 18px;
+  border-bottom: 2px solid var(--plum-border-1);
+}
+.int-matrix tbody tr {
+  border-bottom: 1px solid var(--gray-200);
+  transition: background 0.18s var(--ease-out);
+}
+.int-matrix tbody tr:hover { background: var(--plum-tint-1); }
+.int-matrix tbody tr:last-child { border-bottom: none; }
+.int-matrix tbody th[scope="row"] {
+  text-align: left;
+  font-weight: 700;
+  color: var(--gray-900);
+  padding: 18px 18px;
+  white-space: nowrap;
+}
+.int-matrix tbody td {
+  padding: 18px 18px;
+  color: var(--gray-600);
+  vertical-align: middle;
+}
+.int-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+}
+.int-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.int-status--live    { color: var(--plum); background: var(--plum-tint-2); }
+.int-status--soon    { color: var(--amber); background: var(--amber-bg); }
+.int-status--request { color: var(--gray-500); background: var(--gray-50); }
+[data-theme="dark"] .int-matrix thead th { border-bottom-color: var(--plum-border-2); }
+[data-theme="dark"] .int-matrix tbody tr { border-bottom-color: var(--plum-tint-3); }
+[data-theme="dark"] .int-matrix tbody th[scope="row"] { color: var(--gray-900); }
+[data-theme="dark"] .int-matrix tbody td { color: var(--gray-600); }
+[data-theme="dark"] .int-status--soon { background: rgba(217,119,6,0.12); }
+[data-theme="dark"] .int-status--request { background: var(--gray-100); }
+
+@media (max-width: 720px) {
+  .int-matrix { font-size: 0.88rem; }
+  .int-matrix thead { display: none; }
+  .int-matrix tbody tr {
+    display: block;
+    padding: 16px 0;
+  }
+  .int-matrix tbody th[scope="row"],
+  .int-matrix tbody td {
+    display: block;
+    padding: 4px 0;
+    white-space: normal;
+  }
+  .int-matrix tbody th[scope="row"] { font-size: 1rem; margin-bottom: 4px; }
+}
+
 /* Single footnote class used by every long-form section that closes
  * with a one-sentence aside (model-firm stats, security posture,
  * pricing comparison). Replaces the older .security-footnote and
