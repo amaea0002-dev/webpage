@@ -93,13 +93,18 @@
         </div>
         <h2>Client journey</h2>
         <p>Three compliance stages per client: initial engagement, ad-hoc work, annual reviews. Each stage carries its own document set: 17 types in total. The system knows which are missing, which are expired, and which expire in the next 90 days.</p>
-        <ul class="feature-bullets">
-          <li>17 doc types tracked: fact find, suitability report, ATR, Consumer Duty outcome, vulnerability assessment, AML CDD, client agreement, ID&amp;V, source-of-funds, PI cover note, T&amp;C record, complaint log, fees disclosure, key facts illustration, drawdown review, ongoing services log, fee benchmarking</li>
-          <li>Expiry windows configurable per doc type; defaults match FCA file-completeness expectations</li>
-          <li>"Missing" vs "expired" tracked separately, so the audit-trail reason is correct when a flag is closed</li>
-          <li>Adviser roll-up: per-adviser breach count and missing-doc count, sortable</li>
-          <li>Every flag carries the specific rule citation (COBS, SYSC, FG21/1 etc.), visible on the audit log</li>
-        </ul>
+        <dl class="feature-specs">
+          <dt>Doc types</dt><dd>17 tracked (fact find, suitability, ATR, AML CDD, Consumer Duty outcome, vulnerability assessment, T&amp;C, PI cover, drawdown review, fee benchmarking, …)</dd>
+          <dt>Stages</dt><dd>Initial engagement · Ad-hoc work · Annual reviews</dd>
+          <dt>Tracking</dt><dd>Missing vs expired surfaced separately, with the audit-trail reason on each flag closure</dd>
+          <dt>Adviser view</dt><dd>Per-adviser breach + missing-doc counts, sortable</dd>
+        </dl>
+        <div class="feature-cites">
+          <span class="feature-cite-label">Cites</span>
+          <span class="feature-cite">COBS</span>
+          <span class="feature-cite">SYSC</span>
+          <span class="feature-cite">FG21/1</span>
+        </div>
       </div>
       <div class="feature-visual feature-visual--surface fade-up">
         <div class="feature-visual-inner">
@@ -156,13 +161,17 @@
         </div>
         <h2>Consumer Duty (PS22/9)</h2>
         <p>The four outcomes tracked per client per year: products &amp; services, price &amp; value, consumer understanding, consumer support. Vulnerability re-assessments raised automatically the day a client crosses the 12-month FG21/1 threshold.</p>
-        <ul class="feature-bullets">
-          <li>Per-client outcome assessment record: one row per outcome per year, with the evidence document referenced</li>
-          <li>Fair-value gaps surface as risk flags with the specific PS22/9 outcome cited (not a generic "review needed")</li>
-          <li>FG21/1 12-month vulnerability re-assessment threshold enforced by a nightly cron</li>
-          <li>Board-pack export: four-outcome roll-up, vulnerable-client cohort numbers, year-on-year delta</li>
-          <li>If the AI helped draft an outcome justification, the audit trail records prompt + response SHA-256s</li>
-        </ul>
+        <dl class="feature-specs">
+          <dt>Outcomes</dt><dd>4 per client per year: products &amp; services · price &amp; value · understanding · support</dd>
+          <dt>Re-assess</dt><dd>12-month FG21/1 threshold enforced by nightly cron</dd>
+          <dt>Export</dt><dd>Board pack with four-outcome roll-up + year-on-year delta</dd>
+          <dt>AI audit</dt><dd>Prompt + response SHA-256 on any AI-drafted outcome justification</dd>
+        </dl>
+        <div class="feature-cites">
+          <span class="feature-cite-label">Cites</span>
+          <span class="feature-cite">PS22/9</span>
+          <span class="feature-cite">FG21/1</span>
+        </div>
       </div>
       <div class="feature-visual fade-up">
         <div class="feature-visual-inner">
@@ -217,13 +226,17 @@
         </div>
         <h2>Annual review sweep</h2>
         <p>A nightly cron evaluates every overdue review against COBS 9.5. If no reason is recorded, a flag is raised. If a reason is recorded, an FCA-trained AI assesses it against the rule's actual sufficiency test (bereavement, illness, documented unavailability) and either resolves the flag or escalates it, with the reasoning written to the audit log.</p>
-        <ul class="feature-bullets">
-          <li>Runs nightly · idempotent · cursor-paginated so it resumes cleanly if a run is interrupted</li>
-          <li>COBS 9.5 sufficiency test, not a date-based rule: "the review was delayed because the client was abroad for three months" passes; "we forgot" doesn't</li>
-          <li>Every AI decision attaches prompt SHA-256, response SHA-256, model version, and timestamp to the flag's audit trail</li>
-          <li>Flag escalations follow the firm's configured escalation matrix; no email goes out without an assignee</li>
-          <li>Special-category client data (Article 9 UK GDPR) is held in-process: never logged, never sent to the LLM in the clear</li>
-        </ul>
+        <dl class="feature-specs">
+          <dt>Runs</dt><dd>Nightly · idempotent · cursor-paginated (resumes cleanly on interruption)</dd>
+          <dt>Logic</dt><dd>COBS 9.5 sufficiency test, not a date check. "Abroad three months" passes; "we forgot" doesn't</dd>
+          <dt>Audit</dt><dd>Prompt + response SHA-256, model version, timestamp on every AI decision</dd>
+          <dt>Special category</dt><dd>Article 9 UK GDPR data held in-process — never logged, never sent to the LLM in the clear</dd>
+        </dl>
+        <div class="feature-cites">
+          <span class="feature-cite-label">Cites</span>
+          <span class="feature-cite">COBS 9.5</span>
+          <span class="feature-cite">Article 9 UK GDPR</span>
+        </div>
       </div>
       <div class="feature-visual fade-up">
         <div class="feature-visual-inner">
@@ -277,14 +290,19 @@
         </div>
         <h2>AI assistant with hash-verifiable audit trail</h2>
         <p>Claude Sonnet 4.6 retrieval-grounded against your firm's records + an 11,645-chunk FCA Handbook corpus. Every response writes prompt + response SHA-256s, model version, and request ID to the audit log: the same record the FCA would read if they queried what the model actually said on the day.</p>
-        <ul class="feature-bullets">
-          <li><strong>Retrieval first, generation second.</strong> The model is told to cite from the corpus or refuse; "I don't have a confident answer" is a first-class response, not an error state</li>
-          <li><strong>Per-firm vector isolation.</strong> pgvector table protected by RLS; the database refuses cross-firm reads, not application code</li>
-          <li><strong>Article 9 redaction.</strong> Vulnerability, health, and ethnicity fields are redacted before the prompt is built; the LLM never sees the raw values</li>
-          <li><strong>Zero training.</strong> Anthropic API is called per request only; Zero Data Retention in progress with the vendor</li>
-          <li><strong>50-scenario eval suite</strong> runs against every model release; the current best is documented internally before cutover</li>
-          <li><strong>Disclaimer on every surface</strong> rendering AI output: decision support, not regulated advice</li>
-        </ul>
+        <dl class="feature-specs">
+          <dt>Model</dt><dd>Claude Sonnet 4.6 · retrieval-grounded, told to cite or refuse</dd>
+          <dt>Corpus</dt><dd>11,645 chunks across Handbook + Final Notices + Dear CEO + Policy Statements + Thematic Reviews</dd>
+          <dt>Per-call audit</dt><dd>Prompt + response SHA-256, model version, request ID</dd>
+          <dt>Tenant isolation</dt><dd>pgvector + RLS — database refuses cross-firm reads, not app code</dd>
+          <dt>Training</dt><dd>Zero. API per request only; ZDR with Anthropic in progress</dd>
+          <dt>Eval</dt><dd>50-scenario FCA gold set runs before every model cutover</dd>
+        </dl>
+        <div class="feature-cites">
+          <span class="feature-cite-label">Cites</span>
+          <span class="feature-cite">SYSC 9</span>
+          <span class="feature-cite">Article 9 UK GDPR</span>
+        </div>
       </div>
       <div class="feature-visual feature-visual--plum fade-up">
         <div class="feature-visual-inner">
@@ -314,13 +332,17 @@
         </div>
         <h2>RMAR auto-population</h2>
         <p>Sections B, D, E, G, and H pre-filled from your live data. Each section exports as a CSV ready for GABRIEL upload. The first time you run it, expect to spend an afternoon reconciling discrepancies; from the next quarter onwards, the same run takes under an hour.</p>
-        <ul class="feature-bullets">
-          <li><strong>Section B:</strong> complaints, drawn from the complaint log and cross-checked against DISP 1.6 (FOS rights communicated, 5-day acknowledgement, 8-week final response)</li>
-          <li><strong>Section D:</strong> financial resources, pulled from the firm's connected platform feed</li>
-          <li><strong>Section E:</strong> PII renewal status, pulled from the policy schedule you upload at renewal</li>
-          <li><strong>Section G:</strong> adviser roster, pulled from the live roster table; only currently-active advisers counted</li>
-          <li><strong>Section H:</strong> training records, drawn from the T&amp;C record set against each adviser</li>
-        </ul>
+        <dl class="feature-specs">
+          <dt>Sections</dt><dd>B · D · E · G · H pre-filled from live data</dd>
+          <dt>Format</dt><dd>CSV per section, ready for GABRIEL upload</dd>
+          <dt>Cross-check</dt><dd>Section B against DISP 1.6: 5-day acknowledgement, 8-week final response, FOS rights communicated</dd>
+          <dt>Sources</dt><dd>Complaint log · platform feed · PI policy schedule · roster table · T&amp;C records</dd>
+        </dl>
+        <div class="feature-cites">
+          <span class="feature-cite-label">Cites</span>
+          <span class="feature-cite">SUP 16.12</span>
+          <span class="feature-cite">DISP 1.6</span>
+        </div>
       </div>
       <div class="feature-visual fade-up">
         <div class="feature-visual-inner">
@@ -369,16 +391,22 @@
           <!-- Open book — the FCA Handbook + publications corpus. -->
           <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
-        <div class="section-label">Amaea Horizon</div>
         <h2>FCA publications, indexed the day they ship.</h2>
         <p>Our retrieval corpus already holds 11,645 chunks across 150 sources: the Handbook, Final Notices, Dear CEO letters, Policy Statements, Thematic Reviews. New publications are ingested on a daily cron. The personalised "what this means for your firm" layer is on the public-launch roadmap and not yet shipped; the corpus itself is live and queryable inside the AI assistant today.</p>
-        <ul class="feature-bullets">
-          <li>Daily ingest of FCA publications: chunked, embedded with Voyage AI, written to a per-firm-isolated pgvector table</li>
-          <li>Every chunk carries source, publication date, and section reference; citations the AI returns are clickable through to the original PDF</li>
-          <li><strong>Roadmap</strong>: per-firm impact analysis ("does this affect your client book?"), targeted for the Q1-2028 release</li>
-          <li>If the AI can't find a confident answer in the corpus, it says so explicitly. No fabricated rule citations</li>
-          <li>Continuous evaluation suite (50 FCA-scenario gold set) runs against every model release before we cut over</li>
-        </ul>
+        <dl class="feature-specs">
+          <dt>Sources</dt><dd>150 FCA publications: Handbook, Final Notices, Dear CEO letters, Policy Statements, Thematic Reviews</dd>
+          <dt>Chunks</dt><dd>11,645 indexed; every chunk carries source, date, and section reference</dd>
+          <dt>Ingest</dt><dd>Daily cron · Voyage AI embeddings · per-firm pgvector</dd>
+          <dt>Refusal</dt><dd>"I don't have a confident answer" is wired in. No fabricated citations</dd>
+          <dt>Roadmap</dt><dd>Per-firm impact analysis ("does this affect your book?") — Q1 2028</dd>
+        </dl>
+        <div class="feature-cites">
+          <span class="feature-cite-label">Coverage</span>
+          <span class="feature-cite">Handbook</span>
+          <span class="feature-cite">Final Notices</span>
+          <span class="feature-cite">Policy Statements</span>
+          <span class="feature-cite">Thematic Reviews</span>
+        </div>
       </div>
       <div class="feature-visual fade-up">
         <div class="feature-visual-inner">
@@ -425,13 +453,18 @@
         </div>
         <h2>Integrations</h2>
         <p>OAuth-authenticated. Tokens encrypted with AES-256-GCM at the application layer; the encryption key sits in a Vercel environment variable, not in the database. Sync is nightly by default; on-demand pull available per integration.</p>
-        <ul class="feature-bullets">
-          <li><strong>Intelliflo:</strong> client records, review dates, valuations; nightly delta sync</li>
-          <li><strong>SharePoint:</strong> document pull; new files routed to the correct client via filename heuristic + confirmation prompt</li>
-          <li><strong>Salesforce, Curo, Assureweb:</strong> same OAuth + encrypted-token pattern; available on request</li>
-          <li><strong>Dynamic Planner, ThreeSixty, Evidentli, DocuSign:</strong> REST-based, scoped tokens, read-only by default</li>
-          <li>If you're on a platform that exposes documents over OAuth or REST, we can integrate it. Tell us what you use and we'll tell you whether it's a week's work or three</li>
-        </ul>
+        <dl class="feature-specs">
+          <dt>Live</dt><dd>Intelliflo · SharePoint — OAuth, nightly delta sync</dd>
+          <dt>On request</dt><dd>Salesforce · Curo · Assureweb — same OAuth + encrypted-token pattern</dd>
+          <dt>REST-based</dt><dd>Dynamic Planner · ThreeSixty · Evidentli · DocuSign — scoped, read-only by default</dd>
+          <dt>Sync</dt><dd>Nightly default; on-demand pull available per integration</dd>
+          <dt>Encryption</dt><dd>AES-256-GCM at app layer; key in env var, not the database</dd>
+        </dl>
+        <div class="feature-cites">
+          <span class="feature-cite-label">Auth</span>
+          <span class="feature-cite">OAuth 2.0</span>
+          <span class="feature-cite">AES-256-GCM</span>
+        </div>
       </div>
       <div class="feature-visual fade-up">
         <div class="feature-visual-inner">
