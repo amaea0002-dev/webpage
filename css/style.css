@@ -5443,11 +5443,29 @@ section { padding: var(--section-py) 0; }
  * Sarah persona (junior CO building MD case). */
 .pricing-roi {
   max-width: 760px;
-  margin: 40px auto 0;
+  /* Margin-bottom adds breathing room before the comparison table below
+   * (was visually merging with it per /impeccable critique pass #3). */
+  margin: 40px auto 56px;
   padding: 28px 32px;
   background: var(--plum-tint-1);
   border: 1px solid var(--plum-border-1);
   border-radius: var(--r-xl);
+  position: relative;
+}
+/* Subtle rule below the ROI block to mark the end of the "card-decision
+ * zone" and the start of the "reference content zone" (the comparison
+ * table). Centred, narrow, plum-tint-2 — reads as deliberate divider
+ * rather than accidental edge. */
+.pricing-roi::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 1px;
+  background: var(--plum-border-1);
+  position: absolute;
+  left: 50%;
+  bottom: -28px;
+  transform: translateX(-50%);
 }
 .pricing-roi-eyebrow {
   font-size: 0.68rem;
@@ -5496,6 +5514,88 @@ section { padding: var(--section-py) 0; }
 [data-theme="dark"] .pricing-roi {
   background: rgba(146,88,160,0.08);
   border-color: var(--plum-border-1);
+}
+
+/* Inline glossary link — first-mention pattern. Wraps an FCA acronym
+ * in body copy and signals it has a definition behind it via dotted
+ * underline + cursor: help. Subtle by default, plum on hover. */
+.glossary-link {
+  color: inherit;
+  text-decoration: underline dotted var(--plum-border-1);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+  cursor: help;
+  transition: text-decoration-color 0.18s var(--ease-out),
+              color 0.18s var(--ease-out);
+}
+.glossary-link:hover,
+.glossary-link:focus-visible {
+  color: var(--plum);
+  text-decoration-color: var(--plum);
+}
+[data-theme="dark"] .glossary-link:hover,
+[data-theme="dark"] .glossary-link:focus-visible {
+  color: var(--plum-soft);
+  text-decoration-color: var(--plum-soft);
+}
+
+/* Glossary in-page table of contents — sits at top of .legal-content
+ * on glossary.html. Two-column grid on wider viewports, single column
+ * on mobile. Subtle plum-tint surface so it reads as a navigation
+ * card rather than body content. */
+.legal-toc {
+  margin: 8px 0 40px;
+  padding: 24px 28px;
+  background: var(--plum-tint-1);
+  border: 1px solid var(--plum-border-1);
+  border-radius: var(--r-lg);
+}
+.legal-toc-heading {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin-bottom: 14px;
+}
+.legal-toc-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.legal-toc-list li {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.legal-toc-list a {
+  color: var(--gray-700);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--plum-border-1);
+  padding-bottom: 1px;
+  transition: color 0.18s var(--ease-out), border-color 0.18s var(--ease-out);
+}
+.legal-toc-list a:hover {
+  color: var(--plum);
+  border-bottom-color: var(--plum);
+}
+[data-theme="dark"] .legal-toc {
+  background: rgba(146,88,160,0.06);
+  border-color: var(--plum-border-1);
+}
+[data-theme="dark"] .legal-toc-list a {
+  color: var(--gray-700);
+  border-bottom-color: var(--plum-tint-3);
+}
+[data-theme="dark"] .legal-toc-list a:hover {
+  color: var(--plum-soft);
+  border-bottom-color: var(--plum-soft);
+}
+@media (max-width: 640px) {
+  .legal-toc-list { grid-template-columns: 1fr; }
 }
 
 /* Hero tertiary CTA — added 2026-05-21 to restore demo-funnel path
