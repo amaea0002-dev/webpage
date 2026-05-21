@@ -243,7 +243,7 @@
           <dt>Runs</dt><dd>Nightly · idempotent · cursor-paginated (resumes cleanly on interruption)</dd>
           <dt>Logic</dt><dd>COBS 9.5 sufficiency test, not a date check. "Abroad three months" passes; "we forgot" doesn't</dd>
           <dt>Audit</dt><dd>Prompt + response SHA-256, model version, timestamp on every AI decision</dd>
-          <dt>Special category</dt><dd>Article 9 UK GDPR data held in-process — never logged, never sent to the LLM in the clear</dd>
+          <dt>Special category</dt><dd>Article 9 UK GDPR data held in-process. Never logged, never sent to the LLM in the clear.</dd>
         </dl>
         <div class="feature-cites">
           <span class="feature-cite-label">Cites</span>
@@ -307,7 +307,7 @@
           <dt>Model</dt><dd>Claude Sonnet 4.6 · retrieval-grounded, told to cite or refuse</dd>
           <dt>Corpus</dt><dd>11,645 chunks across Handbook + Final Notices + Dear CEO + Policy Statements + Thematic Reviews</dd>
           <dt>Per-call audit</dt><dd>Prompt + response SHA-256, model version, request ID</dd>
-          <dt>Tenant isolation</dt><dd>pgvector + RLS — database refuses cross-firm reads, not app code</dd>
+          <dt>Tenant isolation</dt><dd>pgvector + RLS. The database refuses cross-firm reads, not application code.</dd>
           <dt>Training</dt><dd>Zero. API per request only; ZDR with Anthropic in progress</dd>
           <dt>Eval</dt><dd>50-scenario FCA gold set runs before every model cutover</dd>
         </dl>
@@ -411,7 +411,7 @@
           <dt>Chunks</dt><dd>11,645 indexed; every chunk carries source, date, and section reference</dd>
           <dt>Ingest</dt><dd>Daily cron · Voyage AI embeddings · per-firm pgvector</dd>
           <dt>Refusal</dt><dd>"I don't have a confident answer" is wired in. No fabricated citations</dd>
-          <dt>Roadmap</dt><dd>Per-firm impact analysis ("does this affect your book?") — Q1 2028</dd>
+          <dt>Roadmap</dt><dd>Per-firm impact analysis ("does this affect your book?"). Q1 2028.</dd>
         </dl>
         <div class="feature-cites">
           <span class="feature-cite-label">Coverage</span>
@@ -467,9 +467,9 @@
         <h2>Integrations</h2>
         <p>Reads the systems your audit trail is already scattered across. New documents arrive in the right client's record the next morning.</p>
         <dl class="feature-specs">
-          <dt>Live</dt><dd>Intelliflo · SharePoint — OAuth, nightly delta sync</dd>
-          <dt>On request</dt><dd>Salesforce · Curo · Assureweb — same OAuth + encrypted-token pattern</dd>
-          <dt>REST-based</dt><dd>Dynamic Planner · ThreeSixty · Evidentli · DocuSign — scoped, read-only by default</dd>
+          <dt>Live</dt><dd>Intelliflo · SharePoint. OAuth, nightly delta sync.</dd>
+          <dt>On request</dt><dd>Salesforce · Curo · Assureweb. Same OAuth + encrypted-token pattern.</dd>
+          <dt>REST-based</dt><dd>Dynamic Planner · ThreeSixty · Evidentli · DocuSign. Scoped, read-only by default.</dd>
           <dt>Sync</dt><dd>Nightly default; on-demand pull available per integration</dd>
           <dt>Encryption</dt><dd>AES-256-GCM at app layer; key in env var, not the database</dd>
         </dl>
@@ -485,7 +485,7 @@
           <div class="int-tiles-grid int-tiles-grid--gap-bottom">
             <div class="mockup-tile mockup-tile--inline">
               <div class="int-tile-icon int-tile-icon--solid">
-                <img loading="lazy" decoding="async" src="assets/intelliflo-logo.svg" alt="Intelliflo" class="fill-img">
+                <img loading="lazy" decoding="async" src="assets/intelliflo-logo.svg" alt="Intelliflo" width="40" height="40" class="fill-img">
               </div>
               <div>
                 <div class="mockup-tile-name">Intelliflo</div>
@@ -506,7 +506,7 @@
           <div class="int-tiles-grid">
             <div class="mockup-tile mockup-tile--inline">
               <div class="mockup-icon-square">
-                <img loading="lazy" decoding="async" src="assets/dynamic-planner-logo.jpg" alt="Dynamic Planner" class="fill-img">
+                <img loading="lazy" decoding="async" src="assets/dynamic-planner-logo.jpg" alt="Dynamic Planner" width="40" height="40" class="fill-img">
               </div>
               <div>
                 <div class="mockup-tile-name">Dynamic Planner</div>
@@ -515,7 +515,7 @@
             </div>
             <div class="mockup-tile mockup-tile--inline">
               <div class="mockup-icon-square">
-                <img loading="lazy" decoding="async" src="assets/docusign-logo.png" alt="DocuSign" class="fill-img">
+                <img loading="lazy" decoding="async" src="assets/docusign-logo.png" alt="DocuSign" width="40" height="40" class="fill-img">
               </div>
               <div>
                 <div class="mockup-tile-name">DocuSign</div>
@@ -524,7 +524,7 @@
             </div>
             <div class="mockup-tile mockup-tile--inline">
               <div class="int-tile-icon int-tile-icon--dark">
-                <img loading="lazy" decoding="async" src="assets/evidentli-logo.png" alt="Evidentli" class="fill-img">
+                <img loading="lazy" decoding="async" src="assets/evidentli-logo.png" alt="Evidentli" width="40" height="40" class="fill-img">
               </div>
               <div>
                 <div class="mockup-tile-name">Evidentli</div>
@@ -533,7 +533,7 @@
             </div>
             <div class="mockup-tile mockup-tile--inline">
               <div class="int-tile-icon int-tile-icon--midnight">
-                <img loading="lazy" decoding="async" src="assets/threesixty-logo.png" alt="ThreeSixty" class="fill-img">
+                <img loading="lazy" decoding="async" src="assets/threesixty-logo.png" alt="ThreeSixty" width="40" height="40" class="fill-img">
               </div>
               <div>
                 <div class="mockup-tile-name">ThreeSixty</div>

@@ -15,40 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script>(function(){var t=localStorage.getItem('amaea-theme')||'light';document.documentElement.setAttribute('data-theme',t)})();</script>
-  <style>
-    .sec-control { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--r-xl); padding:24px 26px; margin-bottom:14px; transition: border-color 0.2s, transform 0.2s var(--ease); }
-    .sec-control:hover { border-color: var(--plum-soft); transform: translateY(-2px); }
-    .sec-control-head { display:flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
-    /* Editorial caps category — same family as .section-label. */
-    .sec-control-tag {
-      font-size: 0.66rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.18em;
-      color: var(--plum);
-    }
-    .sec-control-title { font-size:1.05rem; font-weight:800; color:var(--gray-900); letter-spacing:-0.022em; }
-    .sec-control-body { font-size:0.86rem; color:var(--gray-600); line-height:1.65; }
-    .sec-control-body p { margin:0; }
-    .sec-control-body p + p { margin-top: 10px; }
-    .sec-control-body strong { color:var(--gray-900); font-weight:700; }
-    .sec-control-body a { color:var(--plum); text-decoration:underline; }
-    /* Sub-list for grouped controls within one sec-control (e.g. App security
-       split into HTTP headers, abuse, and email auth groups). */
-    .sec-control-sub { display:grid; grid-template-columns: 90px 1fr; column-gap: 16px; row-gap: 10px; margin-top: 4px; }
-    .sec-control-sub dt { font-size:0.66rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--gray-500); padding-top: 2px; }
-    .sec-control-sub dd { margin:0; font-size:0.86rem; color:var(--gray-600); line-height:1.65; }
-    /* Security-issue card — was inline style on the wrapper div. */
-    .security-issue-card { margin-top:36px; padding:28px 32px; background:var(--white); border:1px solid var(--gray-200); border-radius:var(--r-2xl); text-align:left; }
-    .security-issue-card-text { font-size:0.9rem; color:var(--gray-700); line-height:1.6; margin-bottom:12px; }
-    .cta-button-top { margin-top: 24px; }
-    .sec-list { list-style:none; padding:0; margin:8px 0 0; }
-    .sec-list li { padding:10px 0; border-bottom:1px solid var(--gray-100); font-size:0.86rem; color:var(--gray-700); line-height:1.6; }
-    .sec-list li:last-child { border-bottom:none; }
-    .sec-list li strong { color:var(--gray-900); font-weight:700; }
-    .sec-sub-table { width:100%; border-collapse:collapse; font-size:0.84rem; margin-top:8px; }
-    .sec-sub-table th { text-align:left; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gray-500); font-weight:700; padding:10px 12px; border-bottom:1px solid var(--gray-200); }
-    .sec-sub-table td { padding:12px; border-bottom:1px solid var(--gray-100); color:var(--gray-700); vertical-align:top; }
-    .sec-sub-table td.name { font-weight:700; color:var(--gray-900); }
-  </style>
+  <!-- CSS for .sec-*, .security-issue-card, .cta-button-top lives in css/style.css -->
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>

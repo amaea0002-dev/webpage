@@ -6725,4 +6725,52 @@ main { counter-reset: feature-detail; }
     background 0.22s;
 }
 
+/* ════════════════════════════════════════════════════════════════
+   Moved from inline <style> blocks (about.html + security.html)
+   2026-05-21 — one source of truth for page CSS.
+   ════════════════════════════════════════════════════════════════ */
+
+/* about.html — Mission & Vision (purpose blocks).
+   Dropped the left-side stripe (spirit of the DESIGN.md side-stripe
+   ban). Eyebrow + statement carry the section on typography alone,
+   separated by a centered hairline between blocks. */
+.purpose-block { max-width: 720px; margin: 0 auto; text-align: center; }
+.purpose-block + .purpose-block { margin-top: 56px; padding-top: 56px; border-top: 1px solid var(--gray-200); }
+.purpose-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--plum); margin-bottom: 14px; }
+.purpose-statement { font-size: 1.55rem; font-weight: 600; line-height: 1.4; letter-spacing: -0.025em; color: var(--gray-900); margin: 0; font-family: var(--font-display); text-wrap: balance; }
+@media (max-width: 640px) {
+  .purpose-statement { font-size: 1.2rem; }
+}
+
+/* security.html — sec-control cards + sub-list + sub-processor table. */
+.sec-control { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--r-xl); padding: 24px 26px; margin-bottom: 14px; transition: border-color 0.2s, transform 0.2s var(--ease); }
+.sec-control:hover { border-color: var(--plum-soft); transform: translateY(-2px); }
+.sec-control-head { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+.sec-control-tag {
+  font-size: 0.66rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.18em;
+  color: var(--plum);
+}
+.sec-control-title { font-size: 1.05rem; font-weight: 800; color: var(--gray-900); letter-spacing: -0.022em; }
+.sec-control-body { font-size: 0.86rem; color: var(--gray-600); line-height: 1.65; }
+.sec-control-body p { margin: 0; }
+.sec-control-body p + p { margin-top: 10px; }
+.sec-control-body strong { color: var(--gray-900); font-weight: 700; }
+.sec-control-body a { color: var(--plum); text-decoration: underline; }
+/* App-security sub-list: HTTP headers / Abuse / Email auth groups. */
+.sec-control-sub { display: grid; grid-template-columns: 90px 1fr; column-gap: 16px; row-gap: 10px; margin-top: 4px; }
+.sec-control-sub dt { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-500); padding-top: 2px; }
+.sec-control-sub dd { margin: 0; font-size: 0.86rem; color: var(--gray-600); line-height: 1.65; }
+/* Security-issue card (Report a security issue block). */
+.security-issue-card { margin-top: 36px; padding: 28px 32px; background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--r-2xl); text-align: left; }
+.security-issue-card-text { font-size: 0.9rem; color: var(--gray-700); line-height: 1.6; margin-bottom: 12px; }
+.cta-button-top { margin-top: 24px; }
+.sec-list { list-style: none; padding: 0; margin: 8px 0 0; }
+.sec-list li { padding: 10px 0; border-bottom: 1px solid var(--gray-100); font-size: 0.86rem; color: var(--gray-700); line-height: 1.6; }
+.sec-list li:last-child { border-bottom: none; }
+.sec-list li strong { color: var(--gray-900); font-weight: 700; }
+.sec-sub-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin-top: 8px; }
+.sec-sub-table th { text-align: left; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-500); font-weight: 700; padding: 10px 12px; border-bottom: 1px solid var(--gray-200); }
+.sec-sub-table td { padding: 12px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
+.sec-sub-table td.name { font-weight: 700; color: var(--gray-900); }
 
