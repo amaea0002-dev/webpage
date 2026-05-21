@@ -1232,6 +1232,25 @@ section { padding: var(--section-py) 0; }
 @media (max-width: 768px) {
   .features-grid--2x2 { grid-template-columns: 1fr; }
 }
+/* Modifier: 3 + 2 centred for pages with exactly 5 feature-cards
+ * (rmar-filing — Sections B/D/E/G/H). 6-col underlying grid; each
+ * card spans 2 cols. Row 1 fills naturally (cards 1-3); cards 4-5
+ * are placed at explicit columns 2 and 4 so they sit centred. */
+.features-grid--5 {
+  grid-template-columns: repeat(6, 1fr);
+}
+.features-grid--5 > :nth-child(-n+3) { grid-column: span 2; }
+.features-grid--5 > :nth-child(4)     { grid-column: 2 / span 2; }
+.features-grid--5 > :nth-child(5)     { grid-column: 4 / span 2; }
+@media (max-width: 1024px) {
+  .features-grid--5 { grid-template-columns: 1fr 1fr; }
+  .features-grid--5 > :nth-child(-n+3),
+  .features-grid--5 > :nth-child(4),
+  .features-grid--5 > :nth-child(5)   { grid-column: auto; }
+}
+@media (max-width: 640px) {
+  .features-grid--5 { grid-template-columns: 1fr; }
+}
 .feature-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
