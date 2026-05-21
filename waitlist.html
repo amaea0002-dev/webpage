@@ -69,7 +69,9 @@
       <span class="wl-meta-when">September 2028</span>
     </p>
     <h1 class="wl-title">FCA compliance,<br><em>done properly.</em></h1>
-    <p class="wl-sub">17 doc types tracked. PS22/9 outcomes recorded per client per year. COBS 9.5 sweep runs nightly. RMAR sections B/D/E/G/H exported as GABRIEL-ready CSV. Be first in line when we launch in 2028.</p>
+    <p class="wl-sub">17 doc types tracked. COBS 9.5 sweep nightly. RMAR exported as GABRIEL CSV. We'll let you know the moment it goes live.</p>
+
+    <p class="wl-social-proof wl-social-proof--above"><span>347</span> compliance teams already on the waitlist</p>
 
     <div class="wl-form-card" id="wl-form-wrap">
       <form class="wl-form" id="waitlist-form" novalidate>
@@ -77,6 +79,7 @@
         <div aria-hidden="true" class="honeypot">
           <label>Company website (leave blank)<input type="text" name="company_url" tabindex="-1" autocomplete="off"></label>
         </div>
+        <p class="wl-form-help">Name and email to confirm your spot. Firm and adviser count so we can prioritise early-access invites.</p>
         <div class="wl-fields">
           <input class="form-input" type="text" id="wl-name" name="name" placeholder="Your name" required autocomplete="name" aria-label="Your name" aria-required="true" aria-describedby="wl-error-text">
           <input class="form-input" type="email" id="wl-email" name="email" placeholder="Work email" required autocomplete="email" aria-label="Work email" aria-required="true" aria-describedby="wl-error-text">
@@ -104,61 +107,35 @@
       <h3>You're on the list.</h3>
       <p>We'll be in touch before we launch. In the meantime, follow our progress.</p>
     </div>
-
-    <p class="wl-social-proof"><span>347</span> compliance teams already on the waitlist</p>
   </div>
 </section>
 
+<!-- Replaces the previous "Day one features" grid which duplicated
+     the home page. Waitlist visitors already saw the features —
+     what they need now is to know what happens next. -->
 <section class="section-white">
   <div class="container">
     <div class="text-center mb-13">
-      <h2 class="section-title">What Amaea will do on day one.</h2>
-      <p class="section-sub">Each system points back to a specific FCA rule. What it does, when it runs, and which paragraph it cites.</p>
+      <h2 class="section-title">What happens after you sign up.</h2>
+      <p class="section-sub">Three steps from today to public launch in September 2028.</p>
     </div>
-    <div class="wl-features-grid">
-      <div class="wl-feature fade-up fade-up-1">
-        <div class="wl-feature-icon">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><line x1="7" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="17" y2="12"/></svg>
-        </div>
-        <h3>Client journey · 17 doc types</h3>
-        <p>Fact find, suitability report, ATR, Consumer Duty outcome, vulnerability assessment, AML CDD: the system knows which are missing and which expire when.</p>
-      </div>
-      <div class="wl-feature fade-up fade-up-2">
-        <div class="wl-feature-icon">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
-        <h3>Consumer Duty (PS22/9)</h3>
-        <p>Per-outcome assessment record. Vulnerability re-assessments raised the day a client crosses the 12-month FG21/1 threshold.</p>
-      </div>
-      <div class="wl-feature fade-up fade-up-3">
-        <div class="wl-feature-icon">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
-        </div>
-        <h3>AI assistant with audit trail</h3>
-        <p>RAG against an 11,645-chunk FCA corpus. Every response carries prompt + response SHA-256s so the audit trail is bit-for-bit reproducible.</p>
-      </div>
-      <div class="wl-feature fade-up fade-up-4">
-        <div class="wl-feature-icon">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
-        </div>
-        <h3>Annual review sweep (COBS 9.5)</h3>
-        <p>A nightly cron evaluates every overdue review against COBS 9.5's actual sufficiency test, with the reasoning attached to the audit log.</p>
-      </div>
-      <div class="wl-feature fade-up fade-up-5">
-        <div class="wl-feature-icon">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
-        </div>
-        <h3>RMAR sections B/D/E/G/H</h3>
-        <p>Pre-filled from live data. DISP 1.6 cross-check on complaints. Each section exports as CSV ready for GABRIEL.</p>
-      </div>
-      <div class="wl-feature fade-up fade-up-6">
-        <div class="wl-feature-icon">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
-        </div>
-        <h3>Integrations · OAuth + AES-256-GCM</h3>
-        <p>Intelliflo, SharePoint nightly sync. Salesforce, Curo, Assureweb on the same pattern. Tokens encrypted at the app layer with the key isolated in a Vercel env var.</p>
-      </div>
-    </div>
+    <ol class="wl-timeline">
+      <li class="wl-timeline-item fade-up fade-up-1">
+        <div class="wl-timeline-num">01</div>
+        <h3>Confirmation email</h3>
+        <p>Within the hour. Your spot is secured against your work email and firm.</p>
+      </li>
+      <li class="wl-timeline-item fade-up fade-up-2">
+        <div class="wl-timeline-num">02</div>
+        <h3>Monthly platform updates</h3>
+        <p>Short, technical, no marketing fluff. What's shipping, what's next, what's changed in the FCA Handbook.</p>
+      </li>
+      <li class="wl-timeline-item fade-up fade-up-3">
+        <div class="wl-timeline-num">03</div>
+        <h3>Early-access invite</h3>
+        <p>Sent to a selection of firms before public launch. We'll let you know if you qualify. Founders Programme members get 20% off for life.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -236,12 +213,12 @@
 
         <div class="quiz-step" data-step="4">
           <div class="quiz-step-num">Question 5 of 5</div>
-          <div class="quiz-q" id="quiz-q-4">How important is AI-powered compliance assistance to your firm?</div>
+          <div class="quiz-q" id="quiz-q-4">How is board-level compliance reporting handled today?</div>
           <div class="quiz-options" role="radiogroup" aria-labelledby="quiz-q-4">
-            <button class="quiz-option" role="radio" aria-checked="false" data-score="1"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Not right now: core tracking is the priority</button>
-            <button class="quiz-option" role="radio" aria-checked="false" data-score="2"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Important: we want AI to surface risks and flag Consumer Duty gaps</button>
-            <button class="quiz-option" role="radio" aria-checked="false" data-score="3"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Very important, plus RMAR pre-population and FCA-ready reports</button>
-            <button class="quiz-option" role="radio" aria-checked="false" data-score="4"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Critical, including custom AI trained on our firm's specific policies</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="1"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Not formally yet</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="2"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Annual board pack, prepped manually in a spreadsheet</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="3"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Quarterly board pack with multiple data sources to reconcile</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="4"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Multi-site / network-wide reporting up to a principal firm</button>
           </div>
           <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>See my recommendation <span aria-hidden="true">→</span></button></div>
         </div>
@@ -258,23 +235,6 @@
         <button class="quiz-restart" id="quiz-restart">← Start over</button>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<section class="wl-founders-callout">
-  <div class="container">
-    <div class="wl-founders-inner">
-      <div>
-        <div class="section-label section-label--on-dark">Amaea Founders Programme</div>
-        <h2 class="wl-founders-title">Shape the platform.<br>Own the discount. Forever.</h2>
-        <p class="wl-founders-desc">The first 200 firms to join as Founders get 20% off their plan for life, a discount that follows them through every upgrade, permanently.</p>
-      </div>
-      <div class="wl-founders-num-box">
-        <div class="wl-founders-num">200</div>
-        <div class="section-label--on-dark-muted">Founder spots available</div>
-        <div class="founders-meta-invite">By invitation only</div>
-      </div>
     </div>
   </div>
 </section>
