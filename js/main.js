@@ -219,17 +219,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── FAQ accordion ────────────────────────────────────────
-  document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
+  // Delegate from .faq-item so clicks land anywhere on the row
+  // (including the arrow span and any future header element),
+  // not just the inner .faq-q button. Clicks inside an open
+  // answer pass through untouched so links / glossary anchors
+  // still work.
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    if (!btn) return;
+    item.addEventListener('click', (e) => {
+      if (e.target.closest('.faq-a a')) return;
       const isOpen = item.classList.contains('open');
-      // Collapse all open items + reset their aria-expanded.
       document.querySelectorAll('.faq-item.open').forEach(i => {
         i.classList.remove('open');
         const q = i.querySelector('.faq-q');
         if (q) q.setAttribute('aria-expanded', 'false');
       });
-      // Open the clicked one (if it wasn't already open).
       if (!isOpen) {
         item.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');

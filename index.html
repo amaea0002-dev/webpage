@@ -411,6 +411,41 @@
         <div class="ai-chat-demo" id="ai-chat-demo">
           <div class="ai-chat-title">Amaea AI</div>
         </div>
+        <!-- Audit receipt: shows what's written to the event log
+             for the chat above. Balances column height + makes
+             the trust claim concrete instead of abstract. -->
+        <div class="ai-receipt" aria-label="Audit log entry for the conversation above">
+          <div class="ai-receipt-head">
+            <span class="ai-receipt-eyebrow">Audit log · last response</span>
+            <span class="ai-receipt-pill">SYSC 9 retained</span>
+          </div>
+          <dl class="ai-receipt-grid">
+            <div class="ai-receipt-row">
+              <dt>Model</dt>
+              <dd>claude-sonnet-4-6</dd>
+            </div>
+            <div class="ai-receipt-row">
+              <dt>Prompt SHA-256</dt>
+              <dd class="ai-receipt-mono">8f3a&hairsp;·&hairsp;b2e1&hairsp;·&hairsp;7c4d</dd>
+            </div>
+            <div class="ai-receipt-row">
+              <dt>Response SHA-256</dt>
+              <dd class="ai-receipt-mono">a91f&hairsp;·&hairsp;2e0c&hairsp;·&hairsp;6b58</dd>
+            </div>
+            <div class="ai-receipt-row">
+              <dt>Citations</dt>
+              <dd>COBS&nbsp;9.5 · PS22/9 · SUP&nbsp;16.12</dd>
+            </div>
+            <div class="ai-receipt-row">
+              <dt>Latency</dt>
+              <dd>1,847ms</dd>
+            </div>
+            <div class="ai-receipt-row">
+              <dt>Event ID</dt>
+              <dd class="ai-receipt-mono">evt_2026-05-21_a8f3c2</dd>
+            </div>
+          </dl>
+        </div>
       </div>
     </div>
   </div>
