@@ -65,7 +65,7 @@
 <section class="page-hero">
   <div class="container">
     <h1>Working notes.</h1>
-    <p>Field notes from conversations with compliance teams, regulatory primers we wish had existed when we started, and product changes we want you to know about.</p>
+    <p>Field notes from conversations with compliance teams, regulatory primers we wish had existed when we started, and product changes we want you to know about. Below: what we're writing now. We'll publish each as it's ready; the first batch lands ahead of the September 2028 launch.</p>
   </div>
 </section>
 
@@ -82,11 +82,10 @@
       </div>
       <div>
         <div class="blog-featured-meta-row">
-          <span class="section-label section-label--inline">Consumer Duty</span>
           <span class="blog-featured-date">12 May 2026 · 8 min read</span>
         </div>
-        <h2 class="blog-featured-title">What the FCA's 2024 Consumer Duty review means for your annual board report</h2>
-        <p class="blog-featured-summary">The FCA identified five common gaps in the first round of Consumer Duty board reports. Here's what compliance teams need to address before the July 2026 deadline - and how Amaea automates the evidence gathering.</p>
+        <h2 class="blog-featured-title">Five board-report gaps from the FCA's 2024 Consumer Duty review.</h2>
+        <p class="blog-featured-summary">What compliance teams need to address before the July 2026 deadline, and how Amaea automates the evidence gathering.</p>
         <span class="coming-pill">Coming soon</span>
       </div>
     </div>
@@ -143,9 +142,9 @@
 
     <!-- Newsletter -->
     <div class="newsletter-card fade-up">
-      <div class="section-label">Stay informed</div>
-      <h2>Get the Amaea compliance brief</h2>
-      <p>Monthly FCA regulatory updates, enforcement pattern analysis, and product news. No noise.</p>
+      <div class="section-label">Free · monthly · by email</div>
+      <h2>The Amaea compliance brief. No noise.</h2>
+      <p>FCA regulatory updates, enforcement pattern analysis, and product news. One email a month.</p>
       <form id="newsletter-form" class="newsletter-form" novalidate>
         <!-- Honeypot — real users leave this empty; bots fill it. Hidden from sighted users + screen readers. -->
         <div aria-hidden="true" class="honeypot">
@@ -156,54 +155,9 @@
       </form>
       <p id="newsletter-error" class="newsletter-error" role="alert" aria-live="polite" style="display:none;"></p>
     </div>
-    <script>
-      // Newsletter submission → /api/newsletter (Resend → founders@amaea.co.uk)
-      (function () {
-        var form    = document.getElementById('newsletter-form');
-        var input   = document.getElementById('newsletter-email');
-        var btn     = document.getElementById('newsletter-submit');
-        var errorEl = document.getElementById('newsletter-error');
-        if (!form || !input || !btn) return;
-        function showError(msg) { if (errorEl) { errorEl.textContent = msg; errorEl.style.display = 'block'; } }
-        function clearError()   { if (errorEl) errorEl.style.display = 'none'; }
-        input.addEventListener('input', clearError);
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          clearError();
-          var payload = {};
-          new FormData(form).forEach(function (v, k) { payload[k] = v; });
-          var email = (payload.email || '').toString().trim();
-          if (!email) { showError('Please enter your email.'); return; }
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('That doesn’t look like a valid email address.'); return; }
-          var originalLabel = btn.textContent;
-          btn.disabled = true;
-          btn.textContent = 'Subscribing…';
-          fetch('/api/newsletter', {
-            method:  'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body:    JSON.stringify(payload),
-          })
-            .then(function (res) { return res.json().catch(function () { return {}; }).then(function (json) { return { ok: res.ok, json: json }; }); })
-            .then(function (r) {
-              if (r.ok && r.json && r.json.ok) {
-                btn.textContent = 'Subscribed ✓';
-                input.value = '';
-              } else {
-                throw new Error((r.json && r.json.error) || 'Submission failed');
-              }
-            })
-            .catch(function (err) {
-              btn.disabled = false;
-              btn.textContent = originalLabel;
-              showError(
-                (err && err.message && err.message !== 'Submission failed')
-                  ? err.message
-                  : 'Something went wrong. Please try again, or email hello@amaea.co.uk.'
-              );
-            });
-        });
-      })();
-    </script>
+    <!-- Newsletter submission handler now lives in js/main.js (the
+         #newsletter-form id-based wire-up is no-op on pages that
+         don't include the form). -->
 
   </div>
 </section>
