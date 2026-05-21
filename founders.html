@@ -199,7 +199,7 @@
 
 <section class="section-white">
   <div class="container">
-    <div class="text-center" style="margin-bottom:16px;">
+    <div class="text-center founders-pricing-head">
       <h2 class="section-title">Your founder rate. Locked in.</h2>
       <p class="section-sub col-520">Your 20% Founder discount follows you for life. Upgrade to a higher tier whenever you need to; you still pay 20% less than the listed price, always.</p>
     </div>
@@ -253,7 +253,7 @@
       <div class="founders-plan fade-up fade-up-4">
         <div class="founders-plan-name">Enterprise</div>
         <div class="founders-plan-original">Custom</div>
-        <div class="founders-plan-price amber" style="font-size:1.4rem;">20% off<span style="font-size:0.8rem;"> your quote</span></div>
+        <div class="founders-plan-price amber founders-plan-price--custom">20% off<span class="founders-plan-price-aside"> your quote</span></div>
         <div class="founders-plan-saving">Save 20% forever</div>
         <ul class="founders-plan-features">
           <li>Unlimited advisers</li>
@@ -270,7 +270,7 @@
   </div>
 </section>
 
-<section class="quiz-section" id="plan-finder" style="background:var(--gray-50);">
+<section class="quiz-section quiz-section--gray" id="plan-finder">
   <div class="container">
     <div class="text-center mb-12">
       <h2 class="section-title">Not sure which plan fits your firm?</h2>
@@ -295,61 +295,61 @@
 
         <div class="quiz-step" data-step="0">
           <div class="quiz-step-num">Question 1 of 5</div>
-          <div class="quiz-q">How many FCA-regulated advisers are at your firm?</div>
-          <div class="quiz-options">
-            <button class="quiz-option" data-score="1"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Just me (sole adviser)</button>
-            <button class="quiz-option" data-score="1.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>2-3 advisers</button>
-            <button class="quiz-option" data-score="2"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>4-8 advisers</button>
-            <button class="quiz-option" data-score="3"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>9-20 advisers</button>
-            <button class="quiz-option" data-score="4"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>21 or more</button>
+          <div class="quiz-q" id="quiz-q-0">How many FCA-regulated advisers are at your firm?</div>
+          <div class="quiz-options" role="radiogroup" aria-labelledby="quiz-q-0">
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="1"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Just me (sole adviser)</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="1.5"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>2-3 advisers</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="2"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>4-8 advisers</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="3"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>9-20 advisers</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="4"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>21 or more</button>
           </div>
           <div class="quiz-nav"><span></span><button class="btn btn-primary btn-sm quiz-next" disabled>Next <span aria-hidden="true">→</span></button></div>
         </div>
 
         <div class="quiz-step" data-step="1">
           <div class="quiz-step-num">Question 2 of 5</div>
-          <div class="quiz-q">How many active clients does your firm manage?</div>
-          <div class="quiz-options">
-            <button class="quiz-option" data-score="1"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Fewer than 100</button>
-            <button class="quiz-option" data-score="2"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>100-350</button>
-            <button class="quiz-option" data-score="3"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>350-1,000</button>
-            <button class="quiz-option" data-score="4"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Over 1,000</button>
+          <div class="quiz-q" id="quiz-q-1">How many active clients does your firm manage?</div>
+          <div class="quiz-options" role="radiogroup" aria-labelledby="quiz-q-1">
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="1"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Fewer than 100</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="2"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>100-350</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="3"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>350-1,000</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="4"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Over 1,000</button>
           </div>
           <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next <span aria-hidden="true">→</span></button></div>
         </div>
 
         <div class="quiz-step" data-step="2">
           <div class="quiz-step-num">Question 3 of 5</div>
-          <div class="quiz-q">How do you currently handle Consumer Duty compliance?</div>
-          <div class="quiz-options">
-            <button class="quiz-option" data-score="1"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Spreadsheets and manual processes</button>
-            <button class="quiz-option" data-score="1.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>No dedicated system yet, just getting started</button>
-            <button class="quiz-option" data-score="2.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>A standalone tool, not connected to our CRM</button>
-            <button class="quiz-option" data-score="3.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>We need full automation with board-level reporting</button>
+          <div class="quiz-q" id="quiz-q-2">How do you currently handle Consumer Duty compliance?</div>
+          <div class="quiz-options" role="radiogroup" aria-labelledby="quiz-q-2">
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="1"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Spreadsheets and manual processes</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="1.5"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>No dedicated system yet, just getting started</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="2.5"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>A standalone tool, not connected to our CRM</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="3.5"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>We need full automation with board-level reporting</button>
           </div>
           <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next <span aria-hidden="true">→</span></button></div>
         </div>
 
         <div class="quiz-step" data-step="3">
           <div class="quiz-step-num">Question 4 of 5</div>
-          <div class="quiz-q">Which compliance task is your biggest time drain right now?</div>
-          <div class="quiz-options">
-            <button class="quiz-option" data-score="1.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Keeping annual reviews and suitability letters on track</button>
-            <button class="quiz-option" data-score="2"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Consumer Duty documentation and vulnerable client tracking</button>
-            <button class="quiz-option" data-score="2.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>RMAR preparation and FCA deadline management</button>
-            <button class="quiz-option" data-score="3.5"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Multi-site oversight and board-level reporting packs</button>
+          <div class="quiz-q" id="quiz-q-3">Which compliance task is your biggest time drain right now?</div>
+          <div class="quiz-options" role="radiogroup" aria-labelledby="quiz-q-3">
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="1.5"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Keeping annual reviews and suitability letters on track</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="2"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Consumer Duty documentation and vulnerable client tracking</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="2.5"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>RMAR preparation and FCA deadline management</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="3.5"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Multi-site oversight and board-level reporting packs</button>
           </div>
           <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>Next <span aria-hidden="true">→</span></button></div>
         </div>
 
         <div class="quiz-step" data-step="4">
           <div class="quiz-step-num">Question 5 of 5</div>
-          <div class="quiz-q">How important is AI-powered compliance assistance to your firm?</div>
-          <div class="quiz-options">
-            <button class="quiz-option" data-score="1"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Not right now: core tracking is the priority</button>
-            <button class="quiz-option" data-score="2"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Important: we want AI to surface risks and flag Consumer Duty gaps</button>
-            <button class="quiz-option" data-score="3"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Very important, plus RMAR pre-population and FCA-ready reports</button>
-            <button class="quiz-option" data-score="4"><span class="quiz-dot"><span class="quiz-dot-inner"></span></span>Critical, including custom AI trained on our firm's specific policies</button>
+          <div class="quiz-q" id="quiz-q-4">How is board-level compliance reporting handled today?</div>
+          <div class="quiz-options" role="radiogroup" aria-labelledby="quiz-q-4">
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="1"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Not formally yet</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="2"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Annual board pack, prepped manually in a spreadsheet</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="3"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Quarterly board pack with multiple data sources to reconcile</button>
+            <button class="quiz-option" role="radio" aria-checked="false" data-score="4"><span class="quiz-dot" aria-hidden="true"><span class="quiz-dot-inner"></span></span>Multi-site / network-wide reporting up to a principal firm</button>
           </div>
           <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="btn btn-primary btn-sm quiz-next" disabled>See my recommendation <span aria-hidden="true">→</span></button></div>
         </div>
@@ -396,13 +396,6 @@
             <option>4-10</option>
             <option>11-25</option>
             <option>25+</option>
-          </select>
-          <select class="form-input full" required aria-label="Which plan interests you?">
-            <option value="" disabled selected>Which plan interests you?</option>
-            <option>Essentials</option>
-            <option>Professional</option>
-            <option>Scale</option>
-            <option>Not sure yet</option>
           </select>
         </div>
         <input type="hidden" id="ref-hidden" name="referral_source" value="">

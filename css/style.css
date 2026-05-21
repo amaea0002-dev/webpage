@@ -2383,7 +2383,17 @@ main { counter-reset: feature-detail; }
 }
 .founders-plan-price .price-suffix { font-size: 0.85rem; font-weight: 500; color: var(--gray-500); margin-left: 3px; letter-spacing: 0; }
 .founders-plan-price.amber { color: #F59E0B; }
+/* Custom Enterprise price variant ("20% off your quote") — replaces
+   inline font-size styles previously on the element + its inner span. */
+.founders-plan-price--custom { font-size: 1.4rem; }
+.founders-plan-price-aside { font-size: 0.8rem; font-weight: 500; }
 .founders-plan-saving { display: inline-block; background: rgba(245,158,11,0.12); color: #F59E0B; border: 1px solid rgba(245,158,11,0.25); font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: var(--r-pill); margin-bottom: 20px; letter-spacing: 0.03em; }
+/* Tightener for the founders pricing-section heading row (replaces
+   inline style="margin-bottom:16px"). */
+.founders-pricing-head { margin-bottom: 16px; }
+/* Grey background variant for the quiz section (replaces inline
+   style="background:var(--gray-50)" on the founders page). */
+.quiz-section--gray { background: var(--gray-50); }
 .founders-plan-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 .founders-plan-features li { font-size: 0.8rem; color: var(--gray-600); padding-left: 14px; position: relative; }
 .founders-plan-features li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
