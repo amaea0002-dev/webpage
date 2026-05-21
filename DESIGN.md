@@ -20,17 +20,17 @@ colors:
   blue: "#2563EB"
 typography:
   display:
-    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    fontFamily: "Newsreader, Inter, Georgia, 'Times New Roman', serif"
     fontSize: "clamp(2.6rem, 6vw, 4.4rem)"
-    fontWeight: 800
+    fontWeight: 600
     lineHeight: 1.05
-    letterSpacing: "-0.045em"
+    letterSpacing: "-0.028em"
   headline:
-    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    fontFamily: "Newsreader, Inter, Georgia, 'Times New Roman', serif"
     fontSize: "clamp(2rem, 4vw, 3rem)"
-    fontWeight: 800
+    fontWeight: 600
     lineHeight: 1.1
-    letterSpacing: "-0.045em"
+    letterSpacing: "-0.028em"
   title:
     fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
     fontSize: "1.15rem"
@@ -162,13 +162,14 @@ Used as accent colour on a specific functional surface — never as decoration. 
 
 ## 3. Typography
 
-**Display Font:** Inter (with `-apple-system, BlinkMacSystemFont, "Segoe UI"` fallback)
-**Body Font:** Inter
-**Label Font:** Inter
+**Display Font:** Newsreader (added 2026-05-21, `--font-display` CSS variable; falls back to Inter, Georgia, serif)
+**Body / UI / Label Font:** Inter (`--font` variable; with `-apple-system, BlinkMacSystemFont, "Segoe UI"` fallback)
 
-**Character:** Single-family Inter, used with committed weight and tracking contrast. The choice is workmanlike: Inter reads as "competent product" rather than "expressive brand." A custom or less-saturated humanist sans (Söhne, ABC Diatype, Untitled Sans) is a worthwhile upgrade path — Inter is on most designers' reflex-reject list for being the default — but the contrast and weight discipline within the family is what carries the system today.
+**Character:** Two-family pairing. Newsreader (a modern editorial serif designed at MIT Media Lab for on-screen long-form reading) carries the display sizes — `h1`, `.section-title`, `.hero h1`, `.page-hero h1`, `.cta-banner h2`, and a few section-level h2s flagged in `css/style.css` under "Display typography". Inter still carries body, UI, and labels.
 
-Display copy runs at weight 800 with tight `-0.045em` tracking. Body copy is weight 400, `1.6` line-height, generous. Labels are weight 600, 0.78rem, no uppercase tracking by default (the site has eyebrow labels — see anti-pattern flag in §6).
+The pairing replaces the previous single-family Inter approach (Söhne / ABC Diatype / Untitled Sans were named upgrade candidates; Newsreader is the free pragmatic answer — calm editorial authority that reads as "Stripe Atlas docs" register, not as luxury or fashion). Custom commercial faces stay on the table for post-launch budget.
+
+Display copy runs at weight 600 with `-0.022em` to `-0.028em` tracking (Newsreader has slightly wider lowercase than Inter, so the negative tracking is gentler than Inter's display would need). Body copy is Inter weight 400, `1.6` line-height, generous. Labels are Inter weight 600, 0.78rem, no uppercase tracking by default (the site has eyebrow labels — see anti-pattern flag in §6).
 
 ### Hierarchy
 
@@ -266,9 +267,9 @@ A custom in-page mockup of the product (not a screenshot), built with the system
 - **Don't** use `--ease-spring` / `--spring` (`cubic-bezier(0.34, 1.4, 0.64, 1)`) for new code. The 1.4 y-value causes overshoot, which is the "delightful bounce" AI tell. The token survives in the codebase but is on its way out.
 - **Don't** add an eyebrow label above every section heading. One or two per page is voice; every section is AI rhythm.
 - **Don't** use `border-left` or `border-right` greater than 1px as a colored accent on cards, alerts, or callouts. The side-stripe pattern is banned.
-- **Don't** hard-code colour values in HTML `style=` attributes or CSS rules. Use `var(--plum)`, `var(--gray-900)`, etc. The current `features.html` has 43 inline-style violations that break dark mode; this is a known cleanup item.
+- **Don't** hard-code colour values in HTML `style=` attributes or CSS rules. Use `var(--plum)`, `var(--gray-900)`, etc. Partner brand colours (Intelliflo `#113ad6`, SharePoint `#0078D4`, Salesforce `#00A1E0`, Microsoft logo squares) are an exception — they're theme-invariant by design and live as modifier classes (`.int-tile-icon--solid`, `.partner-logo-name--sharepoint`, etc.). The distill pass on 2026-05-21 brought `features.html` from 43 inline-style violations to 5 legitimate ones (variable progress widths + SVG sizing) and `index.html` from 21 to 4 (same shape).
 - **Don't** use SVG strokes / fills with hard-coded hex inside the dashboard mockup. Use `stroke="currentColor"` + a CSS class, so theme switching propagates.
-- **Don't** reach for em dashes ("—") in body copy. Use commas, colons, periods, or restructured sentences. (The site has 25 em dashes on `index.html` alone — that's a cleanup item too.)
+- **Don't** reach for em dashes (`—` / `&mdash;`) in body copy. Use commas, colons, periods, or restructured sentences. The clarify pass on 2026-05-21 swept 26 visible em dashes from `privacy.html` (24) and `cookies.html` (2). Remaining em dashes in source files are in HTML/CSS/JS comments only — those don't render and are exempt from the ban.
 - **Don't** repeat "Book a demo / See all features" as the CTA pair on every page. Differentiate the CTA per surface (`Show me the audit trail`, `View the price`, `Map an integration`).
 - **Don't** ship `<img>` PNGs at 1024×1024 when displaying at 40px. Use sized variants; aim for SVG.
 - **Don't** mock a customer testimonial. Anonymous-but-clean reads as filler. If the quote is from research, frame it as research (`"themes from 27 compliance officers we interviewed in 2025"`).
