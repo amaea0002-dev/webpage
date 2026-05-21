@@ -96,7 +96,7 @@
       <div class="founders-benefit fade-up fade-up-1">
         <div class="founders-benefit-icon">
           <!-- Star — the lifetime founder discount benefit. -->
-          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
         </div>
         <h3>20% off. For life.</h3>
         <p>Your Founder discount never expires. Upgrade to a higher tier and you still pay 20% less than the listed price. Always.</p>
@@ -104,7 +104,7 @@
       <div class="founders-benefit fade-up fade-up-2">
         <div class="founders-benefit-icon">
           <!-- Clock — early access timing. -->
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <h3>Early access</h3>
         <p>Get the platform before public launch. Use it with real clients, give direct feedback, and help shape what gets built next.</p>
@@ -112,7 +112,7 @@
       <div class="founders-benefit fade-up fade-up-3">
         <div class="founders-benefit-icon">
           <!-- Two-person — direct contact with the team. -->
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <h3>Direct line to the team</h3>
         <p>Weekly calls with the team during the beta period. Your feedback goes directly into the product, not a support queue.</p>
@@ -120,7 +120,7 @@
       <div class="founders-benefit fade-up fade-up-4">
         <div class="founders-benefit-icon">
           <!-- Award medal — founding member recognition. -->
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
         </div>
         <h3>Founding member status</h3>
         <p>Your firm is permanently recognised as an Amaea Founder, in the platform, in our story, and in every piece of material we publish.</p>
@@ -277,7 +277,7 @@
 
       <div class="quiz-start" id="quiz-start">
         <div class="quiz-start-icon">
-          <svg width="24" height="24" fill="none" stroke="var(--plum)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <svg aria-hidden="true" width="24" height="24" fill="none" stroke="var(--plum)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         </div>
         <h3 class="quiz-start-h">5 questions. 2 minutes.</h3>
         <p class="quiz-start-desc">Tell us about your firm and we'll match you to the Founder plan that fits. Your 20% discount applies to all tiers.</p>
@@ -376,25 +376,25 @@
       <p class="form-help">We review applications and confirm your spot within 48 hours.</p>
       <form id="founders-form" novalidate>
         <div class="founders-form-grid">
-          <input class="form-input" type="text" placeholder="Full name" required>
-          <input class="form-input" type="text" placeholder="Firm name" required>
-          <input class="form-input" type="email" placeholder="Work email" required>
-          <select class="form-input" required>
+          <input class="form-input" type="text" placeholder="Full name" autocomplete="name" required aria-label="Full name">
+          <input class="form-input" type="text" placeholder="Firm name" autocomplete="organization" required aria-label="Firm name">
+          <input class="form-input" type="email" placeholder="Work email" autocomplete="email" required aria-label="Work email">
+          <select class="form-input" required aria-label="Your role">
             <option value="" disabled selected>Your role</option>
             <option>Compliance Officer</option>
             <option>Principal</option>
             <option>Practice Manager</option>
             <option>Other</option>
           </select>
-          <input class="form-input full" type="text" placeholder="FCA firm reference number (optional)">
-          <select class="form-input full" required>
+          <input class="form-input full" type="text" placeholder="FCA firm reference number (optional)" aria-label="FCA firm reference number (optional)">
+          <select class="form-input full" required aria-label="Number of advisers">
             <option value="" disabled selected>Number of advisers</option>
             <option>1-3</option>
             <option>4-10</option>
             <option>11-25</option>
             <option>25+</option>
           </select>
-          <select class="form-input full" required>
+          <select class="form-input full" required aria-label="Which plan interests you?">
             <option value="" disabled selected>Which plan interests you?</option>
             <option>Essentials</option>
             <option>Professional</option>
@@ -408,7 +408,7 @@
     </div>
     <div class="founders-form-success" id="founders-success" style="display:none;">
       <div class="founders-success-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
       </div>
       <h2>You're in.</h2>
       <p>We'll confirm your Founder spot within 48 hours. Check your email; we'll send you everything you need to know.</p>
@@ -467,7 +467,7 @@
 </footer>
 
 </main>
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 <script>
 const REFS = {
   'fp-advance': {
