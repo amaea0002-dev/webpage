@@ -1772,6 +1772,21 @@ main { counter-reset: feature-detail; }
   line-height: 1.55;
   font-variant-numeric: tabular-nums;
 }
+/* Inline variant: used inside integration cards (and any card
+ * context where the strip should sit flush with surrounding
+ * card padding). Tighter label column, no outer border, smaller
+ * margin. */
+.feature-specs--inline {
+  grid-template-columns: 88px 1fr;
+  row-gap: 8px;
+  column-gap: 16px;
+  padding: 14px 0 0;
+  margin: 14px 0 0;
+  border-top: 1px solid var(--card-border);
+  border-bottom: none;
+}
+.feature-specs--inline dt { font-size: 0.65rem; }
+.feature-specs--inline dd { font-size: 0.85rem; }
 
 /* Citation row at the bottom of the text column. Small plum
  * pills that anchor each section to specific FCA rules. */

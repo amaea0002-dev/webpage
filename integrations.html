@@ -63,7 +63,8 @@
 
 <section class="page-hero">
   <div class="container">
-    <h1>OAuth in. Encrypted at rest.<br><em>No data migration.</em></h1>
+    <div class="section-label">OAuth 2.0 · AES-256-GCM token storage · Nightly sync</div>
+    <h1>OAuth in. Tokens in env vars.<br><em>No data migration.</em></h1>
     <p>Every integration is OAuth-authenticated. Tokens are encrypted with AES-256-GCM at the application layer: the encryption key sits in a Vercel environment variable, not in the database. Sync is nightly by default; on-demand pull available per integration.</p>
   </div>
 </section>
@@ -73,6 +74,7 @@
   <div class="container">
     <div class="text-center section-head-center">
       <h2 class="section-title">Built for the systems IFA firms actually use.</h2>
+      <p class="section-sub">Three live, two on the roadmap, one fallback for firms whose CRM isn't connected yet.</p>
     </div>
     <div class="integrations-grid">
 
@@ -87,13 +89,13 @@
             <div class="integration-card-status integration-card-status--live">Available now</div>
           </div>
         </div>
-        <p class="integration-card-desc">The dominant CRM for UK IFA firms. Amaea reads your client data, review history, and document records from Intelliflo automatically - no manual uploads, no double-entry. Changes in Intelliflo sync to Amaea daily.</p>
-        <ul class="integration-bullets">
-          <li><span class="tick">✓</span> Client records and review history</li>
-          <li><span class="tick">✓</span> Document status and file references</li>
-          <li><span class="tick">✓</span> Adviser assignments and client ownership</li>
-          <li><span class="tick">✓</span> Automatic daily sync</li>
-        </ul>
+        <p class="integration-card-desc">The dominant CRM for UK IFA firms. Amaea reads your client data, review history, and document records from Intelliflo automatically. No manual uploads, no double-entry. Changes in Intelliflo sync to Amaea daily.</p>
+        <dl class="feature-specs feature-specs--inline">
+          <dt>Reads</dt><dd>Client records · review history · document status · adviser ownership</dd>
+          <dt>Sync</dt><dd>Daily automatic, on-demand pull available</dd>
+          <dt>Auth</dt><dd>OAuth 2.0 · AES-256-GCM token</dd>
+          <dt>Plans</dt><dd>All tiers</dd>
+        </dl>
       </div>
 
       <!-- SharePoint -->
@@ -108,12 +110,12 @@
           </div>
         </div>
         <p class="integration-card-desc">Most IFA firms store suitability letters, fact finds, and client correspondence in SharePoint. Amaea reads these documents directly, classifies them by client and document type, and updates compliance records without anyone moving a file.</p>
-        <ul class="integration-bullets">
-          <li><span class="tick">✓</span> Automatic document classification</li>
-          <li><span class="tick">✓</span> Suitability letters, fact finds, SOAs</li>
-          <li><span class="tick">✓</span> Client matching by name and reference</li>
-          <li><span class="tick">✓</span> No file migration required</li>
-        </ul>
+        <dl class="feature-specs feature-specs--inline">
+          <dt>Reads</dt><dd>Suitability letters · fact finds · SOAs · correspondence</dd>
+          <dt>Classifies</dt><dd>Document type + client matching (name + reference)</dd>
+          <dt>Migration</dt><dd>None — files stay where they are</dd>
+          <dt>Plans</dt><dd>Professional · Scale</dd>
+        </dl>
       </div>
 
       <!-- Salesforce -->
@@ -128,12 +130,12 @@
           </div>
         </div>
         <p class="integration-card-desc">For firms that use Salesforce as their primary CRM. Amaea connects to your Salesforce instance to read client records, review schedules, and task notes, keeping compliance data in sync without duplicating your workflow.</p>
-        <ul class="integration-bullets">
-          <li><span class="tick">✓</span> Client and account record sync</li>
-          <li><span class="tick">✓</span> Review and task history</li>
-          <li><span class="tick">✓</span> Bi-directional compliance flag sync</li>
-          <li><span class="tick">✓</span> Custom field mapping</li>
-        </ul>
+        <dl class="feature-specs feature-specs--inline">
+          <dt>Reads</dt><dd>Accounts · client records · review + task history</dd>
+          <dt>Writes</dt><dd>Compliance flags (bi-directional)</dd>
+          <dt>Custom</dt><dd>Field mapping per firm</dd>
+          <dt>Plans</dt><dd>Professional · Scale</dd>
+        </dl>
       </div>
 
       <!-- Document Import -->
@@ -147,13 +149,13 @@
             <div class="integration-card-status integration-card-status--feature">All plans · No CRM needed</div>
           </div>
         </div>
-        <p class="integration-card-desc">Not yet connected to a CRM? Drop your existing documents directly into Amaea. The AI reads each file, identifies the client, classifies the document type, and files it against the right record - no manual data entry.</p>
-        <ul class="integration-bullets">
-          <li><span class="tick tick--feature">✓</span> PDF, JPG, PNG document support</li>
-          <li><span class="tick tick--feature">✓</span> AI classification and client matching</li>
-          <li><span class="tick tick--feature">✓</span> Resolves missing document flags automatically</li>
-          <li><span class="tick tick--feature">✓</span> Ideal while Intelliflo integration is being set up</li>
-        </ul>
+        <p class="integration-card-desc">Not yet connected to a CRM? Drop your existing documents directly into Amaea. The AI reads each file, identifies the client, classifies the document type, and files it against the right record. No manual data entry.</p>
+        <dl class="feature-specs feature-specs--inline">
+          <dt>Accepts</dt><dd>PDF · JPG · PNG · DOCX</dd>
+          <dt>Classifies</dt><dd>Document type + client match (AI)</dd>
+          <dt>Use case</dt><dd>Bridge while a CRM integration is being set up</dd>
+          <dt>Plans</dt><dd>All tiers</dd>
+        </dl>
       </div>
 
       <!-- Dynamic Planner -->
@@ -164,7 +166,7 @@
           </div>
           <div>
             <div class="integration-card-title">Dynamic Planner</div>
-            <div class="integration-card-status integration-card-status--soon">Coming soon</div>
+            <div class="integration-card-status integration-card-status--soon">On the roadmap</div>
           </div>
         </div>
         <p class="integration-card-desc integration-card-desc--last">Risk profiling and cashflow planning data from Dynamic Planner synced to Amaea, keeping suitability records current without duplicating assessments.</p>
@@ -178,7 +180,7 @@
           </div>
           <div>
             <div class="integration-card-title">DocuSign</div>
-            <div class="integration-card-status integration-card-status--soon">Coming soon</div>
+            <div class="integration-card-status integration-card-status--soon">On the roadmap</div>
           </div>
         </div>
         <p class="integration-card-desc integration-card-desc--last">When a client signs a document via DocuSign, Amaea updates the compliance record automatically. No manual confirmation, no document chasing.</p>
@@ -202,7 +204,7 @@
 <section class="cta-banner">
   <div class="container">
     <h2>Tell us your stack. We'll tell you the integration scope.</h2>
-    <p>30 minutes. Bring the system you currently use for client records, documents, and reviews. We tell you exactly what Amaea would pull, how the OAuth handshake works, and what's on the roadmap.</p>
+    <p>30 minutes. Bring the system you currently use for client records, documents, and reviews. We tell you exactly what Amaea would pull, how the OAuth handshake works, and where the rough edges are.</p>
     <a href="contact" class="btn btn-secondary btn-lg">Book a demo</a>
   </div>
 </section>
