@@ -63,6 +63,7 @@
 
 <section class="page-hero">
   <div class="container">
+    <div class="section-label">SUP 16.12 · The Retail Mediation Activities Return</div>
     <h1>The RMAR: stop<br>dreading it.</h1>
     <p>The Retail Mediation Activities Return is an annual FCA submission. Sections B, D, E, G, and H. For most firms it means two weeks of chasing advisers for data that should already be in the system. Amaea pre-populates it from your live data.</p>
   </div>
@@ -75,41 +76,41 @@
       <h2 class="section-title">Five sections, pre-filled from your live data.</h2>
       <p class="section-sub">Sections B, D, E, G, and H are the ones Amaea populates automatically. Each exports as CSV ready for GABRIEL upload.</p>
     </div>
-    <div class="features-grid fade-up">
+    <div class="features-grid features-grid--5 fade-up">
       <div class="feature-card fade-up-1">
         <div class="feature-icon">
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
         </div>
         <h3 class="feature-title">Section B · Complaints</h3>
-        <p class="feature-desc">Drawn from the complaint log. Cross-checked against DISP 1.6: FOS rights communicated, 5-day acknowledgement, 8-week final response. Mismatches surface as draft-time warnings, not post-submission queries.</p>
+        <p class="feature-desc">Drawn from the complaint log. Cross-checked against DISP 1.6: FOS rights communicated, 5-day acknowledgement, 8-week final response. Mismatches surface as draft-time warnings, not post-submission queries. <strong>Where firms fail:</strong> complaint records sit in email threads; the DISP 1.6 timestamps were never captured.</p>
       </div>
       <div class="feature-card fade-up-2">
         <div class="feature-icon">
           <svg aria-hidden="true" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
         </div>
         <h3 class="feature-title">Section D · Financial resources</h3>
-        <p class="feature-desc">Pulled from the firm's connected platform feed (Intelliflo etc.). Revenue, regulated activity split, and capital position aligned to the FCA's GABRIEL data dictionary.</p>
+        <p class="feature-desc">Pulled from the firm's connected platform feed (Intelliflo etc.). Revenue, regulated activity split, and capital position aligned to the FCA's GABRIEL data dictionary. <strong>Where firms fail:</strong> the regulated / non-regulated revenue split is manually estimated; the split changes month to month and gets stale.</p>
       </div>
       <div class="feature-card fade-up-3">
         <div class="feature-icon">
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h3 class="feature-title">Section E · PII renewal</h3>
-        <p class="feature-desc">Pulled from the policy schedule you upload at renewal. Limits, exclusions, and renewal date checked against the SUP 9.2 minimum. Schedule expiry triggers an in-app reminder 60 days out.</p>
+        <p class="feature-desc">Pulled from the policy schedule you upload at renewal. Limits, exclusions, and renewal date checked against the SUP 9.2 minimum. Schedule expiry triggers an in-app reminder 60 days out. <strong>Where firms fail:</strong> the renewal date is in a calendar; nobody cross-checks the schedule's exclusions and limits against the SUP 9.2 floor.</p>
       </div>
       <div class="feature-card fade-up-4">
         <div class="feature-icon">
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
         </div>
         <h3 class="feature-title">Section G · Adviser roster</h3>
-        <p class="feature-desc">Pulled from the live roster table. Only currently-active advisers are counted; SMCR roles tagged correctly; leavers excluded from headcount as of the reporting cut-off.</p>
+        <p class="feature-desc">Pulled from the live roster table. Only currently-active advisers are counted; SMCR roles tagged correctly; leavers excluded from headcount as of the reporting cut-off. <strong>Where firms fail:</strong> the roster includes ex-advisers because nobody marked them as leavers; SMCR roles drift out of sync with HR.</p>
       </div>
-      <div class="feature-card fade-up-4">
+      <div class="feature-card fade-up-5">
         <div class="feature-icon">
           <svg aria-hidden="true" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
         <h3 class="feature-title">Section H · Training records</h3>
-        <p class="feature-desc">Drawn from the T&amp;C record set against each adviser. CPD hours, attainment, SPS evidence. Gaps surface as flags before submission, not after the FCA queries the return.</p>
+        <p class="feature-desc">Drawn from the T&amp;C record set against each adviser. CPD hours, attainment, SPS evidence. Gaps surface as flags before submission, not after the FCA queries the return. <strong>Where firms fail:</strong> CPD is tracked per adviser; the firm-wide aggregate gets calculated the day before submission, with gaps surfacing too late.</p>
       </div>
     </div>
   </div>
@@ -119,7 +120,7 @@
   <div class="container">
     <div class="reading-col-narrow">
       <h2 class="compliance-sub-head">The most common RMAR errors</h2>
-      <p class="compliance-sub-intro">Errors submitted to the FCA can trigger a follow-up review. These are the gaps we see in almost every firm that prepares their RMAR manually.</p>
+      <p class="compliance-sub-intro">The most-repeated RMAR errors across the 27 compliance officers we interviewed in 2025. Every one of them prepared the return manually before talking to us.</p>
       <ul class="compliance-list">
         <li>
           <span class="mark mark--fail">✕</span>
@@ -151,6 +152,7 @@
     <div class="reading-col-wide">
       <div class="section-label help-section-label">How Amaea helps</div>
       <h2 class="help-section-head">RMAR submission, the honest version.</h2>
+      <p class="help-section-sub">What we ship pre-filled, what we cross-check before submission, what the GABRIEL-ready CSV actually looks like, and what the first quarter really costs you in reconciliation time.</p>
       <div class="amaea-help-grid">
         <div class="amaea-help-card fade-up fade-up-1">
           <div class="amaea-help-card-title">First run is the hard one</div>
