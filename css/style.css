@@ -791,6 +791,12 @@ section { padding: var(--section-py) 0; }
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1, "lnum" 1;
 }
+.substance-num-suffix {
+  font-size: 0.9em;
+  font-weight: 700;
+  margin-left: 1px;
+  color: var(--plum-soft);
+}
 .substance-stat-label {
   font-size: 0.74rem;
   color: var(--gray-500);
@@ -1454,14 +1460,16 @@ section { padding: var(--section-py) 0; }
 .testimonial-stars { display: flex; gap: 3px; color: var(--amber); font-size: 0.88rem; }
 .testimonial-quote { font-size: 0.9rem; color: var(--gray-600); line-height: 1.7; font-style: italic; flex: 1; }
 .testimonial-author { display: flex; align-items: center; gap: 12px; }
-/* Editorial avatar — solid plum with refined typography.
-   The previous gradient avatar is the SaaS-template look;
-   solid colour + slightly more letter-spacing reads premium. */
+/* Editorial avatar — solid plum circle with numeric eyebrow style
+   (01 / 02 / 03), consistent with the story-grid numbering above.
+   Replaces the SaaS-template initials pattern with a numbered
+   chip that reads as a sequence marker. */
 .testimonial-avatar {
   width: 36px; height: 36px; border-radius: 50%;
   background: var(--plum);
-  color: #fff; font-size: 0.7rem; font-weight: 700;
-  letter-spacing: 0.04em;
+  color: #fff; font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .testimonial-name { font-size: 0.85rem; font-weight: 700; color: var(--gray-900); letter-spacing: -0.01em; }
