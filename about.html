@@ -78,12 +78,12 @@
         <p>Amaea didn't start in a boardroom. It started in a spreadsheet - one that had a client's annual review date logged as 04/31/3036.</p>
         <p>Hasna spent several years in financial services doing the work that compliance software was supposed to make easy: manually pulling data for Consumer Duty reports and board packs, trawling through folders to check whether a suitability report had been signed, cross-referencing dates across disconnected systems, and entering it all into a manual Excel sheet that nobody fully trusted.</p>
         <p>The problem wasn't that firms were non-compliant. It was that they were doing everything right - and couldn't prove it. The work existed. The evidence didn't.</p>
-        <p>So Amaea was built around the compliance intelligence layer firms actually need: an AI that reads, classifies, and surfaces the evidence that was always there but never accessible. The work an experienced compliance officer would do if they had the time.</p>
+        <p>So Amaea was built around what firms actually need: a system that reads, classifies, and surfaces the evidence that was always there but never accessible. The work an experienced compliance officer would do if they had the time.</p>
         <p>The result is a product that's easy to set up, easy to use, and actually solves the problem - not just makes it more visible. Amaea launches in 2028. We're currently working directly with IFA firms to make sure we get it right before anyone depends on it.</p>
       </div>
 
       <div>
-        <h2 class="about-team-heading">The team</h2>
+        <h2 class="about-team-heading">Who's building this</h2>
         <div class="about-team-cards">
           <div class="about-team-card">
             <div class="about-team-avatar about-team-avatar--plum-gradient">H</div>
@@ -102,12 +102,14 @@
 
 <!-- Mission & Vision -->
 <style>
-  .purpose-block { max-width:720px; margin:0 auto; padding-left:32px; border-left:1px solid var(--plum); }
-  .purpose-block + .purpose-block { margin-top:56px; }
+  /* Mission + Vision: dropped the left-side stripe (spirit of the
+   * DESIGN.md side-stripe ban). Eyebrow + statement now carry the
+   * section on typography alone, separated by a centered hairline. */
+  .purpose-block { max-width:720px; margin:0 auto; text-align:center; }
+  .purpose-block + .purpose-block { margin-top:56px; padding-top:56px; border-top:1px solid var(--gray-200); }
   .purpose-label { font-size:0.72rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--plum); margin-bottom:14px; }
-  .purpose-statement { font-size:1.55rem; font-weight:700; line-height:1.4; letter-spacing:-0.025em; color:var(--gray-900); margin:0; }
+  .purpose-statement { font-size:1.55rem; font-weight:600; line-height:1.4; letter-spacing:-0.025em; color:var(--gray-900); margin:0; font-family:var(--font-display); text-wrap:balance; }
   @media (max-width:640px) {
-    .purpose-block { padding-left:24px; }
     .purpose-statement { font-size:1.2rem; }
   }
 </style>
@@ -120,7 +122,7 @@
 
     <div class="purpose-block">
       <div class="purpose-label">Mission</div>
-      <p class="purpose-statement">To make regulatory compliance a property of systems, not a burden on people. Starting with UK IFA firms.</p>
+      <p class="purpose-statement">To make regulatory compliance a property of systems, not a burden on people. For UK IFA firms.</p>
     </div>
 
     <div class="purpose-block">
@@ -137,46 +139,38 @@
       <h2 class="section-title">What we stand for.</h2>
       <p class="section-sub col-560">Five principles. Each one tested against the same question: would we make the same call on a Tuesday afternoon, when we're tired?</p>
     </div>
-    <div class="features-grid">
+    <div class="features-grid features-grid--2x2">
       <div class="feature-card fade-up fade-up-1">
         <div class="feature-icon">
-          <!-- Simplicity: a clean square outline -->
-          <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+          <!-- Shield with check — cite the rule -->
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
         </div>
-        <h3 class="feature-title">Simplicity</h3>
-        <p class="feature-desc">We make complex things clear: in our product and in how we work. Clarity is our competitive advantage.</p>
+        <h3 class="feature-title">Cite the rule, always.</h3>
+        <p class="feature-desc">Every flag in the product carries its FCA reference. Every AI answer carries the source chunks it came from. If we can't show the rule, we don't ship the flag.</p>
       </div>
       <div class="feature-card fade-up fade-up-2">
         <div class="feature-icon">
-          <!-- Integrity: shield with check -->
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          <!-- Square — single source of truth, no embellishment -->
+          <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
         </div>
-        <h3 class="feature-title">Integrity</h3>
-        <p class="feature-desc">Trust is the foundation of compliance and of our relationships. We do what we say, and we say what we mean.</p>
+        <h3 class="feature-title">Refuse fabrication.</h3>
+        <p class="feature-desc">"I don't have a confident answer" is a first-class AI response. We'd rather log an honest "don't know" than ship a confidently wrong rule citation. A 50-scenario eval suite enforces it before every model release.</p>
       </div>
       <div class="feature-card fade-up fade-up-3">
         <div class="feature-icon">
-          <!-- Build for People: people icon -->
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <!-- Trending-up arrow — audit log as continuous record -->
+          <svg aria-hidden="true" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
-        <h3 class="feature-title">Build for People</h3>
-        <p class="feature-desc">We build technology that genuinely helps people do their jobs better. Real problems, real solutions.</p>
+        <h3 class="feature-title">Default to the audit log.</h3>
+        <p class="feature-desc">Every flag, every read, every model call writes a row. If it isn't in the append-only log, it didn't happen. We built the log first and the product on top of it, not the other way around.</p>
       </div>
       <div class="feature-card fade-up fade-up-4">
         <div class="feature-icon">
-          <!-- Respect: handshake / balanced scales -->
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M7 6v14"/><path d="M17 6v14"/><path d="M3 12h6l-3-6-3 6z"/><path d="M15 12h6l-3-6-3 6z"/></svg>
+          <!-- People icon — build for the user, not the demo -->
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h3 class="feature-title">Respect</h3>
-        <p class="feature-desc">We treat each other with professionalism, fairness, and trust, especially when we disagree.</p>
-      </div>
-      <div class="feature-card fade-up fade-up-5">
-        <div class="feature-icon">
-          <!-- Learn and Improve: trending-up arrow -->
-          <svg aria-hidden="true" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        </div>
-        <h3 class="feature-title">Learn and Improve</h3>
-        <p class="feature-desc">We continuously develop ourselves, our product, and our thinking. Standing still is falling behind.</p>
+        <h3 class="feature-title">Build for the Tuesday afternoon.</h3>
+        <p class="feature-desc">Compliance work happens at 4pm Thursday with the FCA on the phone and three browser tabs open. The product has to work when the user is tired, interrupted, and unsure. If it doesn't work then, it doesn't work.</p>
       </div>
     </div>
   </div>
