@@ -63,6 +63,7 @@
     <div class="section-label">Guide</div>
     <h1>What is FCA compliance software?</h1>
     <p>A plain-English guide for IFA principals and compliance directors evaluating the category for the first time. What it does, why it matters now, what to look for.</p>
+    <p class="page-hero-meta">Last updated: 21 May 2026</p>
   </div>
 </section>
 
@@ -70,7 +71,7 @@
   <div class="container">
     <div class="legal-content">
 
-      <p class="legal-intro">This page is for someone whose firm doesn't yet use specialist compliance software, or for the managing director reviewing a case to buy. Senior compliance officers won't need it. We've written it as a category explainer, not a sales page &mdash; we've made our case for Amaea separately on <a href="features">features</a> and <a href="pricing">pricing</a>.</p>
+      <p class="legal-intro">This page is for buyers and MDs whose firm doesn't yet use specialist compliance software. It's written as a category explainer, not a sales page: we've made our case for Amaea separately on <a href="features">features</a> and <a href="pricing">pricing</a>.</p>
 
       <nav class="legal-toc" aria-label="Guide contents">
         <div class="legal-toc-heading">On this page</div>
@@ -86,19 +87,19 @@
       </nav>
 
       <h2 id="what-it-is">What FCA compliance software is</h2>
-      <p>A category of business software that tracks, evidences, and reports a firm's compliance with FCA rules. For IFA firms specifically, that means watching every client record for missing documents, overdue annual reviews, expired suitability assessments, vulnerability indicators, and Consumer Duty outcome gaps &mdash; and producing an audit trail the FCA could ask for at any time.</p>
+      <p>A category of business software that tracks, evidences, and reports a firm's compliance with FCA rules. For IFA firms specifically, that means watching every client record for missing documents, overdue annual reviews, expired suitability assessments, vulnerability indicators, and Consumer Duty outcome gaps: and producing an audit trail the FCA could ask for at any time.</p>
       <p>The category is sometimes called "RegTech" (regulatory technology), "GRC software" (governance, risk and compliance), or "compliance management." For UK IFA firms the specific shape is "advice-firm compliance software." It overlaps with but is distinct from:</p>
       <ul>
-        <li><strong>CRM software</strong> (Intelliflo, Salesforce, Curo) &mdash; stores client data; doesn't track regulatory obligations.</li>
-        <li><strong>Document management</strong> (SharePoint, NetDocuments) &mdash; stores files; doesn't know which files are required.</li>
-        <li><strong>Outsourced compliance consultancy</strong> (Bovill, ATEB, ThreeSixty) &mdash; humans who review your firm periodically; not a system that runs continuously.</li>
+        <li><strong>CRM software</strong> (Intelliflo, Salesforce, Curo): stores client data; doesn't track regulatory obligations.</li>
+        <li><strong>Document management</strong> (SharePoint, NetDocuments): stores files; doesn't know which files are required.</li>
+        <li><strong>Outsourced compliance consultancy</strong> (Bovill, ATEB, ThreeSixty): humans who review your firm periodically; not a system that runs continuously.</li>
       </ul>
       <p>Compliance software sits beneath all three: reading from the CRM and document store, surfacing what's missing, and giving the consultant something concrete to review rather than something to construct.</p>
 
       <h2 id="what-changed">What changed in 2023</h2>
       <p>Two FCA changes broke the standard "compliance is paperwork in folders" model:</p>
-      <p><strong>The Consumer Duty (<a href="glossary#ps22-9" class="glossary-link">PS22/9</a>)</strong> &mdash; in force from 31 July 2023 &mdash; requires firms to evidence good outcomes <em>per customer cohort</em> on a recurring basis. That means a board-level annual assessment of whether your products, prices, communications, and support are delivering for customers. Without a system producing per-client outcome data, the assessment is qualitative narrative &mdash; which the FCA increasingly treats as insufficient evidence.</p>
-      <p><strong>Tightened vulnerability expectations (<a href="glossary#fg21-1" class="glossary-link">FG21/1</a>)</strong> &mdash; the FCA's Finalised Guidance on vulnerable customers, in active use as a supervisory yardstick since 2023. Firms are expected to record vulnerability indicators per client, re-assess on a defined cadence (commonly 12 months), and demonstrate that vulnerable clients receive adjusted treatment. Excel can store the indicators; Excel cannot re-prompt the adviser when re-assessment is due.</p>
+      <p><strong>The Consumer Duty (<a href="glossary#ps22-9" class="glossary-link">PS22/9</a>)</strong>: in force from 31 July 2023: requires firms to evidence good outcomes <em>per customer cohort</em> on a recurring basis. That means a board-level annual assessment of whether your products, prices, communications, and support are delivering for customers. Without a system producing per-client outcome data, the assessment is qualitative narrative: which the FCA increasingly treats as insufficient evidence.</p>
+      <p><strong>Tightened vulnerability expectations (<a href="glossary#fg21-1" class="glossary-link">FG21/1</a>)</strong>: the FCA's Finalised Guidance on vulnerable customers, in active use as a supervisory yardstick since 2023. Firms are expected to record vulnerability indicators per client, re-assess on a defined cadence (commonly 12 months), and demonstrate that vulnerable clients receive adjusted treatment. Excel can store the indicators; Excel cannot re-prompt the adviser when re-assessment is due.</p>
       <p>Together, these two shifts mean compliance has moved from <em>"can you find this file?"</em> to <em>"can you prove this happened on this date for this client cohort?"</em> The second question requires a system, not a folder.</p>
 
       <h2 id="why-spreadsheets-fail">Why spreadsheets stop working</h2>
@@ -117,16 +118,16 @@
         <li><strong>Reads from your CRM and document store nightly.</strong> Pulls client records, document references, review dates, suitability reports, attitude-to-risk records, vulnerability indicators.</li>
         <li><strong>Watches for rule breaches.</strong> Annual reviews coming due (<a href="glossary#cobs-9-5" class="glossary-link">COBS 9.5</a>), Consumer Duty outcomes uncompleted (PS22/9), vulnerability re-assessments overdue (FG21/1), complaints approaching the 8-week response window (<a href="glossary#disp-1-6" class="glossary-link">DISP 1.6</a>).</li>
         <li><strong>Surfaces what's missing.</strong> A dashboard showing every client where a required document hasn't been filed, with the specific rule citation explaining why it matters.</li>
-        <li><strong>Maintains an audit trail.</strong> Every flag raised, every flag resolved, every document filed, every override entered &mdash; with timestamp, user, and reasoning. Retained for the FCA-required period (typically 7 years; pension transfers indefinitely under <a href="glossary#sysc-9" class="glossary-link">SYSC 9</a>).</li>
-        <li><strong>Pre-populates regulatory returns.</strong> The big one is <a href="glossary#rmar" class="glossary-link">RMAR</a> &mdash; the twice-yearly return that takes most firms a fortnight to complete manually. Compliance software pre-fills the sections that come from your live data (complaints, PII, adviser data, revenue) and leaves only judgment calls to the compliance officer.</li>
+        <li><strong>Maintains an audit trail.</strong> Every flag raised, every flag resolved, every document filed, every override entered: with timestamp, user, and reasoning. Retained for the FCA-required period (typically 7 years; pension transfers indefinitely under <a href="glossary#sysc-9" class="glossary-link">SYSC 9</a>).</li>
+        <li><strong>Pre-populates regulatory returns.</strong> The big one is <a href="glossary#rmar" class="glossary-link">RMAR</a>: the twice-yearly return that takes most firms a fortnight to complete manually. Compliance software pre-fills the sections that come from your live data (complaints, PII, adviser data, revenue) and leaves only judgment calls to the compliance officer.</li>
         <li><strong>Produces reporting.</strong> Board packs, quarterly compliance reports, network-level oversight reports, individual adviser scorecards. Built from the same data the dashboard surfaces, not constructed in PowerPoint each quarter.</li>
       </ul>
-      <p>More recent platforms (Amaea among them) add an AI compliance assistant trained on the FCA Handbook, capable of answering rule questions with citations. This is decision support, not regulated advice &mdash; a fast way to check "does this scenario require a fresh suitability report?" without leaving the platform.</p>
+      <p>More recent platforms (Amaea among them) add an AI compliance assistant trained on the FCA Handbook, capable of answering rule questions with citations. This is decision support, not regulated advice: a fast way to check "does this scenario require a fresh suitability report?" without leaving the platform.</p>
 
       <h2 id="what-to-look-for">What to look for in a vendor</h2>
       <p>Most vendors in the category look superficially similar. The differentiators that matter to a compliance buyer:</p>
       <ul>
-        <li><strong>Specific rule citations.</strong> Every flag should name the FCA rule it's grounded in. "Annual review overdue" is weak. "Annual review overdue &mdash; 14 months elapsed, COBS 9.5.2R requires within 12 months" is what the FCA expects to see in your audit trail.</li>
+        <li><strong>Specific rule citations.</strong> Every flag should name the FCA rule it's grounded in. "Annual review overdue" is weak. "Annual review overdue: 14 months elapsed, COBS 9.5.2R requires within 12 months" is what the FCA expects to see in your audit trail.</li>
         <li><strong>Audit-trail completeness.</strong> Ask: "If the FCA requested 7 years of activity for client X tomorrow, what's the export?" Some platforms produce a clean PDF audit pack in one click. Others produce a CSV the compliance team will spend two days reformatting.</li>
         <li><strong>Multi-tenant data isolation.</strong> For network principals especially: the platform should isolate each firm's data at the database layer, not in application code. Ask whether they use Row Level Security or equivalent. Application-layer isolation is a future breach.</li>
         <li><strong>Integration depth, not breadth.</strong> A vendor that integrates with 30 systems shallowly is less useful than a vendor that integrates deeply with the 3 systems you actually use. Ask for a worked example of the OAuth handshake and what data syncs in which direction.</li>
@@ -150,7 +151,7 @@
         <li>A standard FCA enforcement penalty for inadequate suitability records ranges from £10,000 (smallest firms) to multiple millions (network-scale failures). The 2024-2025 enforcement actions against IFA firms averaged in the low hundreds of thousands.</li>
         <li>Professional Indemnity Insurance deductibles for advice-related complaints are commonly £10,000-£50,000 per claim. A single missed annual review that escalates can exceed the deductible.</li>
       </ul>
-      <p>The honest framing: compliance software is cheaper than the consequence of a single material breach it would have caught. It's not cheaper than having an excellent compliance officer who manually catches everything &mdash; but no compliance officer can manually maintain coverage across hundreds of clients indefinitely. The software extends what the officer can supervise.</p>
+      <p>The honest framing: compliance software is cheaper than the consequence of a single material breach it would have caught. It's not cheaper than having an excellent compliance officer who manually catches everything: but no compliance officer can manually maintain coverage across hundreds of clients indefinitely. The software extends what the officer can supervise.</p>
 
       <h2 id="how-amaea-fits">Where Amaea fits in the category</h2>
       <p>Amaea is FCA compliance software for UK IFA firms specifically. It's not a general-purpose compliance platform extended to advice firms; it's built for the COBS / DISP / SYSC / Consumer Duty rules that govern UK advice. The dashboard, audit trail, and rule citations are all advice-firm-shaped.</p>
@@ -162,7 +163,7 @@
         <li><strong>Data hosted in EU-West (Ireland).</strong> No US transfer of personal data.</li>
         <li><strong>Audit trail with 7-year retention by default</strong> (configurable to indefinite for pension transfers per SYSC 9 expectations).</li>
         <li><strong>RMAR pre-population</strong> for sections B, D, E, G, and H from live data, exporting as CSV ready for RegData.</li>
-        <li><strong>Network principal support</strong> for AR networks and IFA groups &mdash; see <a href="networks">the networks page</a> for how cross-firm visibility works.</li>
+        <li><strong>Network principal support</strong> for AR networks and IFA groups: see <a href="networks">the networks page</a> for how cross-firm visibility works.</li>
       </ul>
       <p>The case against Amaea right now is the same as the case against any pre-launch SaaS: we're in design-partner mode with September 2028 as our public launch. Buyers who need a fully-mature platform today should look at established vendors in the space. Buyers willing to shape the product around their firm in exchange for influence and pricing protection should <a href="contact">book a demo</a> or <a href="waitlist">join the launch waitlist</a>.</p>
 
@@ -197,7 +198,6 @@
         <a href="rmar-filing">RMAR Filing</a>
         <a href="vulnerable-clients">Vulnerable Clients</a>
         <a href="glossary">FCA Glossary</a>
-        <a href="compliance-software-guide">Guide: FCA compliance software</a>
         <a href="compliance-software-guide" aria-current="page">Guide: FCA compliance software</a>
       </div>
       <div class="footer-col">

@@ -5516,6 +5516,17 @@ section { padding: var(--section-py) 0; }
   border-color: var(--plum-border-1);
 }
 
+/* Page-hero last-updated / metadata line — subtle right under the
+ * page-hero <p>. Used on glossary + guide; could be added to other
+ * reference pages later. Smaller than the intro paragraph, plum-soft
+ * colour, monospace numeric so dates align tabular. */
+.page-hero-meta {
+  font-size: 0.78rem;
+  color: var(--gray-500);
+  margin-top: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
 /* Inline glossary link — first-mention pattern. Wraps an FCA acronym
  * in body copy and signals it has a definition behind it via dotted
  * underline + cursor: help. Subtle by default, plum on hover. */
