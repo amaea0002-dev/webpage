@@ -515,3 +515,190 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('partner-next')?.addEventListener('click', () => handleBtn(1));
   }
 });
+
+// ── Command palette (Cmd/Ctrl+K) ────────────────────────────
+// Heuristic #7 Flexibility & Efficiency ceiling-breaker. Indexes
+// every page, every glossary anchor, and the core actions. Filter-as-
+// you-type, arrow-key navigation, Enter to go, Esc to close. Injects
+// its overlay markup once into <body>; same instance reused per page.
+(function initCommandPalette() {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
+  const ITEMS = [
+    { kind: 'page', label: 'Home', href: '/' },
+    { kind: 'page', label: 'About', href: 'about' },
+    { kind: 'page', label: 'Features', href: 'features' },
+    { kind: 'page', label: 'Pricing', href: 'pricing' },
+    { kind: 'page', label: 'Contact / Book a demo', href: 'contact' },
+    { kind: 'page', label: 'For networks & AR firms', href: 'networks' },
+    { kind: 'page', label: 'Founders Programme', href: 'founders' },
+    { kind: 'page', label: 'Launch waitlist', href: 'waitlist' },
+    { kind: 'page', label: 'Integrations', href: 'integrations' },
+    { kind: 'page', label: 'Security & data', href: 'security' },
+    { kind: 'page', label: 'Blog', href: 'blog' },
+    { kind: 'page', label: 'Consumer Duty (PS22/9)', href: 'consumer-duty' },
+    { kind: 'page', label: 'Annual reviews (COBS 9.5)', href: 'annual-reviews' },
+    { kind: 'page', label: 'RMAR filing', href: 'rmar-filing' },
+    { kind: 'page', label: 'Vulnerable clients (FG21/1)', href: 'vulnerable-clients' },
+    { kind: 'page', label: 'FCA glossary', href: 'glossary' },
+    { kind: 'page', label: 'Guide: FCA compliance software', href: 'compliance-software-guide' },
+    { kind: 'glossary', label: 'COBS 9.5: Annual reviews', href: 'glossary#cobs-9-5' },
+    { kind: 'glossary', label: 'PS22/9: Consumer Duty', href: 'glossary#ps22-9' },
+    { kind: 'glossary', label: 'FG21/1: Vulnerable customers', href: 'glossary#fg21-1' },
+    { kind: 'glossary', label: 'SYSC 9: Record-keeping', href: 'glossary#sysc-9' },
+    { kind: 'glossary', label: 'DISP 1.6: Complaint handling', href: 'glossary#disp-1-6' },
+    { kind: 'glossary', label: 'RMAR: Retail Mediation Activities Return', href: 'glossary#rmar' },
+    { kind: 'glossary', label: 'RegData: FCA reporting platform', href: 'glossary#regdata' },
+    { kind: 'glossary', label: 'Article 9 UK GDPR: Special category data', href: 'glossary#article-9-uk-gdpr' },
+    { kind: 'glossary', label: 'FOS: Financial Ombudsman Service', href: 'glossary#fos' },
+    { kind: 'glossary', label: 'FCA: Financial Conduct Authority', href: 'glossary#fca' },
+    { kind: 'glossary', label: "ICO: Information Commissioner's Office", href: 'glossary#ico' },
+    { kind: 'glossary', label: 'AR firm: Appointed Representative', href: 'glossary#ar' },
+    { kind: 'glossary', label: 'Section 166: Skilled Person Review', href: 'glossary#section-166' },
+    { kind: 'action', label: 'Book a demo', href: 'contact' },
+    { kind: 'action', label: 'Request the security questionnaire', href: 'mailto:security@amaea.co.uk?subject=Security%20questionnaire%20request' },
+    { kind: 'action', label: 'Scope a group rollout (network / AR firm)', href: 'mailto:hello@amaea.co.uk?subject=Group%20rollout%20scope%20-%20network%20principal' },
+    { kind: 'action', label: 'Email an urgent FCA-deadline request', href: 'mailto:hello@amaea.co.uk?subject=Urgent%3A%20FCA%20deadline%20this%20week' },
+    { kind: 'action', label: 'Sign in to the Amaea app', href: 'https://app.amaea.co.uk/login' },
+  ];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    })[c]);
+  }
+  function highlight(text, q) {
+    if (!q) return esc(text);
+    const idx = text.toLowerCase().indexOf(q);
+    if (idx === -1) return esc(text);
+    return esc(text.slice(0, idx)) + '<mark>' + esc(text.slice(idx, idx + q.length)) + '</mark>' + esc(text.slice(idx + q.length));
+  }
+
+  const overlay = document.createElement('div');
+  overlay.className = 'cmdk-overlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', 'Quick navigation');
+  overlay.hidden = true;
+  overlay.innerHTML =
+    '<div class="cmdk-dialog">' +
+      '<div class="cmdk-input-wrap">' +
+        '<svg class="cmdk-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' +
+        '<input class="cmdk-input" type="text" placeholder="Search pages, glossary, actions… (try cobs or demo)" autocomplete="off" spellcheck="false" aria-label="Search" aria-controls="cmdk-list" aria-activedescendant="">' +
+        '<kbd class="cmdk-input-kbd">esc</kbd>' +
+      '</div>' +
+      '<ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>' +
+      '<div class="cmdk-footer">' +
+        '<span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>' +
+        '<span><kbd>↵</kbd> go</span>' +
+        '<span><kbd>esc</kbd> close</span>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(overlay);
+
+  const input = overlay.querySelector('.cmdk-input');
+  const list = overlay.querySelector('.cmdk-list');
+  let selectedIdx = 0;
+  let visible = ITEMS;
+  let lastFocus = null;
+
+  function render(q) {
+    q = (q || '').toLowerCase().trim();
+    visible = q ? ITEMS.filter(i => i.label.toLowerCase().includes(q)) : ITEMS;
+    if (selectedIdx >= visible.length) selectedIdx = 0;
+    if (visible.length === 0) {
+      list.innerHTML = '<li class="cmdk-empty">No results for "' + esc(q) + '"</li>';
+      input.setAttribute('aria-activedescendant', '');
+      return;
+    }
+    list.innerHTML = visible.map((item, i) =>
+      '<li class="cmdk-item' + (i === selectedIdx ? ' is-selected' : '') + '" role="option" id="cmdk-item-' + i + '" data-idx="' + i + '" aria-selected="' + (i === selectedIdx) + '">' +
+        '<span class="cmdk-item-kind cmdk-item-kind--' + item.kind + '">' + item.kind + '</span>' +
+        '<span class="cmdk-item-label">' + highlight(item.label, q) + '</span>' +
+      '</li>'
+    ).join('');
+    input.setAttribute('aria-activedescendant', 'cmdk-item-' + selectedIdx);
+  }
+
+  function scrollSelectedIntoView() {
+    const sel = list.querySelector('.is-selected');
+    if (sel) sel.scrollIntoView({ block: 'nearest' });
+  }
+
+  function open() {
+    lastFocus = document.activeElement;
+    overlay.hidden = false;
+    selectedIdx = 0;
+    input.value = '';
+    render('');
+    setTimeout(() => input.focus(), 0);
+  }
+
+  function close() {
+    overlay.hidden = true;
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  function go(item) {
+    if (!item) return;
+    close();
+    window.location.href = item.href;
+  }
+
+  document.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+      e.preventDefault();
+      if (overlay.hidden) open(); else close();
+    } else if (e.key === '/' && overlay.hidden && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) {
+      e.preventDefault();
+      open();
+    }
+  });
+
+  overlay.addEventListener('keydown', e => {
+    if (overlay.hidden) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      close();
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      selectedIdx = Math.min(selectedIdx + 1, visible.length - 1);
+      render(input.value);
+      scrollSelectedIntoView();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      selectedIdx = Math.max(selectedIdx - 1, 0);
+      render(input.value);
+      scrollSelectedIntoView();
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      go(visible[selectedIdx]);
+    }
+  });
+
+  input.addEventListener('input', () => {
+    selectedIdx = 0;
+    render(input.value);
+  });
+
+  list.addEventListener('click', e => {
+    const item = e.target.closest('.cmdk-item');
+    if (!item) return;
+    const idx = parseInt(item.getAttribute('data-idx'), 10);
+    go(visible[idx]);
+  });
+
+  list.addEventListener('mouseover', e => {
+    const item = e.target.closest('.cmdk-item');
+    if (!item) return;
+    const idx = parseInt(item.getAttribute('data-idx'), 10);
+    if (idx !== selectedIdx) {
+      selectedIdx = idx;
+      render(input.value);
+    }
+  });
+
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) close();
+  });
+})();

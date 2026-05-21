@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Amaea</title>
+    <link>https://amaea.co.uk/blog</link>
+    <description>FCA compliance commentary, regulatory horizon-scanning, and product notes from the team building Amaea. Annual reviews, Consumer Duty, vulnerable clients, RMAR, audit-trail discipline.</description>
+    <language>en-gb</language>
+    <copyright>Copyright 2026 Amaea Ltd</copyright>
+    <managingEditor>hello@amaea.co.uk (Amaea)</managingEditor>
+    <webMaster>hello@amaea.co.uk (Amaea)</webMaster>
+    <lastBuildDate>Thu, 21 May 2026 10:30:00 +0000</lastBuildDate>
+    <atom:link href="https://amaea.co.uk/feed.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://amaea.co.uk/assets/logo-plum.png</url>
+      <title>Amaea</title>
+      <link>https://amaea.co.uk/</link>
+    </image>
+    <!-- Posts will appear here as they're published. The feed is valid empty;
+         readers will see the channel metadata until the first item is added. -->
+  </channel>
+</rss>

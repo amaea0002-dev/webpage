@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amaea.co.uk/sitemap.xml

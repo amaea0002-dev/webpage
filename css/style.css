@@ -5516,6 +5516,174 @@ section { padding: var(--section-py) 0; }
   border-color: var(--plum-border-1);
 }
 
+/* ──────────────────────────────────────────────────────────────
+ * Command palette — keyboard-accessible quick nav
+ * 2026-05-21. Triggered by Cmd/Ctrl+K (or `/` outside inputs).
+ * Indexes 17 pages + 13 glossary anchors + 5 actions = 35 items.
+ * Heuristic #7 (Flexibility & efficiency) ceiling-breaker.
+ * ────────────────────────────────────────────────────────────── */
+.cmdk-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(22,17,30,0.55);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 14vh 16px 16px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: cmdk-fade 0.16s var(--ease-out);
+}
+@keyframes cmdk-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.cmdk-dialog {
+  width: 100%;
+  max-width: 640px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-xl);
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;
+  overflow: hidden;
+  animation: cmdk-pop 0.18s var(--ease-out);
+}
+@keyframes cmdk-pop {
+  from { transform: translateY(-8px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+.cmdk-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--card-border);
+}
+.cmdk-input-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--gray-400);
+  flex-shrink: 0;
+}
+.cmdk-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--gray-900);
+  min-width: 0;
+}
+.cmdk-input::placeholder { color: var(--gray-400); }
+.cmdk-input-kbd {
+  font-size: 0.68rem;
+  font-weight: 600;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  padding: 2px 6px;
+  background: var(--gray-50);
+  color: var(--gray-500);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.cmdk-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  overflow-y: auto;
+  flex: 1;
+}
+.cmdk-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  border-left: 2px solid transparent;
+}
+.cmdk-item:hover,
+.cmdk-item.is-selected {
+  background: var(--plum-tint-1);
+  border-left-color: var(--plum);
+  color: var(--gray-900);
+}
+.cmdk-item-kind {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+}
+.cmdk-item-kind--page     { background: var(--gray-100); color: var(--gray-600); }
+.cmdk-item-kind--glossary { background: var(--plum-tint-2); color: var(--plum); }
+.cmdk-item-kind--action   { background: var(--amber-bg); color: var(--amber); }
+.cmdk-item-label { flex: 1; min-width: 0; }
+.cmdk-item-label mark {
+  background: var(--plum-tint-2);
+  color: var(--plum);
+  padding: 0 1px;
+  border-radius: 2px;
+}
+.cmdk-empty {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--gray-500);
+  font-size: 0.88rem;
+}
+.cmdk-footer {
+  display: flex;
+  gap: 18px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--card-border);
+  font-size: 0.72rem;
+  color: var(--gray-500);
+  background: var(--gray-50);
+  flex-wrap: wrap;
+}
+.cmdk-footer kbd {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.68rem;
+  padding: 1px 5px;
+  background: var(--white);
+  color: var(--gray-700);
+  border: 1px solid var(--card-border);
+  border-radius: 3px;
+  margin-right: 4px;
+}
+[data-theme="dark"] .cmdk-overlay { background: rgba(0,0,0,0.65); }
+[data-theme="dark"] .cmdk-item-kind--page     { background: var(--gray-100); }
+[data-theme="dark"] .cmdk-item-kind--glossary { background: var(--plum-tint-2); color: var(--plum-soft); }
+[data-theme="dark"] .cmdk-item-kind--action   { background: rgba(217,119,6,0.12); }
+@media (max-width: 640px) {
+  .cmdk-overlay { padding: 8vh 8px 8px; }
+  .cmdk-dialog  { max-height: 80vh; }
+  .cmdk-footer  { font-size: 0.66rem; gap: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cmdk-overlay,
+  .cmdk-dialog { animation: none; }
+}
+
+/* Steps container narrow modifier — extracts the inline
+ * max-width:760px / margin:0 auto pattern previously inlined on
+ * contact.html (rollout steps) and networks.html (rollout cadence).
+ * Normalised to 760px (was 700/760 split — 60px delta wasn't load-
+ * bearing). */
+.steps--narrow {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
 /* Page-hero last-updated / metadata line — subtle right under the
  * page-hero <p>. Used on glossary + guide; could be added to other
  * reference pages later. Smaller than the intro paragraph, plum-soft
