@@ -1697,7 +1697,10 @@ main { counter-reset: feature-detail; }
 .feature-detail-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
 .feature-detail:nth-child(even) .feature-detail-inner { direction: rtl; }
 .feature-detail:nth-child(even) .feature-detail-inner > * { direction: ltr; }
-.feature-detail-text .feature-icon { margin-bottom: 16px; }
+/* The auto-numbered § eyebrow above the h2 already identifies the
+ * section on the features page. The icon chip was decorative
+ * redundancy — hide it on features pages to clean the stack. */
+.feature-detail-text .feature-icon { display: none; }
 .feature-detail-text h2 {
   font-size: clamp(1.7rem, 2.4vw, 2.1rem);
   font-weight: 600;
@@ -5402,6 +5405,48 @@ main { counter-reset: feature-detail; }
 .mockup-summary-label  { font-size: 0.68rem; color: var(--gray-500); }
 .mockup-summary-value  { font-size: 1.2rem; font-weight: 800; color: var(--plum); letter-spacing: -0.03em; }
 .mockup-summary-suffix { font-size: 0.72rem; font-weight: 500; color: var(--gray-500); }
+
+/* Eyebrow meta line above the Consumer Duty mockup panel title.
+   Adds context (firm / period / volume) so the mockup reads as
+   a real product surface, not a marketing artefact. */
+.mockup-panel-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  font-variant-numeric: tabular-nums;
+}
+.mockup-panel-eyebrow { color: var(--plum); }
+.mockup-panel-meta-sep { color: var(--gray-300); }
+
+/* Status chip row at the bottom of a mockup panel — denser than
+   a single "Overall score" line, anchors the page-section claim
+   (fair-value flags, vulnerable cohort, board pack) to the mock. */
+.mockup-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+.mockup-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: var(--r-pill);
+  border: 1px solid transparent;
+  font-variant-numeric: tabular-nums;
+}
+.mockup-chip--warn { color: var(--amber); background: var(--amber-bg); border-color: var(--amber-border); }
+.mockup-chip--info { color: var(--plum); background: var(--plum-tint-2); border-color: var(--plum-border-2); }
+.mockup-chip--ok   { color: var(--green); background: var(--green-bg); border-color: var(--green-border); }
 
 .report-tile-icon--info { background: #EEF2FF;             color: #6366F1; }
 .report-tile-icon--plum { background: rgba(64,36,63,0.07); color: var(--plum-soft); }
