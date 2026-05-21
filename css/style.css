@@ -6031,16 +6031,18 @@ main { counter-reset: feature-detail; }
   .partner-network-callout-arrow { margin-left: auto; }
 }
 
-/* Pricing ROI framing — sits between the hero and the 4-tier card
- * grid, anchoring the Professional price against industry-standard
- * reference costs before the buyer sees the price tags. */
+/* Pricing ROI framing — sits AFTER the pricing-grid so the hero's
+ * billing toggle and the first row of pricing cards stay in the
+ * same viewport. Anchors the Professional price against industry-
+ * standard reference costs for the buyer who's already seen the
+ * price tag. */
 .pricing-roi-section {
-  padding: 12px 0 0;
+  padding: 0 0 80px;
   background: var(--gray-50);
 }
 .pricing-roi {
   max-width: 760px;
-  margin: 32px auto 0;
+  margin: 0 auto;
   padding: 28px 32px;
   background: var(--plum-tint-1);
   border: 1px solid var(--plum-border-1);
