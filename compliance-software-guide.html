@@ -76,13 +76,13 @@
 
       <p class="legal-intro">This page is for buyers and MDs whose firm doesn't yet use specialist compliance software. It's written as a category explainer, not a sales page: we've made our case for Amaea separately on <a href="features">features</a> and <a href="pricing">pricing</a>.</p>
 
-      <nav class="legal-toc" aria-label="Guide contents">
+      <nav class="legal-toc glossary-toc" data-scrollspy-toc aria-label="Guide contents">
         <div class="legal-toc-heading">On this page</div>
         <ul class="legal-toc-list">
           <li><a href="#what-it-is">What FCA compliance software is</a></li>
           <li><a href="#what-changed">What changed in 2023</a></li>
           <li><a href="#why-spreadsheets-fail">Why spreadsheets stop working</a></li>
-          <li><a href="#what-it-does">What the software actually does</a></li>
+          <li><a href="#what-it-does">What compliance software actually does</a></li>
           <li><a href="#what-to-look-for">What to look for in a vendor</a></li>
           <li><a href="#what-it-costs">What it costs (and what it saves)</a></li>
           <li><a href="#how-amaea-fits">Where Amaea fits in the category</a></li>
@@ -141,13 +141,14 @@
       </ul>
 
       <h2 id="what-it-costs">What it costs (and what it saves)</h2>
-      <p>For UK IFA-specific compliance software in 2026, monthly subscription costs typically fall in these ranges:</p>
+      <p>Based on publicly-listed prices observed across the category in Q2 2026, monthly subscription costs for UK IFA-specific compliance software typically fall in these ranges:</p>
       <ul>
         <li><strong>Single-firm boutique (up to 100 active clients):</strong> £400-£800/month.</li>
         <li><strong>Multi-adviser practice (100-500 clients):</strong> £1,200-£2,500/month.</li>
         <li><strong>Large firm or small network (500-2,000 clients):</strong> £2,500-£6,000/month.</li>
         <li><strong>Network principals (2,000+ clients across member firms):</strong> bespoke pricing; typically £8,000-£25,000/month.</li>
       </ul>
+      <p class="guide-range-note">Amaea's published rates (<a href="pricing">/pricing</a>) sit toward the upper end of each band: Essentials at £699/mo, Professional at £1,599/mo, Scale at £2,199/mo. Cheaper options exist in the category with narrower feature coverage; more comprehensive enterprise options sit above this range.</p>
       <p>Reference costs for context:</p>
       <ul>
         <li>A senior compliance consultant day rate is £600-£1,500. A compliance officer salary is typically £45,000-£80,000 fully loaded. A £1,500/month subscription is roughly one day per month of consultant time.</li>
@@ -156,6 +157,8 @@
       </ul>
       <p>The honest framing: compliance software is cheaper than the consequence of a single material breach it would have caught. It's not cheaper than having an excellent compliance officer who manually catches everything: but no compliance officer can manually maintain coverage across hundreds of clients indefinitely. The software extends what the officer can supervise.</p>
 
+      <hr class="guide-vendor-divider">
+      <div class="section-label guide-vendor-eyebrow">Vendor section · our position</div>
       <h2 id="how-amaea-fits">Where Amaea fits in the category</h2>
       <p>Amaea is FCA compliance software for UK IFA firms specifically. It's not a general-purpose compliance platform extended to advice firms; it's built for the COBS / DISP / SYSC / Consumer Duty rules that govern UK advice. The dashboard, audit trail, and rule citations are all advice-firm-shaped.</p>
       <p>What we built differently:</p>
@@ -170,11 +173,19 @@
       </ul>
       <p>The case against Amaea right now is the same as the case against any pre-launch SaaS: we're in design-partner mode with September 2028 as our public launch. Buyers who need a fully-mature platform today should look at established vendors in the space. Buyers willing to shape the product around their firm in exchange for influence and pricing protection should <a href="contact">book a demo</a> or <a href="waitlist">join the launch waitlist</a>.</p>
 
-      <p class="legal-doc-control">Have a category question this guide didn't answer? Email <a href="mailto:hello@amaea.co.uk?subject=Compliance-software-guide%20question">hello@amaea.co.uk</a>. We update this page as the conversations come up.</p>
+      <p class="glossary-closing-note">Have a category question this guide didn't answer? Email <a href="mailto:hello@amaea.co.uk?subject=Compliance-software-guide%20question">hello@amaea.co.uk</a>. We update this page as the conversations come up.</p>
 
     </div>
   </div>
 </section>
+
+<!-- Floating back-to-top button — opt-in via [data-back-to-top]
+     attribute, handler lives in js/main.js. Same .glossary-top
+     styling reused. -->
+<button class="glossary-top" type="button" data-back-to-top aria-label="Back to top of guide">
+  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  <span class="glossary-top-label">Top</span>
+</button>
 
 <footer class="footer">
   <div class="container">

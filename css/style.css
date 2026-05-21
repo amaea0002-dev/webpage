@@ -2936,6 +2936,36 @@ main { counter-reset: feature-detail; }
   background: rgba(146, 88, 160, 0.18);
 }
 
+/* Compliance-software-guide: divider + eyebrow marking the
+   transition from vendor-neutral category guide to the
+   Amaea-positioned section at the bottom of the page. */
+.guide-vendor-divider {
+  border: 0;
+  border-top: 1px solid var(--gray-200);
+  margin: 64px 0 32px;
+}
+.guide-vendor-eyebrow {
+  margin-bottom: 8px;
+  color: var(--plum);
+}
+/* Inline note clarifying where Amaea's prices sit within the
+   published category ranges. Sits below the pricing-range list.
+   No side-stripe (DESIGN.md ban) — full tint + small radius. */
+.guide-range-note {
+  margin-top: 8px;
+  padding: 16px 20px;
+  background: var(--plum-tint-1, rgba(64, 36, 63, 0.04));
+  border: 1px solid var(--plum-border-1, rgba(64, 36, 63, 0.1));
+  border-radius: var(--r-md, 12px);
+  font-size: 0.92rem;
+  color: var(--gray-700);
+  line-height: 1.65;
+}
+[data-theme="dark"] .guide-range-note {
+  background: rgba(146, 88, 160, 0.08);
+  border-color: rgba(200, 150, 200, 0.18);
+}
+
 /* Glossary back-to-top button — floating bottom-right. Renders
    only when scrolled past 600px via .is-visible class added in JS. */
 .glossary-top {

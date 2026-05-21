@@ -289,9 +289,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Glossary TOC scroll-spy + back-to-top ────────────────
-  // Both no-ops on pages without #glossary-toc / #glossary-top.
-  const glossaryToc = document.getElementById('glossary-toc');
+  // ── Long-page TOC scroll-spy + back-to-top ────────────────
+  // Generalised from /glossary so /compliance-software-guide
+  // (and any future long-scroll page) can opt in by adding the
+  // [data-scrollspy-toc] attribute to the nav and the
+  // [data-back-to-top] attribute to the floating button.
+  const glossaryToc = document.querySelector('[data-scrollspy-toc]');
   if (glossaryToc) {
     const tocLinks = glossaryToc.querySelectorAll('a[href^="#"]');
     const targets = Array.from(tocLinks).map(link => {
@@ -311,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
       targets.forEach(({ target }) => io.observe(target));
     }
   }
-  const glossaryTop = document.getElementById('glossary-top');
+  const glossaryTop = document.querySelector('[data-back-to-top]');
   if (glossaryTop) {
     const onScroll = () => {
       glossaryTop.classList.toggle('is-visible', window.scrollY > 600);
