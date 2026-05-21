@@ -1139,9 +1139,21 @@ section { padding: var(--section-py) 0; }
 
 /* ── Features ──────────────────────────────────────────────── */
 .features { padding: var(--section-py) 0; background: var(--white); }
+/* Asymmetric features grid (2026-05-21 per /impeccable critique).
+ * Row 1: Client Journey + Consumer Duty as wide cards (each spans
+ * 2 cols of a 4-col grid). Row 2: the remaining 4 features as
+ * standard 4-col. The hierarchy makes the foundational pair
+ * visually heavier than the supporting features. Breaks the AI
+ * canonical 3×2 icon-grid shape. */
 .features-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
   margin-top: 56px;
+}
+.features-grid > .feature-card:nth-child(1),
+.features-grid > .feature-card:nth-child(2) {
+  grid-column: span 2;
 }
 .feature-card {
   background: var(--card-bg);
@@ -1704,6 +1716,9 @@ section { padding: var(--section-py) 0; }
 /* Tablet - 1024px */
 @media (max-width: 1024px) {
   .features-grid       { grid-template-columns: repeat(2,1fr); }
+  /* Wide cards collapse to full width (1 of 2 = full row) on tablet. */
+  .features-grid > .feature-card:nth-child(1),
+  .features-grid > .feature-card:nth-child(2) { grid-column: 1 / -1; }
   .testimonials-grid   { grid-template-columns: repeat(2,1fr); }
   .stats-grid          { grid-template-columns: repeat(2,1fr); }
   .story-grid          { grid-template-columns: 1fr 1fr; max-width: none; }
@@ -1756,6 +1771,9 @@ section { padding: var(--section-py) 0; }
 
   /* Grids - single column */
   .features-grid       { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+  /* On single-column, every card occupies its row naturally. */
+  .features-grid > .feature-card:nth-child(1),
+  .features-grid > .feature-card:nth-child(2) { grid-column: auto; }
   .testimonials-grid   { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
   .steps               { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
   .story-grid          { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
@@ -5354,6 +5372,132 @@ section { padding: var(--section-py) 0; }
   max-width: 600px;
   margin-top: 14px;
 }
+/* Network / AR firm callout — homepage Integration matrix section.
+ * For James persona (MD, network or Appointed Representative firm,
+ * de-risking after peer enforcement). Plum-tinted, distinct from the
+ * amber urgency-strip on contact.html. */
+.partner-network-callout {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 980px;
+  margin: 18px auto 0;
+  padding: 16px 22px;
+  background: var(--plum-tint-1);
+  border: 1px solid var(--plum-border-1);
+  border-radius: var(--r-md);
+  color: var(--gray-900);
+  text-decoration: none;
+  transition: transform 0.18s var(--ease-out),
+              box-shadow 0.18s var(--ease-out),
+              border-color 0.18s var(--ease-out);
+}
+.partner-network-callout:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--sh-sm);
+  border-color: var(--plum-border-2);
+  background: var(--plum-tint-2);
+}
+.partner-network-callout-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--plum);
+  background: var(--white);
+  border: 1px solid var(--plum-border-1);
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.partner-network-callout-text {
+  flex: 1 1 auto;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--gray-700);
+}
+.partner-network-callout-arrow {
+  font-size: 1.1rem;
+  color: var(--plum);
+  flex-shrink: 0;
+  transition: transform 0.2s var(--ease-out);
+}
+.partner-network-callout:hover .partner-network-callout-arrow { transform: translateX(3px); }
+[data-theme="dark"] .partner-network-callout {
+  background: rgba(146,88,160,0.08);
+  border-color: var(--plum-border-1);
+  color: var(--gray-900);
+}
+[data-theme="dark"] .partner-network-callout:hover {
+  background: rgba(146,88,160,0.14);
+  border-color: var(--plum-border-2);
+}
+@media (max-width: 640px) {
+  .partner-network-callout { flex-wrap: wrap; }
+  .partner-network-callout-arrow { margin-left: auto; }
+}
+
+/* Pricing ROI framing — sits below the 4-tier card grid, anchors the
+ * Professional price against industry-standard reference costs. For
+ * Sarah persona (junior CO building MD case). */
+.pricing-roi {
+  max-width: 760px;
+  margin: 40px auto 0;
+  padding: 28px 32px;
+  background: var(--plum-tint-1);
+  border: 1px solid var(--plum-border-1);
+  border-radius: var(--r-xl);
+}
+.pricing-roi-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin-bottom: 10px;
+}
+.pricing-roi-headline {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--gray-900);
+  margin: 0 0 18px;
+  line-height: 1.5;
+}
+.pricing-roi-headline strong {
+  font-weight: 700;
+  color: var(--plum);
+}
+.pricing-roi-list {
+  margin: 0 0 18px;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--gray-700);
+  line-height: 1.55;
+}
+.pricing-roi-list li::marker { color: var(--plum-soft); }
+.pricing-roi-list strong { color: var(--gray-900); font-weight: 700; }
+.pricing-roi-list a {
+  color: var(--plum);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.pricing-roi-aside {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--gray-500);
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--plum-border-1);
+}
+[data-theme="dark"] .pricing-roi {
+  background: rgba(146,88,160,0.08);
+  border-color: var(--plum-border-1);
+}
+
 /* Hero tertiary CTA — added 2026-05-21 to restore demo-funnel path
  * lost when the primary/secondary hero pills moved from /contact to
  * content pages. Small muted link, single line, plum-tint underline. */
