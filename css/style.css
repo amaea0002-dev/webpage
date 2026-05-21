@@ -5522,6 +5522,7 @@ section { padding: var(--section-py) 0; }
  * Indexes 17 pages + 13 glossary anchors + 5 actions = 35 items.
  * Heuristic #7 (Flexibility & efficiency) ceiling-breaker.
  * ────────────────────────────────────────────────────────────── */
+.cmdk-overlay[hidden] { display: none; }
 .cmdk-overlay {
   position: fixed;
   inset: 0;
