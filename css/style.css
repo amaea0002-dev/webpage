@@ -6046,3 +6046,90 @@ section { padding: var(--section-py) 0; }
 .founders-form-success h2,
 .integrations-ask h2,
 .newsletter-card h2 { letter-spacing: -0.022em; }
+
+/* ════════════════════════════════════════════════════════════════════
+   LAYOUT POLISH — card-grid alignment + 2-col rhythm + premium feel
+   ════════════════════════════════════════════════════════════════════
+   Problem: when cards wrap across multiple rows, content of varying
+   length leaves uneven empty space below each card → the grid reads
+   ragged. Fix in two parts:
+
+     1. Force every row in a uniform grid to the same height
+        (grid-auto-rows: 1fr).
+     2. Let the description / body inside each card absorb the
+        vertical slack (flex: 1) so card bottoms line up cleanly
+        with whatever sits below the body (CTA, link, hairline).
+   ──────────────────────────────────────────────────────────────────── */
+
+/* 1. Uniform card grids — equal rows */
+.pain-grid,
+.testimonials-grid,
+.pricing-grid,
+.stats-grid,
+.amaea-help-grid,
+.blog-grid-3,
+.blog-grid-inner,
+.integrations-grid,
+.steps {
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+}
+
+/* 2a. Cards that need flex-column added */
+.pain-card,
+.amaea-help-card,
+.integration-card,
+.step {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2b. Card body absorbs the slack so bottoms align */
+.feature-desc,
+.pain-desc,
+.amaea-help-card-body,
+.blog-card-summary,
+.pricing-features,
+.step-desc,
+.integration-desc {
+  flex: 1 1 auto;
+}
+
+/* 3. Two-column layouts — anchor to top, not centre.
+   When a text block and a figure / dashboard mockup have
+   different natural heights, vertical-centering leaves the
+   shorter column floating mid-air. Top-anchor reads as a
+   deliberate composition and removes the visual mismatch. */
+.ai-inner,
+.feature-detail-inner {
+  align-items: start;
+}
+
+/* 4. Row-gap consistency on the dense grids.
+   Default `gap` shorthand uses one value for both axes; on
+   wrapped rows the perceived row gap reads tighter against
+   dense card content. Add a touch more vertical breathing. */
+.pain-grid,
+.testimonials-grid,
+.pricing-grid,
+.amaea-help-grid,
+.integrations-grid { row-gap: 28px; }
+
+/* 5. Layered-always hover refinement.
+   Per DESIGN.md every card carries elevation on hover. The
+   pain-card / amaea-help-card / integration-card transitions
+   were defined per-rule; unify the lift distance so the grids
+   feel cohesive when the eye tracks across them. */
+.pain-card,
+.amaea-help-card,
+.integration-card,
+.blog-card,
+.step {
+  transition:
+    transform 0.22s var(--ease, cubic-bezier(0.32, 0.72, 0, 1)),
+    box-shadow 0.22s var(--ease, cubic-bezier(0.32, 0.72, 0, 1)),
+    border-color 0.22s,
+    background 0.22s;
+}
+
+
