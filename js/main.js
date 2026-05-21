@@ -279,11 +279,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Mirror the server's validation so the user gets feedback without
       // a round-trip.
-      const firstName = (payload.first_name || '').toString().trim();
-      const lastName  = (payload.last_name  || '').toString().trim();
-      const email     = (payload.email      || '').toString().trim();
-      const firm      = (payload.firm       || '').toString().trim();
-      if (!firstName || !lastName || !email || !firm) {
+      const name  = (payload.name  || '').toString().trim();
+      const email = (payload.email || '').toString().trim();
+      const firm  = (payload.firm  || '').toString().trim();
+      if (!name || !email || !firm) {
         showError('Please fill in your name, work email, and firm.');
         return;
       }

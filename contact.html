@@ -61,11 +61,19 @@
 
 <main class="page-top" id="main" tabindex="-1">
 
+<!-- Page hero promoted from the right column so the h1 leads the
+     document outline. The Bring-a-real-client framing is the
+     page's argument; it deserves the page-hero position. -->
+<section class="page-hero">
+  <div class="container">
+    <h1>Bring a real client. We'll show you what Amaea does with it.</h1>
+    <p>30 minutes. We use one of your firm's hardest compliance cases (anonymised). You see exactly what flags, when, which FCA rule it cites, and how the audit trail reads.</p>
+  </div>
+</section>
+
 <!-- ── Urgent-deadline shortcut ─────────────────────────────────
      Sits ABOVE the form so a panicked Friday-deadline reader sees
-     the escape hatch before they start filling fields. Per
-     /impeccable critique re-run: the bottom CTA banner was too late
-     for the persona that needs it most. ─────────────────────── -->
+     the escape hatch before they start filling fields. ─── -->
 <a class="contact-urgent-strip" href="mailto:hello@amaea.co.uk?subject=Urgent%3A%20FCA%20deadline%20this%20week">
   <span class="contact-urgent-strip-tag">Deadline this week?</span>
   <span class="contact-urgent-strip-text">Skip the form. Email <strong>hello@amaea.co.uk</strong> with your date in the subject and we'll prioritise your demo.</span>
@@ -88,15 +96,9 @@
             <div aria-hidden="true" class="honeypot">
               <label>Company website (leave blank)<input type="text" name="company_url" tabindex="-1" autocomplete="off"></label>
             </div>
-            <div class="form-grid">
-              <div class="form-group">
-                <label class="form-label" for="first-name">First name *</label>
-                <input class="form-input" type="text" id="first-name" name="first_name" placeholder="James" required aria-required="true" aria-describedby="form-error-text">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="last-name">Last name *</label>
-                <input class="form-input" type="text" id="last-name" name="last_name" placeholder="Morrison" required aria-required="true" aria-describedby="form-error-text">
-              </div>
+            <div class="form-group">
+              <label class="form-label" for="name">Full name *</label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="James Morrison" required autocomplete="name" aria-required="true" aria-describedby="form-error-text">
             </div>
             <div class="form-group">
               <label class="form-label" for="email">Work email *</label>
@@ -146,16 +148,14 @@
             <div class="form-success-icon">✓</div>
             <h3>You're booked in!</h3>
             <p>We'll be in touch within one business day to confirm your demo time. In the meantime, feel free to explore the <a href="features" class="text-plum">features page</a>.</p>
-            <p class="form-success-share">Need to bring your MD or compliance committee into the decision? <a href="mailto:?subject=Worth%20a%20look%3A%20Amaea%20FCA%20compliance%20platform&amp;body=I%27ve%20just%20booked%20a%20demo%20of%20Amaea%2C%20the%20FCA%20compliance%20platform%20we%20talked%20about.%20Take%20a%20look%3A%20https%3A%2F%2Famaea.co.uk%20%E2%80%94%20I%27d%20value%20your%20view%20before%20the%20call." class="text-plum">Forward this link</a>.</p>
+            <p class="form-success-share">Need to bring your MD or compliance committee into the decision? <a href="mailto:?subject=Worth%20a%20look%3A%20Amaea%20FCA%20compliance%20platform&amp;body=I%27ve%20just%20booked%20a%20demo%20of%20Amaea%2C%20the%20FCA%20compliance%20platform%20we%20talked%20about.%20Take%20a%20look%3A%20https%3A%2F%2Famaea.co.uk.%20I%27d%20value%20your%20view%20before%20the%20call." class="text-plum">Forward this link</a>.</p>
           </div>
         </div>
       </div>
 
-      <!-- Info side -->
+      <!-- Info side — h1 + intro promoted to page-hero above. This
+           column now leads with the demo benefits + the quote. -->
       <div class="contact-info fade-up fade-up-2">
-        <h1>Bring a real client. We'll show you what Amaea does with it.</h1>
-        <p>30 minutes. We use one of your firm's hardest compliance cases (anonymised). You see exactly what flags, when, which FCA rule it cites, and how the audit trail reads.</p>
-
         <div class="demo-benefits">
           <div class="demo-benefit">
             <div class="demo-benefit-icon">
@@ -212,33 +212,37 @@
 <section class="section-white-sm">
   <div class="container">
     <div class="text-center mb-12">
-      <h2 class="section-title">Demo → trial → live in 5 days.</h2>
+      <h2 class="section-title">Demo today. Trial at launch. Live within 5 days.</h2>
     </div>
     <div class="steps steps--narrow">
       <div class="step fade-up fade-up-1">
         <div class="step-num">1</div>
         <h3 class="step-title">Book your demo</h3>
-        <p class="step-desc">Fill in the form and we'll confirm a 30-minute slot within one business day. No prep required on your end.</p>
+        <p class="step-desc">Available now. 30-minute walkthrough with a real compliance case from your firm, confirmed within one business day. No prep required on your end.</p>
       </div>
       <div class="step fade-up fade-up-2">
         <div class="step-num">2</div>
-        <h3 class="step-title">30-day free trial</h3>
-        <p class="step-desc">After the demo, start a full-access trial. Our team handles the integration and onboarding; you're live within 5 days.</p>
+        <h3 class="step-title">Wait for your trial window</h3>
+        <p class="step-desc">Public 30-day free trial opens with the September 2028 launch. Founders Programme firms get early access from Q3 2026. We'll let you know the moment your window opens.</p>
       </div>
       <div class="step fade-up fade-up-3">
         <div class="step-num">3</div>
         <h3 class="step-title">Live within 5 business days</h3>
-        <p class="step-desc">Intelliflo + SharePoint connected, client records imported, compliance team trained. Enterprise setups with multi-site complexity typically take 2-3 weeks.</p>
+        <p class="step-desc">Once your trial starts: Intelliflo + SharePoint connected, client records imported, compliance team trained. Enterprise setups with multi-site complexity typically take 2-3 weeks.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ── CTA ───────────────────────────────────────────────────── -->
+<!-- Differentiated from the urgent-strip at the top of the page
+     (which already offers the email-instead-of-form escape).
+     Bottom-scrolled visitors who haven't booked are still
+     researching; give them next pages, not a third "email us" CTA. -->
 <section class="cta-banner">
   <div class="container">
-    <h2>Want to talk first?</h2>
-    <p>Email <a href="mailto:hello@amaea.co.uk" class="link-on-dark">hello@amaea.co.uk</a> and we'll get back to you within one business day. The form above reaches the same inbox.</p>
+    <h2>Not ready to book yet?</h2>
+    <p>Read the <a href="features" class="link-on-dark">features deep-dive</a>, check the <a href="pricing" class="link-on-dark">pricing</a>, or review the <a href="security" class="link-on-dark">security posture</a>. For procurement questions, email <a href="mailto:security@amaea.co.uk" class="link-on-dark">security@amaea.co.uk</a> and we'll send the questionnaire.</p>
   </div>
 </section>
 

@@ -90,22 +90,27 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true })
   }
 
-  const firstName   = String(body.first_name   ?? '').trim()
-  const lastName    = String(body.last_name    ?? '').trim()
+  // Form was simplified from first_name+last_name to a single `name`
+  // field 2026-05-21. Fall back to the legacy fields so any in-flight
+  // requests from a stale client still parse.
+  const legacyFirst = String(body.first_name ?? '').trim()
+  const legacyLast  = String(body.last_name  ?? '').trim()
+  const name        = String(body.name       ?? '').trim() ||
+                      `${legacyFirst} ${legacyLast}`.trim()
   const email       = String(body.email        ?? '').trim()
   const firm        = String(body.firm         ?? '').trim()
   const role        = String(body.role         ?? '').trim()
   const clientCount = String(body.client_count ?? '').trim()
   const message     = String(body.message      ?? '').trim()
 
-  if (!firstName || !lastName || !email || !firm) {
+  if (!name || !email || !firm) {
     return res.status(400).json({ ok: false, error: 'Missing required fields' })
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ ok: false, error: 'Invalid email address' })
   }
 
-  const fullName = `${firstName} ${lastName}`.trim()
+  const fullName = name
   const subject  = `Demo request — ${fullName} (${firm})`
 
   const html = `
