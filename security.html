@@ -27,8 +27,19 @@
     }
     .sec-control-title { font-size:1.05rem; font-weight:800; color:var(--gray-900); letter-spacing:-0.022em; }
     .sec-control-body { font-size:0.86rem; color:var(--gray-600); line-height:1.65; }
+    .sec-control-body p { margin:0; }
+    .sec-control-body p + p { margin-top: 10px; }
     .sec-control-body strong { color:var(--gray-900); font-weight:700; }
     .sec-control-body a { color:var(--plum); text-decoration:underline; }
+    /* Sub-list for grouped controls within one sec-control (e.g. App security
+       split into HTTP headers, abuse, and email auth groups). */
+    .sec-control-sub { display:grid; grid-template-columns: 90px 1fr; column-gap: 16px; row-gap: 10px; margin-top: 4px; }
+    .sec-control-sub dt { font-size:0.66rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--gray-500); padding-top: 2px; }
+    .sec-control-sub dd { margin:0; font-size:0.86rem; color:var(--gray-600); line-height:1.65; }
+    /* Security-issue card — was inline style on the wrapper div. */
+    .security-issue-card { margin-top:36px; padding:28px 32px; background:var(--white); border:1px solid var(--gray-200); border-radius:var(--r-2xl); text-align:left; }
+    .security-issue-card-text { font-size:0.9rem; color:var(--gray-700); line-height:1.6; margin-bottom:12px; }
+    .cta-button-top { margin-top: 24px; }
     .sec-list { list-style:none; padding:0; margin:8px 0 0; }
     .sec-list li { padding:10px 0; border-bottom:1px solid var(--gray-100); font-size:0.86rem; color:var(--gray-700); line-height:1.6; }
     .sec-list li:last-child { border-bottom:none; }
@@ -84,6 +95,7 @@
 
 <section class="page-hero">
   <div class="container">
+    <div class="section-label">UK GDPR · 46 RLS tests · SOC 2 Type I planned 2027</div>
     <h1>Your firm's data,<br><em>handled properly.</em></h1>
     <p>Amaea processes personal data on behalf of FCA-authorised IFA firms. This page summarises how we protect it, where it lives, and who can access it: designed to be the answer to your IT due-diligence checklist.</p>
   </div>
@@ -94,8 +106,8 @@
     <div class="col-780">
 
       <div class="text-center mb-12">
-        <h2 class="section-title">How your data is protected.</h2>
-        <p class="section-sub">Encryption, isolation, and auditability: by default, not as an upgrade.</p>
+        <h2 class="section-title">What we built in before the product.</h2>
+        <p class="section-sub">Encryption, isolation, and auditability. On by default, not as an upgrade.</p>
       </div>
 
       <div class="sec-control fade-up">
@@ -104,8 +116,8 @@
           <span class="sec-control-title">Encrypted at rest and in transit</span>
         </div>
         <div class="sec-control-body">
-          <strong>In transit:</strong> all traffic uses TLS 1.2+ with modern ciphers. HSTS with a one-year max-age + preload is enforced on every Amaea domain, so browsers refuse plain-HTTP connections.<br><br>
-          <strong>At rest:</strong> AES-256 disk encryption on both the Postgres database and document storage, managed by our infrastructure provider (Supabase, hosted on AWS eu-west). Encryption keys are rotated automatically per AWS KMS schedule.
+          <p><strong>In transit:</strong> all traffic uses TLS 1.2+ with modern ciphers. HSTS with a one-year max-age + preload is enforced on every Amaea domain, so browsers refuse plain-HTTP connections.</p>
+          <p><strong>At rest:</strong> AES-256 disk encryption on both the Postgres database and document storage, managed by our infrastructure provider (Supabase, hosted on AWS eu-west). Encryption keys are rotated automatically per AWS KMS schedule.</p>
         </div>
       </div>
 
@@ -165,7 +177,14 @@
           <span class="sec-control-title">Defence in depth at the application layer</span>
         </div>
         <div class="sec-control-body">
-          Content Security Policy with frame-ancestors locked to <code>'none'</code>; X-Frame-Options DENY; HSTS preload; Referrer-Policy strict-origin-when-cross-origin; Permissions-Policy disabling camera, microphone, geolocation, and payment APIs. CSRF protection on state-mutating endpoints; per-IP rate limiting on public surfaces and per-firm fair-use caps on AI features. DMARC enforcement on all outbound email to prevent spoofing (SPF + DKIM live; DMARC policy currently <code>p=none</code> in monitor mode while we verify all legitimate senders are aligned; tightening to <code>p=quarantine</code> then <code>p=reject</code> on a documented rollout).
+          <dl class="sec-control-sub">
+            <dt>Headers</dt>
+            <dd>Content Security Policy with <code>frame-ancestors 'none'</code>; X-Frame-Options DENY; HSTS preload; Referrer-Policy <code>strict-origin-when-cross-origin</code>; Permissions-Policy disabling camera, microphone, geolocation, and payment APIs.</dd>
+            <dt>Abuse</dt>
+            <dd>CSRF protection on every state-mutating endpoint. Per-IP rate limiting on public surfaces; per-firm fair-use caps on AI features.</dd>
+            <dt>Email auth</dt>
+            <dd>SPF + DKIM live on all outbound. DMARC currently <code>p=none</code> in monitor mode while we verify legitimate senders are aligned; tightening to <code>p=quarantine</code> then <code>p=reject</code> on a documented rollout.</dd>
+          </dl>
         </div>
       </div>
 
@@ -254,9 +273,9 @@
       <h2 class="section-title">If something goes wrong.</h2>
       <p class="section-sub">We have a documented incident response plan covering detection, containment, regulator notification (ICO within 72 hours where required under UK GDPR Art. 33), customer notification, and post-incident review. The full plan is available to customers under DPA.</p>
 
-      <div style="margin-top:36px;padding:28px 32px;background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r-2xl);text-align:left;">
+      <div class="security-issue-card">
         <div class="security-card-label">Report a security issue</div>
-        <p style="font-size:0.9rem;color:var(--gray-700);line-height:1.6;margin-bottom:12px;">Found a vulnerability, suspect unauthorised access, or want to report something that seems off? Email us directly. We'll acknowledge within one business day.</p>
+        <p class="security-issue-card-text">Found a vulnerability, suspect unauthorised access, or want to report something that seems off? Email us directly. We'll acknowledge within one business day.</p>
         <p class="security-card-email"><a href="mailto:security@amaea.co.uk" class="link-plum-u">security@amaea.co.uk</a></p>
         <p class="security-card-footnote">We respond to all reports in good faith. We don't operate a paid bug-bounty programme at this stage but we do publicly credit researchers on this page (with permission) once an issue is fixed.</p>
       </div>
@@ -267,9 +286,9 @@
 
 <section class="cta-banner">
   <div class="container">
-    <h2>Need the DPA, sub-processor list, or our IR plan?</h2>
-    <p>Book a 30-minute demo. We'll share the full pack during the IT due-diligence call.</p>
-    <a href="contact" class="btn btn-primary btn-lg" style="margin-top:24px;">Book a demo <span aria-hidden="true">→</span></a>
+    <h2>Need the DPA, IR plan, or vendor questionnaire?</h2>
+    <p>Book a 30-minute demo. We'll share the full pack during the IT due-diligence call. The sub-processor list above is current; everything else is gated under DPA.</p>
+    <a href="contact" class="btn btn-primary btn-lg cta-button-top">Book a demo <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
