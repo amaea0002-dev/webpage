@@ -5354,6 +5354,114 @@ section { padding: var(--section-py) 0; }
   max-width: 600px;
   margin-top: 14px;
 }
+/* Hero tertiary CTA — added 2026-05-21 to restore demo-funnel path
+ * lost when the primary/secondary hero pills moved from /contact to
+ * content pages. Small muted link, single line, plum-tint underline. */
+.hero-tertiary {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--gray-500);
+}
+.hero-tertiary a {
+  color: var(--gray-700);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--plum-tint-2);
+  text-decoration-thickness: 1.5px;
+  transition: color 0.2s var(--ease-out), text-decoration-color 0.2s var(--ease-out);
+  font-weight: 500;
+}
+.hero-tertiary a:hover {
+  color: var(--plum);
+  text-decoration-color: var(--plum-border-2);
+}
+
+/* Urgent-deadline shortcut strip on contact.html — sits above the
+ * form so Margaret-the-Director (Friday FCA deadline) sees the
+ * escape hatch before she fills the form. Amber tint to signal
+ * urgency; whole strip is clickable. */
+.contact-urgent-strip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: var(--max-w);
+  margin: 24px auto 0;
+  padding: 14px 22px;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-border);
+  border-radius: var(--r-md);
+  color: var(--gray-900);
+  text-decoration: none;
+  transition: transform 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out), border-color 0.18s var(--ease-out);
+}
+.contact-urgent-strip:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--sh-sm);
+  border-color: var(--amber);
+}
+.contact-urgent-strip-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--white);
+  border: 1px solid var(--amber-border);
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.contact-urgent-strip-text {
+  flex: 1 1 auto;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.contact-urgent-strip-text strong { font-weight: 700; color: var(--gray-900); }
+.contact-urgent-strip-arrow {
+  font-size: 1.1rem;
+  color: var(--amber);
+  flex-shrink: 0;
+  transition: transform 0.2s var(--ease-out);
+}
+.contact-urgent-strip:hover .contact-urgent-strip-arrow { transform: translateX(3px); }
+[data-theme="dark"] .contact-urgent-strip {
+  background: rgba(217,119,6,0.10);
+  border-color: rgba(217,119,6,0.30);
+  color: var(--gray-900);
+}
+[data-theme="dark"] .contact-urgent-strip-tag {
+  background: rgba(217,119,6,0.16);
+  border-color: rgba(217,119,6,0.32);
+}
+@media (max-width: 640px) {
+  .contact-urgent-strip {
+    flex-wrap: wrap;
+    margin: 16px;
+  }
+  .contact-urgent-strip-arrow { margin-left: auto; }
+}
+
+/* Security panel secondary "request PDF directly" link — sits below
+ * the primary CTA, offers procurement an alt path with different
+ * subject framing. */
+.security-aside-pdf {
+  margin-top: 12px;
+  font-size: 0.82rem;
+}
+.security-aside-pdf a {
+  color: var(--plum-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(200,150,200,0.25);
+  transition: color 0.2s var(--ease-out), text-decoration-color 0.2s var(--ease-out);
+}
+.security-aside-pdf a:hover {
+  color: #fff;
+  text-decoration-color: rgba(255,255,255,0.5);
+}
+
 /* Form success "share with my MD" line — added for Sarah persona
  * 2026-05-21 per /impeccable critique. Sarah is the junior research
  * decision-influencer; she needs a friction-free way to forward the
