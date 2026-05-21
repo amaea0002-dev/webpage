@@ -289,6 +289,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ── Glossary TOC scroll-spy + back-to-top ────────────────
+  // Both no-ops on pages without #glossary-toc / #glossary-top.
+  const glossaryToc = document.getElementById('glossary-toc');
+  if (glossaryToc) {
+    const tocLinks = glossaryToc.querySelectorAll('a[href^="#"]');
+    const targets = Array.from(tocLinks).map(link => {
+      const id = link.getAttribute('href').slice(1);
+      return { link, target: document.getElementById(id) };
+    }).filter(pair => pair.target);
+    if (targets.length && 'IntersectionObserver' in window) {
+      const setActive = (id) => {
+        tocLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + id));
+      };
+      const io = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length) setActive(visible[0].target.id);
+      }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+      targets.forEach(({ target }) => io.observe(target));
+    }
+  }
+  const glossaryTop = document.getElementById('glossary-top');
+  if (glossaryTop) {
+    const onScroll = () => {
+      glossaryTop.classList.toggle('is-visible', window.scrollY > 600);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    glossaryTop.addEventListener('click', () => {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    });
+  }
+
   // ── Contact form → /api/demo (Resend) ────────────────────
   const contactForm = document.getElementById('demo-form');
   if (contactForm) {
