@@ -900,13 +900,8 @@ section { padding: var(--section-py) 0; }
   line-height: 1.55;
   margin: 0;
 }
-.security-footnote {
-  text-align: center;
-  margin-top: 36px;
-  font-size: 0.82rem;
-  color: var(--gray-500);
-}
-.security-footnote a { color: var(--plum); font-weight: 600; }
+/* .security-footnote removed 2026-05-21 — consolidated into the
+ * canonical .section-footnote class (see appended block at end). */
 @media (max-width: 900px) {
   .security-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -919,7 +914,6 @@ section { padding: var(--section-py) 0; }
 [data-theme="dark"] .security-card h3 { color: #F4EEF8; }
 [data-theme="dark"] .security-card p { color: rgba(255,255,255,0.65); }
 [data-theme="dark"] .security-icon { background: rgba(122,63,121,0.20); color: #E0C0E0; }
-[data-theme="dark"] .security-footnote { color: var(--overlay-emph); }
 
 /* ── (Legacy trust-bar CSS retained for any other page using it) ── */
 .trust-bar {
@@ -2387,10 +2381,8 @@ section { padding: var(--section-py) 0; }
 
 /* ── Pricing-page misc helpers ────────────────────────────── */
 /* Comparison-table footnote sits beneath the matrix. */
-.compare-footnote {
-  text-align: center; font-size: 0.82rem;
-  color: var(--gray-500); margin-top: 36px;
-}
+/* .compare-footnote removed 2026-05-21 — consolidated into the
+ * canonical .section-footnote class (see appended block at end). */
 /* The grid section (pricing cards) sits on the soft-grey background. */
 .pricing-grid-section { padding: 56px 0 80px; background: var(--gray-50); }
 /* The table is allowed to horizontally overflow on narrow viewports. */
@@ -5253,12 +5245,18 @@ section { padding: var(--section-py) 0; }
   max-width: 600px;
   margin-top: 14px;
 }
+/* Single footnote class used by every long-form section that closes
+ * with a one-sentence aside (model-firm stats, security posture,
+ * pricing comparison). Replaces the older .security-footnote and
+ * .compare-footnote which were near-identical. */
 .section-footnote {
   text-align: center;
-  margin-top: 32px;
-  font-size: 0.84rem;
+  margin-top: 36px;
+  font-size: 0.82rem;
   color: var(--gray-500);
 }
+.section-footnote a { color: var(--plum); font-weight: 600; }
+[data-theme="dark"] .section-footnote { color: var(--overlay-emph); }
 .stat-value-suffix {
   font-size: 0.55em;
   color: var(--gray-400);
