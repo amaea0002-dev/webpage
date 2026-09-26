@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  agentRules: false,
   // Hide the dev-only on-screen route indicator (Next 16: single boolean).
   devIndicators: false,
   poweredByHeader: false,
@@ -12,6 +13,7 @@ const nextConfig: NextConfig = {
       { source: "/contact", destination: "/waitlist", permanent: false },
     ];
     return [
+      { source: '/:path*', has: [{ type: 'host' as const, value: 'amaeaai.vercel.app' }], destination: 'https://amaea.co.uk/:path*', permanent: true },
       {
         source: "/:path*",
         has: [{ type: "host" as const, value: "www.amaea.co.uk" }],

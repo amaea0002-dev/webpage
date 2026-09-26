@@ -94,11 +94,12 @@ export function ValuesSection() {
         </div>
         <div className="company-value-list">
           {VALUES.map((value, index) => (
-            <article className="company-value" key={value.title}>
-              <div className="value-heading">
+            <details className="company-value" key={value.title}>
+              <summary className="value-heading">
                 <span className="value-number" aria-hidden="true">0{index + 1}</span>
-                <h3 className="h-sub">{value.title}</h3>
-              </div>
+                <span className="h-sub">{value.title}</span>
+                <span className="value-expand" aria-hidden="true">+</span>
+              </summary>
               <dl className="value-points">
                 {value.points.map(([title, body]) => (
                   <div key={title}>
@@ -107,7 +108,7 @@ export function ValuesSection() {
                   </div>
                 ))}
               </dl>
-            </article>
+            </details>
           ))}
         </div>
       </div>

@@ -23,7 +23,7 @@ export default function LegalPage({ title, eyebrow, lastUpdated, children }: {
       </section>
 
       <section style={{ borderTop: '1px solid var(--rule)', paddingBottom: 96 }}>
-        <div className="container-prose" style={{ paddingTop: 48 }}>
+        <div className="container-prose legal-prose" style={{ paddingTop: 48 }}>
           {children}
         </div>
       </section>

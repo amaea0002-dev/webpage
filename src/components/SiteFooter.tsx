@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { isPublishedRoute } from '@/lib/site-mode'
 
 const COLS = [
@@ -21,7 +22,7 @@ const COLS = [
     ],
   },
   {
-    label: 'Trust & security',
+    label: 'Privacy & information',
     items: [
       { href: '/security', label: 'Security & encryption' },
       { href: '/privacy',  label: 'Privacy' },
@@ -36,12 +37,13 @@ const COLS = [
       { href: '/founders', label: 'Founders programme' },
       { href: '/contact',  label: 'Contact' },
       { href: '/waitlist', label: 'Register your firm' },
+      { href: 'mailto:hello@amaea.co.uk', label: 'hello@amaea.co.uk' },
     ],
   },
 ]
   // Only link pages that are public in this mode (lib/site-mode); a column
   // with nothing left in it disappears entirely.
-  .map(col => ({ ...col, items: col.items.filter(item => isPublishedRoute(item.href)) }))
+  .map(col => ({ ...col, items: col.items.filter(item => item.href.startsWith('mailto:') || isPublishedRoute(item.href)) }))
   .filter(col => col.items.length > 0)
 
 export default function SiteFooter() {
@@ -51,7 +53,7 @@ export default function SiteFooter() {
         <div className="footer-grid">
           <div>
             <div className="footer-mark" style={{ marginBottom: 14 }}>
-              <img src="/amaea-a-white.png" alt="" width={40} height={40} />
+              <Image unoptimized src="/amaea-a-white.png" alt="" width={40} height={40} />
               <span className="footer-wordmark">amaea</span>
             </div>
             <p style={{ color: 'rgba(254,252,250,0.72)', fontSize: 14, maxWidth: 300, lineHeight: 1.55 }}>

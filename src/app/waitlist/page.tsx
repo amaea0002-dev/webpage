@@ -1,6 +1,7 @@
+import { pageMetadata } from '@/lib/metadata'
 import { WaitlistForm } from '@/components/forms/WaitlistForm'
 
-export const metadata = { title: 'Founders programme · Amaea', alternates: { canonical: '/waitlist' } }
+export const metadata = pageMetadata('Founders programme · Amaea', 'Register your UK financial planning firm’s interest in Amaea’s founders programme. Help shape the next release, with no commitment at registration.', '/waitlist')
 
 export default function WaitlistPage() {
   return (
@@ -12,17 +13,17 @@ export default function WaitlistPage() {
             <span className="sep">·</span>
             <span>Ten to twenty firms</span>
             <span className="sep">·</span>
-            <span>Not open yet</span>
+            <span>Register interest now</span>
           </div>
           <h1 className="hero-display" style={{ maxWidth: '20ch', marginBottom: 32 }}>
-            Register for the <em>founders programme.</em>
+            Help shape <em>a calmer way to work.</em>
           </h1>
           {/* TODO(Milan): name the conference and month once the date is fixed, so this says
               when applications open instead of "soon". */}
           <p className="lede" style={{ maxWidth: '40rem' }}>
-            Applications are not open yet. Tell us about your firm now and we will come to you
-            when they are — we are looking for ten to twenty firms, and we would rather talk to
-            you before we build the next part than after.
+            Register your interest in the founders programme. We’re looking for ten to twenty UK firms
+            to help shape what comes next. We’ll contact you when applications open; no opening date
+            has been announced, and registering commits you to nothing.
           </p>
         </div>
       </section>
@@ -32,7 +33,7 @@ export default function WaitlistPage() {
           {/* Form */}
           <div>
             <div className="eyebrow" style={{ marginBottom: 14 }}>Register your interest</div>
-            <h2 className="h-section" style={{ marginBottom: 32 }}>Tell us about your firm.</h2>
+            <h2 className="h-section" style={{ marginBottom: 32 }}>Start with your firm and email.</h2>
             <WaitlistForm />
           </div>
 
@@ -42,7 +43,7 @@ export default function WaitlistPage() {
               <Stat n="10–20" label="Firms in the first cohort" />
               <Stat n="3–15" label="Advisers per firm" />
               <Stat n="UK" label="FCA-regulated firms" />
-              <Stat n="1–2 months" label="Expected opening-to-start window" />
+              <Stat n="No commitment" label="At registration" />
             </div>
             <div className="tile">
               <div className="eyebrow" style={{ color: 'var(--plum)', marginBottom: 14 }}>What founders get</div>
@@ -50,7 +51,7 @@ export default function WaitlistPage() {
                 {/* TODO(Milan): once the commercial terms for the cohort are set, say them here —
                     what participating costs, for how long, and what happens at the end. */}
                 <Bullet h="Who we're looking for" b="Three to fifteen advisers, UK FCA-regulated, in good standing, with an active client book." />
-                <Bullet h="What we ask" b="Honesty about your current compliance setup — including the parts you are not proud of." />
+                <Bullet h="What we ask" b="Your perspective on the compliance work that takes time, and what would make it easier." />
                 <Bullet h="What you get" b="A direct line to the two people building it, and real influence over what gets built first." />
                 <Bullet h="What is still to come" b="Commercial terms for the cohort. We will put them in writing before asking anyone to commit." />
               </ul>

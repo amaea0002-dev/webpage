@@ -33,16 +33,16 @@ type FieldSpec = {
   oneOf?:    readonly string[]
 }
 
-export const ADVISER_BANDS = ['1–3', '4–10', '11–25', '25+'] as const
-export const CLIENT_BANDS  = ['Under 100', '100–250', '250–500', '500–1,000', '1,000+'] as const
+export const ADVISER_BANDS = ['1–2', '3–5', '6–10', '11–15', '16–25', '26+'] as const
+export const CLIENT_BANDS  = ['Under 100', '100–249', '250–499', '500–999', '1,000+'] as const
 export const CONTACT_SUBJECTS = ['Demo request', 'Founders programme', 'Integration', 'Press', 'Something else'] as const
 
 const SPECS: Record<EnquiryKind, FieldSpec[]> = {
   application: [
     { name: 'firm',         label: 'Firm name',        required: true, max: LIMITS.short },
     { name: 'fcaReference', label: 'FCA reference',                    max: LIMITS.short },
-    { name: 'advisers',     label: 'Advisers',         required: true, max: LIMITS.short, oneOf: ADVISER_BANDS },
-    { name: 'clients',      label: 'Active clients',   required: true, max: LIMITS.short, oneOf: CLIENT_BANDS },
+    { name: 'advisers',     label: 'Advisers',                         max: LIMITS.short, oneOf: ADVISER_BANDS },
+    { name: 'clients',      label: 'Active clients',                   max: LIMITS.short, oneOf: CLIENT_BANDS },
     { name: 'role',         label: 'Your role',                        max: LIMITS.short },
     { name: 'email',        label: 'Email',            required: true, max: LIMITS.email, email: true },
     { name: 'setup',        label: 'Current setup',                    max: LIMITS.message },

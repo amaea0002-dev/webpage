@@ -2,8 +2,6 @@
 
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 // All narrative text lives in real DOM (crawlable). The scrubbed timeline is
 // layered on only when motion is welcome; otherwise scenes stack and flow.
@@ -15,14 +13,21 @@ export default function HomeStory() {
     const wrap = wrapRef.current
     const stage = stageRef.current
     if (!wrap || !stage) return
+    let disposed = false
+    let media: ReturnType<typeof import('gsap').default.matchMedia> | undefined
+    let frame: number | null = null
+    async function enhance() {
+    if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return
+    const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')])
+    if (disposed || !wrap || !stage) return
     gsap.registerPlugin(ScrollTrigger)
-    const media = gsap.matchMedia()
+    media = gsap.matchMedia()
     media.add('(prefers-reduced-motion: no-preference)', () => {
       wrap.classList.add('is-enhanced')
     const ctx = gsap.context(() => {
       const q = gsap.utils.selector(stage)
       gsap.set(q('.scene'), { autoAlpha: 0 })
-      gsap.set('.scene-open', { autoAlpha: 1, clipPath: 'circle(0% at 50% 50%)' })
+      gsap.set('.scene-open', { autoAlpha: 1 })
       gsap.set('.scene-resolve', { autoAlpha: 1, clipPath: 'circle(0% at 50% 50%)' })
       gsap.set(['.scene-resolve .line-2', '.scene-resolve .resolve-cta'], { autoAlpha: 0, y: 16 })
 
@@ -31,44 +36,44 @@ export default function HomeStory() {
         scrollTrigger: {
           trigger: wrap,
           start: 'top top',
-          end: '+=680%',
+          end: () => window.innerWidth <= 640 ? '+=280%' : '+=360%',
+          invalidateOnRefresh: true,
           scrub: 0.6,
           pin: stage,
           anticipatePin: 1,
         },
       })
 
-      // 1 — black expands from a point; the deadline lands
-      tl.to('.scene-open', { clipPath: 'circle(150% at 50% 50%)', duration: 1.1 })
-        .from('.scene-open .scene-line', { autoAlpha: 0, y: 18, duration: 0.6 }, '-=0.35')
-        .to({}, { duration: 0.6 })
+      // Keep the opening readable before scrolling; subsequent scenes animate.
+      tl.from('.scene-open .scene-line', { y: 18, duration: 0.6 })
+        .to({}, { duration: 0.25 })
 
       // 2 — the search
       tl.to('.scene-open', { autoAlpha: 0, duration: 0.4 })
         .to('.scene-search', { autoAlpha: 1, duration: 0.4 }, '<')
         .from('.scene-search .glass', { scale: 0.6, autoAlpha: 0, duration: 0.6, ease: 'back.out(1.4)' }, '<')
         .from('.scene-search .scene-line', { autoAlpha: 0, y: 12, duration: 0.5 }, '-=0.2')
-        .to({}, { duration: 0.5 })
+        .to({}, { duration: 0.2 })
 
       // 3 — found
       tl.to('.scene-search', { autoAlpha: 0, duration: 0.4 })
         .to('.scene-found', { autoAlpha: 1, duration: 0.4 }, '<')
         .from('.scene-found .file-row', { autoAlpha: 0, x: -12, stagger: 0.08, duration: 0.4 }, '<')
         .from('.scene-found .scene-line', { autoAlpha: 0, y: 12, duration: 0.5 })
-        .to({}, { duration: 0.5 })
+        .to({}, { duration: 0.2 })
 
       // 4 — the contradiction
       tl.to('.scene-found', { autoAlpha: 0, duration: 0.4 })
         .to('.scene-contra', { autoAlpha: 1, duration: 0.4 }, '<')
         .from('.scene-contra .twin-card', { autoAlpha: 0, y: 18, stagger: 0.14, duration: 0.5 }, '<')
         .from('.scene-contra .scene-line', { autoAlpha: 0, y: 12, duration: 0.5 })
-        .to({}, { duration: 0.5 })
+        .to({}, { duration: 0.2 })
 
       // 5 — cut to black, abruptly
       tl.to('.scene-contra', { autoAlpha: 0, duration: 0.12 })
         .to('.scene-reveal', { autoAlpha: 1, duration: 0.12 }, '<')
         .from('.scene-reveal .scene-line', { autoAlpha: 0, scale: 0.94, duration: 0.35 })
-        .to({}, { duration: 0.7 })
+        .to({}, { duration: 0.3 })
 
       // 6 — light grows back from centre; the turn
       tl.to('.scene-resolve', { clipPath: 'circle(150% at 50% 50%)', duration: 0.9 })
@@ -76,7 +81,7 @@ export default function HomeStory() {
         .to('.scene-resolve .line-1', { autoAlpha: 0, y: -12, duration: 0.4 }, '+=0.5')
         .to('.scene-resolve .line-2', { autoAlpha: 1, y: 0, duration: 0.5 }, '<0.1')
         .to('.scene-resolve .resolve-cta', { autoAlpha: 1, y: 0, duration: 0.4 })
-        .to({}, { duration: 0.6 })
+        .to({}, { duration: 0.25 })
     }, wrap)
 
       return () => {
@@ -88,24 +93,28 @@ export default function HomeStory() {
     // or navigation from another page may have scrolled before that height
     // existed, so align the requested section after the pin is measured.
     const hash = window.location.hash
-    const section = ['#original-platform', '#our-story', '#our-values'].includes(hash)
+    const section = ['#why-amaea', '#original-platform', '#our-story', '#our-values'].includes(hash)
       ? document.getElementById(hash.slice(1))
       : null
-    const frame = section ? requestAnimationFrame(() => {
+    frame = section ? requestAnimationFrame(() => {
       ScrollTrigger.refresh()
       if (window.location.hash === hash) section.scrollIntoView({ behavior: 'instant', block: 'start' })
     }) : null
 
+    }
+    void enhance().catch(() => { media?.revert(); wrap?.classList.remove('is-enhanced') })
     return () => {
+      disposed = true
       if (frame !== null) cancelAnimationFrame(frame)
-      media.revert()
+      media?.revert()
     }
   }, [])
 
   return (
-    <section className="story-wrap" ref={wrapRef} aria-label="Why Amaea exists — synthetic example">
+    <section id="why-amaea" className="story-wrap" ref={wrapRef} aria-label="Why Amaea exists — synthetic example">
       {/* Synthetic names and documents for illustration only; this is not a customer account. */}
       <div className="story-stage" ref={stageRef}>
+        <Link className="story-skip" href="/#original-platform">Skip to the platform <span aria-hidden="true">↓</span></Link>
         {/* 1 */}
         <div className="scene scene-open dark">
           <p className="scene-line">The FCA is requesting documentation. On Friday.</p>

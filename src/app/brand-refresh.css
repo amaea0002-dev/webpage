@@ -118,3 +118,64 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 24px); }
   .brand-hero-copy h1 { font-size: 2.15rem; }
   .brand-hero-actions { align-items: flex-start; flex-direction: column; gap: 18px; }
 }
+
+/* Audit fixes: readable form states and clear, keyboard-friendly controls. */
+:root { --field-border: #776B79; --error-text: #8F2D2D; --success-text: #245038; --error-bg: #FFF0F0; --success-bg: #EAF3EC; }
+:root[data-theme="dark"] { --field-border: #A18DA3; --error-text: #FFB4B4; --success-text: #B7E4C7; --error-bg: #402336; --success-bg: #20392F; }
+.field :is(input, textarea, select) { border-color: var(--field-border); }
+.field :is(input, textarea)::placeholder { color: var(--ink3); opacity: 1; }
+.field label span { text-transform: none; letter-spacing: 0; }
+.field-error { color: var(--error-text); }
+.field :is(input, select, textarea)[aria-invalid='true'] { border-color: var(--error-text); }
+.form-status[data-state='error'] { color: var(--error-text); background: var(--error-bg); border-color: var(--error-text); }
+.form-status[data-state='sent'] { color: var(--success-text); background: var(--success-bg); border-color: var(--success-text); }
+.registration-form, .registration-optional-fields { display: flex; flex-direction: column; gap: 22px; }
+.registration-form > .btn { align-self: flex-start; }
+.registration-form .foot a, .registration-confirmation .foot a { text-decoration: underline; text-underline-offset: 3px; }
+.registration-optional { padding: 18px 0; border-block: 1px solid var(--field-border); }
+.registration-optional summary { cursor: pointer; font-weight: 600; min-height: 32px; }
+.registration-optional summary span { font-weight: 400; color: var(--ink3); }
+.registration-optional-fields { padding-top: 24px; }
+.registration-confirmation { border: 1px solid var(--success-text); border-radius: 14px; padding: 28px; background: var(--success-bg); color: var(--success-text); display: grid; gap: 20px; }
+.registration-confirmation :is(h3, .eyebrow, .foot) { color: inherit; }
+.registration-confirmation .text-link { color: inherit; }
+.registration-reference { font-size: .85rem; overflow-wrap: anywhere; }
+.story-skip { position: absolute; z-index: 5; top: calc(var(--header-h) + 20px); right: 24px; padding: 10px 16px; background: #FEFCFA; color: #26122A; border: 1px solid #776B79; border-radius: 999px; font-size: .8rem; text-decoration: underline; text-underline-offset: 3px; }
+.story-skip:focus-visible { outline-color: #FEFCFA; }
+.story-wrap:not(.is-enhanced) .story-skip { position: relative; display: inline-block; top: auto; right: auto; margin: 24px; }
+.story-wrap:not(.is-enhanced) .scene { min-height: 0; padding: 64px 24px; }
+.scene.dark .glass { color: #E9D6E7; }
+.preview-highlights { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 16px; padding: 0 22px 20px; font-size: .7rem; color: var(--ink2); }
+.preview-highlights li::before { content: '✓'; color: var(--accent); margin-right: 6px; }
+.product-preview-window { overflow: hidden; }
+.company-value { display: block; padding-block: 0; }
+.value-heading { display: flex; align-items: center; gap: 22px; padding-block: 24px; cursor: pointer; list-style: none; }
+.value-heading::-webkit-details-marker { display: none; }
+.value-heading .value-number { margin: 0; }
+.value-expand { margin-left: auto; font-size: 1.4rem; color: var(--plum); }
+.company-value[open] .value-expand { transform: rotate(45deg); }
+.company-value .value-points { padding: 0 0 28px 42px; }
+.product-walkthrough { border-bottom: 1px solid var(--rule); }
+.product-walkthrough h2 { margin-top: 18px; }
+.walkthrough-intro { max-width: 42rem; margin-top: 24px; }
+.walkthrough-steps { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin-top: 38px; }
+.walkthrough-steps li { border-top: 2px solid var(--accent); padding-top: 20px; }
+.walkthrough-steps li > span { color: var(--accent); font-size: .8rem; }
+.walkthrough-steps h3 { font: 700 1.15rem/1.25 var(--font-display); margin-block: 14px 10px; }
+.walkthrough-steps p { color: var(--ink2); font-size: .9rem; line-height: 1.6; }
+.walkthrough-note { margin-top: 26px; max-width: 56rem; }
+@media (max-width: 860px) { .walkthrough-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .story-skip { right: 16px; font-size: .75rem; }
+  .product-preview-window img { width: 155%; max-width: none; margin-left: -19%; }
+  .walkthrough-steps { grid-template-columns: 1fr; gap: 22px; }
+  .company-value { padding-block: 0; }
+  .company-value .value-points { padding-left: 0; }
+  .registration-confirmation { padding: 22px; }
+}
+.legal-prose > :is(p, ul) { margin-bottom: 26px; }
+.legal-prose > h2 { margin: 36px 0 16px; }
+.legal-prose > h2:first-child { margin-top: 0; }
+.legal-prose ul { padding-left: 24px; line-height: 1.75; }
+.legal-prose li + li { margin-top: 10px; }
+.legal-prose a { color: var(--plum); text-decoration: underline; text-underline-offset: 4px; overflow-wrap: anywhere; }

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { isFullSite, isPublishedRoute } from '@/lib/site-mode'
 
@@ -12,7 +13,7 @@ const NAV = isFullSite() ? [
   { href: '/contact', label: 'Contact' },
 ].filter(item => isPublishedRoute(item.href)) : [
   { href: '/#original-platform', label: 'The platform' },
-  { href: '/#our-story', label: 'Our story' },
+  { href: '/#our-story', label: 'Meet Hasna' },
   { href: '/#our-values', label: 'Our values' },
 ]
 
@@ -79,8 +80,8 @@ export default function SiteHeader() {
     <header className="site-header">
       <div className="site-header-inner">
         <Link href="/" className="site-mark" aria-label="Amaea — home" onClick={() => setMenuOpen(false)}>
-          <img src="/amaea-a-plum.png" alt="" className="logo-light" width={38} height={38} />
-          <img src="/amaea-a-white.png" alt="" className="logo-dark" width={38} height={38} />
+          <Image unoptimized src="/amaea-a-plum.png" alt="" className="logo-light" width={38} height={38} />
+          <Image unoptimized src="/amaea-a-white.png" alt="" className="logo-dark" width={38} height={38} />
           <span className="site-wordmark">amaea</span>
         </Link>
 

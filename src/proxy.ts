@@ -11,7 +11,11 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { isPublishedRoute } from '@/lib/site-mode'
 
 export default function proxy(request: NextRequest) {
-  if (isPublishedRoute(request.nextUrl.pathname)) return NextResponse.next()
+  if (isPublishedRoute(request.nextUrl.pathname)) {
+    const response = NextResponse.next()
+    if (request.nextUrl.hostname.endsWith('.vercel.app')) response.headers.set('X-Robots-Tag', 'noindex, nofollow')
+    return response
+  }
 
   // Rewrite to a path that does not exist, so Next renders the site's own
   // not-found page with a 404 rather than a bare body.
@@ -20,5 +24,5 @@ export default function proxy(request: NextRequest) {
 
 export const config = {
   // Pages only: the enquiry route, assets and metadata files are untouched.
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|icon.png|robots.txt|sitemap.xml|.*\\.(?:png|jpg|jpeg|svg|webp|ico|woff2?)$).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|opengraph-image|robots.txt|sitemap.xml|.*\\.(?:png|jpg|jpeg|svg|webp|ico|woff2?)$).*)'],
 }

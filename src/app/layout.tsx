@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { pageMetadata, SITE_TITLE, SITE_DESCRIPTION } from '@/lib/metadata'
 import { Inter, Pinyon_Script } from 'next/font/google'
 import localFont from 'next/font/local'
 import SiteHeader from '@/components/SiteHeader'
@@ -16,11 +16,7 @@ const cabinet = localFont({
   display: 'swap',
 })
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://amaea.co.uk'),
-  title: 'Amaea — Your Peace of Mind.',
-  description: 'Every Client, Every Review, Every Document. Kept against the FCA rule that applies. An FCA compliance platform for UK financial advisers.',
-}
+export const metadata = { ...pageMetadata(SITE_TITLE, SITE_DESCRIPTION, '/'), metadataBase: new URL('https://amaea.co.uk') }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -33,6 +29,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <a href="#main-content" className="skip-to-main">Skip to main content</a>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org', '@type': 'Organization', name: 'Amaea',
+          url: 'https://amaea.co.uk', logo: 'https://amaea.co.uk/icon.png',
+          description: SITE_DESCRIPTION,
+        }).replace(/</g, '\u003c') }} />
         <SiteHeader />
         <main id="main-content" tabIndex={-1}>{children}</main>
         <SiteFooter />

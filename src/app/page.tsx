@@ -1,10 +1,7 @@
 import HomePageContent from '@/components/HomePageContent'
+import { pageMetadata, SITE_TITLE, SITE_DESCRIPTION } from '@/lib/metadata'
 
-export const metadata = {
-  alternates: { canonical: '/' },
-  title: 'Amaea — Your Peace of Mind.',
-  description: 'Every Client, Every Review, Every Document. Kept against the FCA rule that applies. An FCA compliance platform for UK financial advisers.',
-}
+export const metadata = pageMetadata(SITE_TITLE, SITE_DESCRIPTION, '/')
 
 export default function HomePage() {
   return <HomePageContent />

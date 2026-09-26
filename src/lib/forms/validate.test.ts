@@ -5,7 +5,7 @@ import { validateEnquiry, looksAutomated, LIMITS } from './validate.ts'
 
 test('a complete application passes and comes back trimmed', () => {
   const result = validateEnquiry('application', {
-    firm: '  Example IFA  ', fcaReference: '123456', advisers: '4–10', clients: '100–250',
+    firm: '  Example IFA  ', fcaReference: '123456', advisers: '6–10', clients: '100–249',
     role: 'Compliance Officer', email: ' person@example.co.uk ', setup: 'Intelliflo and spreadsheets',
   })
   assert.equal(result.ok, true)
@@ -50,7 +50,7 @@ test('over-long values are refused rather than truncated', () => {
 
 test('a value outside the offered options is refused', () => {
   const r = validateEnquiry('application', {
-    firm: 'F', advisers: 'one thousand', clients: '100–250', email: 'a@b.co',
+    firm: 'F', advisers: 'one thousand', clients: '100–249', email: 'a@b.co',
   })
   assert.equal(r.ok, false)
   if (r.ok) return
