@@ -1,9 +1,10 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Link from 'next/link'
+import Link from '@/components/SiteLink'
 import { useEnquirySubmit, honeypotProps } from './useEnquirySubmit'
 import { FormStatus, FieldError, errorProps } from './FormStatus'
+import LoadingMark from '@/components/LoadingMark'
 import { ADVISER_BANDS, CLIENT_BANDS, LIMITS } from '@/lib/forms/validate'
 
 export function WaitlistForm() {
@@ -13,6 +14,7 @@ export function WaitlistForm() {
 
   if (state === 'sent') return (
     <div className="registration-confirmation" ref={confirmation} tabIndex={-1} role="status">
+      <svg className="success-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg>
       <span className="eyebrow">Thank you</span>
       <h3 className="h-section">Your interest is registered.</h3>
       <p>We’ll use your details to follow up about the founders programme and let you know when applications open.</p>
@@ -77,7 +79,7 @@ export function WaitlistForm() {
         </div>
       </details>
       <input {...honeypotProps} />
-      <button type="submit" className="btn btn-primary btn-lg" disabled={state === 'sending'}>{state === 'sending' ? 'Sending…' : 'Register your interest →'}</button>
+      <button type="submit" className="btn btn-primary btn-lg" disabled={state === 'sending'}>{state === 'sending' ? <><LoadingMark small />Sending…</> : 'Register your interest →'}</button>
       <p className="foot">We’ll use your details to reply about the founders programme. Registering commits you to nothing. Read our <Link href="/privacy">privacy notice</Link>.</p>
       <p className="foot">Prefer email? <a href="mailto:hello@amaea.co.uk">hello@amaea.co.uk</a></p>
     </form>

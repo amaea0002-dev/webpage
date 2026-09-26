@@ -10,7 +10,7 @@ import type { SubmitState } from './useEnquirySubmit'
  * than replacing the form, so a failed submission keeps what was typed.
  */
 export function FormStatus({ state, message, sent }: { state: SubmitState; message: string; sent: string }) {
-  const text = state === 'sent' ? sent : state === 'error' ? message : ''
+  const text = state === 'sending' ? 'Sending…' : state === 'sent' ? sent : state === 'error' ? message : ''
   return (
     <div role="status" aria-live="polite" tabIndex={-1} data-error-summary={state === 'error' ? '' : undefined} className={text ? 'form-status' : undefined} data-state={text ? state : undefined}>
       {text}

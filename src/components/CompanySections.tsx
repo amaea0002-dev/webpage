@@ -1,3 +1,5 @@
+import Reveal from '@/components/Reveal'
+
 const VALUES = [
   {
     title: 'Simplicity',
@@ -39,13 +41,13 @@ const VALUES = [
 export function MissionSection() {
   return (
     <section className="company-mission" aria-labelledby="mission-title">
-      <div className="container-wide mission-layout">
+      <Reveal className="container-wide mission-layout">
         <h2 id="mission-title" className="eyebrow">Our mission</h2>
         <p>
           To give firms peace of mind with compliance so that they can spend time on what matters most,
           their clients, growing their firm and delivering exceptional advice.
         </p>
-      </div>
+      </Reveal>
     </section>
   )
 }
@@ -59,7 +61,7 @@ export function CompanyStory() {
           <div className="founder-portrait-placeholder" role="img" aria-label="Reserved space for Hasna’s portrait" />
           <figcaption>This is Hasna, the crisp-loving, needle-hating CEO and Co-founder of Amaea.</figcaption>
         </figure>
-        <div className="company-story-copy">
+        <Reveal className="company-story-copy">
           <div className="eyebrow">Our story</div>
           <h2 id="story-title" className="h-page">Built by someone who <em>lived the problem.</em></h2>
           <p>
@@ -77,7 +79,7 @@ export function CompanyStory() {
             together and make informed decisions.
           </p>
           <p className="story-signature">Your peace of mind, and your time back.</p>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -87,11 +89,11 @@ export function ValuesSection() {
   return (
     <section id="our-values" className="section company-values" aria-labelledby="values-title">
       <div className="container-wide">
-        <div className="values-intro">
+        <Reveal className="values-intro">
           <div className="eyebrow">Our values</div>
           <h2 id="values-title" className="h-page">Built around <em>your practice.</em></h2>
           <p className="body-large">The principles that guide what we build and how we work with you.</p>
-        </div>
+        </Reveal>
         <div className="company-value-list">
           {VALUES.map((value, index) => (
             <details className="company-value" key={value.title}>

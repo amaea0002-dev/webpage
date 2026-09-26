@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from '@/components/SiteLink'
 import { useEffect, useRef } from 'react'
 
 // All narrative text lives in real DOM (crawlable). The scrubbed timeline is

@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
-import Link from 'next/link'
+import Link from '@/components/SiteLink'
+import Reveal from '@/components/Reveal'
 import HomeHero from '@/components/HomeHero'
 import HomeStory from '@/components/HomeStory'
 import { CompanyStory, MissionSection, ValuesSection } from '@/components/CompanySections'
@@ -25,16 +26,16 @@ export default function HomePageContent({ story }: { story?: ReactNode }) {
           <div className="workflow-grid">
             {WORKFLOWS.map((workflow, index) => (
               <article key={workflow.title}>
-                <span className="value-number" aria-hidden="true">0{index + 1}</span>
+                <Reveal delay={index * 65}><span className="value-number" aria-hidden="true">0{index + 1}</span>
                 <h3 className="h-sub">{workflow.title}</h3>
-                <p className="body">{workflow.body}</p>
+                <p className="body">{workflow.body}</p></Reveal>
               </article>
             ))}
           </div>
         </div>
       </section>
       <section className="section product-walkthrough" aria-labelledby="walkthrough-title">
-        <div className="container-wide">
+        <Reveal className="container-wide">
           <div className="eyebrow">An example of the workflow we’re building</div>
           <h2 id="walkthrough-title" className="h-page">From an open question<br />to a recorded decision.</h2>
           <p className="body-large walkthrough-intro">One client review, with the evidence and context together. Your team checks the findings and decides what happens next.</p>
@@ -45,17 +46,17 @@ export default function HomePageContent({ story }: { story?: ReactNode }) {
             <li><span aria-hidden="true">04</span><h3>Record the decision</h3><p>Keep the reviewer’s judgement, follow-up and sign-off with the review.</p></li>
           </ol>
           <p className="foot walkthrough-note">Illustrative workflow, not a compliance determination. The dashboard above is an existing prototype; we’re shaping the next release with participating firms.</p>
-        </div>
+        </Reveal>
       </section>
       <MissionSection />
       <CompanyStory />
       <ValuesSection />
       <section className="section company-closing">
-        <div className="container-text">
+        <Reveal className="container-text">
           <h2 className="h-page">More time for <em>what matters.</em></h2>
           <p>Help us build a clearer way to manage compliance. Register your firm’s interest in the founders programme.</p>
           <Link href="/waitlist" className="btn btn-lg">Register your interest</Link>
-        </div>
+        </Reveal>
       </section>
     </>
   )

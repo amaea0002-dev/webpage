@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from '@/components/SiteLink'
 import Image from 'next/image'
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { isFullSite, isPublishedRoute } from '@/lib/site-mode'
@@ -34,8 +34,10 @@ function SunIcon() {
 }
 function BurgerIcon({ open }: { open: boolean }) {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-      {open ? <><path d="M6 6l12 12" /><path d="M18 6L6 18" /></> : <><path d="M3 7h18" /><path d="M3 12h18" /><path d="M3 17h18" /></>}
+    <svg data-open={open} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+      <path className="burger-top" d="M4 12h16" />
+      <path className="burger-middle" d="M4 12h16" />
+      <path className="burger-bottom" d="M4 12h16" />
     </svg>
   )
 }

@@ -3,8 +3,10 @@ import { Inter, Pinyon_Script } from 'next/font/google'
 import localFont from 'next/font/local'
 import SiteHeader from '@/components/SiteHeader'
 import SiteFooter from '@/components/SiteFooter'
+import InitialLoad from '@/components/InitialLoad'
 import './globals.css'
 import './brand-refresh.css'
+import './motion.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans-loaded', display: 'swap' })
 // Pinyon Script is single-weight; used only for the wordmark and the "peace of mind" moments.
@@ -37,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         <main id="main-content" tabIndex={-1}>{children}</main>
         <SiteFooter />
+        <InitialLoad />
       </body>
     </html>
   )
