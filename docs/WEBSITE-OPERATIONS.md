@@ -5,6 +5,8 @@ Source: https://github.com/amaea0002-dev/webpage, branch `main`.
 
 ## Release
 
+Production releases currently use a manual deployment of the validated commit. A GitHub push runs checks; it does not by itself deploy to Vercel.
+
 1. Use Node 24 and the pnpm version in package.json. Install with `pnpm install --frozen-lockfile`.
 2. Run `pnpm check`, `pnpm audit --audit-level high`, and `pnpm build`. The Validate website workflow runs these plus HTTP smoke checks.
 3. Review the change on desktop/mobile and both themes. Exercise validation and the success/failure paths using a mock mail provider; do not send unapproved live test email.
@@ -49,3 +51,7 @@ Public legal controller identity, address, mailbox arrangements and provider con
 Enable Vercel MFA/passkeys and keep recovery methods in the owners' secure account system. Verify equivalent protection for GitHub, domain and email administrators. A commercial Vercel plan or another eligible host is required for the company site; the owner must authorise any purchase or terms.
 
 Keep DMARC in monitoring mode until all legitimate senders and their DKIM/SPF alignment have been checked using actual received mail and aggregate reports. Then plan a gradual enforcement change with the domain owner; changing it blind can block legitimate email.
+
+## Additional hardening
+
+The static-site CSP retains inline scripts for Next hydration and the early theme preference. A nonce/hash migration is a separate hardening task and needs a measured caching/performance review. Do not describe the current policy as strict CSP or a complete XSS defence.
