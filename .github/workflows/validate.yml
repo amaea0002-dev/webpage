@@ -24,8 +24,10 @@ jobs:
       - run: pnpm check
       - run: pnpm audit --audit-level high
       - run: pnpm build
+      - run: pnpm exec playwright install --with-deps chromium
       - name: Check the production server
         run: |
           pnpm start --port 3235 > "$RUNNER_TEMP/amaea-server.log" 2>&1 &
           trap 'kill $!' EXIT
           node scripts/smoke.mjs http://localhost:3235 --wait
+          node scripts/check-reference.mjs http://localhost:3235 "$RUNNER_TEMP/amaea-reference-check"

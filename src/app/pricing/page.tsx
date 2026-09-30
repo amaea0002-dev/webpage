@@ -1,227 +1,493 @@
-import Link from 'next/link'
-import { Fragment } from 'react'
+import ReferenceInteractions from "@/components/reference/ReferenceInteractions";
+/* Approved mockup page; preserve copy and story order. */
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: 'Pricing — Amaea',
-  description: 'Proposed Amaea plans. Pricing and feature entitlements await confirmation.',
-}
+export const metadata = pageMetadata(
+  "Amaea pricing | What it costs",
+  "Compare Essentials, Professional, Scale and Enterprise, with monthly and annual billing.",
+  "/pricing",
+);
 
-// TODO(Milan): verify and approve plan prices, capacities, billing terms, retention and feature entitlements; the cited build spec is not in this repo.
-// Counts are deliberately omitted; ../amaea-app/src/lib/extraction/schemas.ts is the taxonomy source.
-const TIERS = [
-  {
-    name: 'Essentials', tag: 'Solo + small firms', price: '£699', cad: 'per month · billed monthly',
-    blurb: 'If your audit trail still lives in a SharePoint folder and one person’s memory. Core sweep, audit log, Intelliflo read.',
-    cta: 'Book a demo', href: '/waitlist', popular: false,
-    feats: [
-      ['Up to 100 active clients', true],
-      ['Client journey · the core IFA document types', true],
-      ['Annual review sweep · COBS 9.5 nightly cron', true],
-      ['Append-only audit trail · 7-year retention', true],
-      ['Intelliflo read · AES-256-GCM tokens', true],
-      ['5 standard PDF reports', true],
-      ['AI compliance assistant', false],
-      ['Consumer Duty (PS22/9) monitoring', false],
-      ['RMAR auto-population', false],
-    ] as [string, boolean][],
-  },
-  {
-    name: 'Professional', tag: 'Growing practices', price: '£1,599', cad: 'per month · billed monthly',
-    blurb: 'When “we’ll catch it in the annual review” stops being good enough. The full kit for the typical IFA.',
-    cta: 'Book a demo', href: '/waitlist', popular: true,
-    feats: [
-      ['Up to 350 active clients', true],
-      ['Everything in Essentials, plus:', true],
-      ['AI assistant · retrieval of FCA material', true],
-      ['Consumer Duty (PS22/9) · per-outcome record', true],
-      ['Vulnerability re-assessment · FG21/1 12-month threshold', true],
-      ['RMAR auto-pop · sections B/D/E/G/H, GABRIEL CSV', true],
-      ['Consumer Duty board pack from live data', true],
-      ['SharePoint integration · availability to confirm', true],
-      ['Unlimited reports', true],
-    ] as [string, boolean][],
-  },
-  {
-    name: 'Scale', tag: 'Established firms', price: '£2,199', cad: 'per month · billed monthly',
-    blurb: 'When the compliance team is more than one person and the board wants the numbers.',
-    cta: 'Book a demo', href: '/waitlist', popular: false,
-    feats: [
-      ['Up to 1,000 active clients', true],
-      ['Everything in Professional, plus:', true],
-      ['Integration availability subject to confirmation', true],
-      ['Board-level packs · live data, gaps flagged', true],
-      ['FCA visit preparation pack · evidence per rule', true],
-      ['Custom report builder', true],
-      ['Dedicated onboarding & training', true],
-    ] as [string, boolean][],
-  },
-  {
-    name: 'Enterprise', tag: 'Networks + groups', price: 'Custom', cad: 'tailored to your network',
-    blurb: 'Network principals, AR groups, multi-site DA firms. Member-firm walls intact, principal-level audit visibility.',
-    cta: 'Contact sales', href: '/contact', popular: false,
-    feats: [
-      ['Unlimited clients', true],
-      ['Everything in Scale, plus:', true],
-      ['Multi-site & network support', true],
-      ['Open API & custom integrations', true],
-      ['FCA visit preparation & mock audit', true],
-      ['Custom board packs & regulator reports', true],
-      ['On-site team training', true],
-      ['Custom contract & volume pricing', true],
-    ] as [string, boolean][],
-  },
-]
-
-const CMP: { group: string; rows: string[][] }[] = [
-  { group: 'Capacity', rows: [['Active clients', '100', '350', '1,000', 'Unlimited']] },
-  { group: 'Core compliance', rows: [
-    ['Client journey tracking (3 stages)', '✓', '✓', '✓', '✓'],
-    ['Compliance health dashboard', '✓', '✓', '✓', '✓'],
-    ['Smart alerts & deadline reminders', '✓', '✓', '✓', '✓'],
-    ['Document checklist per milestone', '✓', '✓', '✓', '✓'],
-  ] },
-  { group: 'Consumer Duty', rows: [
-    ['Consumer Duty health score', '—', '✓', '✓', '✓'],
-    ['Vulnerable client tracking', '—', '✓', '✓', '✓'],
-    ['Annual Consumer Duty assessment report', '—', '✓', '✓', '✓'],
-  ] },
-  { group: 'AI & reporting', rows: [
-    ['AI compliance assistant', '—', '✓', '✓', '✓'],
-    ['RMAR pre-population', '—', '✓', '✓', '✓'],
-    ['Reports', '5 standard', 'Unlimited', 'Unlimited + builder', 'Custom board packs'],
-    ['Board-level compliance packs', '—', '—', '✓', '✓'],
-  ] },
-  { group: 'Integrations', rows: [
-    ['Intelliflo', '✓', '✓', '✓', '✓'],
-    ['SharePoint', '—', '✓', '✓', '✓'],
-    ['Open API & custom integrations', '—', '—', '—', '✓'],
-  ] },
-  { group: 'Support', rows: [['Onboarding & training', 'Self-serve', '✓', '✓', '✓']] },
-]
-
-function Cell({ v }: { v: string }) {
-  if (v === '✓') return <span className="yes">✓</span>
-  if (v === '—') return <span className="no">—</span>
-  return <>{v}</>
-}
-
-export default function PricingPage() {
+export default function Page() {
   return (
     <>
-      {/* Header */}
-      <section className="section">
-        <div className="container-wide">
-          <div className="eyebrow" style={{ marginBottom: 20 }}>Pricing</div>
-          <h1 className="hero-display" style={{ maxWidth: '16ch' }}>
-            What it <em>costs.</em>
-          </h1>
-          <p className="lede" style={{ maxWidth: '42rem', marginTop: 28 }}>
-            Three tiers plus one bespoke, priced per active client. No setup fee. Every tier ships
-            the full audit trail and 7-year retention; the differences are which workflows are
-            switched on.
+      <section className="page-intro shell">
+        <span className="eyebrow">{"PRICING"}</span>
+        <h1>{"What it costs."}</h1>
+        <p>
+          {
+            "Three tiers + one bespoke, priced per active client. No setup fee. Every tier ships the full audit trail and 7-year retention; the differences are which workflows are switched on."
+          }
+        </p>
+        <div className="billing-toggle" aria-label="Billing period">
+          <button
+            data-billing="monthly"
+            className="selected"
+            aria-pressed="true"
+          >
+            {"Monthly"}
+          </button>
+          <button data-billing="annual" aria-pressed="false">
+            {"Annual "}
+            <span>{"2 months free"}</span>
+          </button>
+        </div>
+      </section>
+      <section className="plan-grid shell" aria-label="Plans">
+        <article className="plan ">
+          <span className="eyebrow">{"Solo + small firms"}</span>
+          <h2>{"Essentials"}</h2>
+          <div className="plan-price">
+            <span className="price-number" data-monthly="699">
+              {"£699"}
+            </span>
+            <span className="price-unit">{" / mo"}</span>
+            <small className="billing-note">{"billed monthly"}</small>
+          </div>
+          <p>
+            {
+              "If your audit trail still lives in a SharePoint folder and one person's memory. Core sweep, audit log, Intelliflo read."
+            }
           </p>
-          <p className="body" style={{ marginTop: 16 }}>Draft commercial terms — prices, billing and included features require confirmation before purchase.</p>
-        </div>
-      </section>
-
-      {/* Tier cards */}
-      <section style={{ borderTop: '1px solid var(--rule)' }}>
-        <div className="container-wide" style={{ paddingTop: 40, paddingBottom: 72 }}>
-          <div className="price-grid">
-            {TIERS.map(t => (
-              <div key={t.name} className={`price-card${t.popular ? ' popular' : ''}`}>
-                <div className="price-tag">{t.tag}</div>
-                <div className="price-name">{t.name}</div>
-                <div className="price-amount">{t.price}</div>
-                <div className="price-cad">{t.cad}</div>
-                <p className="price-blurb">{t.blurb}</p>
-                <ul className="price-feats">
-                  {t.feats.map(([label, on]) => (
-                    <li key={label} className={on ? '' : 'off'}>
-                      <span className="mk">{on ? '✓' : '✕'}</span>{label}
-                    </li>
-                  ))}
-                </ul>
-                <Link href={t.href} className={t.popular ? 'btn btn-primary' : 'btn btn-ghost'}>{t.cta}</Link>
-              </div>
-            ))}
+          <ul>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Up to 100 active clients"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Client journey · 17 doc types tracked"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Annual review sweep · COBS 9.5 nightly cron"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Append-only audit trail · 7-year retention"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Intelliflo read integration · AES-256-GCM tokens"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"5 standard PDF reports"}
+            </li>
+            <li className="excluded">
+              <span aria-hidden="true">{"✕"}</span>
+              {"AI compliance assistant"}
+            </li>
+            <li className="excluded">
+              <span aria-hidden="true">{"✕"}</span>
+              {"Consumer Duty (PS22/9) monitoring"}
+            </li>
+            <li className="excluded">
+              <span aria-hidden="true">{"✕"}</span>
+              {"RMAR auto-population"}
+            </li>
+          </ul>
+          <a className="button secondary" href="/contact#book-demo">
+            {"Book a demo"}
+          </a>
+        </article>
+        <article className="plan popular">
+          <span className="eyebrow">{"Growing practices · Most popular"}</span>
+          <h2>{"Professional"}</h2>
+          <div className="plan-price">
+            <span className="price-number" data-monthly="1599">
+              {"£1,599"}
+            </span>
+            <span className="price-unit">{" / mo"}</span>
+            <small className="billing-note">{"billed monthly"}</small>
           </div>
-        </div>
-      </section>
-
-      {/* For perspective */}
-      <section className="section" style={{ background: 'var(--surface)', borderTop: '1px solid var(--rule)', borderBottom: '1px solid var(--rule)' }}>
-        <div className="container-prose">
-          <div className="eyebrow" style={{ marginBottom: 16 }}>For perspective</div>
-          <div className="perspective">
-            <p className="body-large" style={{ marginBottom: 12 }}>
-              Professional is <strong>£1,599 / month</strong>, or about <strong>£19k a year</strong>.
-            </p>
-            <p className="body" style={{ margin: 0 }}>
-              Discuss your firm’s workflow and review requirements before choosing a plan.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Comparison table */}
-      <section className="section">
-        <div className="container-wide">
-          <div className="eyebrow" style={{ marginBottom: 20 }}>Compare plans</div>
-          <div className="cmp-wrap" role="region" aria-label="Compare plans" tabIndex={0}>
-            <table className="cmp">
-              <thead>
-                <tr>
-                  <th>Feature</th>
-                  <th className="c">Essentials</th>
-                  <th className="c">Professional</th>
-                  <th className="c">Scale</th>
-                  <th className="c">Enterprise</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="prices">
-                  <td></td>
-                  <td className="c">£699/mo</td>
-                  <td className="c">£1,599/mo</td>
-                  <td className="c">£2,199/mo</td>
-                  <td className="c">Custom</td>
-                </tr>
-                {CMP.map(section => (
-                  <Fragment key={section.group}>
-                    <tr className="grp">
-                      <td colSpan={5}>{section.group}</td>
-                    </tr>
-                    {section.rows.map(r => (
-                      <tr key={r[0]}>
-                        <td>{r[0]}</td>
-                        <td className="c"><Cell v={r[1]} /></td>
-                        <td className="c"><Cell v={r[2]} /></td>
-                        <td className="c"><Cell v={r[3]} /></td>
-                        <td className="c"><Cell v={r[4]} /></td>
-                      </tr>
-                    ))}
-                  </Fragment>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Closing CTA */}
-      <section className="section" style={{ background: 'var(--plum-deep)', color: 'var(--cream)' }}>
-        <div className="container-text" style={{ textAlign: 'center' }}>
-          <p className="h-section" style={{ color: 'var(--cream)', marginBottom: 26 }}>
-            Want to see how Amaea can be{' '}
-            <span className="script" style={{ fontSize: '1.4em' }}>your peace of mind</span> while
-            saving time along the way?
+          <p>
+            {
+              "When “we'll catch it in the annual review” stops being good enough. AI assistant, Consumer Duty outcomes, RMAR auto-pop. The full kit for the typical IFA."
+            }
           </p>
-          <Link href="/waitlist" className="btn btn-lg" style={{ background: 'var(--cream)', color: 'var(--plum-deep)' }}>
-            Book your demo now
-          </Link>
+          <ul>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Up to 350 active clients"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Everything in Essentials, plus:"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"AI compliance assistant · RAG against 11,645-chunk FCA corpus"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Consumer Duty (PS22/9) · per-outcome assessment record"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Vulnerability re-assessment · FG21/1 12-month threshold"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"RMAR auto-population · sections B/D/E/G/H, GABRIEL CSV"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Consumer Duty board pack from live data"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"SharePoint & Salesforce · OAuth, scoped tokens"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Unlimited reports"}
+            </li>
+          </ul>
+          <a className="button " href="/contact#book-demo">
+            {"Book a demo"}
+          </a>
+        </article>
+        <article className="plan ">
+          <span className="eyebrow">{"Established firms"}</span>
+          <h2>{"Scale"}</h2>
+          <div className="plan-price">
+            <span className="price-number" data-monthly="2199">
+              {"£2,199"}
+            </span>
+            <span className="price-unit">{" / mo"}</span>
+            <small className="billing-note">{"billed monthly"}</small>
+          </div>
+          <p>
+            {
+              "When the compliance team is more than one person and the board wants the numbers. Full integration suite, FCA-visit prep packs, custom reports."
+            }
+          </p>
+          <ul>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Up to 1,000 active clients"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Everything in Professional, plus:"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {
+                "Full integration suite · Intelliflo, Salesforce, SharePoint, Curo, Assureweb"
+              }
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Board-level packs · live data, gaps flagged"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"FCA visit preparation pack · evidence bundles per rule"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Custom report builder"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Dedicated onboarding & training"}
+            </li>
+          </ul>
+          <a className="button secondary" href="/contact#book-demo">
+            {"Book a demo"}
+          </a>
+        </article>
+        <article className="plan ">
+          <span className="eyebrow">{"Networks + groups"}</span>
+          <h2>{"Enterprise"}</h2>
+          <div className="plan-price">
+            <span className="price-number custom">{"Custom pricing"}</span>
+            <small>{"tailored to your network"}</small>
+          </div>
+          <p>
+            {
+              "Network principals, AR groups, multi-site DA firms. Member-firm walls intact, principal-level audit visibility, single licence covers everyone."
+            }
+          </p>
+          <ul>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Unlimited clients"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Everything in Scale, plus:"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Multi-site & network support"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Custom AI trained on your policies"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Open API & custom integrations"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"FCA visit preparation & mock audit"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Custom board packs & regulator reports"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"On-site team training"}
+            </li>
+            <li>
+              <span aria-hidden="true">{"✓"}</span>
+              {"Custom contract & volume pricing"}
+            </li>
+          </ul>
+          <a className="button secondary" href="/contact#book-demo">
+            {"Contact sales"}
+          </a>
+        </article>
+      </section>
+      <section className="perspective shell">
+        <span className="eyebrow">{"FOR PERSPECTIVE"}</span>
+        <h2>
+          {"Professional is £1,599 / month,"}
+          <br />
+          {"or about £19k a year."}
+        </h2>
+        <ul>
+          <li>
+            {"Less than "}
+            <b>{"2 days"}</b>
+            {" of senior compliance consultant time per month."}
+          </li>
+          <li>
+            {"Roughly "}
+            <b>{"1.5%"}</b>
+            {
+              " of the typical FCA penalty range for inadequate suitability records (£25k to £250k+ per recent enforcement notices)."
+            }
+          </li>
+          <li>
+            {"Less than the typical "}
+            <b>{"PII deductible"}</b>
+            {" for a single client complaint."}
+          </li>
+        </ul>
+        <p>
+          {
+            "Compliance software pays back the first time it catches the breach that wasn't going to be caught."
+          }
+        </p>
+      </section>
+      <section className="comparison shell">
+        <span className="eyebrow">{"THE DETAIL"}</span>
+        <h2>{"What’s in each plan, side by side."}</h2>
+        <p className="micro">{"✓ = included · — = not included"}</p>
+        <div
+          className="table-scroll"
+          tabIndex={0}
+          role="region"
+          aria-label="Scrollable plan comparison"
+        >
+          <table>
+            <caption className="sr-only">{"Amaea plan comparison"}</caption>
+            <thead>
+              <tr>
+                <th scope="col">{"Feature"}</th>
+                <th scope="col">{"Essentials"}</th>
+                <th scope="col">{"Professional"}</th>
+                <th scope="col">{"Scale"}</th>
+                <th scope="col">{"Enterprise"}</th>
+              </tr>
+              <tr>
+                <td></td>
+                <td data-table-price="699">{"£699/mo"}</td>
+                <td data-table-price="1599">{"£1,599/mo"}</td>
+                <td data-table-price="2199">{"£2,199/mo"}</td>
+                <td>{"Custom"}</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="table-category">
+                <th colSpan={5}>{"Capacity"}</th>
+              </tr>
+              <tr>
+                <th scope="row">{"Active clients"}</th>
+                <td>{"100"}</td>
+                <td>{"350"}</td>
+                <td>{"1,000"}</td>
+                <td>{"Unlimited"}</td>
+              </tr>
+              <tr className="table-category">
+                <th colSpan={5}>{"Core compliance"}</th>
+              </tr>
+              <tr>
+                <th scope="row">{"Client journey tracking (3 stages)"}</th>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+              </tr>
+              <tr>
+                <th scope="row">{"Compliance health dashboard"}</th>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+              </tr>
+              <tr>
+                <th scope="row">{"Smart alerts & deadline reminders"}</th>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+              </tr>
+              <tr>
+                <th scope="row">{"Document checklist per milestone"}</th>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+              </tr>
+              <tr className="table-category">
+                <th colSpan={5}>{"Consumer Duty"}</th>
+              </tr>
+              <tr>
+                <th scope="row">{"Consumer Duty health score"}</th>
+                <td>{"—"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+              </tr>
+              <tr>
+                <th scope="row">{"Vulnerable client tracking"}</th>
+                <td>{"—"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+              </tr>
+              <tr>
+                <th scope="row">{"Annual Consumer Duty assessment report"}</th>
+                <td>{"—"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+              </tr>
+              <tr className="table-category">
+                <th colSpan={5}>{"AI & Reporting"}</th>
+              </tr>
+              <tr>
+                <th scope="row">{"AI compliance assistant"}</th>
+                <td>{"—"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"Custom-trained"}</td>
+              </tr>
+              <tr>
+                <th scope="row">{"RMAR pre-population"}</th>
+                <td>{"—"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+              </tr>
+              <tr>
+                <th scope="row">{"Reports"}</th>
+                <td>{"5 standard"}</td>
+                <td>{"Unlimited"}</td>
+                <td>{"Unlimited + custom builder"}</td>
+                <td>{"Custom board packs"}</td>
+              </tr>
+              <tr>
+                <th scope="row">{"Board-level compliance packs"}</th>
+                <td>{"—"}</td>
+                <td>{"—"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+              </tr>
+              <tr className="table-category">
+                <th colSpan={5}>{"Integrations"}</th>
+              </tr>
+              <tr>
+                <th scope="row">{"Intelliflo"}</th>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+              </tr>
+              <tr>
+                <th scope="row">{"SharePoint & Salesforce"}</th>
+                <td>{"—"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+              </tr>
+              <tr>
+                <th scope="row">{"Open API & custom integrations"}</th>
+                <td>{"—"}</td>
+                <td>{"—"}</td>
+                <td>{"—"}</td>
+                <td>{"✓"}</td>
+              </tr>
+              <tr className="table-category">
+                <th colSpan={5}>{"Support"}</th>
+              </tr>
+              <tr>
+                <th scope="row">{"Onboarding & training"}</th>
+                <td>{"Self-serve"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
+      <section className="faq shell">
+        <span className="eyebrow">{"COMMON QUESTIONS"}</span>
+        <h2>{"A little more clarity."}</h2>
+        <details>
+          <summary>{"How does client-based pricing work?"}</summary>
+          <p>
+            {
+              "Your plan is based on the number of active clients in your Amaea account. An active client is any client record that is being monitored by the platform. Archived or inactive clients do not count. If you approach your plan limit, we’ll notify you in advance so you can upgrade before any disruption."
+            }
+          </p>
+        </details>
+        <details>
+          <summary>{"Can I change plans as my firm grows?"}</summary>
+          <p>
+            {
+              "Yes, you can upgrade or downgrade at any time. Upgrades take effect immediately. Downgrades take effect at the next billing cycle. There are no penalties for changing plans."
+            }
+          </p>
+        </details>
+        <details>
+          <summary>{"How long does onboarding take?"}</summary>
+          <p>
+            {
+              "Most firms are fully live within 5 business days. Our onboarding team handles the Intelliflo and SharePoint integration, imports your client data, and trains your compliance team on the platform. Enterprise clients with complex setups typically take 2–3 weeks."
+            }
+          </p>
+        </details>
+        <details>
+          <summary>
+            {"Do you offer discounts for networks or AR firms?"}
+          </summary>
+          <p>
+            {
+              "Yes, we offer volume pricing for networks and Appointed Representative firms. Contact our sales team to discuss a group arrangement that covers all firms in your network under a single licence."
+            }
+          </p>
+        </details>
+      </section>
+      <ReferenceInteractions />
     </>
-  )
+  );
 }

@@ -1,3 +1,4 @@
+import ReferenceInteractions from "@/components/reference/ReferenceInteractions";
 // Shared shell for the three legal pages. Same chrome + structure; only the
 // body differs. Keeps each legal route tiny.
 
@@ -27,6 +28,7 @@ export default function LegalPage({ title, eyebrow, lastUpdated, children }: {
           {children}
         </div>
       </section>
+      <ReferenceInteractions />
     </>
   )
 }

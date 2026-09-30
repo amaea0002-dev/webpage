@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const SITE_URL = 'https://amaea.co.uk'
 export const SITE_TITLE = 'Amaea — FCA compliance software · Your Peace of Mind.'
-export const SITE_DESCRIPTION = 'Compliance software for UK financial planning firms. Bring client records, reviews and supporting evidence together. Register interest in Amaea’s founders programme.'
+export const SITE_DESCRIPTION = 'Compliance software for UK financial planning firms. Bring client records, reviews and supporting evidence together. Your peace of mind.'
 
 export function pageMetadata(title: string, description: string, path: string): Metadata {
   return {

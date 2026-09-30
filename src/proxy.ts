@@ -11,6 +11,8 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { isPublishedRoute } from '@/lib/site-mode'
 
 export default function proxy(request: NextRequest) {
+  // Let Next render the destination's native 404 instead of rewriting it again.
+  if (request.nextUrl.pathname === '/_unreleased') return NextResponse.next()
   if (isPublishedRoute(request.nextUrl.pathname)) {
     const response = NextResponse.next()
     if (request.nextUrl.hostname.endsWith('.vercel.app')) response.headers.set('X-Robots-Tag', 'noindex, nofollow')

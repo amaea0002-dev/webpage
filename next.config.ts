@@ -6,12 +6,6 @@ const nextConfig: NextConfig = {
   devIndicators: false,
   poweredByHeader: false,
   async redirects() {
-    const recruitmentRedirects = process.env.NEXT_PUBLIC_SITE_MODE === "full" ? [] : [
-      { source: "/about", destination: "/#our-story", permanent: false },
-      { source: "/features", destination: "/#original-platform", permanent: false },
-      { source: "/founders", destination: "/waitlist", permanent: false },
-      { source: "/contact", destination: "/waitlist", permanent: false },
-    ];
     return [
       { source: '/:path*', has: [{ type: 'host' as const, value: 'amaeaai.vercel.app' }], destination: 'https://amaea.co.uk/:path*', permanent: true },
       {
@@ -24,7 +18,7 @@ const nextConfig: NextConfig = {
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/index", destination: "/", permanent: true },
       { source: "/:page.html", destination: "/:page", permanent: true },
-      ...recruitmentRedirects,
+      { source: "/founders", destination: "/waitlist", permanent: false },
     ];
   },
   async headers() {

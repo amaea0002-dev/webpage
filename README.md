@@ -1,9 +1,11 @@
 # Amaea website
 
-The existing `amaea.co.uk` project now uses the approved R2 Next.js design,
-including the six-scene animated story, company story, mission, values and
-registration form. The linked Vercel project remains `amaea.ai`; the R2 Vercel
-project and domain assignments are separate and are not changed by this code.
+This branch integrates the approved 30 September mockup into the existing
+Next.js project: five separate pages, the original logo, the complete eleven-step
+story and seven product chapters. It is a preview awaiting review, a real booking
+URL and verification of the supplied product/commercial claims before deployment.
+See [the mockup handoff](docs/UPDATED-MOCKUP-HANDOFF.md) for outstanding assets and checks.
+The linked Vercel project remains `amaea.ai`; domain assignments are unchanged.
 
 ## Develop and check
 
@@ -23,13 +25,15 @@ the static project's old output-directory settings. Keep the existing
 `amaea.ai` project link and the `amaea.co.uk` / `www.amaea.co.uk` assignments.
 Do not change the app subdomain or email DNS.
 
-The default release publishes Home, Register Interest, Privacy and Cookies.
-Old About/Features URLs redirect temporarily to the corresponding homepage
-sections; Contact/Founders redirect to registration. `/signin` still points
-to the app. HTML-form URLs redirect to their clean equivalents. Other staged
-routes return 404; they are not replaced with unrelated homepage redirects.
-`NEXT_PUBLIC_SITE_MODE=full` remains an explicit future release decision,
-requiring a content review and sitemap expansion before use.
+The new route set includes Home, About, Features, Pricing and Contact, plus
+Register Interest, Privacy and Cookies. Founders redirects to registration.
+`/signin` still points to the app. HTML-form URLs redirect to their clean
+equivalents. Other legacy routes, including draft contractual terms, return 404.
+Do not use `NEXT_PUBLIC_SITE_MODE=full` to enable unreviewed legacy content.
+
+Set `NEXT_PUBLIC_BOOKING_URL` to the team's approved HTTPS scheduler address
+before building. Until supplied, the demo card links to the existing contact
+email. The preview does not invent availability or confirm bookings.
 
 Email delivery requires `RESEND_API_KEY` and a verified sender. Existing
 `WAITLIST_FROM_EMAIL` / `WAITLIST_TO_EMAIL`, `DEMO_FROM_EMAIL` /
