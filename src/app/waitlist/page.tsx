@@ -1,3 +1,4 @@
+import ReferenceInteractions from "@/components/reference/ReferenceInteractions";
 import { pageMetadata } from '@/lib/metadata'
 import { WaitlistForm } from '@/components/forms/WaitlistForm'
 
@@ -74,6 +75,7 @@ export default function WaitlistPage() {
           </div>
         </div>
       </section>
+      <ReferenceInteractions />
     </>
   )
 }

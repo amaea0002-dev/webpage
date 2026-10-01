@@ -11,7 +11,7 @@ if (process.argv.includes('--wait')) {
   assert.ok(ready, 'Website did not start within 30 seconds')
 }
 const results = []
-for (const path of ['/', '/waitlist', '/privacy', '/cookies']) {
+for (const path of ['/', '/about', '/features', '/pricing', '/contact', '/waitlist', '/privacy', '/cookies']) {
   const response = await fetch(new URL(path, base), { signal: AbortSignal.timeout(15_000) })
   assert.equal(response.status, 200, `${path} must be available`)
   assert.ok(response.headers.get('content-security-policy'), `${path} must have a CSP`)
@@ -29,6 +29,6 @@ assert.equal(image.status, 200)
 assert.match(image.headers.get('content-type') ?? '', /image\/png/)
 const health = await fetch(new URL('/api/health', base))
 assert.equal(health.status, local ? 503 : 200, 'Registration configuration readiness')
-const unpublished = await fetch(new URL('/pricing', base))
+const unpublished = await fetch(new URL('/blog', base))
 assert.equal(unpublished.status, 404, 'Unreleased pages must remain unpublished')
 console.log(JSON.stringify({ base: base.origin, results, socialImage: 'ok', registrationConfigured: health.ok, unpublishedRoutes: 'ok' }, null, 2))

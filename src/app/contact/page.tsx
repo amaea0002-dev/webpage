@@ -1,68 +1,60 @@
-import { ContactForm } from '@/components/forms/ContactForm'
+import ReferenceInteractions from "@/components/reference/ReferenceInteractions";
+/* Approved mockup page; preserve copy and story order. */
+import { pageMetadata } from "@/lib/metadata";
+import BookingScheduler from "@/components/reference/BookingScheduler";
 
-export const metadata = { title: 'Contact · Amaea' }
+export const metadata = pageMetadata(
+  "Contact Amaea | Book a demo",
+  "Talk to Amaea about your firm, your CRM and a demo of the platform.",
+  "/contact",
+);
 
-export default function ContactPage() {
+export default function Page() {
   return (
     <>
-      <section className="section">
-        <div className="container-wide">
-          <div className="eyebrow" style={{ marginBottom: 14 }}>Get in touch</div>
-          <h1 className="hero-display" style={{ maxWidth: '22ch', marginBottom: 32 }}>
-            Best by <em>email.</em>
-          </h1>
-          <p className="lede" style={{ maxWidth: '40rem' }}>
-            We&apos;re a small team. We answer everything ourselves; we don&apos;t farm out
-            customer email to a tier-one rep who can&apos;t answer your question.
+      <section className="page-intro shell">
+        <span className="eyebrow">{"LET’S FIND YOUR PEACE OF MIND"}</span>
+        <h1>{"Meet Amaea."}</h1>
+        <p>
+          {
+            "A conversation about your firm, the way you work and where Amaea could help."
+          }
+        </p>
+      </section>
+      <section className="contact-layout shell" id="book-demo">
+        <div>
+          <h2>
+            {"A demo built"}
+            <br />
+            {"around you."}
+          </h2>
+          <p>
+            {
+              "Explore the platform, discuss your CRM and team, or find the right plan for your firm."
+            }
           </p>
+          <a className="underlined" href="mailto:hello@amaea.co.uk">
+            {"hello@amaea.co.uk"}
+          </a>
         </div>
+        <BookingScheduler />
       </section>
-
-      <section className="section-tight" style={{ borderTop: '1px solid var(--rule)', borderBottom: '1px solid var(--rule)' }}>
-        <div className="container-wide">
-          <div className="contact-channels">
-            {/* TODO(Milan): verify contact inboxes and ownership before publication. */}
-            <Channel label="General" addr="hello@amaea.co.uk"   note="For everything that doesn&apos;t fit a category below." />
-            <Channel label="Sales"   addr="hasna@amaea.co.uk"   note="Founders-programme applications, demo bookings, pricing questions. Hasna replies directly." />
-            <Channel label="Product" addr="milan@amaea.co.uk"   note="Integration requests, technical depth, security questions. Milan replies directly." />
-            <Channel label="Press"   addr="press@amaea.co.uk"   note="Quotes, comments, contribution to compliance journalism." />
-          </div>
-        </div>
+      <section className="security-request shell" id="security">
+        <span className="eyebrow">{"TRUST & SECURITY"}</span>
+        <h2>{"The detail your firm needs."}</h2>
+        <p>
+          {
+            "Discuss encryption, hosting and data residency, data protection and the platform’s current security documentation with the Amaea team."
+          }
+        </p>
+        <a
+          className="underlined"
+          href="mailto:security@amaea.co.uk?subject=Platform%20security%20documentation"
+        >
+          {"Request security documentation"}
+        </a>
       </section>
-
-      <section className="section">
-        <div className="container-wide contact-layout">
-          <div>
-            <div className="eyebrow" style={{ marginBottom: 14 }}>Or send a message</div>
-            <h2 className="h-section" style={{ marginBottom: 32 }}>The form, if you prefer it.</h2>
-            <ContactForm />
-          </div>
-          <aside style={{ paddingTop: 8 }}>
-            <div className="marginal" style={{ marginBottom: 24 }}>
-              {/* TODO(Milan): verify company location, ownership, funding and customer claims before publishing them. */}
-              Contact the team to discuss your firm’s needs.
-            </div>
-            <div className="marginal" style={{ marginBottom: 24 }}>
-              Office hours: Monday–Friday, 09:00–18:00 BST. We answer email outside hours but
-              not always within hours.
-            </div>
-            <div className="marginal">
-              For security disclosures, please email <a className="font-mono email-link" href="mailto:security@amaea.co.uk">security@amaea.co.uk</a>.
-              {/* TODO(Milan): confirm the security disclosure process, inbox and response commitments. */}
-            </div>
-          </aside>
-        </div>
-      </section>
+      <ReferenceInteractions />
     </>
-  )
-}
-
-function Channel({ label, addr, note }: { label: string; addr: string; note: string }) {
-  return (
-    <div style={{ padding: '28px 24px', borderRight: '1px solid var(--rule)', borderBottom: '1px solid var(--rule)' }}>
-      <div className="eyebrow" style={{ marginBottom: 12, color: 'var(--plum)' }}>{label}</div>
-      <a className="email-link" href={`mailto:${addr}`} style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.95rem', marginBottom: 10 }}>{addr}</a>
-      <div className="body" style={{ fontSize: 13, color: 'var(--ink3)', lineHeight: 1.5 }} dangerouslySetInnerHTML={{ __html: note }} />
-    </div>
-  )
+  );
 }

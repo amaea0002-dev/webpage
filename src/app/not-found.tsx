@@ -1,3 +1,4 @@
+import ReferenceInteractions from "@/components/reference/ReferenceInteractions";
 import Link from 'next/link'
 
 export const metadata = { title: 'Not found · Amaea' }
@@ -21,6 +22,7 @@ export default function NotFound() {
           <Link href="/waitlist" className="btn btn-ghost btn-lg">Founders programme</Link>
         </div>
       </div>
+      <ReferenceInteractions />
     </section>
   )
 }
