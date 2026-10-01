@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
   "About Amaea | Built by someone who lived the problem",
-  "Meet Hasna, Founder and CEO of Amaea. Our story, mission and values.",
+  "Meet Hasna, CEO and Founder of Amaea. Our story, mission and values.",
   "/about",
 );
 
@@ -13,7 +13,7 @@ export default function Page() {
     <>
       <section
         className="hero shell compact"
-        aria-label="Amaea — your peace of mind"
+        aria-label="Amaea, your peace of mind"
       >
         <div className="hero-brand">
           <svg
@@ -65,7 +65,7 @@ export default function Page() {
             {"“"}
           </span>
           <p className="founder-name">{"Hasna"}</p>
-          <span>{"Founder and CEO"}</span>
+          <span>{"CEO and Founder"}</span>
         </div>
         <blockquote>
           <p>
@@ -75,7 +75,7 @@ export default function Page() {
           </p>
           <p>
             {
-              "I lived that for years — not something I heard about secondhand, but my own week, over and over. Compliance had quietly become the thing standing between good firms and the work they were actually there to do."
+              "I lived that for years, not something I heard about secondhand, but my own week, over and over. Compliance had quietly become the thing standing between good firms and the work they were actually there to do."
             }
           </p>
           <p>
@@ -83,7 +83,7 @@ export default function Page() {
               "So I built the tool I kept wishing existed. Amaea keeps every client, every review and every document against the rule that applies, so staying compliant stops being something you fight for and becomes something you simply have. Your peace of mind, and your time back."
             }
           </p>
-          <cite>{"— Hasna, Founder and CEO"}</cite>
+          <cite>{"Hasna, CEO and Founder"}</cite>
         </blockquote>
       </section>
       <section className="mission shell">

@@ -13,7 +13,7 @@ export default function Page() {
   return (
     <>
       <h1 className="sr-only">
-        {"Every client, every review, every document — Amaea features"}
+        {"Every client, every review, every document | Amaea features"}
       </h1>
       <FeatureChapters />
       <ReferenceInteractions />

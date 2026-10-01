@@ -1,18 +1,18 @@
-// Newsletter signup handler — POST /api/newsletter
+// Newsletter signup handler, POST /api/newsletter
 //
 // Vercel serverless function (Node runtime). Captures a blog/newsletter
 // signup from amaea.co.uk/blog and forwards it to founders@amaea.co.uk
 // via the Resend HTTP API. Replaces the prior formsubmit.co integration.
 //
 // Defences against form spam:
-//   - Honeypot field "company_url" — hidden in HTML, bots fill it, real users don't
+//   - Honeypot field "company_url", hidden in HTML, bots fill it, real users don't
 //   - Best-effort per-IP rate limit (5 submissions per 10 min on a warm instance)
 //
 // Env required:
-//   RESEND_API_KEY        — Resend account API key (re_...).
+//   RESEND_API_KEY       , Resend account API key (re_...).
 // Env optional:
-//   NEWSLETTER_TO_EMAIL   — override the recipient (default founders@amaea.co.uk).
-//   NEWSLETTER_FROM_EMAIL — override the verified sender
+//   NEWSLETTER_TO_EMAIL  , override the recipient (default founders@amaea.co.uk).
+//   NEWSLETTER_FROM_EMAIL, override the verified sender
 //                           (default Amaea Newsletter <hello@amaea.co.uk>).
 
 const TO_DEFAULT   = 'founders@amaea.co.uk'
@@ -78,7 +78,7 @@ export default async function handler(req, res) {
   }
   if (!body || typeof body !== 'object') body = {}
 
-  // Honeypot — silent 200 to avoid telling the bot it was detected.
+  // Honeypot, silent 200 to avoid telling the bot it was detected.
   if (String(body.company_url ?? '').trim()) {
     return res.status(200).json({ ok: true })
   }
@@ -92,7 +92,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ ok: false, error: 'That doesn’t look like a valid email address.' })
   }
 
-  const subject = `Newsletter signup — ${email}`
+  const subject = `Newsletter signup, ${email}`
   const html = `
     <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:560px;">
       <h2 style="font-size:18px;color:#17131E;margin:0 0 4px;">New newsletter signup</h2>

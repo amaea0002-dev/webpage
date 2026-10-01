@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata = { title: 'Not found · Amaea' }
 
 // Also what an unreleased route renders: the proxy rewrites those here with a
-// 404, so this page must not hint at what is hidden — to a visitor there is no
+// 404, so this page must not hint at what is hidden, to a visitor there is no
 // difference between a page that never existed and one that is not published yet.
 export default function NotFound() {
   return (

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Security — Amaea',
+  title: 'Security · Amaea',
   description: 'How Amaea handles firm data, with implementation details and work awaiting verification.',
 }
 
@@ -39,7 +39,7 @@ export default function SecurityPage() {
             Our security work includes database row-level security and automated isolation checks.
             This page distinguishes implementation details from plans and policies awaiting verification.
           </p>
-          {/* TODO(Milan): verify certification and penetration-test plans, dates and status before publication. */}
+          {/* TODO: verify certification and penetration-test plans, dates and status before publication. */}
           <p className="body" style={{ marginTop: 28 }}>
             SOC 2 Type I is planned for Q4 2026. ISO 27001 is planned for 2027.
             These are plans, not certifications held by Amaea.
@@ -47,12 +47,12 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      {/* Where data lives — cards */}
+      {/* Where data lives, cards */}
       <section className="section" style={{ borderTop: '1px solid var(--rule)' }}>
         <div className="container-wide">
           <div className="eyebrow" style={{ marginBottom: 24 }}>Where your data lives</div>
-          {/* TODO(Milan): verify the final data-location wording against deployment settings and provider contracts; use the same wording in privacy. */}
-          {/* TODO(Milan): verify provider retention, training and logging terms, including whether zero data retention is contractually enabled. */}
+          {/* TODO: verify the final data-location wording against deployment settings and provider contracts; use the same wording in privacy. */}
+          {/* TODO: verify provider retention, training and logging terms, including whether zero data retention is contractually enabled. */}
           <div className="value-grid">
             {STORES.map(s => (
               <div key={s.label} className="value-card">
@@ -84,15 +84,15 @@ export default function SecurityPage() {
               a migration setting <code>security_invoker = true</code> on views.
             </p>
           </div>
-          {/* TODO(Milan): approve any incident disclosure from a dated incident record; response times and customer impact are unverified. */}
+          {/* TODO: approve any incident disclosure from a dated incident record; response times and customer impact are unverified. */}
         </div>
       </section>
 
-      {/* Specifications — card grid */}
+      {/* Specifications, card grid */}
       <section className="section" style={{ borderTop: '1px solid var(--rule)' }}>
         <div className="container-wide">
           <div className="eyebrow" style={{ marginBottom: 24 }}>Specifications</div>
-          {/* TODO(Milan): verify deployed headers, MFA/session settings, backups, incident response, export and deletion policies before making operational commitments. */}
+          {/* TODO: verify deployed headers, MFA/session settings, backups, incident response, export and deletion policies before making operational commitments. */}
           <div className="spec-grid">
             {SPECS.map(s => (
               <div key={s.t} className="value-card">
@@ -115,7 +115,7 @@ export default function SecurityPage() {
             Contact us to discuss the evidence your firm needs for its review.
             The trust pack and publication schedule are awaiting confirmation.
           </p>
-          {/* TODO(Milan): confirm which trust documents can be supplied and the publication schedule. */}
+          {/* TODO: confirm which trust documents can be supplied and the publication schedule. */}
           <Link href="/contact" className="btn btn-lg" style={{ background: 'var(--cream)', color: 'var(--plum-deep)' }}>
             Discuss security
           </Link>

@@ -81,7 +81,7 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header-inner">
-        <Link href="/" className="site-mark" aria-label="Amaea — home" onClick={() => setMenuOpen(false)}>
+        <Link href="/" className="site-mark" aria-label="Amaea home" onClick={() => setMenuOpen(false)}>
           <Image unoptimized src="/amaea-a-plum.png" alt="" className="logo-light" width={38} height={38} />
           <Image unoptimized src="/amaea-a-white.png" alt="" className="logo-dark" width={38} height={38} />
           <span className="site-wordmark">amaea</span>

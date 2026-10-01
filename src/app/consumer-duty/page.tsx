@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Consumer Duty — Amaea',
+  title: 'Consumer Duty · Amaea',
   description: 'Consumer Duty assessment records and draft reporting for qualified staff to review.',
 }
 
-// TODO(Milan): verify outcome metrics, report formats and regulatory references against the app and approved sources before publication.
+// TODO: verify outcome metrics, report formats and regulatory references against the app and approved sources before publication.
 // Current scope: extraction/schemas.ts ConsumerDutyOutcomeSchema and reports/generate.
 const OUTCOMES = [
   { n: '01', title: 'Products and services', body: 'Record whether the source assessment covers products and services, for staff to check against the evidence.' },
@@ -44,7 +44,7 @@ export default function ConsumerDutyPage() {
         </div>
       </section>
 
-      {/* Four outcomes — cards */}
+      {/* Four outcomes, cards */}
       <section className="section" style={{ borderTop: '1px solid var(--rule)' }}>
         <div className="container-wide">
           <div className="eyebrow" style={{ marginBottom: 24 }}>The four outcomes</div>
@@ -67,7 +67,7 @@ export default function ConsumerDutyPage() {
           <h2 className="h-page" style={{ marginBottom: 24 }}>The annual board pack, <em>almost.</em></h2>
           <p className="body-large" style={{ marginBottom: 20 }}>
             Section 9.7 of PS22/9 requires the board to receive an annual assessment of consumer
-            outcomes — and to act on it. The pack is meant to be evidence, not theatre.
+            outcomes, and to act on it. The pack is meant to be evidence, not theatre.
           </p>
           <p className="body-large" style={{ marginBottom: 28 }}>
             The reporting workflow can prepare draft analysis from recorded firm data.
@@ -81,7 +81,7 @@ export default function ConsumerDutyPage() {
         </div>
       </section>
 
-      {/* What you actually get — spec cards */}
+      {/* What you actually get, spec cards */}
       <section className="section" style={{ borderTop: '1px solid var(--rule)' }}>
         <div className="container-wide">
           <div className="eyebrow" style={{ marginBottom: 16 }}>What you actually get</div>

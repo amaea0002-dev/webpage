@@ -2,7 +2,7 @@
 
 @layer base {
   :root {
-    /* Amaea brand v2 — warm aubergine on a single cream ground */
+    /* Amaea brand v2, warm aubergine on a single cream ground */
     --ink:    #241C22;
     --ink2:   #4A414A;
     --ink3:   #6B6470;
@@ -27,7 +27,7 @@
 
     --font-sans:   var(--font-sans-loaded,   'Inter'), ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-script: var(--font-script-loaded, 'Pinyon Script'), 'Snell Roundhand', cursive;
-    /* Editorial pages reference var(--font-serif) inline for headings — point it
+    /* Editorial pages reference var(--font-serif) inline for headings, point it
        at the display face so they match the bespoke Cabinet Grotesk heading tier.
        --font-mono (small eyebrow/meta labels) stays Inter, matching bespoke eyebrows. */
     --font-serif: var(--font-display);
@@ -54,7 +54,7 @@
     --header-h: 72px;
   }
 
-  /* Dark colourway — cream-on-plum. Toggled via data-theme on <html>. */
+  /* Dark colourway, cream-on-plum. Toggled via data-theme on <html>. */
   :root[data-theme="dark"] {
     --ink:   #FBF4F9;
     --ink2:  #E4D6E2;
@@ -102,7 +102,7 @@
 .font-serif { font-family: var(--font-serif); font-feature-settings: 'kern','liga','dlig','onum'; }
 .font-mono  { font-family: var(--font-mono); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
 .italic-serif { font-family: var(--font-serif); font-style: italic; }
-/* Pinyon Script — reserved for the wordmark and "peace of mind" moments only. */
+/* Pinyon Script, reserved for the wordmark and "peace of mind" moments only. */
 .script { font-family: var(--font-script); font-weight: 400; font-style: normal; line-height: 1; }
 
 /* ── Type system ─────────────────────────────────────────────── */
@@ -282,7 +282,7 @@
   align-items: center;
   gap: 28px;
 }
-/* Interim wordmark — Pinyon "amaea". Swap for the SVG A-mark once vectorised. */
+/* Interim wordmark, Pinyon "amaea". Swap for the SVG A-mark once vectorised. */
 .site-mark {
   font-family: var(--font-script);
   font-size: 2rem;
@@ -333,7 +333,7 @@
   .site-cta { gap: 6px; }
 }
 
-/* ── Veteran craft pass — display face, depth, considered motion ── */
+/* ── Veteran craft pass, display face, depth, considered motion ── */
 /* Cabinet Grotesk across the heading tier; Inter stays for body/UI. */
 .hero-word, .mega, .hero-display, .h-page, .h-section, .scene-line { font-family: var(--font-display); }
 
@@ -341,7 +341,7 @@
 .value-card, .twin-card, .price-card, .home-feat, .perspective, .chapter-media { box-shadow: var(--shadow-sm); }
 .price-card.popular { box-shadow: var(--shadow-md); }
 
-/* Considered hover motion — subtle lift on a custom curve. */
+/* Considered hover motion, subtle lift on a custom curve. */
 .value-card, .home-feat {
   transition: box-shadow 260ms var(--ease-out), transform 260ms var(--ease-out), border-color 260ms var(--ease-out);
 }
@@ -361,7 +361,7 @@
   .value-card:hover, .home-feat:hover, .btn:hover { transform: none; }
 }
 
-/* Subtle film grain over the whole surface — non-interactive, very low opacity. */
+/* Subtle film grain over the whole surface, non-interactive, very low opacity. */
 body::after {
   content: "";
   position: fixed;
@@ -477,7 +477,7 @@ code {
 
 /* ── Editorial primitives ──────────────────────────────────── */
 
-/* Drop-caps unified out — the bespoke pages set the no-drop-cap standard,
+/* Drop-caps unified out, the bespoke pages set the no-drop-cap standard,
    so first-letters render as normal body text across the whole site. */
 .drop-cap::first-letter {
   font-size: inherit;
@@ -528,7 +528,7 @@ code {
   padding: 24px 24px 26px;
 }
 
-/* ── Features — zig-zag chapters ─────────────────────────────── */
+/* ── Features, zig-zag chapters ─────────────────────────────── */
 .chapter {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -634,10 +634,10 @@ code {
 .cmp .no { color: var(--mute); }
 .perspective { background: var(--surface); border: 1px solid var(--rule); border-radius: 16px; padding: 28px 30px; }
 
-/* ── Homepage — hero + cinematic story ──────────────────────── */
+/* ── Homepage, hero + cinematic story ──────────────────────── */
 .hero { min-height: calc(100svh - var(--header-h)); display: flex; align-items: center; padding: 48px 0; }
 .hero-inner { text-align: center; width: 100%; max-width: 860px; margin-inline: auto; }
-/* Placeholder wordmark — swap for the SVG "A" mark once vectorised. */
+/* Placeholder wordmark, swap for the SVG "A" mark once vectorised. */
 .hero-word { font-weight: 700; letter-spacing: -0.05em; color: var(--ink); line-height: 0.98; font-size: clamp(3.4rem, 12.5vw, 7.5rem); }
 .hero-pom { display: block; font-family: var(--font-script); color: var(--plum); font-size: clamp(2.4rem, 8vw, 4rem); line-height: 1; margin-top: 2px; opacity: 1; }
 .hero-rule { height: 1px; width: min(340px, 58vw); margin: 30px auto 0; background: var(--rule); transform: scaleX(1); transform-origin: center; }
@@ -702,7 +702,7 @@ code {
   display: block;
 }
 
-/* Oversized pull quote — full-bleed magazine treatment */
+/* Oversized pull quote, full-bleed magazine treatment */
 .quote-mega {
   font-family: var(--font-serif);
   font-weight: 400;

@@ -39,7 +39,7 @@ export default function AnnualReviewsPage() {
           <h2 className="h-page" style={{ marginBottom: 28 }}>What the spreadsheet cannot do.</h2>
           <p className="lede drop-cap" style={{ marginBottom: 24 }}>
             Every IFA firm has a tab somewhere with client names and review dates. The tab is
-            never wrong on paper. It is wrong in practice — because a date in a column is not
+            never wrong on paper. It is wrong in practice, because a date in a column is not
             a workflow, it is a hope.
           </p>
           <p className="body-large" style={{ marginBottom: 24 }}>
@@ -56,7 +56,7 @@ export default function AnnualReviewsPage() {
           <div className="eyebrow" style={{ marginBottom: 14 }}>§03 · The review engine</div>
           <h2 className="h-section" style={{ marginBottom: 32 }}>What runs inside.</h2>
           <dl className="spec-list" style={{ maxWidth: '60rem' }}>
-            {/* TODO(Milan): verify review cadence, notification timings, drafting, export and vulnerable-client workflows before publishing detailed promises. */}
+            {/* TODO: verify review cadence, notification timings, drafting, export and vulnerable-client workflows before publishing detailed promises. */}
             <Spec t="Due dates" d="Review records include due dates and status information for staff to review." />
             <Spec t="Open flags" d="Recorded flags support human assessment. Automated review sweeps are currently switched off." />
             <Spec t="Reason for delay" d="Adviser notes can be recorded and considered alongside the review evidence." />

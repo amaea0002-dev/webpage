@@ -10,7 +10,7 @@ export type SubmitState = 'idle' | 'sending' | 'sent' | 'error'
  * is caught without a round trip, then one POST to /api/enquiries.
  *
  * What the caller gets: the current state, per-field errors, and a message to
- * show when something goes wrong. Nothing is cleared on failure — a person who
+ * show when something goes wrong. Nothing is cleared on failure, a person who
  * typed a paragraph keeps it.
  */
 export function useEnquirySubmit(kind: EnquiryKind) {

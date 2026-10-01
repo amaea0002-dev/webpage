@@ -1,20 +1,20 @@
-// Waitlist signup handler — POST /api/waitlist
+// Waitlist signup handler, POST /api/waitlist
 //
 // Vercel serverless function (Node runtime). Captures a signup from
 // amaea.co.uk/waitlist and forwards it as an email to founders@amaea.co.uk
 // via the Resend HTTP API. Mirrors the demo.js pattern.
 //
 // Defences against form spam:
-//   - Honeypot field "company_url" — hidden in HTML, bots fill it, real users don't
+//   - Honeypot field "company_url", hidden in HTML, bots fill it, real users don't
 //   - Best-effort per-IP rate limit (5 submissions per 10 min on a warm instance)
 //   - Cloudflare Bot Fight Mode is the primary edge defence (configured in CF)
 //
 // Env required:
-//   RESEND_API_KEY      — Resend account API key (re_...).
+//   RESEND_API_KEY     , Resend account API key (re_...).
 // Env optional:
-//   WAITLIST_TO_EMAIL   — override the recipient (default founders@amaea.co.uk).
+//   WAITLIST_TO_EMAIL  , override the recipient (default founders@amaea.co.uk).
 //                         Comma-separated for multiple recipients.
-//   WAITLIST_FROM_EMAIL — override the verified sender
+//   WAITLIST_FROM_EMAIL, override the verified sender
 //                         (default Amaea Waitlist <hello@amaea.co.uk>).
 
 const TO_DEFAULT   = 'founders@amaea.co.uk'
@@ -89,7 +89,7 @@ export default async function handler(req, res) {
   }
   if (!body || typeof body !== 'object') body = {}
 
-  // Honeypot — real users leave this empty, bots fill it. Silent 200 to avoid signalling.
+  // Honeypot, real users leave this empty, bots fill it. Silent 200 to avoid signalling.
   if (String(body.company_url ?? '').trim()) {
     return res.status(200).json({ ok: true })
   }
@@ -106,7 +106,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ ok: false, error: 'That doesn’t look like a valid email address.' })
   }
 
-  const subject = `Waitlist signup — ${name} (${firm})`
+  const subject = `Waitlist signup, ${name} (${firm})`
 
   const html = `
     <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:560px;">

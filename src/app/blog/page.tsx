@@ -3,7 +3,7 @@ import { NewsletterForm } from '@/components/forms/NewsletterForm'
 
 export const metadata = { title: 'Notes · Amaea' }
 
-// TODO(Milan): supply approved, sourced articles and real destination routes before publication.
+// TODO: supply approved, sourced articles and real destination routes before publication.
 const NOTES = [
   { d: 'Draft topic', tag: 'Engineering', t: 'Testing firm data isolation', body: 'An explanation of row-level security and the access checks in CI.' },
   { d: 'Draft topic', tag: 'Product', t: 'The core IFA document types', body: 'How document extraction supports a qualified person’s review.' },

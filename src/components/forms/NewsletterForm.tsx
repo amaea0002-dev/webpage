@@ -36,7 +36,7 @@ export function NewsletterForm() {
         <FormStatus
           state={state}
           message={message}
-          sent="Thank you — you are on the list. Every issue has an unsubscribe link."
+          sent="Thank you. You are on the list. Every issue has an unsubscribe link."
         />
       </div>
     </>

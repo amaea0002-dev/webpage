@@ -39,7 +39,7 @@ export default function VulnerablePage() {
 
       <section className="section">
         <div className="container-text">
-          {/* TODO(Milan): verify identification prompts, reassessment timings and adviser-training nudges against implemented workflows before publication. */}
+          {/* TODO: verify identification prompts, reassessment timings and adviser-training nudges against implemented workflows before publication. */}
           <h2 className="h-page" style={{ marginBottom: 28 }}>Evidence for a human review.</h2>
           <p className="body-large" style={{ marginBottom: 22 }}>
             An uploaded vulnerability assessment can provide the assessment date, adviser,

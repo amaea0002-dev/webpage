@@ -2,7 +2,7 @@ import { CrossLinks, FinalCTA } from '../consumer-duty/page'
 
 export const metadata = { title: 'RMAR filing · Amaea' }
 
-// TODO(Milan): verify the RMAR section mapping, cadence and export formats against the app and current filing requirements before publication.
+// TODO: verify the RMAR section mapping, cadence and export formats against the app and current filing requirements before publication.
 const SECTIONS = [
   { ref: 'B', name: 'Profit and loss account', desc: 'Review and edit recorded financial figures.' },
   { ref: 'D', name: 'Regulatory capital', desc: 'Review and edit recorded capital figures.' },

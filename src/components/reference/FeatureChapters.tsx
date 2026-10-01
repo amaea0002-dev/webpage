@@ -135,7 +135,7 @@ export default function FeatureChapters() {
           <h2>{"All your clients, at a glance"}</h2>
           <p>
             {
-              "Now zoom out. Open Amaea and see where the firm stands the moment you log in — a live health score, what's overdue, what's missing, who's vulnerable, and the one thing that needs you today. Live dashboards, including annual reviews and missing documents, turn hundreds of clients into a single clear picture. Nothing slips, nothing falls through."
+              "Now zoom out. Open Amaea and see where the firm stands the moment you log in: a live health score, what's overdue, what's missing, who's vulnerable, and the one thing that needs you today. Live dashboards, including annual reviews and missing documents, turn hundreds of clients into a single clear picture. Nothing slips, nothing falls through."
             }
           </p>
         </div>
@@ -282,12 +282,12 @@ export default function FeatureChapters() {
           <h2>{"Ask Amaea AI anything"}</h2>
           <p>
             {
-              "A compliance assistant that knows your whole firm. Ask it who to prioritise this week, what your Consumer Duty position is, when the RMAR's due — any time, in plain English, with an answer you can act on and prove later."
+              "A compliance assistant that knows your whole firm. Ask it who to prioritise this week, what your Consumer Duty position is, when the RMAR's due, any time, in plain English, with an answer you can act on and prove later."
             }
           </p>
           <p className="liability">
             {
-              "Amaea AI is decision support for qualified compliance staff — not regulated advice. Verify before acting."
+              "Amaea AI is decision support for qualified compliance staff, not regulated advice. Verify before acting."
             }
           </p>
         </div>
@@ -463,7 +463,7 @@ export default function FeatureChapters() {
           <h2>{"Your reports, drafted in one click"}</h2>
           <p>
             {
-              "Consumer Duty, RMAR, Vulnerability Reports, board packs and more — drafted from your own data and your own notes, ready for you to edit. Minutes, not two weeks of panic. And you decide which reports Amaea produces."
+              "Consumer Duty, RMAR, Vulnerability Reports, board packs and more: drafted from your own data and your own notes, ready for you to edit. Minutes, not two weeks of panic. And you decide which reports Amaea produces."
             }
           </p>
         </div>

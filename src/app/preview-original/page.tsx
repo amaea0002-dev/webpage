@@ -4,7 +4,7 @@ import RefinedStory from './RefinedStory'
 import './polish.css'
 
 export const metadata: Metadata = {
-  title: 'Amaea — original homepage, refined',
+  title: 'Amaea original homepage, refined',
   robots: { index: false, follow: false },
 }
 

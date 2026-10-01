@@ -13,11 +13,11 @@ export default function Page() {
   return (
     <>
       <h1 className="sr-only">
-        {"Amaea — FCA compliance software for UK financial advisers"}
+        {"Amaea | FCA compliance software for UK financial advisers"}
       </h1>
       <section
         className="hero hero-home shell"
-        aria-label="Amaea — your peace of mind"
+        aria-label="Amaea, your peace of mind"
       >
         <div className="hero-brand">
           <svg
@@ -108,7 +108,7 @@ export default function Page() {
           {"\n    "}
           <p>
             {
-              "Have you ever felt that pain? Amaea was built to solve exactly that — and more."
+              "Have you ever felt that pain? Amaea was built to solve exactly that, and more."
             }
           </p>
           {"\n    "}
@@ -222,11 +222,11 @@ export default function Page() {
 
                     <tr>
                       <th scope="row">{"David & Priya Patel"}</th>
-                      <td className="missing-entry">{"—"}</td>
+                      <td className="missing-entry">{"Missing"}</td>
                       <td>{"22/06/2026"}</td>
                       <td>{"JR"}</td>
                       <td>{"Yes"}</td>
-                      <td>{"—"}</td>
+                      <td>{"Missing"}</td>
                       <td>{"Yes"}</td>
                     </tr>
 
@@ -234,13 +234,13 @@ export default function Page() {
                       <th scope="row">{"Andrew & Kate Smith"}</th>
                       <td>{"09/10/2026"}</td>
                       <td className="missing-signed-date">
-                        <span>{"—"}</span>
+                        <span>{"Missing"}</span>
                         <small>{"No signed date"}</small>
                       </td>
                       <td>{"HS"}</td>
                       <td>{"Yes"}</td>
                       <td>{"Yes"}</td>
-                      <td>{"—"}</td>
+                      <td>{"Missing"}</td>
                     </tr>
 
                     <tr>
@@ -251,7 +251,7 @@ export default function Page() {
                       </td>
                       <td>{"16/05/2026"}</td>
                       <td>{"JR"}</td>
-                      <td>{"—"}</td>
+                      <td>{"Missing"}</td>
                       <td>{"Yes"}</td>
                       <td>{"Yes"}</td>
                     </tr>
@@ -259,11 +259,11 @@ export default function Page() {
                     <tr>
                       <th scope="row">{"Peter & Helen Jones"}</th>
                       <td>{"12/11/2026"}</td>
-                      <td className="missing-entry">{"—"}</td>
+                      <td className="missing-entry">{"Missing"}</td>
                       <td>{"HS"}</td>
                       <td>{"Yes"}</td>
-                      <td>{"—"}</td>
-                      <td>{"—"}</td>
+                      <td>{"Missing"}</td>
+                      <td>{"Missing"}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -302,7 +302,7 @@ export default function Page() {
                   </div>
                   <div className="focus-missing">
                     <span>{"Suitability report signed"}</span>
-                    <strong>{"—"}</strong>
+                    <strong>{"Missing"}</strong>
                     <small>{"Nothing recorded"}</small>
                   </div>
                 </div>
@@ -382,7 +382,7 @@ export default function Page() {
               <h2>{"A signed suitability report."}</h2>
               <div className="found-file" data-motion>
                 <span>{"PDF"}</span>
-                <strong>{"Suitability report — signed.pdf"}</strong>
+                <strong>{"Suitability report signed.pdf"}</strong>
                 <small>{"Andrew Smith · 12/06/2026"}</small>
               </div>
               <p>{"Now put the date back into the spreadsheet."}</p>
@@ -432,7 +432,7 @@ export default function Page() {
                   <h3>{"Andrew & Kate Smith"}</h3>
                   <dl>
                     <dt>{"Signed"}</dt>
-                    <dd>{"—"}</dd>
+                    <dd>{"Missing"}</dd>
                     <dt>{"Spouse"}</dt>
                     <dd>{"Kate"}</dd>
                   </dl>
@@ -531,7 +531,7 @@ export default function Page() {
                 {"felt that pain?"}
               </h2>
               <p className="story-answer" data-motion>
-                {"Amaea was built to solve exactly that — and more."}
+                {"Amaea was built to solve exactly that, and more."}
               </p>
             </article>
             {"\n      "}
@@ -563,7 +563,7 @@ export default function Page() {
                   </div>
                   <div>
                     <dt>{"Source evidence"}</dt>
-                    <dd>{"Suitability report — CL-0142.pdf"}</dd>
+                    <dd>{"Suitability report CL-0142.pdf"}</dd>
                   </div>
                 </dl>
                 <div className="relief-checks">

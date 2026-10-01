@@ -295,7 +295,7 @@ export default function Page() {
       <section className="comparison shell" id="plan-comparison">
         <span className="eyebrow">{"THE DETAIL"}</span>
         <h2>{"What’s in each plan, side by side."}</h2>
-        <p className="micro">{"✓ = included · — = not included"}</p>
+        <p className="micro">{"✓ = included"}</p>
         <div
           className="table-scroll"
           tabIndex={0}
@@ -384,21 +384,21 @@ export default function Page() {
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
-                <td>{"—"}</td>
+                <td>{"Not included"}</td>
               </tr>
               <tr>
                 <th scope="row">{"Vulnerable client tracking"}</th>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
-                <td>{"—"}</td>
+                <td>{"Not included"}</td>
               </tr>
               <tr>
                 <th scope="row">{"Annual Consumer Duty assessment report"}</th>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
-                <td>{"—"}</td>
+                <td>{"Not included"}</td>
               </tr>
               <tr className="table-category">
                 <th colSpan={5}>{"AI & Reporting"}</th>
@@ -408,14 +408,14 @@ export default function Page() {
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"Custom-trained"}</td>
-                <td>{"—"}</td>
+                <td>{"Not included"}</td>
               </tr>
               <tr>
                 <th scope="row">{"RMAR pre-population"}</th>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
-                <td>{"—"}</td>
+                <td>{"Not included"}</td>
               </tr>
               <tr>
                 <th scope="row">{"Reports"}</th>
@@ -426,10 +426,10 @@ export default function Page() {
               </tr>
               <tr>
                 <th scope="row">{"Board-level compliance packs"}</th>
-                <td>{"—"}</td>
+                <td>{"Not included"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
-                <td>{"—"}</td>
+                <td>{"Not included"}</td>
               </tr>
               <tr className="table-category">
                 <th colSpan={5}>{"Integrations"}</th>
@@ -446,14 +446,14 @@ export default function Page() {
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
-                <td>{"—"}</td>
+                <td>{"Not included"}</td>
               </tr>
               <tr>
                 <th scope="row">{"Open API & custom integrations"}</th>
-                <td>{"—"}</td>
-                <td>{"—"}</td>
+                <td>{"Not included"}</td>
+                <td>{"Not included"}</td>
                 <td>{"✓"}</td>
-                <td>{"—"}</td>
+                <td>{"Not included"}</td>
               </tr>
               <tr className="table-category">
                 <th colSpan={5}>{"Support"}</th>

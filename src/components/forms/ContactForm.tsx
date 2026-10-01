@@ -53,7 +53,7 @@ export function ContactForm() {
       <FormStatus
         state={state}
         message={message}
-        sent="Thank you — your message has reached us, and we will reply by email."
+        sent="Thank you. Your message has reached us, and we will reply by email."
       />
 
       <div className="foot">

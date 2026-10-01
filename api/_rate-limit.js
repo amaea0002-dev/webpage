@@ -1,7 +1,7 @@
 /**
  * Distributed rate limiter for amaea-website's Vercel functions.
  *
- * Mirror of amaea-app/src/lib/rate-limit/upstash.ts — same algorithm
+ * Mirror of amaea-app/src/lib/rate-limit/upstash.ts, same algorithm
  * (fixed-window via Upstash Redis REST), same fail-open behaviour, no
  * SDK dependency so this site stays npm-free.
  *

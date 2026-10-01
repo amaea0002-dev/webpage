@@ -69,7 +69,7 @@ export function isEnquiryKind(value: unknown): value is EnquiryKind {
 
 /**
  * Validate one submission. Returns the trimmed fields, or a message per
- * invalid field — addressed to the person filling the form, so it says what
+ * invalid field, addressed to the person filling the form, so it says what
  * to do, not what the parser disliked.
  */
 export function validateEnquiry(kind: EnquiryKind, input: unknown): ValidationResult {
@@ -106,7 +106,7 @@ export function validateEnquiry(kind: EnquiryKind, input: unknown): ValidationRe
 
 /**
  * The honeypot: `company` is hidden in the page, so a person never fills it.
- * Not a security control — it just keeps the inbox usable, alongside the rate
+ * Not a security control, it just keeps the inbox usable, alongside the rate
  * limit in the route.
  *
  * There is deliberately no "submitted too quickly" rule. It fires on fast

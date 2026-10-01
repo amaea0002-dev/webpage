@@ -19,7 +19,7 @@ export default function WaitlistPage() {
           <h1 className="hero-display" style={{ maxWidth: '20ch', marginBottom: 32 }}>
             Help shape <em>a calmer way to work.</em>
           </h1>
-          {/* TODO(Milan): name the conference and month once the date is fixed, so this says
+          {/* TODO: name the conference and month once the date is fixed, so this says
               when applications open instead of "soon". */}
           <p className="lede" style={{ maxWidth: '40rem' }}>
             Register your interest in the founders programme. We’re looking for ten to twenty UK firms
@@ -49,11 +49,11 @@ export default function WaitlistPage() {
             <div className="tile">
               <div className="eyebrow" style={{ color: 'var(--plum)', marginBottom: 14 }}>What founders get</div>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 16 }}>
-                {/* TODO(Milan): once the commercial terms for the cohort are set, say them here —
+                {/* TODO: once the commercial terms for the cohort are set, say them here
                     what participating costs, for how long, and what happens at the end. */}
                 <Bullet h="Who we're looking for" b="Three to fifteen advisers, UK FCA-regulated, in good standing, with an active client book." />
                 <Bullet h="What we ask" b="Your perspective on the compliance work that takes time, and what would make it easier." />
-                <Bullet h="What you get" b="A direct line to the two people building it, and real influence over what gets built first." />
+                <Bullet h="What you get" b="A direct line to Hasna, our CEO and Founder, and real influence over what gets built first." />
                 <Bullet h="What is still to come" b="Commercial terms for the cohort. We will put them in writing before asking anyone to commit." />
               </ul>
             </div>
@@ -71,7 +71,7 @@ export default function WaitlistPage() {
             using it.
           </p>
           <div className="foot" style={{ marginTop: 24, color: 'rgba(254, 252, 250,0.5)', letterSpacing: '0.06em' }}>
-            Hasna &amp; Milan · Co-founders
+            Hasna · CEO and Founder
           </div>
         </div>
       </section>

@@ -4,7 +4,7 @@ import LegalPage from '@/components/LegalPage'
 export const metadata = pageMetadata('Cookie notice · Amaea', 'The browser storage used by Amaea’s website, including your light or dark theme preference.', '/cookies')
 
 // Short because the truth is short: one local-storage key for the theme, no
-// cookies, no analytics. Verified against the source — the only storage call
+// cookies, no analytics. Verified against the source, the only storage call
 // on this site is the theme toggle in SiteHeader and the matching script in
 // layout.tsx. If anything is ever added, this page changes first.
 export default function CookiesPage() {

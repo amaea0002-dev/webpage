@@ -29,7 +29,7 @@ export default function GuidePage() {
           <p className="lede" style={{ maxWidth: '44rem' }}>
             For UK IFA firms thinking about replacing the spreadsheet-and-Outlook compliance
             stack. Vendor-neutral on questions of <em>category</em>; opinionated on questions of{' '}
-            <em>execution</em>. We&apos;d obviously like you to choose Amaea — and we&apos;ll
+            <em>execution</em>. We&apos;d obviously like you to choose Amaea, and we&apos;ll
             tell you when we&apos;re not the right fit.
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function GuidePage() {
               <p className="lede drop-cap">
                 Compliance software exists to turn evidence from something that lives in
                 people&apos;s heads, spreadsheets, and email threads into something that lives
-                in a queryable system of record. The output is not a UI — it&apos;s an audit
+                in a queryable system of record. The output is not a UI, it&apos;s an audit
                 trail that survives staff churn, FCA visits, and Subject Access Requests.
               </p>
               <p className="body-large">
@@ -67,8 +67,8 @@ export default function GuidePage() {
             <Chapter n="02" t="Why spreadsheets are not compliance software">
               <p className="body-large">
                 A spreadsheet is a database with very few constraints. It will let you record a
-                review date — but not enforce a cadence; will let you note a vulnerability — but
-                not require re-assessment; will let you list client documents — but not flag the
+                review date, but not enforce a cadence; will let you note a vulnerability, but
+                not require re-assessment; will let you list client documents, but not flag the
                 ones missing. The discipline lives in the human, not in the tool. Every firm
                 that runs compliance through a spreadsheet runs it through that one specific
                 compliance officer&apos;s discipline.
@@ -96,7 +96,7 @@ export default function GuidePage() {
                 context and firm-scoped access controls. Findings and drafts require review and sign-off
                 by qualified staff. Evaluate these capabilities using synthetic examples.
               </p>
-              {/* TODO(Milan): verify product coverage, plan limits, integration availability and migration support before publishing this guide. */}
+              {/* TODO: verify product coverage, plan limits, integration availability and migration support before publishing this guide. */}
             </Chapter>
 
             <Chapter n="05" t="How to evaluate a vendor">

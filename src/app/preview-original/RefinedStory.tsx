@@ -6,7 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './story.css'
 
-const FILES = ['Fact find — 2019.pdf', 'Annual review — 2022.pdf', 'Correspondence.pdf', 'Suitability report — signed.pdf']
+const FILES = ['Fact find 2019.pdf', 'Annual review 2022.pdf', 'Correspondence.pdf', 'Suitability report signed.pdf']
 
 function FileIcon() {
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h4" /></svg>
@@ -86,7 +86,7 @@ export default function RefinedStory() {
     return () => media.revert()
   }, [reading])
 
-  return <section className="clean-story" ref={root} aria-label="The Andrew Smith story — synthetic example">
+  return <section className="clean-story" ref={root} aria-label="The Andrew Smith story, synthetic example">
     <div className="clean-story-stage">
       <article className="clean-scene clean-open">
         <Caption number="01">THE REQUEST</Caption>
@@ -110,7 +110,7 @@ export default function RefinedStory() {
       </article>
       <article className="clean-scene clean-resolve">
         <Caption number="06">THE WAY FORWARD</Caption>
-        <div className="clean-scene-content"><p className="resolve-question">Have you ever felt that pain?</p><h2 className="story-headline">Amaea was built<br />to solve exactly that<br /><span>— and more.</span></h2><Link href="/waitlist" className="btn btn-primary btn-lg">Book a demo</Link></div>
+        <div className="clean-scene-content"><p className="resolve-question">Have you ever felt that pain?</p><h2 className="story-headline">Amaea was built<br />to solve exactly that<br /><span>and more.</span></h2><Link href="/waitlist" className="btn btn-primary btn-lg">Book a demo</Link></div>
       </article>
       <div className="clean-story-toolbar"><div className="clean-progress" aria-hidden="true"><span /></div><button type="button" onClick={() => setReading(!reading)} aria-pressed={reading}>{reading ? 'Enable animation' : 'Read without animation'}</button><a href="#original-platform">Skip story <span aria-hidden="true">↓</span></a></div>
     </div>

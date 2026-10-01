@@ -1,20 +1,20 @@
-// Demo-request handler — POST /api/demo
+// Demo-request handler, POST /api/demo
 //
 // Vercel serverless function (Node runtime). Forwards a contact-form
 // submission as an email to founders@amaea.co.uk via the Resend HTTP API.
-// No package install required — uses native fetch.
+// No package install required, uses native fetch.
 //
 // Defences against form spam:
-//   - Honeypot field "company_url" — hidden in HTML, bots fill it, real users don't
+//   - Honeypot field "company_url", hidden in HTML, bots fill it, real users don't
 //   - Best-effort per-IP rate limit (5 submissions per 10 min on a warm instance)
 //   - Cloudflare Bot Fight Mode is the primary edge defence (configured in CF)
 //
 // Env required:
-//   RESEND_API_KEY  — Resend account API key (re_...).
+//   RESEND_API_KEY , Resend account API key (re_...).
 // Env optional:
-//   DEMO_TO_EMAIL   — override the recipient (default founders@amaea.co.uk).
+//   DEMO_TO_EMAIL  , override the recipient (default founders@amaea.co.uk).
 //                     Comma-separated for multiple recipients.
-//   DEMO_FROM_EMAIL — override the verified sender (default Amaea Demo Requests <hello@amaea.co.uk>).
+//   DEMO_FROM_EMAIL, override the verified sender (default Amaea Demo Requests <hello@amaea.co.uk>).
 
 const TO_DEFAULT   = 'founders@amaea.co.uk'
 const FROM_DEFAULT = 'Amaea Demo Requests <hello@amaea.co.uk>'
@@ -85,7 +85,7 @@ export default async function handler(req, res) {
   }
   if (!body || typeof body !== 'object') body = {}
 
-  // Honeypot — real users leave this empty. Silent 200 to avoid signalling.
+  // Honeypot, real users leave this empty. Silent 200 to avoid signalling.
   if (String(body.company_url ?? '').trim()) {
     return res.status(200).json({ ok: true })
   }
@@ -111,7 +111,7 @@ export default async function handler(req, res) {
   }
 
   const fullName = name
-  const subject  = `Demo request — ${fullName} (${firm})`
+  const subject  = `Demo request, ${fullName} (${firm})`
 
   const html = `
     <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:560px;">

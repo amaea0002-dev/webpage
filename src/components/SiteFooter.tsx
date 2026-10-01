@@ -88,7 +88,7 @@ export default function SiteFooter() {
             letterSpacing: '0.02em',
           }}
         >
-          <div>© 2026 Amaea. {/* TODO(Milan): verify legal entity and registration wording against the privacy notice. */}</div>
+          <div>© 2026 Amaea. {/* TODO: verify legal entity and registration wording against the privacy notice. */}</div>
           <div>Findings and drafts require review and sign-off by qualified compliance staff.</div>
         </div>
       </div>

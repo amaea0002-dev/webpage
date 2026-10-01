@@ -5,8 +5,8 @@ export const metadata = { title: 'Terms · Amaea' }
 export default function TermsPage() {
   return (
     <LegalPage title="Terms of service." eyebrow="Legal · Master services" lastUpdated="10 September 2026">
-      {/* TODO(Milan): approve legal entity, contract, pricing, DPA, retention, liability and governing-law terms before publication. */}
-      <p className="body-large" style={{ marginBottom: 28 }}>Draft terms — subject to legal and commercial approval.</p>
+      {/* TODO: approve legal entity, contract, pricing, DPA, retention, liability and governing-law terms before publication. */}
+      <p className="body-large" style={{ marginBottom: 28 }}>Draft terms, subject to legal and commercial approval.</p>
       <h2 className="h-section" style={{ marginBottom: 16 }}>1. The contract</h2>
       <p className="body-large" style={{ marginBottom: 28 }}>
         These Terms govern your use of the Amaea platform. They form a binding contract between
@@ -42,7 +42,7 @@ export default function TermsPage() {
 
       <h2 className="h-section" style={{ marginBottom: 16 }}>5. SLA &amp; uptime</h2>
       <p className="body-large" style={{ marginBottom: 28 }}>
-        TODO(Milan): verify any service-level commitments, measurement period, exclusions,
+        TODO: verify any service-level commitments, measurement period, exclusions,
         service credits and maintenance notice. No uptime percentage is confirmed here.
       </p>
 

@@ -5,11 +5,11 @@ export const metadata = pageMetadata('Privacy notice · Amaea', 'How Amaea handl
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy notice." eyebrow="Website privacy" lastUpdated="25 September 2026">
+    <LegalPage title="Privacy notice." eyebrow="Website privacy" lastUpdated="1 October 2026">
       <p className="body-large">This notice explains how we use personal information when you visit amaea.co.uk or register interest in the founders programme. It does not cover client information in the Amaea app. Please do not put client names, documents or sensitive information in the registration form.</p>
       <h2 className="h-section">1. Who is responsible</h2>
       {/* Full controller identity and correspondence details await founder confirmation. */}
-      <p className="body-large">Amaea is run by its co-founders, Milan and Hasna, who are responsible for the website enquiries described here. Contact <a href="mailto:privacy@amaea.co.uk">privacy@amaea.co.uk</a> about your information. You can also reach us at <a href="mailto:hello@amaea.co.uk">hello@amaea.co.uk</a>.</p>
+      <p className="body-large">Amaea is responsible for the website enquiries described here. Contact <a href="mailto:privacy@amaea.co.uk">privacy@amaea.co.uk</a> about your information. You can also reach us at <a href="mailto:hello@amaea.co.uk">hello@amaea.co.uk</a>.</p>
       <h2 className="h-section">2. Information we use</h2>
       <ul>
         <li>Your firm’s name and email address when you register interest.</li>

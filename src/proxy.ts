@@ -2,7 +2,7 @@
 //
 // A page that is merely unlinked is still public to anyone with the URL, and
 // these pages carry claims that are not yet substantiated. So an unreleased
-// route answers 404 — the same as a page that does not exist, which is what
+// route answers 404, the same as a page that does not exist, which is what
 // it is as far as the public is concerned.
 //
 // Next 16 renamed the middleware convention to `proxy`.

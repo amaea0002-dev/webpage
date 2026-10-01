@@ -76,7 +76,7 @@ export async function handleEnquiry(request: Request, dependencies: Dependencies
       headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json', 'Idempotency-Key': `website/${fingerprint}` },
       signal: AbortSignal.timeout(10_000),
       body: JSON.stringify({ from, to: inbox.split(',').map(address => address.trim()).filter(Boolean), subject: `${label}: ${result.fields.firm ?? result.fields.email}`,
-        text: [`${label} — amaea.co.uk`, `Reference: ${reference}`, '', ...Object.entries(result.fields).map(([name, value]) => `${name}: ${value}`)].join('\n'), reply_to: result.fields.email }),
+        text: [`${label}, amaea.co.uk`, `Reference: ${reference}`, '', ...Object.entries(result.fields).map(([name, value]) => `${name}: ${value}`)].join('\n'), reply_to: result.fields.email }),
     })
     if (!response.ok) {
       log({ event: 'enquiry.delivery_failed', status: response.status, reference })

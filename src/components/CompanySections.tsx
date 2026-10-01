@@ -59,7 +59,7 @@ export function CompanyStory() {
         <figure className="founder-figure">
           {/* Portrait intentionally left empty at the founder's request. */}
           <div className="founder-portrait-placeholder" role="img" aria-label="Reserved space for Hasna’s portrait" />
-          <figcaption>This is Hasna, the crisp-loving, needle-hating CEO and Co-founder of Amaea.</figcaption>
+          <figcaption>This is Hasna, the crisp-loving, needle-hating CEO and Founder of Amaea.</figcaption>
         </figure>
         <Reveal className="company-story-copy">
           <div className="eyebrow">Our story</div>

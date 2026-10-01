@@ -2,18 +2,18 @@ import Link from 'next/link'
 import { FinalCTA } from '../consumer-duty/page'
 
 export const metadata = {
-  title: 'Integrations — Amaea',
+  title: 'Integrations · Amaea',
   description: 'Intelliflo and SharePoint integration code, with production availability and roadmap dates awaiting confirmation.',
 }
 
 // Sources: ../amaea-app/src/lib/integrations/providers.ts, intelliflo-sync.ts and sharepoint-ingest.ts.
-// TODO(Milan): verify production approval, availability, sync scope and cadence for each integration.
+// TODO: verify production approval, availability, sync scope and cadence for each integration.
 const LIVE = [
   { name: 'Intelliflo Office', mark: 'IO', body: 'Read-only integration code for clients, plans and service cases. The configured OAuth endpoints are for testing; production approval and availability need confirmation.' },
   { name: 'SharePoint', mark: 'SP', body: 'Document ingestion code uses Microsoft Graph and selected-site permissions. Production availability and the supported setup need confirmation.' },
 ]
 
-// TODO(Milan): approve the roadmap scope and dates; none of these entries establishes a delivery commitment.
+// TODO: approve the roadmap scope and dates; none of these entries establishes a delivery commitment.
 const ROAD = [
   { tier: 'Back office', name: 'Iress Xplan', body: 'Suitability reports, fact finds, ongoing service records. Two-way sync planned.', q: 'To confirm' },
   { tier: 'Back office', name: 'Salesforce FSC', body: 'Financial Services Cloud. Client and opportunity sync, custom field mapping.', q: 'To confirm' },
@@ -40,7 +40,7 @@ export default function IntegrationsPage() {
         </div>
       </section>
 
-      {/* Live today — cards */}
+      {/* Live today, cards */}
       <section className="section" style={{ borderTop: '1px solid var(--rule)' }}>
         <div className="container-wide">
           <div className="eyebrow" style={{ marginBottom: 24 }}>Integration development</div>
@@ -59,7 +59,7 @@ export default function IntegrationsPage() {
         </div>
       </section>
 
-      {/* Roadmap — cards with quarter badges */}
+      {/* Roadmap, cards with quarter badges */}
       <section className="section" style={{ borderTop: '1px solid var(--rule)', background: 'var(--surface)' }}>
         <div className="container-wide">
           <div className="eyebrow" style={{ marginBottom: 16 }}>Roadmap</div>

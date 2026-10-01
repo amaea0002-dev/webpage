@@ -1,4 +1,4 @@
-/* amaea.co.uk r2 — editorial-documentary tokens.
+/* amaea.co.uk r2, editorial-documentary tokens.
  *
  * Newsreader (serif) carries display + headings; Inter carries body;
  * JetBrains Mono carries footnotes, data callouts, captions. The whole
@@ -21,20 +21,20 @@ export const color = {
   plumDeep:   '#2A1729',
   plumTint:   'rgba(64,36,63,0.06)',
 
-  accent:     '#B7411C',   // editorial accent — warm rust, used for pull-quotes + drop caps
+  accent:     '#B7411C',   // editorial accent, warm rust, used for pull-quotes + drop caps
 } as const
 
-// Type scale — wide spread for editorial hierarchy. Larger top than r2 app.
+// Type scale, wide spread for editorial hierarchy. Larger top than r2 app.
 export const text = {
-  '2xs': '0.6875rem', // 11px — footnote
-  xs:    '0.78rem',   // 12.5px — caption
-  sm:    '0.875rem',  // 14px — small body
-  base:  '1.0625rem', // 17px — primary body (large by SaaS standards; editorial body size)
-  lg:    '1.25rem',   // 20px — lede
-  xl:    '1.625rem',  // 26px — section title
-  '2xl': '2.25rem',   // 36px — page title
-  '3xl': '3rem',      // 48px — display
-  hero:  '4.5rem',    // 72px — hero display
+  '2xs': '0.6875rem', // 11px, footnote
+  xs:    '0.78rem',   // 12.5px, caption
+  sm:    '0.875rem',  // 14px, small body
+  base:  '1.0625rem', // 17px, primary body (large by SaaS standards; editorial body size)
+  lg:    '1.25rem',   // 20px, lede
+  xl:    '1.625rem',  // 26px, section title
+  '2xl': '2.25rem',   // 36px, page title
+  '3xl': '3rem',      // 48px, display
+  hero:  '4.5rem',    // 72px, hero display
 } as const
 
 export const radius = {
@@ -52,8 +52,8 @@ export const space = {
 } as const
 
 export const layout = {
-  textWidth:   '38rem',   // 608px — narrow, editorial reading column
-  prosWidth:   '44rem',   // 704px — wider essays
-  maxContent:  '76rem',   // 1216px — for multi-column dashboards / data displays
+  textWidth:   '38rem',   // 608px, narrow, editorial reading column
+  prosWidth:   '44rem',   // 704px, wider essays
+  maxContent:  '76rem',   // 1216px, for multi-column dashboards / data displays
   headerH:     '72px',
 } as const

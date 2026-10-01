@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 export const metadata = { title: 'Founders programme · Amaea' }
 
-// TODO(Milan): verify application status and replace the expired 30 June 2026 deadline only with an approved date.
-// TODO(Milan): approve cohort size, programme duration, commercial terms, response times and launch milestones.
+// TODO: verify application status and replace the expired 30 June 2026 deadline only with an approved date.
+// TODO: approve cohort size, programme duration, commercial terms, response times and launch milestones.
 const STAGES = [
   { when: 'To confirm', what: 'Applications', detail: 'Application dates and availability are awaiting confirmation.' },
   { when: 'To confirm', what: 'Selection', detail: 'Cohort size and selection criteria are awaiting confirmation.' },
@@ -78,11 +78,11 @@ export default function FoundersPage() {
         <div className="container-prose">
           <div className="eyebrow" style={{ marginBottom: 14 }}>§03 · Who we&apos;re looking for</div>
           <h2 className="h-page" style={{ marginBottom: 32 }}>The shape of a founders firm.</h2>
-          {/* TODO(Milan): approve the proposed eligibility criteria before recruiting firms. */}
+          {/* TODO: approve the proposed eligibility criteria before recruiting firms. */}
           <dl className="spec-list">
             <Spec t="Size" d="Three to fifteen advisers. Big enough to have a real compliance problem; small enough to move on the platform without a six-month procurement cycle." />
             <Spec t="Regulator stance" d="Good standing with FCA, FOS. No active enforcement. We want to be the platform you grow into compliance with, not the platform that saves you from it." />
-            <Spec t="Honesty bar" d="Willing to be honest about your current compliance setup — including the parts you&apos;re not proud of. We can&apos;t fix what we can&apos;t see." />
+            <Spec t="Honesty bar" d="Willing to be honest about your current compliance setup, including the parts you&apos;re not proud of. We can&apos;t fix what we can&apos;t see." />
             <Spec t="Operating cadence" d="Active client book; weekly compliance review cadence; uses a back-office system (Intelliflo, Iress, similar) as the source of truth for client data." />
             <Spec t="Geography" d="UK-FCA-regulated. England, Scotland, Wales, Northern Ireland. We don&apos;t cover Isle of Man or Channel Islands in cohort I." />
           </dl>
