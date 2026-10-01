@@ -1,5 +1,5 @@
+/* CEO mockup 2026-10-01 v2; preserve supplied copy and story order. */
 import ReferenceInteractions from "@/components/reference/ReferenceInteractions";
-/* Approved mockup page; preserve copy and story order. */
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
@@ -15,8 +15,12 @@ export default function Page() {
         <span className="eyebrow">{"PRICING"}</span>
         <h1>{"What it costs."}</h1>
         <p>
+          <strong>
+            {"Professional is £1,599 a month, for up to 600 active clients."}
+          </strong>
+          <br />
           {
-            "Three tiers + one bespoke, priced per active client. No setup fee. Every tier ships the full audit trail and 7-year retention; the differences are which workflows are switched on."
+            "No setup fee. Unlimited logins. Every tier includes the full audit trail and 7-year retention."
           }
         </p>
         <div className="billing-toggle" aria-label="Billing period">
@@ -33,64 +37,10 @@ export default function Page() {
           </button>
         </div>
       </section>
-      <section className="plan-grid shell" aria-label="Plans">
-        <article className="plan ">
-          <span className="eyebrow">{"Solo + small firms"}</span>
-          <h2>{"Essentials"}</h2>
-          <div className="plan-price">
-            <span className="price-number" data-monthly="699">
-              {"£699"}
-            </span>
-            <span className="price-unit">{" / mo"}</span>
-            <small className="billing-note">{"billed monthly"}</small>
-          </div>
-          <p>
-            {
-              "If your audit trail still lives in a SharePoint folder and one person's memory. Core sweep, audit log, Intelliflo read."
-            }
-          </p>
-          <ul>
-            <li>
-              <span aria-hidden="true">{"✓"}</span>
-              {"Up to 100 active clients"}
-            </li>
-            <li>
-              <span aria-hidden="true">{"✓"}</span>
-              {"Client journey · 17 doc types tracked"}
-            </li>
-            <li>
-              <span aria-hidden="true">{"✓"}</span>
-              {"Annual review sweep · COBS 9.5 nightly cron"}
-            </li>
-            <li>
-              <span aria-hidden="true">{"✓"}</span>
-              {"Append-only audit trail · 7-year retention"}
-            </li>
-            <li>
-              <span aria-hidden="true">{"✓"}</span>
-              {"Intelliflo read integration · AES-256-GCM tokens"}
-            </li>
-            <li>
-              <span aria-hidden="true">{"✓"}</span>
-              {"5 standard PDF reports"}
-            </li>
-            <li className="excluded">
-              <span aria-hidden="true">{"✕"}</span>
-              {"AI compliance assistant"}
-            </li>
-            <li className="excluded">
-              <span aria-hidden="true">{"✕"}</span>
-              {"Consumer Duty (PS22/9) monitoring"}
-            </li>
-            <li className="excluded">
-              <span aria-hidden="true">{"✕"}</span>
-              {"RMAR auto-population"}
-            </li>
-          </ul>
-          <a className="button secondary" href="/contact#book-demo">
-            {"Book a demo"}
-          </a>
-        </article>
+      <section
+        className="plan-grid primary-plans shell"
+        aria-label="Professional, Scale and Enterprise plans"
+      >
         <article className="plan popular">
           <span className="eyebrow">{"Growing practices · Most popular"}</span>
           <h2>{"Professional"}</h2>
@@ -109,11 +59,11 @@ export default function Page() {
           <ul>
             <li>
               <span aria-hidden="true">{"✓"}</span>
-              {"Up to 350 active clients"}
+              {"Up to 600 active clients"}
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
-              {"Everything in Essentials, plus:"}
+              {"Core client journey, annual review sweep & 7-year audit trail"}
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
@@ -254,39 +204,95 @@ export default function Page() {
           </a>
         </article>
       </section>
-      <section className="perspective shell">
-        <span className="eyebrow">{"FOR PERSPECTIVE"}</span>
-        <h2>
-          {"Professional is £1,599 / month,"}
-          <br />
-          {"or about £19k a year."}
-        </h2>
-        <ul>
-          <li>
-            {"Less than "}
-            <b>{"2 days"}</b>
-            {" of senior compliance consultant time per month."}
-          </li>
-          <li>
-            {"Roughly "}
-            <b>{"1.5%"}</b>
-            {
-              " of the typical FCA penalty range for inadequate suitability records (£25k to £250k+ per recent enforcement notices)."
-            }
-          </li>
-          <li>
-            {"Less than the typical "}
-            <b>{"PII deductible"}</b>
-            {" for a single client complaint."}
-          </li>
-        </ul>
-        <p>
-          {
-            "Compliance software pays back the first time it catches the breach that wasn't going to be caught."
-          }
-        </p>
+      <section
+        className="essentials-option shell"
+        aria-label="A core compliance option"
+      >
+        <details>
+          <summary>{"Need core compliance only? Explore Essentials."}</summary>
+          <article className="plan ">
+            <span className="eyebrow">{"Solo + small firms"}</span>
+            <h2>{"Essentials"}</h2>
+            <div className="plan-price">
+              <span className="price-number" data-monthly="699">
+                {"£699"}
+              </span>
+              <span className="price-unit">{" / mo"}</span>
+              <small className="billing-note">{"billed monthly"}</small>
+            </div>
+            <p>
+              {
+                "If your audit trail still lives in a SharePoint folder and one person's memory. Core sweep, audit log, Intelliflo read."
+              }
+            </p>
+            <ul>
+              <li>
+                <span aria-hidden="true">{"✓"}</span>
+                {"Up to 100 active clients"}
+              </li>
+              <li>
+                <span aria-hidden="true">{"✓"}</span>
+                {"Client journey · 17 doc types tracked"}
+              </li>
+              <li>
+                <span aria-hidden="true">{"✓"}</span>
+                {"Annual review sweep · COBS 9.5 nightly cron"}
+              </li>
+              <li>
+                <span aria-hidden="true">{"✓"}</span>
+                {"Append-only audit trail · 7-year retention"}
+              </li>
+              <li>
+                <span aria-hidden="true">{"✓"}</span>
+                {"Intelliflo read integration · AES-256-GCM tokens"}
+              </li>
+              <li>
+                <span aria-hidden="true">{"✓"}</span>
+                {"5 standard PDF reports"}
+              </li>
+              <li className="excluded">
+                <span aria-hidden="true">{"✕"}</span>
+                {"AI compliance assistant"}
+              </li>
+              <li className="excluded">
+                <span aria-hidden="true">{"✕"}</span>
+                {"Consumer Duty (PS22/9) monitoring"}
+              </li>
+              <li className="excluded">
+                <span aria-hidden="true">{"✕"}</span>
+                {"RMAR auto-population"}
+              </li>
+            </ul>
+            <a className="underlined" href="#plan-comparison">
+              {"Compare plan details"}
+            </a>
+          </article>
+        </details>
       </section>
-      <section className="comparison shell">
+      <section className="perspective work-cost shell">
+        <span className="eyebrow">{"YOUR TIME HAS A COST."}</span>
+        <h2>{"The work behind the spreadsheet."}</h2>
+        <div className="work-cost-grid">
+          <article>
+            <h3>{"The jobs that repeat"}</h3>
+            <p>
+              {
+                "Every piece of work ends with a check. Was the fee logged? Was the ATR recorded? Does the file match the CRM? Then the same details get typed into a second or third place, because the systems don't talk to each other. One small log takes 1.5 hours a week. A firm has several of them, and someone has to remember they exist."
+              }
+            </p>
+          </article>
+          <article>
+            <h3>{"The questions that don't"}</h3>
+            <p>
+              {
+                "Then someone asks a real, valid, business question. How many agreements were signed this month? Who are our high earners and what is their FUM? The answer is in there somewhere, usually inside a scanned fact find, in a folder, under a name spelled two different ways. Finding it means opening files one by one. Days, not minutes."
+              }
+            </p>
+          </article>
+        </div>
+        <p className="ask-amaea">{"With Amaea, you just ask."}</p>
+      </section>
+      <section className="comparison shell" id="plan-comparison">
         <span className="eyebrow">{"THE DETAIL"}</span>
         <h2>{"What’s in each plan, side by side."}</h2>
         <p className="micro">{"✓ = included · — = not included"}</p>
@@ -301,17 +307,17 @@ export default function Page() {
             <thead>
               <tr>
                 <th scope="col">{"Feature"}</th>
-                <th scope="col">{"Essentials"}</th>
                 <th scope="col">{"Professional"}</th>
                 <th scope="col">{"Scale"}</th>
                 <th scope="col">{"Enterprise"}</th>
+                <th scope="col">{"Essentials"}</th>
               </tr>
               <tr>
                 <td></td>
-                <td data-table-price="699">{"£699/mo"}</td>
                 <td data-table-price="1599">{"£1,599/mo"}</td>
                 <td data-table-price="2199">{"£2,199/mo"}</td>
                 <td>{"Custom"}</td>
+                <td data-table-price="699">{"£699/mo"}</td>
               </tr>
             </thead>
             <tbody>
@@ -320,10 +326,24 @@ export default function Page() {
               </tr>
               <tr>
                 <th scope="row">{"Active clients"}</th>
-                <td>{"100"}</td>
-                <td>{"350"}</td>
+                <td>{"600"}</td>
                 <td>{"1,000"}</td>
                 <td>{"Unlimited"}</td>
+                <td>{"100"}</td>
+              </tr>
+              <tr>
+                <th scope="row">{"Logins"}</th>
+                <td>{"Unlimited"}</td>
+                <td>{"Unlimited"}</td>
+                <td>{"Unlimited"}</td>
+                <td>{"Unlimited"}</td>
+              </tr>
+              <tr>
+                <th scope="row">{"Setup fee"}</th>
+                <td>{"None"}</td>
+                <td>{"None"}</td>
+                <td>{"None"}</td>
+                <td>{"None"}</td>
               </tr>
               <tr className="table-category">
                 <th colSpan={5}>{"Core compliance"}</th>
@@ -361,55 +381,55 @@ export default function Page() {
               </tr>
               <tr>
                 <th scope="row">{"Consumer Duty health score"}</th>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
                 <td>{"—"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
               </tr>
               <tr>
                 <th scope="row">{"Vulnerable client tracking"}</th>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
                 <td>{"—"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
               </tr>
               <tr>
                 <th scope="row">{"Annual Consumer Duty assessment report"}</th>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
                 <td>{"—"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
               </tr>
               <tr className="table-category">
                 <th colSpan={5}>{"AI & Reporting"}</th>
               </tr>
               <tr>
                 <th scope="row">{"AI compliance assistant"}</th>
-                <td>{"—"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"Custom-trained"}</td>
+                <td>{"—"}</td>
               </tr>
               <tr>
                 <th scope="row">{"RMAR pre-population"}</th>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
                 <td>{"—"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
               </tr>
               <tr>
                 <th scope="row">{"Reports"}</th>
-                <td>{"5 standard"}</td>
                 <td>{"Unlimited"}</td>
                 <td>{"Unlimited + custom builder"}</td>
                 <td>{"Custom board packs"}</td>
+                <td>{"5 standard"}</td>
               </tr>
               <tr>
                 <th scope="row">{"Board-level compliance packs"}</th>
                 <td>{"—"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
                 <td>{"—"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
               </tr>
               <tr className="table-category">
                 <th colSpan={5}>{"Integrations"}</th>
@@ -423,27 +443,27 @@ export default function Page() {
               </tr>
               <tr>
                 <th scope="row">{"SharePoint & Salesforce"}</th>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
                 <td>{"—"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
               </tr>
               <tr>
                 <th scope="row">{"Open API & custom integrations"}</th>
                 <td>{"—"}</td>
                 <td>{"—"}</td>
-                <td>{"—"}</td>
                 <td>{"✓"}</td>
+                <td>{"—"}</td>
               </tr>
               <tr className="table-category">
                 <th colSpan={5}>{"Support"}</th>
               </tr>
               <tr>
                 <th scope="row">{"Onboarding & training"}</th>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
+                <td>{"✓"}</td>
                 <td>{"Self-serve"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
               </tr>
             </tbody>
           </table>

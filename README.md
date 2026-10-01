@@ -1,9 +1,9 @@
 # Amaea website
 
-This branch integrates the approved 30 September mockup into the existing
-Next.js project: five separate pages, the original logo, the complete eleven-step
-story and seven product chapters. It is a preview awaiting review, a real booking
-URL and verification of the supplied product/commercial claims before deployment.
+This branch integrates the approved 1 October CEO v2 mockup into the existing
+Next.js project: five separate pages, the original logo, the complete fifteen-step
+story, Professional-first pricing and seven product chapters. It is a preview
+awaiting review, a real booking URL and verification of the supplied product/commercial claims before deployment.
 See [the mockup handoff](docs/UPDATED-MOCKUP-HANDOFF.md) for outstanding assets and checks.
 The linked Vercel project remains `amaea.ai`; domain assignments are unchanged.
 

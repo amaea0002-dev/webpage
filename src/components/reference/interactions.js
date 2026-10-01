@@ -13,6 +13,9 @@ export function initializeReference() {
     ...root.querySelectorAll(selector),
   ];
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const shortViewport = window.matchMedia(
+    "(max-height: 640px) and (max-width: 1000px)",
+  );
   const theme = $(".theme-toggle");
   const syncTheme = () => {
     const dark = document.documentElement.dataset.theme === "dark";
@@ -63,8 +66,8 @@ export function initializeReference() {
     }
   });
 
-  // One scroll clock controls all eleven beats. A current beat is always visible;
-  // native sticky positioning avoids gaps caused by nested pin spacers.
+  // One scroll clock keeps the spreadsheet, search and relief in a fixed order.
+  // Native sticky positioning avoids gaps caused by nested pin spacers.
   const story = $(".story");
   let storyContext,
     storyTrigger,
@@ -84,122 +87,148 @@ export function initializeReference() {
     }
     if (!story) return;
     const viewport = $(".story-viewport", story),
-      resolution = $(".beat-resolution a", story),
       mode = $(".story-mode", story);
     story.classList.remove("is-animated");
     $$(
-      ".story-viewport,.story-black,.lens-ring,.folder,.folder-front,.folder-document,.found-file,.beat-open-report .story-document,.beat-open-report .story-sheet,.story-answer,.beat-resolution a",
+      ".story-viewport,.story-black,.lens-ring,.folder,[data-motion]",
       story,
     ).forEach((el) => el.removeAttribute("style"));
     $(".story-controls", story).classList.remove("on-black");
     viewport.removeAttribute("aria-hidden");
-    resolution.removeAttribute("tabindex");
+    $$("a", viewport).forEach((a) => a.removeAttribute("tabindex"));
     $$(".story-beat", story).forEach((beat) =>
       beat.classList.remove("is-current"),
     );
-    mode.disabled = reduced.matches;
+    $$(".relief-check", story).forEach((check) =>
+      check.classList.add("is-complete"),
+    );
+    $(".relief-ready", story).textContent = "Evidence ready";
+    mode.disabled = reduced.matches || shortViewport.matches;
     mode.textContent = reduced.matches
       ? "Full story · reduced motion"
-      : readStory
-      ? "Play the scroll story"
-      : "Read the full story";
+      : shortViewport.matches
+        ? "Full story · compact screen"
+        : readStory
+          ? "Play the scroll story"
+          : "Read the full story";
     mode.setAttribute("aria-pressed", String(readStory));
-    if (reduced.matches || readStory || !gsap || !ScrollTrigger) return;
+    if (
+      reduced.matches ||
+      shortViewport.matches ||
+      readStory ||
+      !gsap ||
+      !ScrollTrigger
+    )
+      return;
     gsap.registerPlugin(ScrollTrigger);
     storyContext = gsap.context(() => {
       story.classList.add("is-animated");
       viewport.setAttribute("aria-hidden", "true");
-      resolution.setAttribute("tabindex", "-1");
+      $$("a", viewport).forEach((a) => a.setAttribute("tabindex", "-1"));
       const beats = $$(".story-beat", story),
+        total = beats.length,
         black = $(".story-black", story),
         lens = $(".lens-ring", story),
         controls = $(".story-controls", story),
         clock = { value: 0 };
       const render = (value) => {
-        const progress = clamp(value, 0, 10.9999),
+        const progress = clamp(value, 0, total - 0.0001),
           index = Math.floor(progress),
-          t = progress - index;
+          t = progress - index,
+          beat = beats[index];
         storyIndex = index;
-        beats.forEach((beat, i) =>
-          beat.classList.toggle("is-current", i === index),
+        beats.forEach((scene, i) =>
+          scene.classList.toggle("is-current", i === index),
         );
         $(".story-caption", story).textContent =
-          `${String(index + 1).padStart(2, "0")} / 11 · ${beats[index].dataset.caption}`;
+          `${String(index + 1).padStart(2, "0")} / ${total} · ${beat.dataset.caption}`;
         $(".story-previous", story).disabled = index === 0;
-        $(".story-next", story).disabled = index === 10;
+        $(".story-next", story).disabled = index === total - 1;
         $(".story-progress span", story).style.width =
-          `${clamp(value / 11) * 100}%`;
+          `${clamp(value / total) * 100}%`;
         black.style.opacity = "0";
         black.style.clipPath = "circle(0% at 50% 50%)";
         lens.style.opacity = "0";
         lens.style.transform = "translate(-50%,-50%) scale(1)";
         viewport.style.clipPath = "none";
         let dark = false;
-        if (index === 0) {
+        if (beat.matches(".beat-expand")) {
           black.style.opacity = "1";
           black.style.clipPath = `circle(${mix(0.3, 80, ease(t))}% at 50% 50%)`;
           dark = t > 0.35;
         }
-        if (index === 1) {
+        if (beat.matches(".beat-deadline,.beat-reveal,.beat-scale")) {
           black.style.opacity = "1";
           black.style.clipPath = "circle(80% at 50% 50%)";
           dark = true;
         }
-        if (index === 2) {
+        if (beat.matches(".beat-lens")) {
           black.style.opacity = "1";
           black.style.clipPath = `circle(${mix(80, 19, ease(t))}% at 50% 50%)`;
           lens.style.opacity = String(ease((t - 0.25) / 0.5));
           dark = t < 0.5;
         }
-        if (index === 3) {
-          lens.style.opacity = String(1 - ease(t));
-          lens.style.transform = `translate(-50%,-50%) scale(${mix(1, 3.2, ease(t))})`;
-          viewport.style.clipPath = `circle(${mix(24, 80, ease(t))}% at 50% 50%)`;
+        if (beat.matches(".beat-spreadsheet")) {
+          lens.style.opacity = String(1 - ease(t / 0.55));
+          lens.style.transform = `translate(-50%,-50%) scale(${mix(1, 3.2, ease(t / 0.55))})`;
+          viewport.style.clipPath = `circle(${mix(24, 80, ease(t / 0.55))}% at 50% 50%)`;
+          $(".manual-register", beat).style.transform =
+            `scale(${mix(1, 1.08, ease((t - 0.6) / 0.4))})`;
+          $(".andrew-register-row", beat).classList.toggle(
+            "register-target",
+            t > 0.5,
+          );
         }
-        if (index === 4) {
-          lens.style.opacity = ".08";
-          lens.style.transform = "translate(-50%,-50%) scale(2.8)";
+        if (beat.matches(".beat-missing-date")) {
+          $(".register-focus", beat).style.transform =
+            `scale(${mix(0.88, 1, ease(t / 0.4))})`;
+        }
+        if (beat.matches(".beat-folders")) {
           const selected = Math.min(3, Math.floor(t / 0.2));
-          $$(".folder", story).forEach((folder, i) => {
+          $$(".folder", beat).forEach((folder, i) => {
             folder.classList.toggle("folder-selected", i === selected);
             folder.style.opacity = t > 0.62 && i !== 3 ? ".3" : "1";
           });
-          $(".folder-last", story).style.transform =
+          $(".folder-last", beat).style.transform =
             `scale(${mix(1, 1.2, ease((t - 0.55) / 0.2))})`;
           const opening = ease((t - 0.75) / 0.2);
-          $(".folder-front", story).style.transform =
+          $(".folder-front", beat).style.transform =
             `rotateX(${-opening * 68}deg)`;
-          $(".folder-document", story).style.opacity = String(opening);
-          $(".folder-document", story).style.transform =
+          $(".folder-document", beat).style.opacity = String(opening);
+          $(".folder-document", beat).style.transform =
             `translateY(${-opening * 32}px)`;
         }
-        if (index === 5) {
-          $(".found-file", story).style.transform =
+        if (beat.matches(".beat-found")) {
+          $(".found-file", beat).style.transform =
             `scale(${mix(0.86, 1, ease(t / 0.35))})`;
         }
-        if (index === 6) {
-          $(".beat-open-report .story-document", story).style.transform =
+        if (beat.matches(".beat-open-report")) {
+          $(".story-document", beat).style.transform =
             `perspective(800px) rotateY(${mix(-65, 0, ease(t / 0.4))}deg)`;
-          $(".beat-open-report .story-sheet", story).style.transform =
+          $(".story-sheet", beat).style.transform =
             `translateX(${mix(18, 0, ease((t - 0.2) / 0.4))}%)`;
         }
-        if (index === 8) {
-          black.style.opacity = "1";
-          black.style.clipPath = "circle(80% at 50% 50%)";
-          dark = true;
-        }
-        if (index === 9) {
+        if (beat.matches(".beat-return")) {
           black.style.opacity = "1";
           black.style.clipPath = `circle(${mix(80, 0, ease(t))}% at 50% 50%)`;
           dark = t < 0.55;
         }
-        if (index === 10) {
-          $(".story-answer", story).style.opacity = String(
+        if (beat.matches(".beat-resolution")) {
+          $(".story-answer", beat).style.opacity = String(
             ease((t - 0.25) / 0.35),
           );
-          $(".beat-resolution a", story).style.opacity = String(
-            ease((t - 0.6) / 0.2),
+        }
+        if (beat.matches(".beat-relief")) {
+          $(".relief-product", beat).style.transform =
+            `translateY(${mix(14, 0, ease(t / 0.3))}px)`;
+          $$(".relief-check", beat).forEach((check) =>
+            check.classList.toggle(
+              "is-complete",
+              t >= Number(check.dataset.at),
+            ),
           );
+          $(".relief-ready", beat).textContent =
+            t >= 0.65 ? "Evidence ready" : "Connecting the evidence…";
         }
         controls.classList.toggle("on-black", dark);
       };
@@ -216,8 +245,8 @@ export function initializeReference() {
         },
       });
       timeline.to(clock, {
-        value: 11,
-        duration: 11,
+        value: total,
+        duration: total,
         ease: "none",
         onUpdate: () => render(clock.value),
       });
@@ -226,6 +255,7 @@ export function initializeReference() {
   }
   setupStory();
   listen(reduced, "change", setupStory);
+  listen(shortViewport, "change", setupStory);
   if (story) {
     listen($(".story-mode", story), "click", () => {
       readStory = !readStory;
@@ -243,9 +273,11 @@ export function initializeReference() {
     });
     const go = (direction) => {
       if (!storyTrigger) return;
-      const index = clamp(storyIndex + direction, 0, 10),
+      const beats = $$(".story-beat", story),
+        index = clamp(storyIndex + direction, 0, beats.length - 1),
         position =
-          (index + (index === 10 ? 0.95 : index === 4 ? 0.97 : 0.65)) / 11;
+          (index + Number(beats[index].dataset.progress || 0.75)) /
+          beats.length;
       window.scrollTo({
         top:
           storyTrigger.start +

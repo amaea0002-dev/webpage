@@ -1,5 +1,5 @@
+/* CEO mockup 2026-10-01 v2; preserve supplied copy and story order. */
 import ReferenceInteractions from "@/components/reference/ReferenceInteractions";
-/* Approved mockup page; preserve copy and story order. */
 import { pageMetadata } from "@/lib/metadata";
 import FeatureChapters from "@/components/reference/FeatureChapters";
 
@@ -15,7 +15,10 @@ export default function Page() {
       <h1 className="sr-only">
         {"Amaea — FCA compliance software for UK financial advisers"}
       </h1>
-      <section className="hero shell " aria-label="Amaea — your peace of mind">
+      <section
+        className="hero hero-home shell"
+        aria-label="Amaea — your peace of mind"
+      >
         <div className="hero-brand">
           <svg
             className="hero-mark"
@@ -57,55 +60,63 @@ export default function Page() {
           </a>
         </div>
       </section>
-      <section className="story" id="story" aria-label="The wrong Andrew Smith">
+      <section
+        className="story"
+        id="story"
+        aria-label="Friday’s FCA report: the manual spreadsheet struggle"
+      >
         {"\n  "}
         <div className="story-transcript sr-only">
           {"\n    "}
-          <h2>{"The wrong Andrew Smith"}</h2>
+          <h2>{"Friday’s FCA report"}</h2>
           {"\n    "}
           <p>
             {
-              "Black expands from a single point. The FCA is requesting documentation. On Friday."
+              "Your FCA report is due. On Friday. You open the manual client spreadsheet you use to record the evidence."
             }
           </p>
           {"\n    "}
           <p>
             {
-              "The black screen becomes a magnifying glass. The search continues inside its lens."
-            }
-          </p>
-          {"\n    "}
-          <p>{"It's in here somewhere…"}</p>
-          {"\n    "}
-          <p>
-            {
-              "Four folders: Fact find — 2019; Annual review — 2022; Correspondence; Suitability report — signed. The last folder opens."
-            }
-          </p>
-          {"\n    "}
-          <p>{"Found — the missing signed suitability report."}</p>
-          {"\n    "}
-          <p>
-            {
-              "The report opens beside a client spreadsheet. Both records name Andrew Smith."
+              "There are wrong dates, including 01/07/3026 and 31/02/2026, missing entries and checks that have not been recorded."
             }
           </p>
           {"\n    "}
           <p>
             {
-              "The signed report names spouse Kate. The spreadsheet names spouse Emma. Same name, different spouse — it’s the wrong Andrew Smith."
+              "Zoom into the row for Andrew & Kate Smith. The suitability-report signed date is blank. When was it signed?"
             }
           </p>
           {"\n    "}
-          <p>{"There are two Andrew Smiths."}</p>
-          {"\n    "}
           <p>
-            {"The screen goes black, then returns to the light background."}
+            {
+              "You search the client files, through four folders, until the last folder opens and you find the signed suitability report."
+            }
           </p>
           {"\n    "}
-          <p>{"Have you ever felt that pain?"}</p>
+          <p>
+            {
+              "The report opens beside the spreadsheet. The report names Andrew & Emma Smith; the spreadsheet names Andrew & Kate Smith. The report is signed, but it belongs to the wrong Andrew Smith."
+            }
+          </p>
           {"\n    "}
-          <p>{"Amaea was built to solve exactly that — and more."}</p>
+          <p>
+            {
+              "There are two Andrew Smiths. And that is one client. There are 100 more rows to check."
+            }
+          </p>
+          {"\n    "}
+          <p>
+            {
+              "Have you ever felt that pain? Amaea was built to solve exactly that — and more."
+            }
+          </p>
+          {"\n    "}
+          <p>
+            {
+              "In the illustrative Amaea preview, Andrew & Kate Smith are matched to client reference CL-0142. Their own suitability report is signed on 01/07/2026, with the source document linked to the record. The correct client, signed date and evidence are together. Your peace of mind."
+            }
+          </p>
           {"\n  "}
         </div>
         {"\n  "}
@@ -121,8 +132,8 @@ export default function Page() {
             {"\n      "}
             <article
               className="story-beat beat-expand"
+              data-caption="Friday is coming"
               data-step="1"
-              data-caption="A single request"
             >
               <span className="sr-only">
                 {"Black expands from a single point."}
@@ -131,12 +142,12 @@ export default function Page() {
             {"\n      "}
             <article
               className="story-beat beat-deadline"
+              data-caption="The FCA report is due"
               data-step="2"
-              data-caption="The FCA request"
             >
               <span className="eyebrow">{"FRIDAY IS COMING."}</span>
               <h2>
-                {"The FCA is requesting documentation."}
+                {"Your FCA report is due."}
                 <br />
                 <em>{"On Friday."}</em>
               </h2>
@@ -144,8 +155,8 @@ export default function Page() {
             {"\n      "}
             <article
               className="story-beat beat-lens"
+              data-caption="A closer look"
               data-step="3"
-              data-caption="Under the magnifying glass"
             >
               <span className="sr-only">
                 {"The black screen collapses into a magnifying glass."}
@@ -153,52 +164,112 @@ export default function Page() {
             </article>
             {"\n      "}
             <article
-              className="story-beat beat-search"
+              className="story-beat beat-spreadsheet"
+              data-caption="Wrong dates. Missing entries."
               data-step="4"
-              data-caption="The search begins"
-            >
-              <h2>{"It's in here somewhere…"}</h2>
-            </article>
-            {"\n      "}
-            <article
-              className="story-beat beat-folders"
-              data-step="5"
-              data-caption="Four folders. One missing report."
             >
               {"\n        "}
-              <h2>{"It's in here somewhere…"}</h2>
+              <h2>{"You open the spreadsheet."}</h2>
+              <p>
+                {
+                  "Wrong dates. Missing entries. The evidence is in here somewhere."
+                }
+              </p>
               {"\n        "}
-              <div className="folders">
+              <div className="manual-register" data-motion>
                 {"\n          "}
-                <div className="folder">
-                  <span>{"01"}</span>
-                  <strong>{"Fact find"}</strong>
-                  <small>{"2019.pdf"}</small>
+                <div className="register-toolbar">
+                  <strong>{"Client review & suitability register.xlsx"}</strong>
+                  <span>{"Manually maintained · illustrative data"}</span>
                 </div>
                 {"\n          "}
-                <div className="folder">
-                  <span>{"02"}</span>
-                  <strong>{"Annual review"}</strong>
-                  <small>{"2022.pdf"}</small>
+                <div className="register-formula">
+                  <span>{"fx"}</span>
+                  <span>{"01/07/3026"}</span>
+                  <small>{"Suitability report signed"}</small>
                 </div>
                 {"\n          "}
-                <div className="folder">
-                  <span>{"03"}</span>
-                  <strong>{"Correspondence"}</strong>
-                  <small>{"Client files"}</small>
-                </div>
-                {"\n          "}
-                <div className="folder folder-last">
-                  <div className="folder-document">
-                    <span>{"PDF"}</span>
-                    <b>{"Suitability report"}</b>
-                    <small>{"Andrew Smith · signed"}</small>
-                  </div>
-                  <div className="folder-front">
-                    <span>{"04"}</span>
-                    <strong>{"Suitability report"}</strong>
-                    <small>{"Signed.pdf"}</small>
-                  </div>
+                <table className="manual-table">
+                  <caption className="sr-only">
+                    {
+                      "A manually maintained client register containing errors and missing evidence"
+                    }
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">{"Client name"}</th>
+                      <th scope="col">{"Annual review due"}</th>
+                      <th scope="col">{"Suitability report signed"}</th>
+                      <th scope="col">{"Adviser"}</th>
+                      <th scope="col">{"Fee logged"}</th>
+                      <th scope="col">{"ATR recorded"}</th>
+                      <th scope="col">{"CRM checked"}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">{"Margaret Ellis"}</th>
+                      <td>{"18/10/2026"}</td>
+                      <td className="bad-date">
+                        {"01/07/3026"}
+                        <span>{"Wrong year"}</span>
+                      </td>
+                      <td>{"HS"}</td>
+                      <td>{"Yes"}</td>
+                      <td>{"Yes"}</td>
+                      <td>{"Yes"}</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">{"David & Priya Patel"}</th>
+                      <td className="missing-entry">{"—"}</td>
+                      <td>{"22/06/2026"}</td>
+                      <td>{"JR"}</td>
+                      <td>{"Yes"}</td>
+                      <td>{"—"}</td>
+                      <td>{"Yes"}</td>
+                    </tr>
+
+                    <tr className="andrew-register-row">
+                      <th scope="row">{"Andrew & Kate Smith"}</th>
+                      <td>{"09/10/2026"}</td>
+                      <td className="missing-signed-date">
+                        <span>{"—"}</span>
+                        <small>{"No signed date"}</small>
+                      </td>
+                      <td>{"HS"}</td>
+                      <td>{"Yes"}</td>
+                      <td>{"Yes"}</td>
+                      <td>{"—"}</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">{"Ruth Clarke"}</th>
+                      <td className="bad-date">
+                        {"31/02/2026"}
+                        <span>{"Invalid date"}</span>
+                      </td>
+                      <td>{"16/05/2026"}</td>
+                      <td>{"JR"}</td>
+                      <td>{"—"}</td>
+                      <td>{"Yes"}</td>
+                      <td>{"Yes"}</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">{"Peter & Helen Jones"}</th>
+                      <td>{"12/11/2026"}</td>
+                      <td className="missing-entry">{"—"}</td>
+                      <td>{"HS"}</td>
+                      <td>{"Yes"}</td>
+                      <td>{"—"}</td>
+                      <td>{"—"}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div className="register-bottom">
+                  <span>{"Client register"}</span>
+                  <span>{"Rows 1–5 of 105"}</span>
                 </div>
                 {"\n        "}
               </div>
@@ -206,41 +277,134 @@ export default function Page() {
             </article>
             {"\n      "}
             <article
-              className="story-beat beat-found"
-              data-step="6"
-              data-caption="The signed report is found"
+              className="story-beat beat-missing-date"
+              data-caption="Andrew & Kate Smith: no signed date"
+              data-progress=".9"
+              data-step="5"
             >
-              <span className="eyebrow">{"THERE IT IS."}</span>
-              <h2>
-                {"Found — the missing"}
+              {"\n        "}
+              <span className="eyebrow">{"ROW 3 · ANDREW & KATE SMITH"}</span>
+              <h2>{"No signed date."}</h2>
+              {"\n        "}
+              <div className="register-focus" data-motion>
+                <div className="register-toolbar">
+                  <strong>{"Client review & suitability register.xlsx"}</strong>
+                  <span>{"Row 3"}</span>
+                </div>
+                <div className="focus-grid">
+                  <div>
+                    <span>{"Client name"}</span>
+                    <strong>{"Andrew & Kate Smith"}</strong>
+                  </div>
+                  <div>
+                    <span>{"Annual review due"}</span>
+                    <strong>{"09/10/2026"}</strong>
+                  </div>
+                  <div className="focus-missing">
+                    <span>{"Suitability report signed"}</span>
+                    <strong>{"—"}</strong>
+                    <small>{"Nothing recorded"}</small>
+                  </div>
+                </div>
+              </div>
+              {"\n        "}
+              <p>
+                {"When was the suitability report signed?"}
                 <br />
-                {"signed suitability report."}
+                {"You need the document to find out."}
+              </p>
+              {"\n      "}
+            </article>
+            {"\n      "}
+            <article
+              className="story-beat beat-search"
+              data-caption="Back into the client files"
+              data-step="6"
+            >
+              <span className="eyebrow">{"CLIENT FILES / ANDREW SMITH /"}</span>
+              <h2>{"It's in here somewhere…"}</h2>
+              <p>{"So you start opening folders."}</p>
+            </article>
+            {"\n      "}
+            <article
+              className="story-beat beat-folders"
+              data-caption="Four folders. Still searching."
+              data-progress=".97"
+              data-step="7"
+            >
+              <h2>
+                {"Another folder."}
+                <br />
+                {"Another file."}
               </h2>
-              <div className="found-file">
-                <span>{"PDF"}</span>
-                <strong>{"Suitability report — signed.pdf"}</strong>
-                <small>{"Andrew Smith"}</small>
+              <div className="folders">
+                {"\n        "}
+                <div className="folder">
+                  <span>{"01"}</span>
+                  <strong>{"Fact finds"}</strong>
+                  <small>{"Old and new versions"}</small>
+                </div>
+                {"\n        "}
+                <div className="folder">
+                  <span>{"02"}</span>
+                  <strong>{"Annual reviews"}</strong>
+                  <small>{"2024 / 2025 / 2026"}</small>
+                </div>
+                {"\n        "}
+                <div className="folder">
+                  <span>{"03"}</span>
+                  <strong>{"Correspondence"}</strong>
+                  <small>{"Client files"}</small>
+                </div>
+                {"\n        "}
+                <div className="folder folder-last">
+                  <div className="folder-document" data-motion>
+                    <span>{"PDF"}</span>
+                    <b>{"Suitability report"}</b>
+                    <small>{"Andrew Smith · signed"}</small>
+                  </div>
+                  <div className="folder-front" data-motion>
+                    <span>{"04"}</span>
+                    <strong>{"Suitability reports"}</strong>
+                    <small>{"Final / signed / final v2"}</small>
+                  </div>
+                </div>
+                {"\n      "}
               </div>
             </article>
             {"\n      "}
             <article
-              className="story-beat beat-open-report"
-              data-step="7"
-              data-caption="The report opens beside the spreadsheet"
+              className="story-beat beat-found"
+              data-caption="Finally, a signed report"
+              data-step="8"
             >
-              <span className="eyebrow">{"THE EVIDENCE, SIDE BY SIDE."}</span>
-              <h2>
-                {"The report."}
-                <br />
-                {"The client record."}
-              </h2>
+              <span className="eyebrow">{"FINALLY."}</span>
+              <h2>{"A signed suitability report."}</h2>
+              <div className="found-file" data-motion>
+                <span>{"PDF"}</span>
+                <strong>{"Suitability report — signed.pdf"}</strong>
+                <small>{"Andrew Smith · 12/06/2026"}</small>
+              </div>
+              <p>{"Now put the date back into the spreadsheet."}</p>
+            </article>
+            {"\n      "}
+            <article
+              className="story-beat beat-open-report"
+              data-caption="Check it against the spreadsheet"
+              data-step="9"
+            >
+              <span className="eyebrow">
+                {"THE DOCUMENT. THE MANUAL REGISTER."}
+              </span>
+              <h2>{"Wait. Check the client."}</h2>
               <div className="record-comparison">
-                <div className="story-document">
+                {"\n        "}
+                <div className="story-document" data-motion>
                   <div className="document-toolbar">
                     <span>{"PDF · SUITABILITY REPORT"}</span>
                     <span>{"1 / 4"}</span>
                   </div>
-                  <h3>{"Andrew Smith"}</h3>
+                  <h3>{"Andrew & Emma Smith"}</h3>
                   <p>{"Recommendation and suitability assessment"}</p>
                   <div className="document-lines" aria-hidden="true">
                     <i></i>
@@ -248,75 +412,80 @@ export default function Page() {
                     <i></i>
                   </div>
                   <dl>
+                    <dt>{"Signed"}</dt>
+                    <dd>{"12/06/2026"}</dd>
                     <dt>{"Spouse"}</dt>
-                    <dd>{"Kate"}</dd>
-                    <dt>{"Status"}</dt>
-                    <dd>{"Signed"}</dd>
+                    <dd>{"Emma"}</dd>
                   </dl>
                   <span className="document-signature">{"Andrew Smith"}</span>
                 </div>
-                <div className="story-sheet">
+                {"\n        "}
+                <div className="story-sheet" data-motion>
                   <div className="sheet-toolbar">
-                    {"CLIENT REGISTER · SPREADSHEET"}
+                    {"CLIENT REGISTER · ROW 3"}
                   </div>
                   <div className="sheet-columns" aria-hidden="true">
                     <span>{"A"}</span>
                     <span>{"B"}</span>
                     <span>{"C"}</span>
                   </div>
-                  <h3>{"Andrew Smith"}</h3>
+                  <h3>{"Andrew & Kate Smith"}</h3>
                   <dl>
+                    <dt>{"Signed"}</dt>
+                    <dd>{"—"}</dd>
                     <dt>{"Spouse"}</dt>
-                    <dd>{"Emma"}</dd>
-                    <dt>{"Status"}</dt>
-                    <dd>{"Review due"}</dd>
+                    <dd>{"Kate"}</dd>
                   </dl>
                 </div>
+                {"\n      "}
               </div>
             </article>
             {"\n      "}
             <article
               className="story-beat beat-mismatch"
-              data-step="8"
-              data-caption="The spouse names do not match"
+              data-caption="Emma in the report. Kate in the register."
+              data-step="10"
             >
-              <span className="eyebrow">{"LOOK A LITTLE CLOSER."}</span>
-              <h2>
-                {"The right name."}
-                <br />
-                {"The wrong client."}
-              </h2>
+              <span className="eyebrow">
+                {"THE NAME WAS RIGHT. THE CLIENT WASN’T."}
+              </span>
+              <h2>{"The wrong Andrew Smith."}</h2>
               <div className="record-comparison">
+                {"\n        "}
                 <div className="story-document">
                   <span>{"SUITABILITY REPORT"}</span>
                   <h3>{"Andrew Smith"}</h3>
                   <dl>
                     <dt>{"Spouse"}</dt>
-                    <dd className="spouse-name">{"Kate"}</dd>
-                    <dt>{"Status"}</dt>
-                    <dd>{"Signed"}</dd>
+                    <dd className="spouse-name">{"Emma"}</dd>
+                    <dt>{"Signed"}</dt>
+                    <dd>{"12/06/2026"}</dd>
                   </dl>
                 </div>
+                {"\n        "}
                 <div className="story-sheet">
-                  <span>{"CLIENT REGISTER · SPREADSHEET"}</span>
-                  <h3>{"Andrew Smith"}</h3>
+                  <span>{"MANUAL REGISTER · CLIENT NAME"}</span>
+                  <h3>{"Andrew & Kate Smith"}</h3>
                   <dl>
                     <dt>{"Spouse"}</dt>
-                    <dd className="spouse-name">{"Emma"}</dd>
-                    <dt>{"Status"}</dt>
-                    <dd>{"Review due"}</dd>
+                    <dd className="spouse-name">{"Kate"}</dd>
+                    <dt>{"Signed"}</dt>
+                    <dd>{"Still missing"}</dd>
                   </dl>
                 </div>
+                {"\n      "}
               </div>
               <p>
-                {"Same name, different spouse — it’s the wrong Andrew Smith."}
+                {
+                  "All that searching. And you still haven’t found the evidence."
+                }
               </p>
             </article>
             {"\n      "}
             <article
               className="story-beat beat-reveal"
-              data-step="9"
               data-caption="Two clients. The same name."
+              data-step="11"
             >
               <h2>
                 {"There are two"}
@@ -326,9 +495,24 @@ export default function Page() {
             </article>
             {"\n      "}
             <article
+              className="story-beat beat-scale"
+              data-caption="And that is only one row"
+              data-step="12"
+            >
+              <h2>{"And that’s one client."}</h2>
+              <p>
+                {"There are "}
+                <strong>{"100 more rows"}</strong>
+                {" to check."}
+                <br />
+                {"The report is still due on Friday."}
+              </p>
+            </article>
+            {"\n      "}
+            <article
               className="story-beat beat-return"
-              data-step="10"
-              data-caption="Back to clarity"
+              data-caption="Time to breathe"
+              data-step="13"
             >
               <span className="sr-only">
                 {"Black shrinks back to the light background."}
@@ -337,20 +521,84 @@ export default function Page() {
             {"\n      "}
             <article
               className="story-beat beat-resolution"
-              data-step="11"
-              data-caption="Your peace of mind"
+              data-caption="We know that feeling"
+              data-progress=".95"
+              data-step="14"
             >
               <h2>
                 {"Have you ever"}
                 <br />
                 {"felt that pain?"}
               </h2>
-              <p className="story-answer">
+              <p className="story-answer" data-motion>
                 {"Amaea was built to solve exactly that — and more."}
               </p>
+            </article>
+            {"\n      "}
+            <article
+              className="story-beat beat-relief"
+              data-caption="The correct client. The date. The evidence."
+              data-progress=".95"
+              data-step="15"
+            >
+              <span className="eyebrow">{"YOUR PEACE OF MIND."}</span>
+              <h2>{"And now, you can breathe."}</h2>
+              {"\n        "}
+              <div className="relief-product" data-motion>
+                <div className="relief-toolbar">
+                  <strong>{"Amaea · Client journey"}</strong>
+                  <span>{"Illustrative product preview"}</span>
+                </div>
+                <div className="relief-client">
+                  <div>
+                    <small>{"CL-0142 · VERIFIED CLIENT MATCH"}</small>
+                    <h3>{"Andrew & Kate Smith"}</h3>
+                  </div>
+                  <span className="relief-ready">{"Evidence ready"}</span>
+                </div>
+                <dl className="relief-evidence">
+                  <div>
+                    <dt>{"Suitability report"}</dt>
+                    <dd>{"Signed · 01/07/2026"}</dd>
+                  </div>
+                  <div>
+                    <dt>{"Source evidence"}</dt>
+                    <dd>{"Suitability report — CL-0142.pdf"}</dd>
+                  </div>
+                </dl>
+                <div className="relief-checks">
+                  {"\n          "}
+                  <div className="relief-check is-complete" data-at=".15">
+                    <span aria-hidden="true">{"✓"}</span>
+                    <p>
+                      {"The correct client"}
+                      <strong>{"Matched to the CRM record"}</strong>
+                    </p>
+                  </div>
+                  {"\n          "}
+                  <div className="relief-check is-complete" data-at=".4">
+                    <span aria-hidden="true">{"✓"}</span>
+                    <p>
+                      {"The signed date"}
+                      <strong>{"Read from the signed report"}</strong>
+                    </p>
+                  </div>
+                  {"\n          "}
+                  <div className="relief-check is-complete" data-at=".65">
+                    <span aria-hidden="true">{"✓"}</span>
+                    <p>
+                      {"The evidence"}
+                      <strong>{"Linked to the client journey"}</strong>
+                    </p>
+                  </div>
+                  {"\n        "}
+                </div>
+              </div>
+              <p>{"Every client. Every review. Every document. Together."}</p>
               <a className="underlined" href="#features">
-                {"See how it works"}
+                {"See how Amaea works"}
               </a>
+              {"\n      "}
             </article>
             {"\n    "}
           </div>
@@ -358,7 +606,7 @@ export default function Page() {
           <div className="story-controls">
             <div className="story-position">
               <span className="story-caption" aria-hidden="true">
-                {"01 / 11 · A single request"}
+                {"01 / 15 · Friday is coming"}
               </span>
               <div className="story-step-buttons">
                 <button
@@ -389,7 +637,7 @@ export default function Page() {
         </div>
         {"\n"}
       </section>
-      {"\n"}
+      {"\n\n"}
       <FeatureChapters />
       <ReferenceInteractions />
     </>
