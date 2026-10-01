@@ -63,11 +63,11 @@ export default function Page() {
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
-              {"Core client journey, annual review sweep & 7-year audit trail"}
+              {"Core client journey, recorded-date monitoring and retained audit evidence"}
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
-              {"AI compliance assistant · RAG against 11,645-chunk FCA corpus"}
+              {"AI assistant · current firm facts and selected FCA source excerpts"}
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
@@ -75,19 +75,19 @@ export default function Page() {
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
-              {"Vulnerability re-assessment · FG21/1 12-month threshold"}
+              {"Vulnerability records and configurable reassessment reminders"}
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
-              {"RMAR auto-population · sections B/D/E/G/H, GABRIEL CSV"}
+              {"RMAR working drafts · B/D/E/G/H · CSV for review, not validated regulator uploads"}
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
-              {"Consumer Duty board pack from live data"}
+              {"Consumer Duty evidence pack from a saved snapshot for human review"}
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
-              {"SharePoint & Salesforce · OAuth, scoped tokens"}
+              {"SharePoint setup subject to access and processing approval · Salesforce planned"}
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
@@ -125,16 +125,16 @@ export default function Page() {
             <li>
               <span aria-hidden="true">{"✓"}</span>
               {
-                "Full integration suite · Intelliflo, Salesforce, SharePoint, Curo, Assureweb"
+                "Provider integrations planned · availability depends on provider approval and validated setup"
               }
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
-              {"Board-level packs · live data, gaps flagged"}
+              {"Board-level packs · saved evidence snapshots, recorded gaps identified"}
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
-              {"FCA visit preparation pack · evidence bundles per rule"}
+              {"FCA visit preparation · saved evidence bundles for review"}
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
@@ -176,7 +176,7 @@ export default function Page() {
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
-              {"Custom AI trained on your policies"}
+              {"AI retrieval with versioned firm policy context"}
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
@@ -232,23 +232,23 @@ export default function Page() {
               </li>
               <li>
                 <span aria-hidden="true">{"✓"}</span>
-                {"Client journey · 17 doc types tracked"}
+                {"Client journey and document checklists"}
               </li>
               <li>
                 <span aria-hidden="true">{"✓"}</span>
-                {"Annual review sweep · COBS 9.5 nightly cron"}
+                {"Daily recorded-date review monitoring · findings for human review"}
               </li>
               <li>
                 <span aria-hidden="true">{"✓"}</span>
-                {"Append-only audit trail · 7-year retention"}
+                {"Attributed audit trail · retention subject to agreed firm policy"}
               </li>
               <li>
                 <span aria-hidden="true">{"✓"}</span>
-                {"Intelliflo read integration · AES-256-GCM tokens"}
+                {"Intelliflo integration planned · provider validation pending"}
               </li>
               <li>
                 <span aria-hidden="true">{"✓"}</span>
-                {"5 standard PDF reports"}
+                {"5 standard printable reports"}
               </li>
               <li className="excluded">
                 <span aria-hidden="true">{"✕"}</span>
@@ -356,14 +356,14 @@ export default function Page() {
                 <td>{"✓"}</td>
               </tr>
               <tr>
-                <th scope="row">{"Compliance health dashboard"}</th>
+                <th scope="row">{"Record health dashboard"}</th>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
               </tr>
               <tr>
-                <th scope="row">{"Smart alerts & deadline reminders"}</th>
+                <th scope="row">{"In-app record flags and deadline tracking · email alerts paused"}</th>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
@@ -380,7 +380,7 @@ export default function Page() {
                 <th colSpan={5}>{"Consumer Duty"}</th>
               </tr>
               <tr>
-                <th scope="row">{"Consumer Duty health score"}</th>
+                <th scope="row">{"Consumer Duty recorded evidence indicators"}</th>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
@@ -394,7 +394,7 @@ export default function Page() {
                 <td>{"—"}</td>
               </tr>
               <tr>
-                <th scope="row">{"Annual Consumer Duty assessment report"}</th>
+                <th scope="row">{"Consumer Duty draft evidence report"}</th>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
@@ -407,11 +407,11 @@ export default function Page() {
                 <th scope="row">{"AI compliance assistant"}</th>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
-                <td>{"Custom-trained"}</td>
+                <td>{"Policy context"}</td>
                 <td>{"—"}</td>
               </tr>
               <tr>
-                <th scope="row">{"RMAR pre-population"}</th>
+                <th scope="row">{"RMAR working draft pre-population"}</th>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
                 <td>{"✓"}</td>
@@ -436,16 +436,16 @@ export default function Page() {
               </tr>
               <tr>
                 <th scope="row">{"Intelliflo"}</th>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
+                <td>{"Planned"}</td>
+                <td>{"Planned"}</td>
+                <td>{"Planned"}</td>
+                <td>{"Planned"}</td>
               </tr>
               <tr>
-                <th scope="row">{"SharePoint & Salesforce"}</th>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
-                <td>{"✓"}</td>
+                <th scope="row">{"SharePoint setup / Salesforce planned"}</th>
+                <td>{"Setup / planned"}</td>
+                <td>{"Setup / planned"}</td>
+                <td>{"Setup / planned"}</td>
                 <td>{"—"}</td>
               </tr>
               <tr>
@@ -476,7 +476,7 @@ export default function Page() {
           <summary>{"How does client-based pricing work?"}</summary>
           <p>
             {
-              "Your plan is based on the number of active clients in your Amaea account. An active client is any client record that is being monitored by the platform. Archived or inactive clients do not count. If you approach your plan limit, we’ll notify you in advance so you can upgrade before any disruption."
+              "Your plan is based on the number of active clients in your Amaea account. An active client is any client record that is being monitored by the platform. Archived or inactive clients do not count. Your current usage is visible in the app. Request an approved plan change before exceeding the active-client allowance."
             }
           </p>
         </details>
@@ -484,7 +484,7 @@ export default function Page() {
           <summary>{"Can I change plans as my firm grows?"}</summary>
           <p>
             {
-              "Yes, you can upgrade or downgrade at any time. Upgrades take effect immediately. Downgrades take effect at the next billing cycle. There are no penalties for changing plans."
+              "You can request a plan change in the app. Amaea approves changes under your contract or invoice arrangements and records the agreed effective date. No automatic card billing is used."
             }
           </p>
         </details>
@@ -492,7 +492,7 @@ export default function Page() {
           <summary>{"How long does onboarding take?"}</summary>
           <p>
             {
-              "Most firms are fully live within 5 business days. Our onboarding team handles the Intelliflo and SharePoint integration, imports your client data, and trains your compliance team on the platform. Enterprise clients with complex setups typically take 2–3 weeks."
+              "We agree onboarding steps and timing with your firm. Provider access, client-data readiness and processing approvals determine which workflows can go live. Intelliflo and other provider connections remain subject to approval and validation."
             }
           </p>
         </details>

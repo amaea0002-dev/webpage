@@ -196,7 +196,7 @@ export default function FeatureChapters() {
           <h2>{"Know exactly what to fix first"}</h2>
           <p>
             {
-              "Amaea doesn't just flag problems, it ranks them. Every issue across the firm, sorted Critical, High, Medium, each one naming the client and citing the exact rule it breaches, each one resolvable in a click. You walk in on Monday knowing precisely where to start, instead of staring at a wall of red."
+              "Amaea ranks recorded evidence gaps by priority, naming the client and linking the supporting record. These are items for human review: a flag does not establish that a regulatory rule has been breached. You can investigate, record a decision and keep the evidence of what you did."
             }
           </p>
         </div>
@@ -282,7 +282,7 @@ export default function FeatureChapters() {
           <h2>{"Ask Amaea AI anything"}</h2>
           <p>
             {
-              "A compliance assistant that knows your whole firm. Ask it who to prioritise this week, what your Consumer Duty position is, when the RMAR's due — any time, in plain English, with an answer you can act on and prove later."
+              "Ask about current recorded firm facts and selected FCA source excerpts. Amaea retrieves the evidence afresh, cites the sources and keeps the input and output for review. Source excerpts still need a qualified person to check applicability; they are not a determination of compliance."
             }
           </p>
           <p className="liability">
@@ -547,7 +547,7 @@ export default function FeatureChapters() {
           <h2>{"It runs on what you already use"}</h2>
           <p>
             {
-              "Here's how it all works. Amaea connects straight into Intelliflo and SharePoint and reads your documents wherever they live, checking whether each one's signed, when, and which client it belongs to. Or drop files in yourself, and it reads, classifies and files all 19 document types automatically. Nothing to rip out, nothing to relearn."
+              "SharePoint connection code is available, with site access, firm processing approval and Amaea's processing release required before ingestion. Intelliflo and other provider connections are being prepared. Document uploads and extraction remain gated until processing arrangements are approved; proposed matches and dates require human review."
             }
           </p>
         </div>
