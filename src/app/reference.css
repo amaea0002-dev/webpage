@@ -2814,39 +2814,118 @@ tbody th {
   }
 }
 
-/* Homepage lettering reveals before the tail and its flowing promise. */
-.hero-home .hero-name {
-  animation: amaea-write 1.8s linear both;
+/* Approved handwritten wordmark: a capital A, small promise and level tail. */
+.hero-signature {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--plum);
+  overflow: visible;
 }
-.hero-home .hero-tail path {
-  animation-duration: 1.4s;
-  animation-delay: 1.8s;
+.hero-signature-pen {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 180;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  animation: hero-signature-write var(--duration) linear var(--delay) both;
 }
-.hero-home .hero-promise {
-  animation: promise-flow 2s cubic-bezier(0.32, 0, 0.2, 1) 3.2s both;
+.hero-signature-settle {
+  animation: hero-signature-settle 0.001s linear var(--finish) both;
+}
+#hero-signature-reveal-a1 {
+  --delay: 0.1s;
+  --duration: 1s;
+  --finish: 1.1s;
+}
+#hero-signature-reveal-m {
+  --delay: 1.06s;
+  --duration: 1.16s;
+  --finish: 2.22s;
+}
+#hero-signature-reveal-a2 {
+  --delay: 2.18s;
+  --duration: 0.7s;
+  --finish: 2.88s;
+}
+#hero-signature-reveal-e {
+  --delay: 2.84s;
+  --duration: 0.65s;
+  --finish: 3.49s;
+}
+#hero-signature-reveal-a3 {
+  --delay: 3.45s;
+  --duration: 0.76s;
+  --finish: 4.21s;
+}
+.hero-signature-tail {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  animation: hero-signature-write 1.6s cubic-bezier(0.28, 0.1, 0.25, 1) 4.18s both;
+}
+.hero-signature-tagline {
+  font: 400 56px "Pinyon Script", cursive;
+  fill: currentColor;
+  opacity: 1;
+  clip-path: inset(-40% 100% -45% 0) fill-box;
+  animation: hero-signature-flow 2s cubic-bezier(0.32, 0, 0.2, 1) 4.4s both;
 }
 .hero-home .hero-descriptor {
-  animation-delay: 5.8s;
+  width: auto;
+  white-space: normal;
+  text-align: center;
+  clip-path: none;
+  animation: hero-signature-appear 0.8s ease 6.3s both;
 }
-@keyframes amaea-write {
+@keyframes hero-signature-write {
   from {
-    clip-path: inset(-40% 100% -45% 0);
+    stroke-dashoffset: 100;
   }
   to {
-    clip-path: inset(-40% -12% -45% -12%);
+    stroke-dashoffset: 0;
   }
 }
-@keyframes promise-flow {
+@keyframes hero-signature-settle {
   from {
-    clip-path: inset(-40% 100% -45% 0);
+    opacity: 0;
   }
   to {
-    clip-path: inset(-40% -12% -45% -12%);
+    opacity: 1;
+  }
+}
+@keyframes hero-signature-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hero-signature-flow {
+  from {
+    clip-path: inset(-40% 100% -45% 0) fill-box;
+  }
+  to {
+    clip-path: inset(-40% -12% -45% -12%) fill-box;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-home .hero-name,
-  .hero-home .hero-promise {
+  .hero-signature-pen,
+  .hero-signature-tail {
+    stroke-dashoffset: 0;
+  }
+  .hero-signature-settle,
+  .hero-signature-tagline,
+  .hero-home .hero-descriptor {
+    opacity: 1;
+  }
+  .hero-signature-tagline {
     clip-path: none;
   }
 }
