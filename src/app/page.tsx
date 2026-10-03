@@ -1,12 +1,12 @@
 /* CEO mockup 2026-10-01 v2; preserve supplied copy and story order. */
 import ReferenceInteractions from "@/components/reference/ReferenceInteractions";
-import { pageMetadata } from "@/lib/metadata";
+import { pageMetadata, SITE_DESCRIPTION } from "@/lib/metadata";
 import FeatureChapters from "@/components/reference/FeatureChapters";
 import HeroSignature from "@/components/reference/HeroSignature";
 
 export const metadata = pageMetadata(
   "Amaea | FCA compliance software \u00b7 Your peace of mind",
-  "FCA compliance software for UK financial advisers. Every client, every review, every document. Explore the Amaea website mockup.",
+  SITE_DESCRIPTION,
   "/",
 );
 
