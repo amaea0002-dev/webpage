@@ -50,6 +50,15 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+.product-preview-note {
+  padding-top: 32px;
+  margin-bottom: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.legal-prose ul {
+  padding-left: 24px;
+}
 .application-layout {
   display: grid;
   grid-template-columns: 1.1fr 1fr;

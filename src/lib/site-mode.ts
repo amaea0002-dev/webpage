@@ -1,6 +1,6 @@
 // Public routes in the updated website. Unreviewed legacy marketing pages remain gated.
 
-export const RELEASE_ROUTES = ['/', '/about', '/features', '/pricing', '/contact', '/waitlist', '/privacy', '/cookies'] as const
+export const RELEASE_ROUTES = ['/', '/about', '/features', '/pricing', '/contact', '/waitlist', '/privacy', '/cookies', '/terms', '/security'] as const
 
 export function isFullSite(mode = process.env.NEXT_PUBLIC_SITE_MODE): boolean {
   return mode === 'full'

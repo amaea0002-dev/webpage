@@ -1,6 +1,5 @@
 import ReferenceInteractions from "@/components/reference/ReferenceInteractions";
-// Shared shell for the three legal pages. Same chrome + structure; only the
-// body differs. Keeps each legal route tiny.
+// Shared layout for the legal and security pages.
 
 import type { ReactNode } from 'react'
 

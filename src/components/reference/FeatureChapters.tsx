@@ -8,6 +8,7 @@ export default function FeatureChapters() {
       id="features"
       aria-label="Seven ways Amaea supports your firm"
     >
+      <p className="product-preview-note shell">These walkthroughs use example client data.</p>
       <article className="chapter shell" id="chapter-1">
         <div className="chapter-copy">
           <span className="chapter-number">{"01 /"}</span>
@@ -36,16 +37,13 @@ export default function FeatureChapters() {
                 </svg>
                 {" Clients"}
               </span>
-              <span className="preview-label">
-                {"Interactive concept · sample data"}
-              </span>
             </div>
             <div className="screen">
               <div className="screen-heading">
                 <h3>{"Your client book"}</h3>
                 <span>{"128 clients"}</span>
               </div>
-              <div className="filter-tabs" aria-label="Filter sample clients">
+              <div className="filter-tabs" aria-label="Filter clients">
                 <button
                   className="selected"
                   data-client-filter="all"
@@ -118,14 +116,14 @@ export default function FeatureChapters() {
                     {"Play journey preview"}
                   </button>
                   <span className="micro" id="client-progress">
-                    {"Illustrative client journey"}
+                    {"Client journey"}
                   </span>
                 </div>
               </div>
             </div>
           </div>
           <figcaption>
-            {"Clients · Illustrative interactive preview"}
+            {"Clients · Client journey"}
           </figcaption>
         </figure>
       </article>
@@ -157,20 +155,17 @@ export default function FeatureChapters() {
                 </svg>
                 {" Your firm, at a glance"}
               </span>
-              <span className="preview-label">
-                {"Product prototype · synthetic data"}
-              </span>
             </div>
             <a
               className="dashboard-image"
               href="/reference/product-dashboard.png"
               target="_blank"
               rel="noopener"
-              aria-label="Open the Amaea dashboard prototype image"
+              aria-label="Open the Amaea dashboard image"
             >
               <Image
                 src="/reference/product-dashboard.png"
-                alt="Amaea product prototype showing compliance health, missing documents, overdue reviews and an AI assistant with synthetic data."
+                alt="Amaea dashboard showing compliance health, missing documents, overdue reviews and an AI assistant."
                 width={3000}
                 height={1580}
                 loading="lazy"
@@ -185,7 +180,7 @@ export default function FeatureChapters() {
           </div>
           <figcaption>
             {
-              "Dashboard · Reviews · Documents · Product prototype from amaea.co.uk"
+              "Dashboard · Reviews · Documents"
             }
           </figcaption>
         </figure>
@@ -218,9 +213,6 @@ export default function FeatureChapters() {
                 </svg>
                 {" Insights"}
               </span>
-              <span className="preview-label">
-                {"Interactive concept · sample data"}
-              </span>
             </div>
             <div className="screen">
               <div className="screen-heading">
@@ -236,7 +228,7 @@ export default function FeatureChapters() {
                 </div>
                 <button
                   className="resolve"
-                  aria-label="Resolve Sarah Wilson sample alert"
+                  aria-label="Resolve Sarah Wilson alert"
                 >
                   {"Resolve"}
                 </button>
@@ -250,7 +242,7 @@ export default function FeatureChapters() {
                 </div>
                 <button
                   className="resolve"
-                  aria-label="Resolve Oliver Bennett sample alert"
+                  aria-label="Resolve Oliver Bennett alert"
                 >
                   {"Resolve"}
                 </button>
@@ -264,7 +256,7 @@ export default function FeatureChapters() {
                 </div>
                 <button
                   className="resolve"
-                  aria-label="Resolve Amelia Clarke sample alert"
+                  aria-label="Resolve Amelia Clarke alert"
                 >
                   {"Resolve"}
                 </button>
@@ -272,7 +264,7 @@ export default function FeatureChapters() {
             </div>
           </div>
           <figcaption>
-            {"Insights · Illustrative interactive preview"}
+            {"Insights"}
           </figcaption>
         </figure>
       </article>
@@ -309,9 +301,6 @@ export default function FeatureChapters() {
                 </svg>
                 {" Amaea AI"}
               </span>
-              <span className="preview-label">
-                {"Interactive concept · sample data"}
-              </span>
             </div>
             <div className="screen assistant">
               <span className="eyebrow">
@@ -332,7 +321,7 @@ export default function FeatureChapters() {
                 <button data-question="rmar">{"When is the RMAR due?"}</button>
               </div>
               <div className="ai-answer" role="status">
-                <span className="micro">{"Sample answer"}</span>
+                <span className="micro">{"Answer"}</span>
                 <p id="assistant-answer">
                   {
                     "Start with Sarah Wilson’s overdue review, then Oliver Bennett’s missing agreement. Check the supporting evidence and record your judgement."
@@ -341,7 +330,7 @@ export default function FeatureChapters() {
               </div>
               <form id="assistant-form">
                 <label className="sr-only" htmlFor="assistant-input">
-                  {"Ask the sample assistant"}
+                  {"Ask Amaea AI"}
                 </label>
                 <input
                   id="assistant-input"
@@ -353,12 +342,12 @@ export default function FeatureChapters() {
                 </button>
               </form>
               <p className="micro">
-                {"Sample responses for this design preview."}
+                {"Choose a question to explore Amaea AI."}
               </p>
             </div>
           </div>
           <figcaption>
-            {"AI Assistant · Illustrative interactive preview"}
+            {"Amaea AI"}
           </figcaption>
         </figure>
       </article>
@@ -389,9 +378,6 @@ export default function FeatureChapters() {
                   ></path>
                 </svg>
                 {" Governance · Amaea Horizon"}
-              </span>
-              <span className="preview-label">
-                {"Interactive concept · sample data"}
               </span>
             </div>
             <div className="screen">
@@ -431,7 +417,7 @@ export default function FeatureChapters() {
                 <div>
                   <strong>{"Consumer Duty outcomes"}</strong>
                   <p>{"Review the evidence behind your board pack."}</p>
-                  <small>{"Illustrative task · owner: compliance team"}</small>
+                  <small>{"Task · owner: compliance team"}</small>
                 </div>
               </div>
               <div className="calendar-event">
@@ -453,7 +439,7 @@ export default function FeatureChapters() {
             </div>
           </div>
           <figcaption>
-            {"Governance · Amaea Horizon · Illustrative interactive preview"}
+            {"Governance · Amaea Horizon"}
           </figcaption>
         </figure>
       </article>
@@ -484,9 +470,6 @@ export default function FeatureChapters() {
                   ></path>
                 </svg>
                 {" Reports"}
-              </span>
-              <span className="preview-label">
-                {"Interactive concept · sample data"}
               </span>
             </div>
             <div className="screen">
@@ -532,12 +515,12 @@ export default function FeatureChapters() {
                 {"Preview a report draft"}
               </button>
               <p className="micro" id="draft-status" aria-live="polite">
-                {"Illustrative draft · your reviewer retains sign-off."}
+                {"Draft for review · your reviewer retains sign-off."}
               </p>
             </div>
           </div>
           <figcaption>
-            {"Reports · Illustrative interactive preview"}
+            {"Reports"}
           </figcaption>
         </figure>
       </article>
@@ -568,9 +551,6 @@ export default function FeatureChapters() {
                   ></path>
                 </svg>
                 {" Integrations · Import Docs"}
-              </span>
-              <span className="preview-label">
-                {"Interactive concept · sample data"}
               </span>
             </div>
             <div className="screen">
@@ -603,7 +583,7 @@ export default function FeatureChapters() {
                   </div>
                   <span className="status neutral">{"Preview"}</span>
                 </div>
-                <p className="micro">{"Connections shown for illustration."}</p>
+                <p className="micro">{"Connection availability is confirmed during onboarding."}</p>
               </div>
               <div id="import-panel" hidden>
                 <label className="import-drop" htmlFor="import-file">
@@ -623,7 +603,7 @@ export default function FeatureChapters() {
             </div>
           </div>
           <figcaption>
-            {"Integrations · Import Docs · Illustrative interactive preview"}
+            {"Integrations · Import documents"}
           </figcaption>
         </figure>
       </article>

@@ -1,126 +1,42 @@
 import Link from 'next/link'
+import LegalPage from '@/components/LegalPage'
+import { pageMetadata } from '@/lib/metadata'
 
-export const metadata = {
-  title: 'Security · Amaea',
-  description: 'How Amaea handles firm data, with implementation details and work awaiting verification.',
-}
-
-// Sources: ../amaea-app/next.config.ts, src/lib/security/rls.test.ts,
-// .github/workflows/test.yml, src/lib/integrations/encryption.ts.
-const STORES = [
-  { label: 'Primary store', body: 'Supabase Postgres stores the platform records. Data storage and processing locations are being verified.' },
-  { label: 'Document store', body: 'Source documents are handled through Supabase Storage. Storage policies are part of the isolation review.' },
-  { label: 'Vector store', body: 'Firm document embeddings carry a firm identifier. Database row-level security for firm embeddings is covered by the CI integration suite.' },
-  { label: 'AI providers', body: 'The app integrates Anthropic for AI processing and Voyage for embeddings. Provider retention and contractual settings are being verified.' },
-]
-
-const SPECS = [
-  { t: 'Integration credentials', d: 'Integration tokens are encrypted using AES-256-GCM before storage.' },
-  { t: 'Transport configuration', d: 'The app config sets HSTS to max-age=31536000 (one year), with includeSubDomains and the preload directive. This marketing repo has no HSTS header configured.' },
-  { t: 'Authentication', d: 'The app uses Supabase Auth. Deployment-specific session and MFA settings are being verified.' },
-  { t: 'App headers', d: 'The app config defines CSP, X-Frame-Options DENY, Referrer-Policy strict-origin-when-cross-origin and a Permissions-Policy. Deployed response headers still need verification.' },
-  { t: 'Penetration testing', d: 'A first third-party penetration test is planned for Q4 2026. No completed test is claimed here.' },
-  { t: 'Isolation checks', d: 'CI includes cross-firm row-level security tests and a check for anonymous access to exposed database views. These checks exercise defined cases; they are not a guarantee against all data leakage.' },
-  { t: 'Operational policies', d: 'Backup and recovery, incident response, export and deletion commitments are awaiting confirmation.' },
-  { t: 'Sub-processors', d: 'The provider list, processing purposes, locations and contractual terms are awaiting verification. See the privacy notice.' },
-]
+export const metadata = pageMetadata('Security and data handling · Amaea', 'Website safeguards, platform access controls, hosting and how to report a security concern to Amaea.', '/security')
 
 export default function SecurityPage() {
   return (
-    <>
-      {/* Hero */}
-      <section className="section">
-        <div className="container-wide">
-          <div className="eyebrow" style={{ marginBottom: 20 }}>Security &amp; compliance</div>
-          <h1 className="hero-display" style={{ maxWidth: '17ch' }}>
-            How Amaea handles <em>your firm’s data.</em>
-          </h1>
-          <p className="lede" style={{ maxWidth: '40rem', marginTop: 28 }}>
-            Our security work includes database row-level security and automated isolation checks.
-            This page distinguishes implementation details from plans and policies awaiting verification.
-          </p>
-          {/* TODO: verify certification and penetration-test plans, dates and status before publication. */}
-          <p className="body" style={{ marginTop: 28 }}>
-            SOC 2 Type I is planned for Q4 2026. ISO 27001 is planned for 2027.
-            These are plans, not certifications held by Amaea.
-          </p>
-        </div>
-      </section>
+    <LegalPage title="Security and data handling." eyebrow="Trust and security" lastUpdated="3 October 2026">
+      <p className="body-large">Protecting information is part of how Amaea is built and operated. This page explains the safeguards on amaea.co.uk and the platform controls relevant to a firm’s review.</p>
 
-      {/* Where data lives, cards */}
-      <section className="section" style={{ borderTop: '1px solid var(--rule)' }}>
-        <div className="container-wide">
-          <div className="eyebrow" style={{ marginBottom: 24 }}>Where your data lives</div>
-          {/* TODO: verify the final data-location wording against deployment settings and provider contracts; use the same wording in privacy. */}
-          {/* TODO: verify provider retention, training and logging terms, including whether zero data retention is contractually enabled. */}
-          <div className="value-grid">
-            {STORES.map(s => (
-              <div key={s.label} className="value-card">
-                <h2 className="h-sub" style={{ marginBottom: 8 }}>{s.label}</h2>
-                <p className="body">{s.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <h2>1. The website and your client information</h2>
+      <p>The public website provides product information, walkthroughs and enquiries. It does not provide access to your firm’s client records. The document selector in a walkthrough keeps the selected file on your device and does not upload it. Please do not include real client details, account passwords or documents in public enquiries.</p>
+      <p>Client information in the app is handled under the arrangements agreed with your firm. Our <Link href="/privacy">website privacy notice</Link> covers information provided through this website and our enquiry correspondence.</p>
 
-      {/* Isolation story */}
-      <section className="section" style={{ borderTop: '1px solid var(--rule)', background: 'var(--surface)' }}>
-        <div className="container-prose">
-          <div className="eyebrow" style={{ marginBottom: 16 }}>The isolation story</div>
-          <h2 className="h-page" style={{ marginBottom: 24 }}>Multi-tenant by <em>construction.</em></h2>
-          <p className="body-large" style={{ marginBottom: 20 }}>
-            Firm-scoped records use database row-level security to restrict access by firm.
-            The app’s integration suite tests cross-firm reads and writes, including firm embeddings,
-            against a local Supabase instance in CI.
-          </p>
-          <p className="body-large" style={{ marginBottom: 28 }}>
-            Isolation depends on the policies, queries and deployment being configured correctly.
-            The tests cover specific scenarios; isolation requires ongoing testing and review.
-          </p>
-          <div className="callout-card">
-            <p>
-              The repository includes a check for anonymous access to exposed database relations and
-              a migration setting <code>security_invoker = true</code> on views.
-            </p>
-          </div>
-          {/* TODO: approve any incident disclosure from a dated incident record; response times and customer impact are unverified. */}
-        </div>
-      </section>
+      <h2>2. Secure connections and browser protections</h2>
+      <p>The website uses HTTPS. Its responses include a transport-security policy that directs compatible browsers to use secure connections, and browser security headers that restrict how the page can be embedded, how content is loaded and how browser features are used.</p>
+      <p>These safeguards help reduce common web risks. They work alongside application checks and ongoing maintenance; they are not a guarantee that every security risk has been eliminated.</p>
 
-      {/* Specifications, card grid */}
-      <section className="section" style={{ borderTop: '1px solid var(--rule)' }}>
-        <div className="container-wide">
-          <div className="eyebrow" style={{ marginBottom: 24 }}>Specifications</div>
-          {/* TODO: verify deployed headers, MFA/session settings, backups, incident response, export and deletion policies before making operational commitments. */}
-          <div className="spec-grid">
-            {SPECS.map(s => (
-              <div key={s.t} className="value-card">
-                <div className="spec-k">{s.t}</div>
-                <p className="body" style={{ marginTop: 6 }}>{s.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <h2>3. Enquiry safeguards</h2>
+      <p>Enquiry submissions are checked for valid fields and size, cross-site submissions and repeated requests. Automated spam indicators and rate limits help protect the form from abuse. Enquiries are delivered to the Amaea team’s inbox through the email provider.</p>
+      <p>Application delivery logs record a reference, delivery identifier and status rather than the submitted message, email address or firm name. Our hosting provider separately handles technical network and security information. More detail is in the <Link href="/privacy">privacy notice</Link>.</p>
 
-      {/* Trust centre CTA */}
-      <section className="section" style={{ background: 'var(--plum-deep)', color: 'var(--cream)' }}>
-        <div className="container-text" style={{ textAlign: 'center' }}>
-          <div className="eyebrow" style={{ marginBottom: 16, color: 'rgba(254,252,250,0.6)' }}>Trust centre</div>
-          <p className="h-section" style={{ color: 'var(--cream)', marginBottom: 18 }}>
-            Ask about our security work.
-          </p>
-          <p style={{ color: 'rgba(254,252,250,0.8)', maxWidth: '32rem', margin: '0 auto 28px', lineHeight: 1.55 }}>
-            Contact us to discuss the evidence your firm needs for its review.
-            The trust pack and publication schedule are awaiting confirmation.
-          </p>
-          {/* TODO: confirm which trust documents can be supplied and the publication schedule. */}
-          <Link href="/contact" className="btn btn-lg" style={{ background: 'var(--cream)', color: 'var(--plum-deep)' }}>
-            Discuss security
-          </Link>
-        </div>
-      </section>
-    </>
+      <h2>4. Platform access and firm separation</h2>
+      <p>The app includes authenticated access, firm-scoped access checks and database row-level security to restrict records to the relevant firm. Automated integration checks exercise cross-firm reads and writes, including document embeddings. These checks support ongoing security review and do not replace independent assurance.</p>
+      <p>Integration credentials are encrypted before storage using AES-256-GCM. Access to customer data, user permissions and the applicable processing arrangements should be reviewed with your firm during onboarding.</p>
+
+      <h2 id="hosting">5. Hosting, providers and data locations</h2>
+      <p>The website uses Vercel for hosting, Resend for enquiry-email delivery and Google Workspace for team correspondence. The app uses Supabase for database, authentication and document storage, Anthropic for AI processing, and Voyage for embeddings.</p>
+      <p>Provider processing may take place outside the UK. For example, Resend states that email content and delivery records are stored in the United States. The website does not claim that all information remains in the UK or EU. Our <Link href="/privacy">privacy notice</Link> links to the relevant website-provider processing information.</p>
+      <p>Ask us about the hosting regions, sub-processors, international-transfer safeguards and AI-processing arrangements applicable to your firm’s proposed service. These should be considered before client information is supplied.</p>
+
+      <h2>6. Due diligence and assurance</h2>
+      <p>Discuss the evidence your firm needs, including access controls, data handling, backup and recovery arrangements, incident response, export and deletion. Service levels and customer commitments belong in the written service agreement and data processing agreement.</p>
+      <p>This website does not publish an independent security certification or penetration-test attestation for Amaea. Automated checks and a provider’s certifications should not be treated as a certification held by Amaea.</p>
+
+      <h2>7. Reporting a security concern</h2>
+      <p>Email <a href="mailto:security@amaea.co.uk">security@amaea.co.uk</a> or <a href="mailto:hello@amaea.co.uk">hello@amaea.co.uk</a>. Include the affected URL, a description and steps to reproduce the issue if it is safe to do so. Avoid real client information, passwords or unnecessary personal details.</p>
+      <p>If a report involves sensitive evidence, contact us first to arrange an appropriate way to share it. Please do not access another person’s records or disrupt the service while investigating.</p>
+    </LegalPage>
   )
 }

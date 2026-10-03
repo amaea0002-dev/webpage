@@ -35,6 +35,17 @@ export function initializeReference() {
     else a.removeAttribute("aria-current");
   });
   syncTheme();
+  listen($("#clear-saved-theme"), "click", () => {
+    const status = $("#theme-storage-status");
+    try {
+      localStorage.removeItem("amaea-theme");
+      document.documentElement.dataset.theme = "light";
+      syncTheme();
+      status.textContent = "Your saved theme has been removed. The website now uses the default light theme.";
+    } catch {
+      status.textContent = "Your browser did not allow this change. Clear Amaea’s site data in your browser settings.";
+    }
+  });
   listen(theme, "click", () => {
     document.documentElement.dataset.theme =
       document.documentElement.dataset.theme === "dark" ? "light" : "dark";
@@ -337,7 +348,7 @@ export function initializeReference() {
       $(".client-detail .eyebrow").textContent =
         `${row.dataset.client.toUpperCase()} · CLIENT JOURNEY`;
       $("#client-context").textContent = $("small", row).textContent;
-      $("#client-progress").textContent = "Illustrative client journey";
+      $("#client-progress").textContent = "Client journey";
     }),
   );
   let journeyTimer;
@@ -377,8 +388,8 @@ export function initializeReference() {
   const answers = {
     priority:
       "Start with Sarah Wilson’s overdue review, then Oliver Bennett’s missing agreement. Check the supporting evidence and record your judgement.",
-    duty: "In this sample, review the outstanding outcome evidence and vulnerability reassessments before completing the Consumer Duty board pack. Your qualified reviewer retains the assessment and sign-off.",
-    rmar: "Use the firm’s reporting schedule in Governance to confirm the applicable return and deadline. This sample does not hold your firm’s live reporting dates.",
+    duty: "Review the outstanding outcome evidence and vulnerability reassessments before completing the Consumer Duty board pack. Your qualified reviewer retains the assessment and sign-off.",
+    rmar: "Use the firm’s reporting schedule in Governance to confirm the applicable return and deadline. This walkthrough does not access your firm’s live reporting dates.",
   };
   $$("[data-question]").forEach((b) =>
     listen(
@@ -396,7 +407,7 @@ export function initializeReference() {
         ? answers.duty
         : q.includes("priorit") || q.includes("week")
           ? answers.priority
-          : "This preview has sample responses. Choose a suggested question to explore the assistant’s proposed workflow.";
+          : "Choose a suggested question to explore Amaea AI.";
     $("#assistant-input").value = "";
   });
   listen($("#horizon-preview"), "click", () => {
@@ -422,7 +433,7 @@ export function initializeReference() {
   listen($("#import-file"), "change", (e) => {
     const file = e.target.files?.[0];
     $("#import-status").textContent = file
-      ? `${file.name} selected locally. No file is uploaded by this mockup.`
+      ? `${file.name} selected locally. No file is uploaded from this website.`
       : "19 document types · extraction, classification, matching";
   });
   return () => {

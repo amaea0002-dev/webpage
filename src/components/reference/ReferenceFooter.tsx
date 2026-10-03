@@ -42,18 +42,16 @@ export default function ReferenceFooter() {
           </div>
           <div>
             <h2>{"Trust & Security"}</h2>
-            <Link href="/contact#security">{"Security & encryption"}</Link>
+            <Link href="/security">{"Security & encryption"}</Link>
             <Link href="/privacy">{"GDPR & data protection"}</Link>
-            <Link href="/contact#security">{"Hosting & data residency"}</Link>
+            <Link href="/security#hosting">{"Hosting & data residency"}</Link>
           </div>
           <div>
             <h2>{"Company & legal"}</h2>
             <Link href="/about">{"Our story"}</Link>
             <Link href="/contact">{"Contact"}</Link>
             <Link href="/privacy">{"Privacy"}</Link>
-            <a href="mailto:hello@amaea.co.uk?subject=Terms%20of%20service">
-              {"Terms"}
-            </a>
+            <Link href="/terms">{"Terms of service"}</Link>
             <Link href="/cookies">{"Cookies"}</Link>
           </div>
         </div>

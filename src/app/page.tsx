@@ -92,7 +92,7 @@ export default function Page() {
           {"\n    "}
           <p>
             {
-              "In the illustrative Amaea preview, Andrew & Kate Smith are matched to client reference CL-0142. Their own suitability report is signed on 01/07/2026, with the source document linked to the record. The correct client, signed date and evidence are together. Your peace of mind."
+              "In Amaea, Andrew & Kate Smith are matched to client reference CL-0142. Their own suitability report is signed on 01/07/2026, with the source document linked to the record. The correct client, signed date and evidence are together. Your peace of mind."
             }
           </p>
           {"\n  "}
@@ -158,7 +158,7 @@ export default function Page() {
                 {"\n          "}
                 <div className="register-toolbar">
                   <strong>{"Client review & suitability register.xlsx"}</strong>
-                  <span>{"Manually maintained · illustrative data"}</span>
+                  <span>{"Manually maintained"}</span>
                 </div>
                 {"\n          "}
                 <div className="register-formula">
@@ -525,7 +525,7 @@ export default function Page() {
               <div className="relief-product" data-motion>
                 <div className="relief-toolbar">
                   <strong>{"Amaea · Client journey"}</strong>
-                  <span>{"Illustrative product preview"}</span>
+                  <span>{"Client journey"}</span>
                 </div>
                 <div className="relief-client">
                   <div>
