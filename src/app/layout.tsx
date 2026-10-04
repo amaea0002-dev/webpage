@@ -37,7 +37,7 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "try{document.documentElement.dataset.theme=localStorage.getItem('amaea-theme')==='dark'?'dark':'light'}catch(e){}",
+              "try{localStorage.removeItem('amaea-theme');var t=localStorage.getItem('amaea-theme-preference');document.documentElement.dataset.themeRemembered=String(t==='dark'||t==='light');document.documentElement.dataset.theme=t==='dark'?'dark':'light'}catch(e){}",
           }}
         />
         <a className="skip" href="#main">

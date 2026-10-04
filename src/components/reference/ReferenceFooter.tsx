@@ -53,6 +53,7 @@ export default function ReferenceFooter() {
             <Link href="/privacy">{"Privacy"}</Link>
             <Link href="/terms">{"Terms of service"}</Link>
             <Link href="/cookies">{"Cookies"}</Link>
+            <Link href="/cookies#cookie-settings">{"Cookie settings"}</Link>
           </div>
         </div>
         <div className="footer-bottom">

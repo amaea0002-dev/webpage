@@ -34,27 +34,76 @@ export function initializeReference() {
       a.setAttribute("aria-current", "page");
     else a.removeAttribute("aria-current");
   });
-  syncTheme();
-  listen($("#clear-saved-theme"), "click", () => {
-    const status = $("#theme-storage-status");
-    try {
-      localStorage.removeItem("amaea-theme");
-      document.documentElement.dataset.theme = "light";
-      syncTheme();
-      status.textContent = "Your saved theme has been removed. The website now uses the default light theme.";
-    } catch {
-      status.textContent = "Your browser did not allow this change. Clear Amaea’s site data in your browser settings.";
+  const rememberTheme = $("#remember-theme");
+  const storageStatus = $("#theme-storage-status");
+  const remembered = () => document.documentElement.dataset.themeRemembered === "true";
+  const syncRememberTheme = () => {
+    if (rememberTheme) {
+      rememberTheme.checked = remembered();
+      rememberTheme.disabled = false;
     }
+  };
+  const statusMessage = (message) => {
+    if (storageStatus) storageStatus.textContent = message;
+  };
+  const saveTheme = () => {
+    localStorage.setItem("amaea-theme-preference", document.documentElement.dataset.theme);
+  };
+  const forgetTheme = () => {
+    document.documentElement.dataset.themeRemembered = "false";
+    syncRememberTheme();
+    try {
+      localStorage.removeItem("amaea-theme-preference");
+      localStorage.removeItem("amaea-theme");
+      statusMessage("Theme remembering is off. Your saved preference has been removed. You can still switch themes while browsing.");
+    } catch {
+      statusMessage("Theme remembering is off for this visit, but your browser did not allow us to remove saved data. Clear Amaea’s site data in your browser settings.");
+    }
+  };
+  syncTheme();
+  syncRememberTheme();
+  $$("a[href='/cookies#cookie-settings']").forEach((link) =>
+    listen(link, "click", (event) => {
+      const settings = $("#cookie-settings");
+      if (!settings || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      settings.scrollIntoView({ block: "start" });
+      settings.focus({ preventScroll: true });
+    }),
+  );
+  listen(window, "storage", (event) => {
+    if (event.key !== "amaea-theme-preference" && event.key !== null) return;
+    const allowed = event.newValue === "light" || event.newValue === "dark";
+    document.documentElement.dataset.themeRemembered = String(allowed);
+    syncRememberTheme();
+    if (!allowed) statusMessage("Theme remembering was turned off in another tab. Your current appearance stays the same.");
   });
+  listen(rememberTheme, "change", () => {
+    if (!rememberTheme.checked) {
+      forgetTheme();
+      return;
+    }
+    try {
+      saveTheme();
+      document.documentElement.dataset.themeRemembered = "true";
+      statusMessage("Your theme choice will be remembered on this browser. Turn this switch off at any time to remove it.");
+    } catch {
+      document.documentElement.dataset.themeRemembered = "false";
+      statusMessage("Your browser did not allow the preference to be saved. Theme remembering remains off; you can still switch themes.");
+    }
+    syncRememberTheme();
+  });
+  listen($("#clear-saved-theme"), "click", forgetTheme);
   listen(theme, "click", () => {
     document.documentElement.dataset.theme =
       document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-    try {
-      localStorage.setItem(
-        "amaea-theme",
-        document.documentElement.dataset.theme,
-      );
-    } catch {}
+    if (remembered()) {
+      try {
+        saveTheme();
+      } catch {
+        forgetTheme();
+      }
+    }
     syncTheme();
   });
   const menu = $(".menu-toggle"),

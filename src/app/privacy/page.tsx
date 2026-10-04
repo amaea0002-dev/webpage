@@ -6,7 +6,7 @@ export const metadata = pageMetadata('Privacy notice · Amaea', 'How Amaea handl
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy notice." eyebrow="Website privacy" lastUpdated="3 October 2026">
+    <LegalPage title="Privacy notice." eyebrow="Website privacy" lastUpdated="4 October 2026">
       <p className="body-large">This notice explains how we use personal information when you visit amaea.co.uk, register interest in the founders programme or contact us about a demo, the product or a security concern. It does not cover client information in the Amaea app. Please do not put client names, documents or sensitive information in the registration form.</p>
       <h2 className="h-section">1. Who is responsible</h2>
       <WebsiteOperator />
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         <li>A short-lived identifier derived from your network address to limit repeated form submissions. It is used to apply a ten-minute rate-limit window and kept temporarily in server memory until expired entries are cleaned up or the process ends.</li>
         <li>A registration reference, delivery identifier and delivery/failure events so we can investigate problems. We do not put your message or contact details into our application logs.</li>
       </ul>
-      <p className="body-large">The site does not use advertising pixels or visitor analytics. Your browser can store a light/dark theme preference, as explained in the <a href="/cookies">cookie notice</a>.</p>
+      <p className="body-large">The site does not use advertising pixels or visitor analytics. Your browser stores a light/dark theme preference only if you turn on “Remember my theme” in <a href="/cookies#cookie-settings">Cookie settings</a>. It is off by default.</p>
       <h2 className="h-section">3. Why we use it</h2>
       <p className="body-large">We use your enquiry to reply, discuss whether the founders programme suits your firm, and follow up about applications. Our lawful basis is our legitimate interest in responding to a request you chose to make. We use technical information for our legitimate interests in operating a reliable website, preventing abuse and diagnosing delivery problems.</p>
       <p className="body-large">Registering interest does not subscribe you to an unrelated marketing newsletter or commit you to buying anything. We do not make decisions with legal or similarly significant effects about you through this website.</p>
@@ -36,7 +36,7 @@ export default function PrivacyPage() {
       <p className="body-large">If you follow a link to an external booking service, it also receives the information you provide there under its own privacy information. A booking service is not automatically embedded when you visit this website.</p>
       <h2 className="h-section">5. Retention</h2>
       <p className="body-large">We keep enquiry correspondence until the founders programme has closed and our conversation has ended, or delete it sooner if you ask and there is no legal reason to retain it. If we have not been in contact for twelve months, we delete the enquiry. This timetable applies to our inbox records; providers also have technical log and backup retention periods under their service terms.</p>
-      <p className="body-large">Resend publishes a 30-day email/log retention period for its standard plans. Website security and delivery logs are kept for the limited period available in our hosting plan and are used for operations, not advertising. Theme storage stays in your browser until you clear it.</p>
+      <p className="body-large">Resend publishes a 30-day email/log retention period for its standard plans. Website security and delivery logs are kept for the limited period available in our hosting plan and are used for operations, not advertising. If you opt in to remembering your theme, the saved preference stays in your browser until you switch remembering off or clear the site data.</p>
       <h2 className="h-section">6. Your rights</h2>
       <p className="body-large">You can ask to access or correct your information, request its deletion, restrict its use where the right applies, or object to processing based on legitimate interests. You can tell us at any time that you no longer want founders-programme follow-up. Other rights, including portability, depend on the lawful basis and circumstances.</p>
       <p className="body-large">Email <a href="mailto:privacy@amaea.co.uk">privacy@amaea.co.uk</a>. We normally respond within one month. If we need information to confirm your identity or an extension permitted by law, we will explain why.</p>

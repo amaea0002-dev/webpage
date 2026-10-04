@@ -59,6 +59,64 @@
 .legal-prose ul {
   padding-left: 24px;
 }
+.cookie-settings-card {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: clamp(20px, 4vw, 32px);
+  margin-block: 32px;
+  scroll-margin-top: 110px;
+}
+.legal-prose .cookie-settings-card h2 {
+  margin-top: 12px;
+}
+.cookie-theme-choice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  min-height: 48px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cookie-theme-choice input {
+  appearance: none;
+  width: 48px;
+  height: 28px;
+  flex-shrink: 0;
+  border: 1px solid var(--muted);
+  border-radius: 20px;
+  background: var(--line);
+  cursor: pointer;
+}
+.cookie-theme-choice input::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 3px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.cookie-theme-choice input:checked {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.cookie-theme-choice input:checked::before {
+  transform: translateX(20px);
+  background: var(--paper);
+}
+.cookie-theme-choice input:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+.cookie-theme-choice input:disabled {
+  cursor: wait;
+  opacity: .5;
+}
+.legal-prose #theme-storage-status {
+  margin: 12px 0 0;
+  font-size: 14px;
+}
 .application-layout {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
