@@ -18,7 +18,7 @@ export default function Page() {
         <h1>{"Who are we?"}</h1>
         <p>
           {
-            "Amaea supports compliance work for UK financial advisers, built by someone who lived the problem. Bring client records, review tasks and documents into one workspace, link source evidence, and prepare draft reports for your team to check. CRM connections are arranged through agreed onboarding; regulatory applicability and final decisions stay with your qualified reviewers."
+            "Amaea is an FCA compliance platform for UK financial advisers, built by someone who lived the problem. Amaea connects to your CRM, checks whether signed documents are signed for you, checks all the FCA rules and creates draft reports for you, so that the regulator never catches you off guard."
           }
         </p>
       </section>
@@ -44,7 +44,7 @@ export default function Page() {
           </p>
           <p>
             {
-              "So I built the tool I kept wishing existed. Amaea brings clients, reviews and documents together with their source evidence, helping your team see what needs attention and record its judgement. My aim is to make compliance work clearer, so you have more time for your clients. Your peace of mind, and your time back."
+              "So I built the tool I kept wishing existed. Amaea keeps every client, every review and every document against the rule that applies, so staying compliant stops being something you fight for and becomes something you simply have. Your peace of mind, and your time back."
             }
           </p>
           <cite>{"Hasna, CEO and Founder"}</cite>
@@ -81,7 +81,7 @@ export default function Page() {
             <h3>{"Integrity."}</h3>
             <p>
               {
-                "We help your team keep a clear record of its work, with source evidence and an audit trail of saved decisions. Your team verifies the records and decides what is ready to share."
+                "We keep your records honest, complete and provable, so what you show the FCA is exactly what happened, every time."
               }
             </p>
           </article>
