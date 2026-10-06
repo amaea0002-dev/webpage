@@ -31,6 +31,12 @@ Guide answers stay in page memory and are neither stored in browser storage nor 
 
 The booking update was deployed to amaea.co.uk on 6 October 2026 from commit `9e37f7dcc8265232541501166dbfce5f28a15a10`, deployment `dpl_GDCT2CdFonUtt85sDVNaLUZ7NzAY`. All 36 checks and the production build passed; ten staged and ten live HTTP/content/security checks passed. The preview covered desktop, 390px and 320px layouts, keyboard selection, cookie controls and the empty attendee form. Reduced-motion CSS was verified; browser motion emulation was unavailable. Do not create a real booking merely to test the link. Hasna’s connected-calendar destination and actual confirmation delivery remain checks for the account owner or an explicitly authorised test booking.
 
+### Business booking details
+
+Hasna’s live Calendly demo event now asks for a required firm name in addition to name and email. Optional questions cover role, active-client bands, current business systems, demo priorities, FCA firm reference and preparation notes. These are Calendly invitee questions, so submitted booking answers are handled by Calendly and Amaea; the separate optional website plan guide still keeps its answers only in page memory. No actual booking was created to verify these fields.
+
+The website uses the official widget’s automatic sizing so the longer attendee form can be read without a fixed-height internal scroll area. Client bands use radio buttons because Calendly recommends avoiding dropdown questions with automatic sizing. The founder’s account avatar is an Amaea logo, and no founder photograph appears in the checked public booking form.
+
 ## Product assets still needed
 
 | Chapter | Current preview | Real asset needed |

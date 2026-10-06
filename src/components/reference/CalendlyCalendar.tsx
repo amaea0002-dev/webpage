@@ -30,7 +30,7 @@ export default function CalendlyCalendar({ url }: { url: string }) {
     function initialise() {
       if (cancelled || !window.Calendly) return;
       // Official widget supports hiding the profile photo and event details.
-      window.Calendly.initInlineWidget({ url, parentElement: parent!, resize: false });
+      window.Calendly.initInlineWidget({ url, parentElement: parent!, resize: true });
     }
     if (window.Calendly) initialise();
     else {
