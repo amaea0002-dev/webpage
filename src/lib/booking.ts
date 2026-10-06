@@ -7,15 +7,15 @@ export function bookingUrl(configured?:string){
 }
 
 /** Embed only the trusted provider. Never forward arbitrary query parameters or contact data. */
-export function calendlyEmbedUrl(configured: string): string | null {
+export function calendlyEmbedUrl(configured: string, theme: "light" | "dark" = "light"): string | null {
  const url = new URL(bookingUrl(configured))
  if(url.hostname !== 'calendly.com' || url.port) return null
  url.search = ''
  url.hash = ''
  url.searchParams.set('hide_event_type_details', '1')
- url.searchParams.set('background_color', 'fefcfa')
- url.searchParams.set('text_color', '241c22')
- url.searchParams.set('primary_color', '371936')
+ url.searchParams.set('background_color', theme === 'dark' ? '26122a' : 'edeaed')
+ url.searchParams.set('text_color', theme === 'dark' ? 'fbf4f9' : '241c22')
+ url.searchParams.set('primary_color', theme === 'dark' ? 'e9d6e7' : '371936')
  return url.href
 }
 

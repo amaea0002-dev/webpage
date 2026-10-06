@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { suggestPlan, type ClientBand, type PlanNeeds, type PlanSuggestion } from "@/lib/plan-guide";
-import CalendlyCalendar from "./CalendlyCalendar";
+import CalendlyCalendar, { type CalendarStep } from "./CalendlyCalendar";
 
 type Stage = "welcome" | "guide" | "result" | "booking";
 const initialNeeds: PlanNeeds = { clients: "unsure", network: false, ai: false, board: false, customApi: false };
@@ -13,10 +13,13 @@ export default function BookingFlow({ bookingUrl, embedUrl }: { bookingUrl: stri
   const [needs, setNeeds] = useState(initialNeeds);
   const [suggestion, setSuggestion] = useState<PlanSuggestion | null>(null);
   const [calendarVisible, setCalendarVisible] = useState(false);
+  const [calendarStep, setCalendarStep] = useState<CalendarStep>("time");
   const heading = useRef<HTMLHeadingElement>(null);
+  const flow = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (stage === "welcome") return;
-    heading.current?.focus();
+    heading.current?.focus({ preventScroll: true });
+    flow.current?.scrollIntoView({ block: "start" });
   }, [stage, calendarVisible]);
 
   function recommend(event: FormEvent<HTMLFormElement>) {
@@ -28,14 +31,57 @@ export default function BookingFlow({ bookingUrl, embedUrl }: { bookingUrl: stri
   function book(skip = false) {
     if (skip) setSuggestion(null);
     setCalendarVisible(false);
+    setCalendarStep("time");
     setStage("booking");
   }
 
+  if (stage === "booking") return (
+    <div ref={flow} className="booking-flow booking-flow-calendar booking-experience">
+      <aside className="booking-meeting" aria-label="Your Amaea demo">
+        <span className="eyebrow">YOUR DEMO WITH HASNA</span>
+        <h2 ref={heading} tabIndex={-1}>Make time for<br /><em>peace of mind.</em></h2>
+        <p>A conversation about your firm, the way you work and where Amaea could help.</p>
+        <dl className="booking-meeting-facts">
+          <div><dt>With</dt><dd>Hasna<span>CEO and Founder</span></dd></div>
+          <div><dt>Duration</dt><dd>30 minutes</dd></div>
+          <div><dt>Where</dt><dd>Online</dd></div>
+        </dl>
+        <div className="booking-discussion">
+          <span className="eyebrow">BUILT AROUND YOUR FIRM</span>
+          <ul><li>Your reviews and document workflows</li><li>The tools your team already uses</li><li>The right starting point for Amaea</li></ul>
+        </div>
+        {suggestion && <div className="booking-starting-plan"><span className="eyebrow">YOUR STARTING POINT</span><strong>{suggestion.name}</strong><span>{suggestion.price}</span><p>We will confirm fit and availability together.</p></div>}
+        <button type="button" className="booking-text-button" onClick={() => { setCalendarVisible(false); setStage("guide"); }}>Revisit the plan guide</button>
+      </aside>
+      <section className="booking-time-panel" aria-label="Book your Amaea demo">
+        <ol className="booking-progress" aria-label="Booking progress">
+          {([ ["time", "Choose a time"], ["details", "Your firm"], ["confirmed", "Confirmed"] ] as const).map(([step, label], index) => <li key={step} aria-current={calendarStep === step ? "step" : undefined} data-complete={(["time", "details", "confirmed"] as const).indexOf(calendarStep) > index}><span className="booking-progress-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><span>{label}</span></li>)}
+        </ol>
+        {!calendarVisible && <div className="booking-calendar-choice">
+          <span className="eyebrow">A TIME THAT SUITS YOU</span>
+          <h3>Let’s find a time.</h3>
+          <p>Choose from Hasna’s live calendar and tell us a little about your firm.</p>
+          {embedUrl && <>
+            <button type="button" className="button" onClick={() => { setCalendarStep("time"); setCalendarVisible(true); }}>Load booking calendar <span aria-hidden="true">↗</span></button>
+            <div className="booking-service-notice"><p>Calendly provides the booking calendar. Loading it connects to Calendly, which may use cookies and process technical information. Its Cookie settings let you manage optional cookies.</p><p><a href="https://calendly.com/privacy" target="_blank" rel="noopener noreferrer">Calendly privacy notice<span className="sr-only"> (opens in a new tab)</span></a><span aria-hidden="true"> · </span><a href="/cookies">Our cookie notice</a></p></div>
+          </>}
+        </div>}
+        {calendarVisible && embedUrl && <>
+          <div className="booking-calendar-toolbar"><span>{calendarStep === "details" ? "A little context for your conversation." : calendarStep === "confirmed" ? "Your booking details are below." : "Choose your date, time and time zone."}</span><button type="button" className="booking-text-button" onClick={() => setCalendarVisible(false)}>Hide calendar</button></div>
+          <CalendlyCalendar url={embedUrl} onStepChange={setCalendarStep} />
+          <p className="micro booking-data-note">Booking details go to Calendly and Amaea. Manage Calendly cookies in its Cookie settings or your browser; hiding the calendar does not delete existing cookies.</p>
+        </>}
+        <div className="booking-fallback"><a className="underlined" href={bookingUrl} target="_blank" rel="noopener noreferrer">{embedUrl ? "Open Calendly separately" : "Choose a time on Calendly"}<span aria-hidden="true"> ↗</span><span className="sr-only"> (opens in a new tab)</span></a><a href="mailto:hello@amaea.co.uk" className="underlined">Prefer to email us?</a></div>
+        <noscript><p>To book without JavaScript, <a href={bookingUrl} target="_blank" rel="noopener noreferrer">open Hasna’s Calendly page (new tab)</a>.</p></noscript>
+      </section>
+    </div>
+  );
+
   return (
-    <div className={`booking-preview booking-flow${stage === "booking" ? " booking-flow-calendar" : ""}`}>
-      <span className="eyebrow">{stage === "booking" ? "YOUR DEMO WITH HASNA" : "A LITTLE CLARITY BEFORE WE MEET"}</span>
+    <div ref={flow} className="booking-preview booking-flow">
+      <span className="eyebrow">A LITTLE CLARITY BEFORE WE MEET</span>
       <h2 ref={heading} tabIndex={-1}>
-        {stage === "welcome" ? <>Find your fit.<br /><em>Then find a time.</em></> : stage === "guide" ? "What does your firm need?" : stage === "result" ? suggestion ? "Your suggested starting point." : "Let’s find your fit together." : "Make time for peace of mind."}
+        {stage === "welcome" ? <>Find your fit.<br /><em>Then find a time.</em></> : stage === "guide" ? "What does your firm need?" : suggestion ? "Your suggested starting point." : "Let’s find your fit together."}
       </h2>
       {stage === "welcome" && <>
         <p>Three quick questions can help you find a plan to discuss in your demo. Or go straight to choosing a time.</p>
@@ -90,25 +136,6 @@ export default function BookingFlow({ bookingUrl, embedUrl }: { bookingUrl: stri
         <div className="booking-actions">
           <button type="button" className="button" onClick={() => book()}>Choose a demo time</button>
           <button type="button" className="booking-text-button" onClick={() => setStage("guide")}>Edit my answers</button>
-        </div>
-      </>}
-      {stage === "booking" && <>
-        {suggestion && <p className="booking-plan-summary">Your starting point: <strong>{suggestion.name}</strong> · {suggestion.price}. Discuss it with Hasna at your demo.</p>}
-        {!calendarVisible && <div className="booking-calendar-choice">
-          <p>Choose a time with Hasna, Amaea’s CEO and Founder.</p>
-          {embedUrl && <>
-            <p className="micro">The calendar is provided by Calendly. Loading it connects your browser to Calendly, which may use cookies and process technical information. Use Calendly’s Cookie settings to manage optional cookies. If those controls are unavailable here, open Calendly separately below. <a href="https://calendly.com/privacy" target="_blank" rel="noopener noreferrer">Calendly privacy notice<span className="sr-only"> (opens in a new tab)</span></a> · <a href="/cookies">Our cookie notice</a>.</p>
-            <button type="button" className="button" onClick={() => setCalendarVisible(true)}>Load booking calendar</button>
-          </>}
-        </div>}
-        {calendarVisible && embedUrl && <>
-          <div className="booking-calendar-toolbar"><span>Choose your date and time below.</span><button type="button" className="booking-text-button" onClick={() => setCalendarVisible(false)}>Hide calendar</button></div>
-          <CalendlyCalendar url={embedUrl} />
-          <p className="micro">Booking details go to Calendly and Amaea. Hiding the calendar stops displaying it; manage existing Calendly cookies using its Cookie settings or your browser.</p>
-        </>}
-        <div className="booking-fallback">
-          <a className="underlined" href={bookingUrl} target="_blank" rel="noopener noreferrer">{embedUrl ? "Prefer to open Calendly separately?" : "Choose a time on Calendly"}<span className="sr-only"> (opens in a new tab)</span></a>
-          <button type="button" className="booking-text-button" onClick={() => { setCalendarVisible(false); setStage("guide"); }}>Back to the plan guide</button>
         </div>
       </>}
       <noscript><p>To book without JavaScript, <a href={bookingUrl} target="_blank" rel="noopener noreferrer">open Hasna’s Calendly page (new tab)</a>.</p></noscript>

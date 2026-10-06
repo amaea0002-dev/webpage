@@ -22,7 +22,7 @@ export default function Page() {
         </p>
       </section>
       <section className="contact-layout shell" id="book-demo">
-        <div>
+        <div className="contact-copy">
           <h2>
             {"A demo built"}
             <br />
