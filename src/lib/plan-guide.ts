@@ -12,7 +12,7 @@ export function suggestPlan(needs: PlanNeeds): PlanSuggestion | null {
  if(needs.clients === 'unsure') return null;
  if(needs.board || needs.clients === '601-to-1000') return {
   name: 'Scale', price: '£2,199/month',
-  reason: needs.board ? 'The published Scale plan includes board-level packs and the custom report builder, with capacity for up to 1,000 active clients.' : 'Capacity for up to 1,000 active clients, with the features in Professional.'
+  reason: needs.board ? 'Scale adds configurable board and evidence packs and reusable custom templates, with capacity for up to 1,000 active clients.' : 'Capacity for up to 1,000 active clients, with the features in Professional.'
  };
  if(needs.ai || needs.clients === '101-to-600') return {
   name: 'Professional', price: '£1,599/month',

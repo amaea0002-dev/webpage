@@ -2815,6 +2815,35 @@ tbody th {
 }
 
 /* Smooth original letter outlines with separate, curvature-timed pen paths. */
+.pricing-public-plans .plan > p { min-height: 104px; }
+.pricing-scope-note { padding-top: 24px; font-size: 13px; line-height: 1.8; color: var(--muted); }
+.pricing-scope-note a { color: var(--plum); text-decoration: underline; text-underline-offset: 4px; }
+.pricing-overview-note { margin-top: 22px; font-size: 14px; color: var(--muted); max-width: 730px; }
+.integration-availability { padding: 55px 0 80px; border-top: 1px solid var(--line); scroll-margin-top: 105px; }
+.availability-intro { max-width: 720px; }
+.availability-intro h2, .team-access h2 { margin: 22px 0; }
+.availability-intro > p, .team-access-intro { font-size: 16px; line-height: 1.8; }
+.availability-grid, .team-access-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 32px 0 22px; }
+.availability-card, .team-access-grid article { padding: 30px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.availability-status { display: inline-block; padding: 6px 10px; border: 1px solid var(--line); border-radius: 100px; font-size: 11px; font-weight: 500; color: var(--plum); }
+.availability-card h3, .team-access-grid h3 { font-size: 27px; margin: 23px 0 15px; }
+.availability-card p, .team-access-grid article p { font-size: 14px; line-height: 1.8; margin: 0; }
+.availability-roadmap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 18px; }
+.availability-roadmap > div { padding: 22px; }
+.availability-roadmap > div + div { border-left: 1px solid var(--line); }
+.availability-roadmap strong { display: block; font-size: 15px; color: var(--plum); margin-bottom: 8px; }
+.availability-roadmap span { font-size: 12px; line-height: 1.6; color: var(--muted); }
+.team-access { padding: 70px 0; border-top: 1px solid var(--line); }
+.team-access > .underlined, .chapter-copy > .underlined { display: inline-block; margin-top: 20px; font-size: 14px; }
+.team-access-grid .eyebrow { font-size: 10px; }
+@media (max-width: 760px) {
+  .pricing-public-plans .plan > p { min-height: 0; }
+  .availability-grid, .team-access-grid { grid-template-columns: 1fr; }
+  .availability-card, .team-access-grid article { padding: 24px; }
+  .availability-roadmap { grid-template-columns: 1fr; }
+  .availability-roadmap > div + div { border-left: 0; border-top: 1px solid var(--line); }
+  .integration-availability, .team-access { padding: 45px 0; }
+}
 .hero-signature-frame { width: 100%; }
 .hero-signature {
   display: block; width: 100%; height: auto; color: var(--plum); overflow: visible;

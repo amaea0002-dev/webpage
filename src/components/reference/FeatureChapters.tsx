@@ -409,6 +409,7 @@ export default function FeatureChapters() {
               "Prepare Consumer Duty, vulnerability and board-report drafts from recorded evidence and your notes, then review and sign off the saved version. RMAR tools produce working drafts for a qualified reviewer to check; calculations and submission formats need acceptance before filing. Your team controls the evidence and final judgement."
             }
           </p>
+          <a className="underlined" href="/pricing#plan-comparison">Compare standard drafts and custom report packs</a>
         </div>
         <figure className="chapter-proof">
           <ProductScreenshot screen="reports">
@@ -490,6 +491,7 @@ export default function FeatureChapters() {
               "Start with verified client and annual-review CSV imports. SharePoint connection setup is available for agreed onboarding, with document processing subject to approved permissions and data-handling arrangements. Intelliflo access and live integration acceptance are still being arranged. The document workflow supports 19 configured types; extraction and client matches remain drafts for your team to verify."
             }
           </p>
+          <a className="underlined" href="/pricing#availability">See where each connection stands</a>
         </div>
         <figure className="chapter-proof">
           <ProductScreenshot screen="integrations">

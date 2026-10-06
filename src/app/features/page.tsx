@@ -3,6 +3,7 @@ import ReferenceInteractions from "@/components/reference/ReferenceInteractions"
 import { pageMetadata } from "@/lib/metadata";
 import ProductCaptures from "@/components/reference/ProductCaptures";
 import FeatureChapters from "@/components/reference/FeatureChapters";
+import TeamAccess from "@/components/reference/TeamAccess";
 
 export const metadata = pageMetadata(
   "Amaea features | Every client, every review, every document",
@@ -17,6 +18,7 @@ export default function Page() {
         {"Every client, every review, every document | Amaea features"}
       </h1>
       <FeatureChapters />
+      <TeamAccess />
       <ProductCaptures />
       <ReferenceInteractions />
     </>
