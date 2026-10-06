@@ -37,6 +37,12 @@ Hasna’s live Calendly demo event now asks for a required firm name in addition
 
 The website uses the official widget’s automatic sizing so the longer attendee form can be read without a fixed-height internal scroll area. Client bands use radio buttons because Calendly recommends avoiding dropdown questions with automatic sizing. The founder’s account avatar is an Amaea logo, and no founder photograph appears in the checked public booking form.
 
+### Calendar navigation recovery
+
+The original Contact-only CSP exception failed when visitors entered the booking page through Next.js client-side links: the initial homepage policy continued to apply. Every entry document now uses the same narrowly scoped allowlist for Calendly’s exact widget script and stylesheet and its frame origin. This permits booking navigation without loading Calendly before the visitor chooses it. Other protections, including frame-ancestor and object restrictions, remain intact.
+
+The widget also has a minimum frame height during startup so an early 2px auto-resize message cannot collapse the calendar. Loading success is shown only after a documented event from Calendly’s own origin and the current iframe window. Failed or slow loads offer a plain reload link as well as the existing separate booking link. Regression tests cover document policies, trusted readiness signals and blank/resize-only messages. No actual appointment is submitted during these checks.
+
 ## Product assets still needed
 
 | Chapter | Current preview | Real asset needed |

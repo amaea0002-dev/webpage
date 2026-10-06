@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { isCalendlyReadyMessage } from "@/lib/booking";
 
 declare global {
   interface Window {
@@ -23,10 +24,14 @@ export default function CalendlyCalendar({ url }: { url: string }) {
       const frame = parent.querySelector("iframe");
       if (frame) {
         frame.title = "Book an Amaea demo with Hasna on Calendly";
-        frame.addEventListener("load", ready, { once: true });
+
       }
     });
     observer.observe(parent, { childList: true });
+    const message = (event: MessageEvent) => {
+      if (isCalendlyReadyMessage(event, parent.querySelector("iframe")?.contentWindow)) ready();
+    };
+    window.addEventListener("message", message);
     function initialise() {
       if (cancelled || !window.Calendly) return;
       // Official widget supports hiding the profile photo and event details.
@@ -45,6 +50,7 @@ export default function CalendlyCalendar({ url }: { url: string }) {
       cancelled = true;
       window.clearTimeout(timeout);
       observer.disconnect();
+      window.removeEventListener("message", message);
       script?.remove();
       parent.replaceChildren();
     };
@@ -52,6 +58,7 @@ export default function CalendlyCalendar({ url }: { url: string }) {
 
   return <div className="booking-calendar-shell">
     <p role="status" className="booking-calendar-status">{status === "loading" ? "Loading the booking calendar…" : status === "failed" ? "The calendar could not load. Use the separate Calendly link below or email hello@amaea.co.uk." : status === "slow" ? "Taking longer than expected? You can use the separate Calendly link below." : "Calendar loaded. Choose a time to continue."}</p>
+    {(status === "failed" || status === "slow") && <a className="booking-calendar-reload" href="/contact#book-demo">Reload booking page</a>}
     <div ref={container} className="booking-calendar" data-auto-load="false" />
   </div>;
 }

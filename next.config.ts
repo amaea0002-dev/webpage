@@ -1,10 +1,8 @@
 import type { NextConfig } from "next";
 
-const sitePolicy = `default-src 'self'; script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'`;
-const bookingPolicy = sitePolicy
-  .replace("script-src 'self'", "script-src 'self' https://assets.calendly.com/assets/external/widget.js")
-  .replace("style-src 'self'", "style-src 'self' https://assets.calendly.com/assets/external/widget.css")
-  .concat("; frame-src https://calendly.com");
+// A document's CSP survives Next.js client-side navigation. Use the same narrow
+// Calendly allowlist on every entry page; the widget still mounts only after opt-in.
+const sitePolicy = `default-src 'self'; script-src 'self' https://assets.calendly.com/assets/external/widget.js 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}; style-src 'self' https://assets.calendly.com/assets/external/widget.css 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-src https://calendly.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'`;
 
 const nextConfig: NextConfig = {
   agentRules: false,
@@ -43,10 +41,6 @@ const nextConfig: NextConfig = {
           value: sitePolicy,
         },
       ],
-    }, {
-      // The trusted external widget is allowed only on the booking page.
-      source: "/contact",
-      headers: [{ key: "Content-Security-Policy", value: bookingPolicy }],
     }];
   },
 };

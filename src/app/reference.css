@@ -3784,8 +3784,8 @@ tbody th {
 .booking-calendar-toolbar { display: flex; gap: 16px; justify-content: space-between; align-items: center; font-size: 13px; margin-bottom: 12px; }
 .booking-calendar-shell { border: 1px solid var(--line); border-radius: 10px; background: #fefcfa; overflow: hidden; }
 .booking-calendar-status { padding: 16px 20px; font-size: 12px; color: #6b6470; }
-.booking-calendar { height: 760px; width: 100%; }
-.booking-calendar iframe { width: 100%; height: 100%; border: 0; }
+.booking-calendar { height: 760px; min-height: 700px; width: 100%; }
+.booking-calendar iframe { width: 100%; height: 100%; min-height: 700px; border: 0; }
 .booking-fallback { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-top: 20px; }
 .booking-fallback .underlined { margin-top: 0; min-height: 44px; display: inline-flex; align-items: center; font-size: 13px; }
 @media (max-width: 760px) {
@@ -3804,3 +3804,6 @@ tbody th {
 @media (prefers-reduced-motion: reduce) {
   .booking-flow *, .booking-flow *::before, .booking-flow *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+.booking-calendar-reload { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; margin: 0 20px 16px; color: #371936; background: #f6f3f5; border: 1px solid #371936; border-radius: 100px; font-size: 13px; text-decoration: none; }
+.booking-calendar-reload:focus-visible { outline: 2px solid #371936; outline-offset: 4px; }

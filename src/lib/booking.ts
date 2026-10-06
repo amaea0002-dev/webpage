@@ -18,3 +18,11 @@ export function calendlyEmbedUrl(configured: string): string | null {
  url.searchParams.set('primary_color', '371936')
  return url.href
 }
+
+/** Read only a documented readiness event from this calendar's own window. */
+export function isCalendlyReadyMessage(event: { origin: string; source: unknown; data: unknown }, frameWindow: unknown): boolean {
+ if(!frameWindow || event.source !== frameWindow || event.origin !== 'https://calendly.com') return false
+ if(!event.data || typeof event.data !== 'object') return false
+ const type = (event.data as { event?: unknown }).event
+ return type === 'calendly.event_type_viewed' || type === 'calendly.profile_page_viewed' || type === 'calendly.date_and_time_selected' || type === 'calendly.event_scheduled'
+}
