@@ -9,7 +9,7 @@ export default function HomeHero() {
           <div className="eyebrow">For UK financial planning firms</div>
           <h1>Your <span className="script">Peace of Mind.</span></h1>
           <p className="brand-promise">Every Client, Every Review, Every Document.</p>
-          <p className="brand-explanation">Kept against the FCA rule that applies.</p>
+          <p className="brand-explanation">Linked to source evidence, ready for your team to review.</p>
           <p className="brand-description">
             Compliance software for UK financial planning firms. Bring client records, review work and
             supporting evidence into one place, with your team in control of every decision.

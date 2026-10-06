@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Closing() {
   return (
-    <section className="closing shell">
+    <section className="closing shell" aria-label="Book an Amaea demo">
       <p>
         {"Want to see how Amaea can be "}
         <em>{"your peace of mind"}</em>

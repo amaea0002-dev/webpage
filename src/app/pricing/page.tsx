@@ -20,7 +20,7 @@ export default function Page() {
           </strong>
           <br />
           {
-            "No setup fee. Unlimited logins. Every tier includes the full audit trail and 7-year retention."
+            "No setup fee. Unlimited logins, provisioned through Amaea. Every tier includes an audit trail and retention controls; the applicable retention policy is agreed with your firm."
           }
         </p>
         <div className="billing-toggle" aria-label="Billing period">
@@ -63,7 +63,7 @@ export default function Page() {
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
-              {"Core client journey, annual review sweep & 7-year audit trail"}
+              {"Client journeys, recorded annual-review tracking and audit evidence"}
             </li>
             <li>
               <span aria-hidden="true">{"✓"}</span>
@@ -240,7 +240,7 @@ export default function Page() {
               </li>
               <li>
                 <span aria-hidden="true">{"✓"}</span>
-                {"Append-only audit trail · 7-year retention"}
+                {"Append-only audit trail · agreed retention policy"}
               </li>
               <li>
                 <span aria-hidden="true">{"✓"}</span>

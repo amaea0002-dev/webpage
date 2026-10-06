@@ -1,13 +1,7 @@
+import { bookingUrl as bookingUrlFor } from "@/lib/booking";
 /** Use only the booking address approved by the team; never guess an account URL. */
 export default function BookingScheduler() {
-  const scheduler = process.env.NEXT_PUBLIC_BOOKING_URL;
-  let bookingUrl: string | undefined;
-  if (scheduler) {
-    const url = new URL(scheduler);
-    if (url.protocol !== "https:")
-      throw new Error("The booking scheduler must use HTTPS");
-    bookingUrl = url.href;
-  }
+  const bookingUrl = bookingUrlFor(process.env.NEXT_PUBLIC_BOOKING_URL);
 
   return (
     <div className="booking-preview">

@@ -3733,3 +3733,20 @@ tbody th {
     display: none;
   }
 }
+
+/* Editable preview controls stay readable and touchable on phones. */
+@media (max-width: 640px) {
+  #assistant-input { font-size: 16px; min-height: 44px; }
+  #assistant-form button { min-width: 44px; min-height: 44px; }
+}
+
+.product-captures { padding-block: 80px; }
+.product-captures h2 { font-size: clamp(2rem,4vw,3.5rem); margin: 16px 0; }
+.product-captures > p { max-width: 680px; line-height: 1.7; }
+.product-captures-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px; margin-top: 32px; }
+.product-captures figure { margin: 0; min-width: 0; }
+.product-captures img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 14px; }
+.product-captures figcaption { display: grid; gap: 8px; padding-top: 16px; line-height: 1.6; }
+.product-captures figcaption strong { font-size: 1.1rem; }
+.product-captures a:focus-visible { outline: 3px solid var(--plum); outline-offset: 5px; border-radius: 14px; }
+@media (max-width:760px) { .product-captures-grid { grid-template-columns: 1fr; } .product-captures { padding-block: 48px; } }

@@ -1,6 +1,7 @@
 import ReferenceInteractions from "@/components/reference/ReferenceInteractions";
 /* Approved mockup page; preserve copy and story order. */
 import { pageMetadata } from "@/lib/metadata";
+import ProductCaptures from "@/components/reference/ProductCaptures";
 import FeatureChapters from "@/components/reference/FeatureChapters";
 
 export const metadata = pageMetadata(
@@ -16,6 +17,7 @@ export default function Page() {
         {"Every client, every review, every document | Amaea features"}
       </h1>
       <FeatureChapters />
+      <ProductCaptures />
       <ReferenceInteractions />
     </>
   );

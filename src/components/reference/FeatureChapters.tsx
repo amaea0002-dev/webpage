@@ -15,7 +15,7 @@ export default function FeatureChapters() {
           <h2>{"See every client's journey"}</h2>
           <p>
             {
-              "Start with each piece of work you do for your client. Amaea shows each client's whole compliance story in one place: every document, every review, exactly what's missing and which FCA rule needs it. You spot the gap yourself, long before anyone comes asking."
+              "Start with each piece of work you do for your client. Amaea brings documents, reviews and recorded evidence into one client journey. See outstanding work, follow the source and record your team’s judgement, with regulatory references for qualified review."
             }
           </p>
         </div>
@@ -55,10 +55,10 @@ export default function FeatureChapters() {
                   {"At risk"}
                 </button>
                 <button data-client-filter="compliant" aria-pressed="false">
-                  {"Compliant"}
+                  {"Reviewed"}
                 </button>
                 <button data-client-filter="breach" aria-pressed="false">
-                  {"Breach"}
+                  {"Needs review"}
                 </button>
               </div>
               <div className="client-list">
@@ -84,7 +84,7 @@ export default function FeatureChapters() {
                     <strong>{"Amelia Clarke"}</strong>
                     <small>{"Ongoing advice · review complete"}</small>
                   </span>
-                  <span className="status good">{"Compliant"}</span>
+                  <span className="status good">{"Reviewed"}</span>
                 </button>
                 <button
                   className="client-row"
@@ -96,7 +96,7 @@ export default function FeatureChapters() {
                     <strong>{"Sarah Wilson"}</strong>
                     <small>{"Annual review · overdue"}</small>
                   </span>
-                  <span className="status breach">{"Breach"}</span>
+                  <span className="status breach">{"Needs review"}</span>
                 </button>
               </div>
               <div className="client-detail" aria-live="polite">
@@ -133,7 +133,7 @@ export default function FeatureChapters() {
           <h2>{"All your clients, at a glance"}</h2>
           <p>
             {
-              "Now zoom out. Open Amaea and see where the firm stands the moment you log in: a live health score, what's overdue, what's missing, who's vulnerable, and the one thing that needs you today. Live dashboards, including annual reviews and missing documents, turn hundreds of clients into a single clear picture. Nothing slips, nothing falls through."
+              "Now zoom out. See your firm’s recorded health score, overdue reviews, document gaps and vulnerability indicators in one place. Open the supporting records and work through the attention queue. The score measures evidence recorded in Amaea; your team remains responsible for checking its completeness."
             }
           </p>
         </div>
@@ -191,7 +191,7 @@ export default function FeatureChapters() {
           <h2>{"Know exactly what to fix first"}</h2>
           <p>
             {
-              "Amaea doesn't just flag problems, it ranks them. Every issue across the firm, sorted Critical, High, Medium, each one naming the client and citing the exact rule it breaches, each one resolvable in a click. You walk in on Monday knowing precisely where to start, instead of staring at a wall of red."
+              "Amaea groups recorded findings by severity and names the client behind each one. Follow the evidence, check any regulatory reference and record how the issue was addressed. Critical and high findings come first; a finding is a prompt for qualified review, rather than a determination of a breach."
             }
           </p>
         </div>
@@ -271,10 +271,10 @@ export default function FeatureChapters() {
       <article className="chapter shell" id="chapter-4">
         <div className="chapter-copy">
           <span className="chapter-number">{"04 /"}</span>
-          <h2>{"Ask Amaea AI anything"}</h2>
+          <h2>{"Ask Amaea about your firm"}</h2>
           <p>
             {
-              "A compliance assistant that knows your whole firm. Ask it who to prioritise this week, what your Consumer Duty position is, when the RMAR's due, any time, in plain English, with an answer you can act on and prove later."
+              "Ask plain-English questions about recorded clients, reviews, document gaps and your health score. Supported records questions return current totals and source links; regulatory questions use selected evidence and show limitations. Amaea asks for clarification when it cannot identify the records you mean, and your team reviews any compliance conclusion."
             }
           </p>
           <p className="liability">
@@ -354,10 +354,10 @@ export default function FeatureChapters() {
       <article className="chapter shell" id="chapter-5">
         <div className="chapter-copy">
           <span className="chapter-number">{"05 /"}</span>
-          <h2>{"Never miss a rule change"}</h2>
+          <h2>{"Keep track of FCA publications"}</h2>
           <p>
             {
-              "The rules never sit still, and it's hard to keep track of it all while doing the day job. Dear CEO letters, policy statements, thematic reviews, new deadlines. Amaea Horizon watches FCA publications for you every week and keeps a live regulatory calendar, so a change never slips past your firm. You stay ahead without having to track it yourself."
+              "Amaea checks the FCA publication feed weekly and records the latest successful check. Review publications alongside your firm’s confirmed calendar dates. The feed helps your team assess changes; it does not guarantee complete coverage or decide which obligations apply to your firm."
             }
           </p>
         </div>
@@ -449,7 +449,7 @@ export default function FeatureChapters() {
           <h2>{"Your reports, drafted in one click"}</h2>
           <p>
             {
-              "Consumer Duty, RMAR, Vulnerability Reports, board packs and more: drafted from your own data and your own notes, ready for you to edit. Minutes, not two weeks of panic. And you decide which reports Amaea produces."
+              "Prepare Consumer Duty, vulnerability and board-report drafts from recorded evidence and your notes, then review and sign off the saved version. RMAR tools produce working drafts for a qualified reviewer to check; calculations and submission formats need acceptance before filing. Your team controls the evidence and final judgement."
             }
           </p>
         </div>
@@ -530,7 +530,7 @@ export default function FeatureChapters() {
           <h2>{"It runs on what you already use"}</h2>
           <p>
             {
-              "Here's how it all works. Amaea connects straight into Intelliflo and SharePoint and reads your documents wherever they live, checking whether each one's signed, when, and which client it belongs to. Or drop files in yourself, and it reads, classifies and files all 19 document types automatically. Nothing to rip out, nothing to relearn."
+              "Start with verified client and annual-review CSV imports. SharePoint connection setup is available for agreed onboarding, with document processing subject to approved permissions and data-handling arrangements. Intelliflo access and live integration acceptance are still being arranged. The document workflow supports 19 configured types; extraction and client matches remain drafts for your team to verify."
             }
           </p>
         </div>
