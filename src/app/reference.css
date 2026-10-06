@@ -2814,120 +2814,59 @@ tbody th {
   }
 }
 
-/* Approved handwritten wordmark: a capital A, small promise and level tail. */
+/* Smooth original letter outlines with separate, curvature-timed pen paths. */
+.hero-signature-frame { width: 100%; }
 .hero-signature {
-  display: block;
-  width: 100%;
-  height: auto;
-  color: var(--plum);
-  overflow: visible;
+  display: block; width: 100%; height: auto; color: var(--plum); overflow: visible;
 }
 .hero-signature-pen {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 180;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 0;
-  animation: hero-signature-write var(--duration) linear var(--delay) both;
+  stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 100 1000; stroke-dashoffset: 0;
+  animation-duration: var(--duration); animation-delay: var(--delay);
+  animation-timing-function: linear; animation-fill-mode: both;
 }
-.hero-signature-settle {
-  animation: hero-signature-settle 0.001s linear var(--finish) both;
-}
-#hero-signature-reveal-a1 {
-  --delay: 0.1s;
-  --duration: 1s;
-  --finish: 1.1s;
-}
-#hero-signature-reveal-m {
-  --delay: 1.06s;
-  --duration: 1.16s;
-  --finish: 2.22s;
-}
-#hero-signature-reveal-a2 {
-  --delay: 2.18s;
-  --duration: 0.7s;
-  --finish: 2.88s;
-}
-#hero-signature-reveal-e {
-  --delay: 2.84s;
-  --duration: 0.65s;
-  --finish: 3.49s;
-}
-#hero-signature-reveal-a3 {
-  --delay: 3.45s;
-  --duration: 0.76s;
-  --finish: 4.21s;
-}
-.hero-signature-tail {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2.1;
-  stroke-linecap: round;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 0;
-  animation: hero-signature-write 1.6s cubic-bezier(0.28, 0.1, 0.25, 1) 4.18s both;
-}
+/* Per-stroke keyframes encode the pen's curve-dependent speed, not uniform motion. */
 .hero-signature-tagline {
-  font: 400 56px "Pinyon Script", cursive;
-  fill: currentColor;
-  opacity: 1;
-  clip-path: inset(-40% 100% -45% 0) fill-box;
-  animation: hero-signature-flow 2s cubic-bezier(0.32, 0, 0.2, 1) 4.4s both;
+  font: 400 42px "Pinyon Script", cursive; fill: currentColor;
+  animation: hero-signature-flow 650ms cubic-bezier(.4,0,.2,1) var(--delay) both;
 }
+.hero-signature-frame[data-animated="false"] .hero-signature-pen,
+.hero-signature-frame[data-animated="false"] .hero-signature-tagline { animation: none !important; }
+.hero-signature-replay {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  margin: -14px auto 0; min-height: 44px; padding: 8px 14px; border: 0;
+  border-radius: 24px; background: transparent; color: var(--muted);
+  font: inherit; font-size: 12px; cursor: pointer;
+  transition: background 120ms ease-out, color 120ms ease-out;
+}
+.hero-signature-replay:hover { color: var(--plum); background: var(--surface); }
+.hero-signature-replay:focus-visible { outline: 2px solid var(--plum); outline-offset: 3px; }
 .hero-home .hero-descriptor {
-  width: auto;
-  white-space: normal;
-  text-align: center;
-  clip-path: none;
-  animation: hero-signature-appear 0.8s ease 6.3s both;
+  width: auto; white-space: normal; text-align: center; clip-path: none;
+  animation: hero-signature-appear 400ms cubic-bezier(.4,0,.2,1) 3s both;
 }
 @keyframes hero-signature-write {
-  from {
-    stroke-dashoffset: 100;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes hero-signature-settle {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes hero-signature-appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  0% { stroke-dashoffset: 100; opacity: 0; }
+  1% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
 }
 @keyframes hero-signature-flow {
-  from {
-    clip-path: inset(-40% 100% -45% 0) fill-box;
-  }
-  to {
-    clip-path: inset(-40% -12% -45% -12%) fill-box;
-  }
+  0% { opacity: 0; clip-path: inset(-40% 100% -45% 0) fill-box; }
+  12% { opacity: 1; }
+  100% { opacity: 1; clip-path: inset(-40% -12% -45% -12%) fill-box; }
+}
+@keyframes hero-signature-appear {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 760px) {
+  .hero-signature-tagline { font-size: 60px; transform: translateY(-2px); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-signature-pen,
-  .hero-signature-tail {
-    stroke-dashoffset: 0;
-  }
-  .hero-signature-settle,
-  .hero-signature-tagline,
-  .hero-home .hero-descriptor {
-    opacity: 1;
-  }
-  .hero-signature-tagline {
-    clip-path: none;
-  }
+  .hero-signature-replay { display: none; }
+  .hero-signature-pen { animation: none !important; stroke-dashoffset: 0; }
+  .hero-signature-tagline { animation: none !important; clip-path: none; opacity: 1; }
+  .hero-home .hero-descriptor { opacity: 1; transform: none; }
 }
 
 /* The manual register is the start of the struggle; the client journey is its release. */

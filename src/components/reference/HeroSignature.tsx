@@ -1,65 +1,83 @@
-// Letterforms use the website's existing Pinyon Script font.
-// The final a has a flat exit that joins the approved level underline.
-export default function HeroSignature() {
+"use client";
+
+import { useId, useState, type CSSProperties } from "react";
+import artwork from "./signature-artwork.json";
+
+export type SignatureDirection = "flow";
+
+export default function HeroSignature({ direction = "flow", animated = true, showReplay = true, previewTime }: {
+  direction?: SignatureDirection;
+  animated?: boolean;
+  showReplay?: boolean;
+  previewTime?: number;
+}) {
+  const [replay, setReplay] = useState(0);
+  const id = `signature-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
+  const design = artwork.variants.find((variant) => variant.id === direction) ?? artwork.variants[0];
+
   return (
-    <svg
-      className="hero-signature"
-      viewBox="0 0 1000 250"
-      role="img"
-      aria-labelledby="hero-signature-title"
-    >
-      <title id="hero-signature-title">Amaea. Your peace of mind.</title>
-      <defs>
-        <path id="hero-signature-letter-final-a" d="M103 -2Q39 -2 9.5 33Q-20 68 -20 129Q-20 196 8.5 272Q37 348 103 423Q238 580 355.5 632.5Q473 685 576 685Q628 685 664 663Q700 641 700 603Q700 574 688 544Q720 582 742.5 610.5Q765 639 786 665Q812 657 846 657Q860 657 884 658Q908 659 921 661L584 255Q520 179 492 131.5Q464 84 464 58Q464 26 495 26Q512 26 529 28L529 0Q505 -2 480 -2Q380 -2 380 60Q380 83 388.5 106.5Q397 130 423 167.5Q449 205 501 268L491 272Q369 122 265.5 60Q162 -2 103 -2ZM107 28Q171 28 276 102.5Q381 177 528 351Q552 380 572.5 405Q593 430 612 452Q635 487 653.5 525Q672 563 672 594Q672 625 650 639.5Q628 654 602 654Q553 654 443.5 583.5Q334 513 203 358Q128 268 95 198Q62 128 62 80Q62 28 107 28Z"/>
-        <path id="hero-signature-letter-capital-a" d="M212 -5Q106 -5 53 37.5Q0 80 0 141Q0 186 31.5 204.5Q63 223 94 223Q111 223 127.5 213Q144 203 144 178Q144 159 127.5 144Q111 129 88 129Q75 129 62.5 130.5Q50 132 40 139V132Q40 84 81.5 53Q123 22 220 22Q287 22 357 51Q427 80 503 132Q540 159 576.5 188Q613 217 652 249Q507 303 424.5 399.5Q342 496 337 602Q334 672 367 732.5Q400 793 467 831Q534 869 631 869Q766 869 869 789.5Q972 710 1027 593L1054 620Q1239 805 1375 930Q1511 1055 1609 1134.5Q1707 1214 1778.5 1261Q1850 1308 1905 1337Q1979 1376 2027 1390Q2075 1404 2100 1404Q2118 1404 2118 1395Q2118 1391 2098 1383Q2083 1378 2055 1349Q2027 1320 1973 1250.5Q1919 1181 1825.5 1056.5Q1732 932 1587.5 738.5Q1443 545 1232 267Q1414 321 1551 438Q1688 555 1746 709Q1758 739 1762 739Q1765 739 1771.5 730.5Q1778 722 1778 710Q1772 624 1729 558.5Q1686 493 1626 434Q1546 356 1435 303.5Q1324 251 1200 225L1029 -1Q998 1 965.5 3Q933 5 913 5Q896 5 882.5 3Q869 1 855 -1Q893 47 930 92.5Q967 138 1003 182Q1011 194 1014 201Q998 200 982.5 199.5Q967 199 951 199Q878 199 811.5 209Q745 219 687 237Q616 177 562.5 137Q509 97 470 73Q406 33 342 14Q278 -5 212 -5ZM1070 264Q1352 610 1544.5 835Q1737 1060 1854 1187.5Q1971 1315 2026 1366Q1994 1353 1959.5 1338Q1925 1323 1877 1294Q1796 1245 1689.5 1158.5Q1583 1072 1439.5 941Q1296 810 1105 624L1041 562Q1061 512 1071.5 459Q1082 406 1082 353Q1082 308 1070 264ZM676 269Q745 328 824.5 401.5Q904 475 1004 572Q953 691 854.5 765Q756 839 633 839Q569 839 515.5 806Q462 773 430.5 719.5Q399 666 399 604Q399 500 468 409Q537 318 676 269ZM957 227Q993 227 1027 230Q1039 261 1044.5 293Q1050 325 1050 347Q1050 446 1017 539Q926 451 849.5 381.5Q773 312 711 258Q820 227 957 227Z"/>
-        <path id="hero-signature-pen-capital-a" pathLength="100" d="M88 178C-42 218 8 32 181 10C468 -38 778 312 1090 628C1550 1081 1918 1358 2100 1395M2036 1375C1855 1171 1590 810 1310 453L942 8M1758 719C1710 480 1483 283 1170 227C757 144 331 342 366 620C348 894 672 965 903 742C1018 629 1113 368 1030 225C947 192 823 215 680 252"/>
-        <path id="hero-signature-letter-a" d="M103 -2Q39 -2 9.5 33Q-20 68 -20 129Q-20 196 8.5 272Q37 348 103 423Q238 580 355.5 632.5Q473 685 576 685Q628 685 664 663Q700 641 700 603Q700 574 688 544Q720 582 742.5 610.5Q765 639 786 665Q812 657 846 657Q860 657 884 658Q908 659 921 661L584 255Q520 179 492 131.5Q464 84 464 58Q464 26 495 26Q549 26 607 57.5Q665 89 721 138.5Q777 188 826 241.5Q875 295 912.5 340.5Q950 386 970 408L990 391Q968 366 928 319Q888 272 836.5 217Q785 162 725.5 112Q666 62 603.5 30Q541 -2 480 -2Q380 -2 380 60Q380 83 388.5 106.5Q397 130 423 167.5Q449 205 501 268L491 272Q369 122 265.5 60Q162 -2 103 -2ZM107 28Q171 28 276 102.5Q381 177 528 351Q552 380 572.5 405Q593 430 612 452Q635 487 653.5 525Q672 563 672 594Q672 625 650 639.5Q628 654 602 654Q553 654 443.5 583.5Q334 513 203 358Q128 268 95 198Q62 128 62 80Q62 28 107 28Z"/>
-        <path id="hero-signature-letter-m" d="M1071 -5Q1017 -5 977 16.5Q937 38 937 73Q937 100 950.5 137Q964 174 1011 238.5Q1058 303 1156 413Q1234 502 1265 551Q1296 600 1296 624Q1296 638 1285 649Q1274 660 1245 660Q1221 660 1184 643Q1147 626 1082 577Q1004 518 898.5 410.5Q793 303 665 141L572 19Q548 24 515 24Q480 24 455.5 20.5Q431 17 420 14Q479 86 511.5 126Q544 166 563.5 190.5Q583 215 601 238.5Q619 262 648 300Q677 338 730 408Q788 484 816.5 527.5Q845 571 855 593.5Q865 616 865 629Q865 660 816 660Q791 660 749 642.5Q707 625 645 576Q576 521 471.5 413Q367 305 233 141L140 19Q126 22 111.5 23Q97 24 83 24Q47 24 22.5 20.5Q-2 17 -12 14Q100 176 175 282.5Q250 389 295.5 453Q341 517 363.5 550.5Q386 584 394 598.5Q402 613 403 622Q405 651 381 651Q367 651 337 623Q307 595 269.5 553Q232 511 196 466.5Q160 422 133 389Q126 385 115 394Q109 403 112 406Q141 437 177.5 483.5Q214 530 254 576.5Q294 623 336 654Q378 685 417 685Q446 685 474.5 672.5Q503 660 498 613Q497 597 488 572.5Q479 548 452 510L242 218L247 207Q387 369 484 467.5Q581 566 642 609Q700 653 743.5 669Q787 685 827 685Q891 685 918.5 653.5Q946 622 944 584Q942 548 933 519Q924 490 891 439Q978 528 1047 584Q1122 645 1169.5 665Q1217 685 1258 685Q1323 685 1349.5 653.5Q1376 622 1375 584Q1374 544 1348.5 488.5Q1323 433 1261.5 350.5Q1200 268 1089 147Q1037 93 1027 77.5Q1017 62 1017 49L1010 48Q1010 24 1083 24Q1132 24 1190 59Q1248 94 1306.5 147Q1365 200 1416 255.5Q1467 311 1502 353Q1537 395 1547 406L1568 389Q1556 376 1519.5 332.5Q1483 289 1430 232.5Q1377 176 1315 121.5Q1253 67 1190 31Q1127 -5 1071 -5Z"/>
-        <path id="hero-signature-letter-e" d="M185 -6Q87 -6 45 45Q3 96 1 170Q0 224 23 290Q46 356 71 391Q145 494 231 559Q317 624 399.5 654.5Q482 685 545 685Q606 685 630.5 665Q655 645 656 619Q659 580 614.5 528.5Q570 477 459 417Q348 357 149 291Q114 235 102 194.5Q90 154 90 122Q90 75 121.5 49Q153 23 196 23Q290 23 372.5 58.5Q455 94 523.5 148Q592 202 644 257.5Q696 313 729 354.5Q762 396 773 406L794 389Q779 376 743.5 332Q708 288 653.5 231Q599 174 528 120Q457 66 370.5 30Q284 -6 185 -6ZM172 326Q366 394 478 466.5Q590 539 590 605Q590 661 538 661Q471 661 393 589Q315 517 211 380Q189 352 172 326Z"/>
-        <path id="hero-signature-pen-a" pathLength="100" d="M668 587C700 740 490 710 278 488C117 320 8 129 44 52C87 -43 307 124 486 337C559 424 633 517 668 587M862 658L578 309C477 189 418 91 442 36C481 -32 671 65 815 225L980 399"/>
-        <path id="hero-signature-pen-m" pathLength="100" d="M120 400C190 475 350 690 421 668C495 675 514 633 474 563L69 30C241 236 468 475 645 577C880 759 1009 725 922 449L502 30C700 266 932 482 1082 577C1285 737 1425 705 1341 541C1311 451 1172 305 1058 157C921 9 1021 28 1072 9C1258 29 1450 278 1557 400"/>
-        <path id="hero-signature-pen-e" pathLength="100" d="M151 310C451 409 666 549 620 641C465 791 181 437 63 219C-22 11 107 -71 305 48C489 138 628 200 783 398"/>
-        <mask id="hero-signature-reveal-a1" maskUnits="userSpaceOnUse" x="-60" y="-80" width="2300" height="1540">
-          <use href="#hero-signature-pen-capital-a" className="hero-signature-pen"/>
-          <rect className="hero-signature-settle" x="-60" y="-80" width="2300" height="1540" fill="white"/>
-        </mask>
-        <mask id="hero-signature-reveal-m" maskUnits="userSpaceOnUse" x="-40" y="-40" width="1700" height="820">
-          <use href="#hero-signature-pen-m" className="hero-signature-pen"/>
-          <rect className="hero-signature-settle" x="-40" y="-40" width="1700" height="820" fill="white"/>
-        </mask>
-        <mask id="hero-signature-reveal-a2" maskUnits="userSpaceOnUse" x="-40" y="-40" width="1700" height="820">
-          <use href="#hero-signature-pen-a" className="hero-signature-pen"/>
-          <rect className="hero-signature-settle" x="-40" y="-40" width="1700" height="820" fill="white"/>
-        </mask>
-        <mask id="hero-signature-reveal-e" maskUnits="userSpaceOnUse" x="-40" y="-40" width="1700" height="820">
-          <use href="#hero-signature-pen-e" className="hero-signature-pen"/>
-          <rect className="hero-signature-settle" x="-40" y="-40" width="1700" height="820" fill="white"/>
-        </mask>
-        <mask id="hero-signature-reveal-a3" maskUnits="userSpaceOnUse" x="-40" y="-40" width="1700" height="820">
-          <use href="#hero-signature-pen-a" className="hero-signature-pen"/>
-          <rect className="hero-signature-settle" x="-40" y="-40" width="1700" height="820" fill="white"/>
-        </mask>
-      </defs>
-      <g className="hero-signature-word" transform="translate(60 150) scale(.08 -.08)" fill="currentColor">
-        <use href="#hero-signature-letter-capital-a" mask="url(#hero-signature-reveal-a1)"/>
-        <use href="#hero-signature-letter-m" transform="translate(1628 0)" mask="url(#hero-signature-reveal-m)"/>
-        <use href="#hero-signature-letter-a" transform="translate(3063 0)" mask="url(#hero-signature-reveal-a2)"/>
-        <use href="#hero-signature-letter-e" transform="translate(3919 0)" mask="url(#hero-signature-reveal-e)"/>
-        <use href="#hero-signature-letter-final-a" transform="translate(4580 0)" mask="url(#hero-signature-reveal-a3)"/>
-      </g>
-      <path
-        className="hero-signature-tail"
-        d="M468.7 148.9H928"
-        pathLength="100"
-      />
-      <text
-        className="hero-signature-tagline"
-        x="545"
-        y="119"
-        textAnchor="start"
-      >
-        your peace of mind
-      </text>
-    </svg>
+    <div className="hero-signature-frame" data-direction={direction} data-animated={animated}
+      style={{ "--signature-complete": `${design.complete}ms` } as CSSProperties}>
+      <svg key={`${direction}-${replay}-${previewTime ?? "play"}`} className="hero-signature" viewBox="0 0 1000 230"
+        role="img" aria-labelledby={`${id}-title`}>
+        <title id={`${id}-title`}>Amaea. Your peace of mind.</title>
+        <defs>
+          <style>{design.strokes.map((stroke, index) =>
+            `@keyframes ${id}-stroke-${index}{0%{stroke-dashoffset:100;opacity:0}.1%{opacity:1}${stroke.frames.filter((frame) => frame.at > 0).map((frame) =>
+              `${frame.at}%{stroke-dashoffset:${frame.offset}}`).join("")}}`
+          ).join("")}</style>
+          {design.strokes.map((stroke, index) => stroke.parent >= 3 && (
+            <mask key={index} id={`${id}-region-${index}`} maskUnits="userSpaceOnUse" x="45" y="10" width="900" height="170">
+              <path d={stroke.region} fill="white" stroke="white" strokeWidth=".8" strokeLinejoin="round" />
+            </mask>
+          ))}
+          {/* Capital strokes overlap so a crossing never leaves a reserved gap. */}
+          {artwork.capitalStrokes.map((capital, capitalIndex) => (
+            <mask key={capitalIndex} id={`${id}-capital-${capitalIndex}`} maskUnits="userSpaceOnUse" x="45" y="10" width="210" height="170">
+              {capital.strokes.map((strokeIndex) => {
+                const stroke = design.strokes[strokeIndex];
+                const timing = { animationName: `${id}-stroke-${strokeIndex}`, animationPlayState: previewTime === undefined ? "running" : "paused", "--delay": `${stroke.delay - (previewTime ?? 0)}ms`, "--duration": `${stroke.duration}ms` } as CSSProperties;
+                return <path key={strokeIndex} className="hero-signature-pen" d={stroke.pen} pathLength="100"
+                  fill="none" stroke="white" strokeWidth={stroke.maskWidth} style={timing} />;
+              })}
+            </mask>
+          ))}
+          {artwork.glyphs.map((glyph, glyphIndex) => glyphIndex > 0 && (
+            <mask key={glyphIndex} id={`${id}-mask-${glyphIndex}`} maskUnits="userSpaceOnUse" x="45" y="10" width="900" height="170">
+              {glyph.strokes.map((strokeIndex) => {
+                const stroke = design.strokes[strokeIndex];
+                const timing = { animationName: `${id}-stroke-${strokeIndex}`, animationPlayState: previewTime === undefined ? "running" : "paused", "--delay": `${stroke.delay - (previewTime ?? 0)}ms`, "--duration": `${stroke.duration}ms` } as CSSProperties;
+                return <g key={strokeIndex}>
+                  <path className="hero-signature-pen" d={stroke.pen} pathLength="100" mask={`url(#${id}-region-${strokeIndex})`}
+                    fill="none" stroke="white" strokeWidth={stroke.maskWidth} style={timing} />
+                  <path className="hero-signature-pen" d={stroke.pen} pathLength="100"
+                    fill="none" stroke="white" strokeWidth="6" style={timing} />
+                </g>;
+              })}
+            </mask>
+          ))}
+          <mask id={`${id}-tail`} maskUnits="userSpaceOnUse" x="450" y="130" width="500" height="45">
+            <path className="hero-signature-pen" d={design.strokes[design.tailStroke].pen} pathLength="100"
+              fill="none" stroke="white" strokeWidth="3.2"
+              style={{ animationName: `${id}-stroke-${design.tailStroke}`, animationPlayState: previewTime === undefined ? "running" : "paused", "--delay": `${design.strokes[design.tailStroke].delay - (previewTime ?? 0)}ms`, "--duration": `${design.strokes[design.tailStroke].duration}ms` } as CSSProperties} />
+          </mask>
+        </defs>
+        <g fill="currentColor" className="hero-signature-word">
+          {artwork.capitalStrokes.map((capital, index) => <path key={`capital-${index}`} d={capital.ink} mask={`url(#${id}-capital-${index})`} />)}
+          {artwork.glyphs.map((glyph, index) => index > 0 && <path key={index} d={glyph.ink} mask={`url(#${id}-mask-${index})`} />)}
+        </g>
+        <path d="M468.7 148.9H928" fill="none" stroke="currentColor" strokeWidth="2.1"
+          strokeLinecap="round" mask={`url(#${id}-tail)`} />
+        <text className="hero-signature-tagline" x="545" y="128" textAnchor="start"
+          style={{ animationPlayState: previewTime === undefined ? "running" : "paused", "--delay": `${design.taglineDelay - (previewTime ?? 0)}ms` } as CSSProperties}>
+          your peace of mind
+        </text>
+      </svg>
+      {showReplay && animated && <button type="button" className="hero-signature-replay"
+        aria-label="Replay Amaea handwriting animation" onClick={() => setReplay((value) => value + 1)}>
+        <span aria-hidden="true">↻</span> Replay
+      </button>}
+      <noscript><style>{".hero-signature-replay{display:none}.hero-signature-pen,.hero-signature-promise{animation:none!important;stroke-dashoffset:0!important}.hero-signature-tagline{animation:none!important;clip-path:none!important;opacity:1!important}"}</style></noscript>
+    </div>
   );
 }
