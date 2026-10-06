@@ -1,5 +1,11 @@
 import type { NextConfig } from "next";
 
+const sitePolicy = `default-src 'self'; script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'`;
+const bookingPolicy = sitePolicy
+  .replace("script-src 'self'", "script-src 'self' https://assets.calendly.com/assets/external/widget.js")
+  .replace("style-src 'self'", "style-src 'self' https://assets.calendly.com/assets/external/widget.css")
+  .concat("; frame-src https://calendly.com");
+
 const nextConfig: NextConfig = {
   agentRules: false,
   // Hide the dev-only on-screen route indicator (Next 16: single boolean).
@@ -34,9 +40,13 @@ const nextConfig: NextConfig = {
           key: "Content-Security-Policy",
           // Next hydration and the existing theme bootstrap use inline scripts.
           // Development additionally needs eval for its debugging runtime.
-          value: `default-src 'self'; script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'`,
+          value: sitePolicy,
         },
       ],
+    }, {
+      // The trusted external widget is allowed only on the booking page.
+      source: "/contact",
+      headers: [{ key: "Content-Security-Policy", value: bookingPolicy }],
     }];
   },
 };

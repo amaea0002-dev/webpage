@@ -1447,7 +1447,7 @@ tbody th {
   margin-top: 16px;
   font-size: 15px;
 }
-/* Clear booking placeholder, with a real email fallback. */
+/* Contact page and booking flow. */
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -3750,3 +3750,57 @@ tbody th {
 .product-captures figcaption strong { font-size: 1.1rem; }
 .product-captures a:focus-visible { outline: 3px solid var(--plum); outline-offset: 5px; border-radius: 14px; }
 @media (max-width:760px) { .product-captures-grid { grid-template-columns: 1fr; } .product-captures { padding-block: 48px; } }
+
+/* Optional plan guide and user-initiated Calendly booking. */
+.booking-flow { min-width: 0; background: var(--card); }
+.booking-flow h2 { scroll-margin-top: calc(var(--nav-height) + 24px); }
+.booking-flow h2:focus { outline: none; }
+.booking-flow h2:focus-visible { outline: 2px solid var(--plum); outline-offset: 8px; }
+.booking-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 26px; }
+.booking-actions .button, .booking-calendar-choice .button { margin-top: 0; }
+.booking-flow .booking-actions .button { white-space: normal; text-align: center; }
+.booking-text-button { font: inherit; font-size: 13px; color: var(--plum); border: 0; background: none; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; padding: 12px 0; min-height: 44px; }
+.booking-flow .booking-guide-intro { margin: 0 0 22px; }
+.booking-question { margin: 0 0 25px; padding: 0; border: 0; min-width: 0; }
+.booking-question legend { font-weight: 600; font-size: 15px; margin-bottom: 12px; }
+.booking-question-number { color: var(--accent); font-size: 11px; margin-right: 8px; letter-spacing: .06em; }
+.booking-question select { width: 100%; font: inherit; font-size: 14px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; min-height: 48px; padding: 10px 12px; }
+.booking-question .micro { margin: 0 0 12px; }
+.booking-choice { display: flex; align-items: center; gap: 12px; padding: 12px; min-height: 48px; margin: 8px 0; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; font-size: 13px; line-height: 1.5; cursor: pointer; }
+.booking-choice input { accent-color: var(--plum); width: 18px; height: 18px; flex: 0 0 18px; margin: 0; }
+.booking-choice:has(input:checked) { border-color: var(--accent); }
+.booking-flow a:focus-visible, .booking-flow button:focus-visible, .booking-flow input:focus-visible, .booking-flow select:focus-visible { outline: 2px solid var(--plum); outline-offset: 4px; }
+.booking-plan { padding: 25px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.booking-plan h3 { font-size: 32px; margin: 16px 0 8px; }
+.booking-plan .booking-plan-price { font-size: 22px; color: var(--plum); margin-bottom: 18px; }
+.booking-plan p { font-size: 14px; }
+.booking-plan-summary { margin-bottom: 24px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.contact-layout:has(.booking-flow-calendar) { grid-template-columns: 1fr; gap: 32px; }
+.contact-layout:has(.booking-flow-calendar) > div:first-child { padding-top: 0; }
+.booking-flow-calendar { grid-column: 1 / -1; }
+.booking-flow-calendar p { max-width: 720px; }
+.booking-calendar-choice { padding: 24px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.booking-calendar-choice .micro { margin: 16px 0 22px; }
+.booking-calendar-toolbar { display: flex; gap: 16px; justify-content: space-between; align-items: center; font-size: 13px; margin-bottom: 12px; }
+.booking-calendar-shell { border: 1px solid var(--line); border-radius: 10px; background: #fefcfa; overflow: hidden; }
+.booking-calendar-status { padding: 16px 20px; font-size: 12px; color: #6b6470; }
+.booking-calendar { height: 760px; width: 100%; }
+.booking-calendar iframe { width: 100%; height: 100%; border: 0; }
+.booking-fallback { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-top: 20px; }
+.booking-fallback .underlined { margin-top: 0; min-height: 44px; display: inline-flex; align-items: center; font-size: 13px; }
+@media (max-width: 760px) {
+  .booking-flow-calendar { padding: 24px 0; border: 0; background: transparent; }
+  .booking-flow-calendar > h2, .booking-flow-calendar > .eyebrow, .booking-flow-calendar > .micro, .booking-flow-calendar > .booking-plan-summary, .booking-flow-calendar > .booking-fallback, .booking-calendar-toolbar { margin-left: 0; margin-right: 0; }
+  .booking-calendar-choice { padding: 22px; }
+  .booking-calendar { height: 850px; }
+  .booking-plan { padding: 20px; }
+  .booking-actions { align-items: stretch; flex-direction: column; }
+  .booking-actions .booking-text-button { align-self: flex-start; }
+}
+@media (max-width: 360px) {
+  .booking-flow:not(.booking-flow-calendar) { padding: 20px; }
+  .booking-calendar-shell { width: 100vw; margin-left: calc((100% - 100vw) / 2); border-radius: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .booking-flow *, .booking-flow *::before, .booking-flow *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

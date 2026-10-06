@@ -23,9 +23,11 @@ The public page set is Home, About, Features, Pricing and Contact, plus the exis
 
 ## Booking connection still required
 
-Neither the current website nor the mockup supplied a real scheduler URL. The owner has been asked for it. `BookingScheduler.tsx` accepts an approved HTTPS URL through `NEXT_PUBLIC_BOOKING_URL`, opens the real scheduler in a new tab and labels that behaviour. The URL must be supplied before building the release. No guessed scheduler, fake availability or simulated booking confirmation is used. Until then the Contact page uses the existing `hello@amaea.co.uk` demo email link.
+The approved public booking address is `https://calendly.com/hasna-amaea/demo`. The 6 October 2026 preview adds an optional three-question plan guide and an on-page calendar. Visitors can skip the guide. Recommendations use active-client capacity and capabilities from the published monthly plans; unlimited logins are not a pricing input. Unknown client numbers prompt a discussion rather than inventing a fixed-tier fit. Recommendations are non-binding and feature availability is confirmed during the demo.
 
-After the owner supplies the URL, open it, verify that it belongs to Amaea, shows the intended appointment type and permits choosing an available time, and verify the website CTA. Do not create a real booking merely to test the link.
+Guide answers stay in page memory and are neither stored in browser storage nor transmitted to Amaea or Calendly. The external script and frame load only after “Load booking calendar”. The official widget hides event details, including the founder photograph, while retaining Calendly cookie controls. Only the trusted Calendly host can be embedded, and arbitrary configuration query parameters are discarded. The separate approved booking link and a no-JavaScript link remain available. Cookie, privacy and security notices describe this behavior.
+
+This booking preview is not deployed. The existing website remains live. Before releasing, verify the intended event, date and time selection, mobile form, provider cookie choices and fallback. Do not create a real booking merely to test the link. Hasna’s connected-calendar destination and actual confirmation delivery remain checks for the account owner or an explicitly authorised test booking.
 
 ## Product assets still needed
 

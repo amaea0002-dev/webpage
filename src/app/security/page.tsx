@@ -6,7 +6,7 @@ export const metadata = pageMetadata('Security and data handling · Amaea', 'Web
 
 export default function SecurityPage() {
   return (
-    <LegalPage title="Security and data handling." eyebrow="Trust and security" lastUpdated="3 October 2026">
+    <LegalPage title="Security and data handling." eyebrow="Trust and security" lastUpdated="6 October 2026">
       <p className="body-large">Protecting information is part of how Amaea is built and operated. This page explains the safeguards on amaea.co.uk and the platform controls relevant to a firm’s review.</p>
 
       <h2>1. The website and your client information</h2>
@@ -26,7 +26,7 @@ export default function SecurityPage() {
       <p>Integration credentials are encrypted before storage using AES-256-GCM. Access to customer data, user permissions and the applicable processing arrangements should be reviewed with your firm during onboarding.</p>
 
       <h2 id="hosting">5. Hosting, providers and data locations</h2>
-      <p>The website uses Vercel for hosting, Resend for enquiry-email delivery and Google Workspace for team correspondence. The app uses Supabase for database, authentication and document storage, Anthropic for AI processing, and Voyage for embeddings.</p>
+      <p>The website uses Vercel for hosting, Resend for enquiry-email delivery and Google Workspace for team correspondence. Calendly provides the optional demo calendar, which loads only after a visitor chooses it. The plan guide does not send its answers to an external service. The app uses Supabase for database, authentication and document storage, Anthropic for AI processing, and Voyage for embeddings.</p>
       <p>Provider processing may take place outside the UK. For example, Resend states that email content and delivery records are stored in the United States. The website does not claim that all information remains in the UK or EU. Our <Link href="/privacy">privacy notice</Link> links to the relevant website-provider processing information.</p>
       <p>Ask us about the hosting regions, sub-processors, international-transfer safeguards and AI-processing arrangements applicable to your firm’s proposed service. These should be considered before client information is supplied.</p>
 
