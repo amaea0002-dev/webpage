@@ -3,6 +3,7 @@ import { deliverySettings } from './delivery.ts'
 import { sharedRateLimited } from './rate-limit.ts'
 import { BodyTooLarge, readLimitedBody } from './read-body.ts'
 import { nativeResponse } from './native-response.ts'
+import { isSameSiteSubmission, rateLimitIdentity } from './request-security.ts'
 import { fieldsFor, isEnquiryKind, looksAutomated, validateEnquiry, type EnquiryFields } from './validate.ts'
 
 const WINDOW = 10 * 60_000
@@ -38,8 +39,7 @@ export async function handleEnquiry(request: Request, dependencies: Dependencies
     })
   }
   if (!native && type !== 'application/json') return reply(415, 'This form could not be read. Please return to the registration page.')
-  const origin = request.headers.get('origin')
-  if ((origin && origin !== new URL(request.url).origin) || request.headers.get('sec-fetch-site') === 'cross-site') return reply(403, 'Please send the form from this website.')
+  if (!isSameSiteSubmission(request, native)) return reply(403, 'Please send the form from this website.')
   let body: Record<string, unknown>
   try {
     const text = await readLimitedBody(request)
@@ -57,7 +57,7 @@ export async function handleEnquiry(request: Request, dependencies: Dependencies
   if (looksAutomated(body)) return reply(200, 'Thank you. Your interest is registered.')
   const result = validateEnquiry(kind, body)
   if (!result.ok) return reply(400, 'Please check the highlighted fields. Your details have been kept below.', result.errors)
-  const ip = (request.headers.get('x-forwarded-for') ?? 'unknown').split(',')[0].trim()
+  const ip = rateLimitIdentity(request, env)
   const key = `website-enquiries:${createHash('sha256').update(ip).digest('hex')}`
   const isLimited = dependencies.limited ? await dependencies.limited(key) : (await sharedRateLimited(key, 5, WINDOW, env, send)) ?? localRateLimited(key, now())
   if (isLimited) return reply(429, 'You have sent several messages recently. Please try again in ten minutes, or email hello@amaea.co.uk.')

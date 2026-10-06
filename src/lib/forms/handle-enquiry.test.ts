@@ -97,6 +97,25 @@ test('actual byte limit rejects a chunked oversized body even with a false heade
     const req = new Request('https://example.test', { method: 'POST', headers, body, duplex: 'half' } as RequestInit)
     await assert.rejects(readLimitedBody(req), BodyTooLarge)
   }
-  const response = await handleEnquiry(new Request('https://amaea.co.uk/api/enquiries', { method: 'POST', headers: { 'content-type': 'application/json' }, body: 'x'.repeat(MAX_BODY_BYTES + 1) }), base)
+  const response = await handleEnquiry(new Request('https://amaea.co.uk/api/enquiries', { method: 'POST', headers: { 'content-type': 'application/json', origin: 'https://amaea.co.uk' }, body: 'x'.repeat(MAX_BODY_BYTES + 1) }), base)
   assert.equal(response.status, 413)
+})
+
+test('missing JSON Origin is rejected before rate limiting or sending mail', async () => {
+  const req = request()
+  req.headers.delete('origin')
+  const response = await handleEnquiry(req, { ...base, limited: async () => { throw new Error('must not consume a bucket') }, send: async () => { throw new Error('must not send') } })
+  assert.equal(response.status, 403)
+})
+
+test('rotating untrusted IP headers does not reset the actual fallback limiter', async () => {
+  let sent = 0
+  const send: typeof fetch = async () => { sent++; return Response.json({ id: 'synthetic-id' }) }
+  for (let i = 0; i < 7; i++) {
+    const req = request({ ...data, firm: 'Synthetic abuse regression ' + i })
+    req.headers.set('x-forwarded-for', '198.51.100.' + (i + 1))
+    const res = await handleEnquiry(req, { env, send, log: () => {}, now: () => Date.UTC(2026, 9, 6) })
+    assert.equal(res.status, i < 5 ? 200 : 429)
+  }
+  assert.equal(sent, 5)
 })
