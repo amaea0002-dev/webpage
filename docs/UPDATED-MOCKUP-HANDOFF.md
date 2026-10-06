@@ -2,7 +2,9 @@
 
 Source: `amaea-ceo-update-2026-10-01-v2.zip`, package `2026-10-01-ceo-v2`, reference revision `2fae00412b4d6ab8cfd4647cacdba4e81f1f76a4`. All file hashes in the supplied `VERSION.json` match. This updates the existing Next.js website repository (`amaea0002-dev/webpage`) from the deployed 30 September rebuild, commit `6fbb782`. The earlier two ZIP filenames contained the old export; this package supersedes them.
 
-## Preview, not a production release
+## Original 1 October preview notes (historical)
+
+These original preview notes describe the CEO v2 handoff before later releases. The current booking release is documented below; later website changes include actual Terms pages and updated legal notices.
 
 Run `pnpm dev --port 3235` or `pnpm build && pnpm start --port 3236`. This CEO v2 update has not been deployed. The 30 September rebuild remains live on amaea.co.uk. Show and review this preview before deploying.
 
@@ -21,13 +23,13 @@ The public page set is Home, About, Features, Pricing and Contact, plus the exis
 - Founder photograph remains absent.
 - Route-pending indicators and form-loading animation remain available. Removing the old streamed page-loader boundary allows the actual content to be read with JavaScript disabled.
 
-## Booking connection still required
+## Demo booking and plan guide (6 October 2026)
 
 The approved public booking address is `https://calendly.com/hasna-amaea/demo`. The 6 October 2026 preview adds an optional three-question plan guide and an on-page calendar. Visitors can skip the guide. Recommendations use active-client capacity and capabilities from the published monthly plans; unlimited logins are not a pricing input. Unknown client numbers prompt a discussion rather than inventing a fixed-tier fit. Recommendations are non-binding and feature availability is confirmed during the demo.
 
 Guide answers stay in page memory and are neither stored in browser storage nor transmitted to Amaea or Calendly. The external script and frame load only after “Load booking calendar”. The official widget hides event details, including the founder photograph, while retaining Calendly cookie controls. Only the trusted Calendly host can be embedded, and arbitrary configuration query parameters are discarded. The separate approved booking link and a no-JavaScript link remain available. Cookie, privacy and security notices describe this behavior.
 
-This booking preview is not deployed. The existing website remains live. Before releasing, verify the intended event, date and time selection, mobile form, provider cookie choices and fallback. Do not create a real booking merely to test the link. Hasna’s connected-calendar destination and actual confirmation delivery remain checks for the account owner or an explicitly authorised test booking.
+The booking update was deployed to amaea.co.uk on 6 October 2026 from commit `9e37f7dcc8265232541501166dbfce5f28a15a10`, deployment `dpl_GDCT2CdFonUtt85sDVNaLUZ7NzAY`. All 36 checks and the production build passed; ten staged and ten live HTTP/content/security checks passed. The preview covered desktop, 390px and 320px layouts, keyboard selection, cookie controls and the empty attendee form. Reduced-motion CSS was verified; browser motion emulation was unavailable. Do not create a real booking merely to test the link. Hasna’s connected-calendar destination and actual confirmation delivery remain checks for the account owner or an explicitly authorised test booking.
 
 ## Product assets still needed
 
