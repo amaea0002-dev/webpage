@@ -25,7 +25,7 @@ export default function Page() {
         </div>
         <p className="hero-descriptor">
           {
-            "Every client, every review, every document. Kept against the FCA rule that applies."
+            "Every client, every review, every document. Evidence together, ready for your team to review."
           }
         </p>
         <div className="hero-bottom">

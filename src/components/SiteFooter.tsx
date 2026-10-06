@@ -58,7 +58,7 @@ export default function SiteFooter() {
             </div>
             <p style={{ color: 'rgba(254,252,250,0.72)', fontSize: 14, maxWidth: 300, lineHeight: 1.55 }}>
               Your Peace of Mind. Every Client, Every Review, Every Document.
-              Kept against the FCA rule that applies.
+              Evidence together, ready for your team to review.
             </p>
           </div>
 

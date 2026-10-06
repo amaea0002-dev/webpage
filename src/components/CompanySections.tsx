@@ -75,7 +75,7 @@ export function CompanyStory() {
           </p>
           <p>
             So she built the solution she hoped was out there for her. Amaea keeps every client, every
-            review, every document against the rule that applies, helping your team bring the evidence
+            review and every document linked to source evidence, helping your team bring the records
             together and make informed decisions.
           </p>
           <p className="story-signature">Your peace of mind, and your time back.</p>
