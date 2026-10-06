@@ -3749,6 +3749,15 @@ tbody th {
 .product-captures figcaption { display: grid; gap: 8px; padding-top: 16px; line-height: 1.6; }
 .product-captures figcaption strong { font-size: 1.1rem; }
 .product-captures a:focus-visible { outline: 3px solid var(--plum); outline-offset: 5px; border-radius: 14px; }
+.product-screenshot { display: block; color: var(--accent); text-decoration: none; border-radius: 14px; }
+.product-screenshot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+.product-screenshot-link { display: flex; justify-content: flex-end; gap: 8px; padding-top: 12px; font-size: 12px; }
+.product-screenshot:hover .product-screenshot-link { text-decoration: underline; text-underline-offset: 4px; }
+.product-screenshot:focus-visible { outline: 3px solid var(--plum); outline-offset: 5px; }
+.product-walkthrough { margin-top: 20px; border-top: 1px solid var(--line); }
+.product-walkthrough summary { padding: 18px 0; color: var(--accent); cursor: pointer; font-size: 13px; }
+.product-walkthrough summary:focus-visible { outline: 3px solid var(--plum); outline-offset: 4px; }
+.product-walkthrough-content { padding-bottom: 8px; }
 @media (max-width:760px) { .product-captures-grid { grid-template-columns: 1fr; } .product-captures { padding-block: 48px; } }
 
 /* Optional plan guide and user-initiated Calendly booking. */

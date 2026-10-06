@@ -22,14 +22,14 @@ export default function HomeHero() {
         </div>
         <figure className="product-preview">
           <div className="product-preview-heading"><span>Amaea</span><span>Product preview</span></div>
-          <a className="product-preview-window" href="/images/product-dashboard.png" target="_blank" rel="noreferrer" aria-label="Open the synthetic demo dashboard image at full size">
-            <Image src="/images/product-dashboard.png" width={3000} height={1580} sizes="(max-width: 860px) 100vw, 55vw" alt="Amaea dashboard with a client overview, missing documents and reviews needing attention, using synthetic demo data." loading="eager" fetchPriority="high" />
+          <a className="product-preview-window" href="/product/dashboard-20261006.jpg" target="_blank" rel="noreferrer" aria-label="Open the fictional demo dashboard screenshot at full size">
+            <Image src="/product/dashboard-20261006.jpg" width={1440} height={1000} sizes="(max-width: 860px) 100vw, 55vw" alt="The current Amaea dashboard with recorded findings, overdue reviews and evidence gaps, using fictional records." loading="eager" fetchPriority="high" />
           </a>
           <figcaption>
             <strong>Your firm, at a glance.</strong>
-            <span>Prototype · synthetic data. Open the full dashboard image.</span>
+            <span>Working app · fictional records. Open the full dashboard screenshot.</span>
           </figcaption>
-          <ul className="preview-highlights" aria-label="In the prototype"><li>Client overview</li><li>Reviews needing attention</li><li>Missing documents</li></ul>
+          <ul className="preview-highlights" aria-label="In the workspace"><li>Client overview</li><li>Reviews needing attention</li><li>Missing documents</li></ul>
         </figure>
       </div>
     </section>
