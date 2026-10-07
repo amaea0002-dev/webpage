@@ -80,7 +80,7 @@ export default function Page() {
           {"\n    "}
           <p>
             {
-              "There are two Andrew Smiths. And that is one client. There are 100 more rows to check."
+              "There are two Andrew Smiths. And that is one row. There are 100 more rows to check."
             }
           </p>
           {"\n    "}

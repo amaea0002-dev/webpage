@@ -5,7 +5,7 @@ import { suggestPlan, type ClientBand, type PlanNeeds, type PlanSuggestion } fro
 import CalendlyCalendar, { type CalendarStep } from "./CalendlyCalendar";
 
 type Stage = "welcome" | "guide" | "result" | "booking";
-const initialNeeds: PlanNeeds = { clients: "unsure", network: false, ai: false, board: false, customApi: false };
+const initialNeeds: PlanNeeds = { clients: "unsure", network: false, ai: false, board: false, templates: false, customApi: false };
 
 function BookingActionIcon({ external = false }: { external?: boolean }) {
   return (
@@ -102,12 +102,13 @@ export default function BookingFlow({ bookingUrl, embedUrl }: { bookingUrl: stri
       {stage === "guide" && <form onSubmit={recommend}>
         <p className="micro booking-guide-intro">Your answers are used only on this page. We do not save them or send them to Amaea or Calendly.</p>
         <fieldset className="booking-question">
-          <legend><span className="booking-question-number">01</span> How many active clients?</legend>
-          <label className="sr-only" htmlFor="booking-client-band">Active client count</label>
+          <legend><span className="booking-question-number">01</span> How many active individuals?</legend>
+          <p className="micro">Count people, not households. A couple counts as two clients.</p>
+          <label className="sr-only" htmlFor="booking-client-band">Active individual client count</label>
           <select id="booking-client-band" required value={clients} onChange={e => setClients(e.target.value as ClientBand | "")}>
             <option value="" disabled>Choose a range</option>
-            <option value="up-to-100">Up to 100</option>
-            <option value="101-to-600">101 to 600</option>
+            <option value="up-to-300">Up to 300</option>
+            <option value="301-to-600">301 to 600</option>
             <option value="601-to-1000">601 to 1,000</option>
             <option value="over-1000">More than 1,000</option>
             <option value="unsure">Not sure yet</option>
@@ -118,7 +119,8 @@ export default function BookingFlow({ bookingUrl, embedUrl }: { bookingUrl: stri
           <p className="micro">Core client, review and document workflows are included in every plan. Select any extras you need.</p>
           {([
             ["ai", "AI, Consumer Duty and RMAR reporting"],
-            ["board", "Board packs and custom report building"],
+            ["board", "Configurable board reports"],
+            ["templates", "Reusable custom report templates"],
             ["customApi", "Custom API requirements"],
           ] as const).map(([key, label]) => <label className="booking-choice" key={key}><input type="checkbox" checked={needs[key]} onChange={e => setNeeds({ ...needs, [key]: e.target.checked })} /><span>{label}</span></label>)}
         </fieldset>

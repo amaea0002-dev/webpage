@@ -6,16 +6,16 @@ export const metadata = pageMetadata("Amaea pricing | A plan for your firm", "Co
 const plans = [
   { name: "Professional", label: "Growing practices · Most popular", price: 1599,
     description: "Bring your client evidence, compliance questions and report drafts together. A fuller workspace for the typical financial advice firm.",
-    features: ["Up to 600 active client records", "Client journeys, reviews and document evidence", "Amaea AI with sources and visible limitations", "Consumer Duty and vulnerability assessment records", "Standard Consumer Duty report for board review", "RMAR working drafts and CSV exports for review", "Unlimited report drafts"] },
+    features: ["Up to 600 active individuals", "Client journeys, reviews and document evidence", "Amaea AI with sources and visible limitations", "Consumer Duty and vulnerability assessment records", "Configurable board-report drafts", "RMAR working drafts and CSV exports for review", "Unlimited report drafts"] },
   { name: "Scale", label: "Established firms", price: 2199,
     description: "For a growing client book and a compliance team that needs flexible reporting. Reuse your templates and bring more evidence into each pack.",
-    features: ["Up to 1,000 active client records", "Everything in Professional", "Configurable board and evidence packs", "Reusable custom report templates", "Choose the evidence sections your report needs", "Evidence packs to support FCA visit preparation", "Onboarding and training scope agreed with your firm"] },
+    features: ["Up to 1,000 active individuals", "Everything in Professional", "Configurable board and evidence packs", "Reusable custom report templates", "Choose the evidence sections your report needs", "Onboarding and training scope agreed with your firm"] },
   { name: "Enterprise", label: "Networks + groups", price: null,
-    description: "Agree the scope around your network, policies and systems. Member firms control the oversight they share with their principal.",
-    features: ["Unlimited clients, with capacity agreed at onboarding", "Everything in Scale", "Network oversight with member-firm consent", "AI using your approved firm policies", "Scoped API access", "Bespoke integrations and reports scoped separately", "Custom contracts and volume pricing"] },
+    description: "Agree the scope around your network, policies and systems. Participating firms choose the summaries they share with their group or principal.",
+    features: ["Unlimited active individuals, with capacity agreed at onboarding", "Everything in Scale", "Shared overview of participating firms, with their permission", "AI using your approved firm policies", "Scoped API access", "Bespoke integrations and reports scoped separately", "Custom contracts and volume pricing"] },
 ];
 const comparison = [
-  ["Active client records", "600", "1,000", "Unlimited", "100"],
+  ["Active individuals", "600", "1,000", "Unlimited", "300"],
   ["Logins, provisioned through Amaea", "Unlimited", "Unlimited", "Unlimited", "Unlimited"],
   ["Client journeys, reviews and document evidence", "Included", "Included", "Included", "Included"],
   ["Recorded health dashboard and in-app alerts", "Included", "Included", "Included", "Included"],
@@ -23,15 +23,17 @@ const comparison = [
   ["Amaea AI, Consumer Duty and vulnerability assessments", "Included", "Included", "Included", "Not included"],
   ["RMAR working drafts", "Included", "Included", "Included", "Not included"],
   ["Report drafts", "Unlimited", "Unlimited", "Unlimited", "Recorded evidence"],
-  ["Configurable board packs and custom templates", "Not included", "Included", "Included", "Not included"],
-  ["Firm-policy context, network oversight and scoped API", "Not included", "Not included", "Agreed scope", "Not included"],
+  ["Configurable board-report drafts", "Included", "Included", "Included", "Not included"],
+  ["Reusable custom report templates", "Not included", "Included", "Included", "Not included"],
+  ["Firm-policy context, shared group overview and scoped API", "Not included", "Not included", "Agreed scope", "Not included"],
 ];
 const questions = [
-  ["How does client-based pricing work?", "Your allowance counts active client records in Amaea. Archived, inactive and erased records do not count. We will agree how individual and joint-client records are organised during onboarding. The app shows your usage and an approaching-limit warning."],
-  ["What is the difference between Professional and Scale reports?", "Professional includes standard Consumer Duty report drafts for board review and other supported report drafts. Scale adds reusable templates and configurable board and evidence packs, using selected sections from your firm's recorded data. This is not an unrestricted report-design tool."],
+  ["How does client-based pricing work?", "Your allowance counts active individuals, not households. A couple counts as two clients, even when their evidence is held together. Archived, inactive and erased clients do not count. We agree and reconcile individual client numbers during onboarding."],
+  ["What is the difference between Professional and Scale reports?", "Professional and above include configurable board-report drafts: choose supported evidence sections and a reporting period, add firm notes and record your review. Scale adds reusable custom templates and larger client and AI allowances. These reports use supported sections rather than an unrestricted design tool."],
   ["What does unlimited reporting include?", "Professional and above have no monthly report-generation count limit. Each report uses a selected evidence scope and remains a draft for human review. Large record sets may need a narrower reporting period. AI assistant and extraction allowances are separate."],
   ["What are the AI and document-processing allowances?", "Professional allows 1,500 assistant requests and 1,500 document-extraction requests per calendar month. Scale allows 3,500 of each. Essentials has no AI assistant and allows 500 document-extraction requests. Enterprise has no configured monthly count cap, with usage and capacity agreed in your contract. An attempted model request counts even if the provider call fails. Document processing requires approved arrangements."],
   ["Can I submit the RMAR export directly to the regulator?", "Amaea's RMAR outputs are working drafts and CSV exports for qualified review. Calculations, applicability and submission formats still require validation. They are not validated regulator-upload files."],
+  ["What is the shared group overview?", "For a network, Appointed Representative group or group of firms, it brings agreed summaries from participating firms into one view. Each firm chooses what to share, such as client counts, overdue reviews or recorded health indicators. Access to individual client files is not granted automatically. We agree permissions and scope before activation."],
   ["How does Enterprise AI use our policies?", "It uses approved, versioned firm policies as context alongside selected regulatory evidence. This does not involve training a separate AI model on your data. Bespoke integrations and report requirements are scoped individually."],
   ["What can administrators and advisers see?", "Administrators and compliance officers oversee the firm. Advisers see their assigned clients and personal work. Unlimited logins are provisioned through Amaea. We will confirm account setup and client assignments with your firm."],
   ["Are reminders sent by email?", "In-app alerts and recorded deadlines are available. Automated customer email reminders and weekly digests are not enabled yet. We will confirm available notification options during onboarding."],
@@ -45,7 +47,7 @@ export default function Page() {
   return <>
     <section className="page-intro shell">
       <span className="eyebrow">PRICING</span><h1>What it costs.</h1>
-      <p><strong>Professional is £1,599 a month, for up to 600 active clients.</strong><br />No setup fee. Unlimited logins, provisioned through Amaea. Choose the plan that fits your firm, then agree your onboarding and integration requirements with us.</p>
+      <p><strong>Professional is £1,599 a month, for up to 600 active individuals.</strong><br />No setup fee. Unlimited logins, provisioned through Amaea. Choose the plan that fits your firm, then agree your onboarding and integration requirements with us.</p>
       <div className="billing-toggle" aria-label="Billing period"><button data-billing="monthly" className="selected" aria-pressed="true">Monthly</button><button data-billing="annual" aria-pressed="false">Annual <span>2 months free</span></button></div>
     </section>
     <section className="plan-grid primary-plans shell pricing-public-plans" aria-label="Professional, Scale and Enterprise plans">
@@ -61,7 +63,7 @@ export default function Page() {
       <span className="eyebrow">Solo + small firms</span><h2>Essentials</h2>
       <div className="plan-price"><span className="price-number" data-monthly="699">£699</span><span className="price-unit"> / mo</span><small className="billing-note">billed monthly</small></div>
       <p>A clearer record of your clients, reviews and documents, with the evidence together and outstanding work easy to find.</p>
-      <ul>{["Up to 100 active client records", "Client journeys and milestone document checklists", "Annual-review tracking and overdue work", "Recorded health dashboard and in-app alerts", "Audit trail and agreed retention policy", "Recorded evidence exports, printable to PDF"].map(feature => <li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}<li className="excluded"><span aria-hidden="true">✕</span>AI assistant, Consumer Duty assessments and RMAR drafts</li></ul>
+      <ul>{["Up to 300 active individuals", "Client journeys and milestone document checklists", "Annual-review tracking and overdue work", "Recorded health dashboard and in-app alerts", "Audit trail and agreed retention policy", "Recorded evidence exports, printable to PDF"].map(feature => <li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}<li className="excluded"><span aria-hidden="true">✕</span>AI assistant, Consumer Duty assessments and RMAR drafts</li></ul>
       <a className="underlined" href="#plan-comparison">Compare the plans</a>
     </article></details></section>
     <section className="perspective work-cost shell">
@@ -80,9 +82,9 @@ export default function Page() {
       <div className="availability-intro"><span className="eyebrow">YOUR EXISTING SYSTEMS</span><h2 id="availability-title">Where each connection stands.</h2><p>We will confirm the connections your firm needs at your demo. A plan inclusion does not mean a provider connection is live.</p></div>
       <div className="availability-grid">
         <article className="availability-card"><span className="availability-status">Setup by agreement</span><h3>SharePoint</h3><p>Connection setup for Professional and above. Your selected library, access permissions and processing arrangements need approval before document ingestion, followed by end-to-end checks.</p></article>
-        <article className="availability-card"><span className="availability-status">Awaiting provider access</span><h3>Intelliflo</h3><p>Intended for all plans. Provider access, client-field mapping and production checks are still being arranged. We cannot offer a live connection yet.</p></article>
+        <article className="availability-card"><span className="availability-status">Awaiting provider access</span><h3>Intelliflo</h3><p>Intended for Professional and above. Provider access, client-field mapping and production checks are still being arranged. We cannot offer a live connection yet.</p></article>
       </div>
-      <div className="availability-roadmap" aria-label="Planned connections"><div><strong>Salesforce</strong><span>Planned · Professional and above</span></div><div><strong>Curo</strong><span>Planned · Scale and Enterprise</span></div><div><strong>Assureweb</strong><span>Planned · Scale and Enterprise</span></div></div>
+      <div className="availability-roadmap" aria-label="Planned connections"><div><strong>Salesforce</strong><span>Planned · Professional and above</span></div><div><strong>Curo</strong><span>Planned · Professional and above</span></div><div><strong>Assureweb</strong><span>Planned · Professional and above</span></div></div>
       <p className="micro">Planned connections have no confirmed delivery date. Verified client and annual-review CSV imports can support your initial setup.</p>
     </section>
     <section className="faq shell"><span className="eyebrow">COMMON QUESTIONS</span><h2>A little more clarity.</h2>{questions.map(([q,a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</section>
