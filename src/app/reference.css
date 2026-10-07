@@ -3735,6 +3735,8 @@ tbody th {
 .booking-flow h2:focus-visible { outline: 2px solid var(--plum); outline-offset: 8px; }
 .booking-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 26px; }
 .booking-actions .button, .booking-calendar-choice .button { margin-top: 0; }
+.booking-flow .booking-action { gap: 8px; }
+.booking-action-icon { display: block; width: 16px; height: 16px; flex: 0 0 16px; }
 .booking-flow .booking-actions .button { white-space: normal; text-align: center; }
 .booking-text-button { font: inherit; font-size: 13px; color: var(--plum); border: 0; background: none; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; padding: 12px 0; min-height: 44px; }
 .booking-flow .booking-guide-intro { margin: 0 0 22px; }

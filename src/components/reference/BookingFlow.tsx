@@ -7,6 +7,14 @@ import CalendlyCalendar, { type CalendarStep } from "./CalendlyCalendar";
 type Stage = "welcome" | "guide" | "result" | "booking";
 const initialNeeds: PlanNeeds = { clients: "unsure", network: false, ai: false, board: false, customApi: false };
 
+function BookingActionIcon({ external = false }: { external?: boolean }) {
+  return (
+    <svg className="booking-action-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+      <path d={external ? "M4 12 12 4M4 4h8v8" : "M3 8h10M8 3l5 5-5 5"} />
+    </svg>
+  );
+}
+
 export default function BookingFlow({ bookingUrl, embedUrl }: { bookingUrl: string; embedUrl: string | null }) {
   const [stage, setStage] = useState<Stage>("welcome");
   const [clients, setClients] = useState<ClientBand | "">("");
@@ -62,7 +70,7 @@ export default function BookingFlow({ bookingUrl, embedUrl }: { bookingUrl: stri
           <h3>Let’s find a time.</h3>
           <p>Choose from Hasna’s live calendar and tell us a little about your firm.</p>
           {embedUrl && <>
-            <button type="button" className="button" onClick={() => { setCalendarStep("time"); setCalendarVisible(true); }}>Load booking calendar <span aria-hidden="true">↗</span></button>
+            <button type="button" className="button booking-action" onClick={() => { setCalendarStep("time"); setCalendarVisible(true); }}>Load booking calendar <BookingActionIcon /></button>
             <div className="booking-service-notice"><p>Calendly provides the booking calendar. Loading it connects to Calendly, which may use cookies and process technical information. Its Cookie settings let you manage optional cookies.</p><p><a href="https://calendly.com/privacy" target="_blank" rel="noopener noreferrer">Calendly privacy notice<span className="sr-only"> (opens in a new tab)</span></a><span aria-hidden="true"> · </span><a href="/cookies">Our cookie notice</a></p></div>
           </>}
         </div>}
@@ -71,7 +79,7 @@ export default function BookingFlow({ bookingUrl, embedUrl }: { bookingUrl: stri
           <CalendlyCalendar url={embedUrl} onStepChange={setCalendarStep} />
           <p className="micro booking-data-note">Booking details go to Calendly and Amaea. Manage Calendly cookies in its Cookie settings or your browser; hiding the calendar does not delete existing cookies.</p>
         </>}
-        <div className="booking-fallback"><a className="underlined" href={bookingUrl} target="_blank" rel="noopener noreferrer">{embedUrl ? "Open Calendly separately" : "Choose a time on Calendly"}<span aria-hidden="true"> ↗</span><span className="sr-only"> (opens in a new tab)</span></a><a href="mailto:hello@amaea.co.uk" className="underlined">Prefer to email us?</a></div>
+        <div className="booking-fallback"><a className="underlined booking-action" href={bookingUrl} target="_blank" rel="noopener noreferrer">{embedUrl ? "Open Calendly separately" : "Choose a time on Calendly"}<BookingActionIcon external /><span className="sr-only"> (opens in a new tab)</span></a><a href="mailto:hello@amaea.co.uk" className="underlined">Prefer to email us?</a></div>
         <noscript><p>To book without JavaScript, <a href={bookingUrl} target="_blank" rel="noopener noreferrer">open Hasna’s Calendly page (new tab)</a>.</p></noscript>
       </section>
     </div>
@@ -86,7 +94,7 @@ export default function BookingFlow({ bookingUrl, embedUrl }: { bookingUrl: stri
       {stage === "welcome" && <>
         <p>Three quick questions can help you find a plan to discuss in your demo. Or go straight to choosing a time.</p>
         <div className="booking-actions">
-          <button type="button" className="button" onClick={() => setStage("guide")}>Find my plan <span aria-hidden="true">↗</span></button>
+          <button type="button" className="button booking-action" onClick={() => setStage("guide")}>Find my plan <BookingActionIcon /></button>
           <button type="button" className="button secondary" onClick={() => book(true)}>Skip and book</button>
         </div>
         <p className="micro">Optional. No contact details needed. Every plan has unlimited logins and no setup fee.</p>
