@@ -5,7 +5,7 @@ import { suggestPlan, type ClientBand, type PlanNeeds, type PlanSuggestion } fro
 import CalendlyCalendar, { type CalendarStep } from "./CalendlyCalendar";
 
 type Stage = "welcome" | "guide" | "result" | "booking";
-const initialNeeds: PlanNeeds = { clients: "unsure", network: false, ai: false, board: false, templates: false, customApi: false };
+const initialNeeds: PlanNeeds = { clients: "unsure", network: false, ai: false, board: false, templates: false, integrations: false, customApi: false };
 
 function BookingActionIcon({ external = false }: { external?: boolean }) {
   return (
@@ -121,6 +121,7 @@ export default function BookingFlow({ bookingUrl, embedUrl }: { bookingUrl: stri
             ["ai", "AI, Consumer Duty and RMAR reporting"],
             ["board", "Configurable board reports"],
             ["templates", "Reusable custom report templates"],
+            ["integrations", "Provider connections, with availability confirmed at the demo"],
             ["customApi", "Custom API requirements"],
           ] as const).map(([key, label]) => <label className="booking-choice" key={key}><input type="checkbox" checked={needs[key]} onChange={e => setNeeds({ ...needs, [key]: e.target.checked })} /><span>{label}</span></label>)}
         </fieldset>

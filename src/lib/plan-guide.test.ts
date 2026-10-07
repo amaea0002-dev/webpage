@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { suggestPlan, type PlanNeeds } from './plan-guide.ts';
-const base: PlanNeeds = { clients: 'up-to-300', network: false, ai: false, board: false, templates: false, customApi: false };
+const base: PlanNeeds = { clients: 'up-to-300', network: false, ai: false, board: false, templates: false, integrations: false, customApi: false };
 test('uses client capacity, not seat counts, across every published band', () => {
  for(const [clients, name, price] of [
   ['up-to-300', 'Essentials', '£699/month'], ['301-to-600', 'Professional', '£1,599/month'],
@@ -12,6 +12,8 @@ test('feature requirements raise the minimum plan without reducing capacity', ()
  assert.equal(suggestPlan({ ...base, ai: true })?.name, 'Professional');
  assert.equal(suggestPlan({ ...base, board: true })?.name, 'Professional');
  assert.equal(suggestPlan({ ...base, templates: true })?.name, 'Scale');
+ assert.equal(suggestPlan({ ...base, integrations: true })?.name, 'Professional');
+ assert.equal(suggestPlan({ ...base, integrations: true, clients: '601-to-1000' })?.name, 'Scale');
  assert.equal(suggestPlan({ ...base, board: true, clients: '601-to-1000' })?.name, 'Scale');
  assert.equal(suggestPlan({ ...base, board: true, ai: true })?.name, 'Professional');
  assert.equal(suggestPlan({ ...base, clients: '601-to-1000', ai: true })?.name, 'Scale');
