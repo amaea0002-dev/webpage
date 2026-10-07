@@ -3719,7 +3719,8 @@ tbody th {
 .product-captures a:focus-visible { outline: 3px solid var(--plum); outline-offset: 5px; border-radius: 14px; }
 .product-screenshot { display: block; color: var(--accent); text-decoration: none; border-radius: 14px; }
 .product-screenshot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
-.product-screenshot-link { display: flex; justify-content: flex-end; gap: 8px; padding-top: 12px; font-size: 12px; }
+.product-screenshot-link { display: flex; align-items: center; justify-content: flex-end; gap: 8px; padding-top: 12px; font-size: 12px; }
+.product-screenshot-icon { display: block; flex-shrink: 0; }
 .product-screenshot:hover .product-screenshot-link { text-decoration: underline; text-underline-offset: 4px; }
 .product-screenshot:focus-visible { outline: 3px solid var(--plum); outline-offset: 5px; }
 .product-walkthrough { margin-top: 20px; border-top: 1px solid var(--line); }
