@@ -33,7 +33,11 @@ export default function ProductScreenshot({ screen, children }: {
         <Image src={path}
           alt={`Amaea’s current ${label}, captured from the working app with fictional records.`}
           width={1440} height={1000} sizes="(max-width: 760px) 92vw, 50vw" />
-        <span className="product-screenshot-link">View full screen <span aria-hidden="true">↗</span></span>
+        <span className="product-screenshot-link">View full screen
+          <svg className="product-screenshot-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+            <path d="M4 12 12 4M4 4h8v8" />
+          </svg>
+        </span>
       </a>
       {children && (
         <details className="product-walkthrough">
